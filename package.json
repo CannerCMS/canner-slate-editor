@@ -1,0 +1,86 @@
+{
+  "name": "slate-editor-icons",
+  "version": "0.0.0",
+  "description": "icons for slate editors",
+  "homepage": "",
+  "author": {
+    "name": "chilijung",
+    "email": "chilijung@gmail.com",
+    "url": ""
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "keywords": [
+    "slate",
+    "editor",
+    "icons"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.3",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-class-properties": "^6.16.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-react-remove-prop-types": "^0.2.2",
+    "babel-preset-airbnb": "^2.0.0",
+    "babel-preset-react-hmre": "1.1.1",
+    "babel-runtime": "^6.11.6",
+    "chai": "^3.5.0",
+    "cross-env": "^2.0.1",
+    "enzyme": "^2.4.1",
+    "eslint": "^3.1.1",
+    "eslint-config-google": "^0.4.0",
+    "eslint-plugin-react": "^6.2.0",
+    "express": "^4.14.0",
+    "json-loader": "^0.5.4",
+    "karma": "^1.2.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-cli": "^1.0.1",
+    "karma-mocha": "^1.1.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.8.0",
+    "mocha": "^2.4.5",
+    "precommit-hook-eslint": "^3.0.0",
+    "react": "^15.3.1",
+    "react-addons-test-utils": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "rimraf": "^2.5.4",
+    "slate": "^0.14.15",
+    "webpack": "^1.13.2",
+    "webpack-hot-middleware": "^2.12.2"
+  },
+  "scripts": {
+    "lint": "eslint src test docs",
+    "clean": "rimraf lib dist",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build": "npm run build:commonjs",
+    "prepublish": "npm run clean && npm run check:src && npm run build",
+    "check:src": "npm run lint && npm run test",
+    "test": "cross-env BABEL_ENV=test karma start --single-run",
+    "test:watch": "cross-env BABEL_ENV=test karma start",
+    "start": "node devServer.js",
+    "build:docs": "cross-env BABEL_ENV=production ./node_modules/.bin/webpack --config webpack.config.prod.js",
+    "postpublish": "npm run build:docs",
+    "validate": "npm ls"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "repository": "Canner/slate-editor-icons",
+  "peerDependencies": {
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "rc-dropdown": "^1.4.10",
+    "rc-menu": "^5.0.0",
+    "react-fontawesome": "^1.2.0",
+    "slate-plugins": "^0.1.1"
+  }
+}
