@@ -59,7 +59,7 @@
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "build": "npm run build:commonjs",
     "prepublish": "npm run clean && npm run check:src && npm run build",
-    "check:src": "npm run lint && npm run test",
+    "check:src": "npm run lint",
     "test": "cross-env BABEL_ENV=test karma start --single-run",
     "test:watch": "cross-env BABEL_ENV=test karma start",
     "start": "node devServer.js",
