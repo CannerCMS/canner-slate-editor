@@ -19,8 +19,9 @@ export default class Header extends Component {
 
   static propTypes = {
     state: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired,
     type: PropTypes.string,
-    onChange: PropTypes.func.isRequired
+    icon: PropTypes.string
   };
 
   onClickHeader(e, headerType) {
@@ -38,7 +39,7 @@ export default class Header extends Component {
     ];
 
     const that = this;
-    const {state, onChange, type, ...rest} = this.props; // eslint-disable-line no-unused-vars
+    const {state, onChange, icon, type, ...rest} = this.props; // eslint-disable-line no-unused-vars
     const isActive = hasBlocks(state, this.displayName);
 
     const onSelect = ({item, domEvent}) => {
@@ -75,7 +76,7 @@ export default class Header extends Component {
       >
         <span className="slate-toolbar-item" data-active={isActive}
           onMouseDown={preventDefault}>
-          <FontAwesome name="header" {...rest}/>
+          <FontAwesome name={icon || "header"} {...rest}/>
           <FontAwesome name="angle-down" {...rest}/>
         </span>
       </Dropdown>
