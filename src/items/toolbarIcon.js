@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {utils} from 'slate-plugins';
+import FontAwesome from 'react-fontawesome';
 const {preventDefault} = utils.defaultFunc;
 
 export default class ToolbarIcon extends Component {
@@ -15,7 +16,7 @@ export default class ToolbarIcon extends Component {
     return (
       <span key={type} className="slate-toolbar-item" onClick={onClick}
         onMouseDown={preventDefault} data-active={isActive}>
-        <i className={`fa fa-${icon}`} />
+        <FontAwesome name={icon}/>
       </span>
     );
   }

@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import ToolbarIcon from '../toolbarIcon';
-import DEFAULT from '../default';
 import {blocks, utils} from 'slate-plugins';
 const {blockquote} = blocks;
 const {isBlockquote} = utils.is;
@@ -12,9 +11,11 @@ export default class Blockquote extends Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  displayName = 'blockquote';
+  displayName = this.props.type || 'blockquote';
 
   static propTypes = {
+    type: PropTypes.string,
+    icon: PropTypes.string,
     state: PropTypes.object,
     onChange: PropTypes.func
   };
@@ -26,14 +27,13 @@ export default class Blockquote extends Component {
   }
 
   render() {
-    const opt = DEFAULT.blocks['block-quote'];
-    const {state} = this.props;
+    const {state, icon} = this.props;
     const onClick = e => this.onClick(e);
 
     return (
       <ToolbarIcon
         type={this.displayName}
-        icon={opt.icon}
+        icon={icon || 'quote-left'}
         onClick={onClick}
         isActive={isBlockquote(state)}
       />

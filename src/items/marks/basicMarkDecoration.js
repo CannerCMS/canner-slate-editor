@@ -4,16 +4,17 @@ import {marks, utils} from 'slate-plugins';
 const {basicMark} = marks;
 const {hasMarks} = utils.has;
 
-export default (type, opt) => Mark => {
+export default (type, defaultIcon) => Mark => {
   return class basicMarkDecoration extends Component {
     constructor(props) {
       super(props);
       this.onClick = this.onClick.bind(this);
     }
 
-    displayName = type;
+    displayName = this.props.type || type;
     static propTypes = {
       state: PropTypes.object,
+      type: PropTypes.string,
       onChange: PropTypes.func
     };
 
@@ -24,13 +25,12 @@ export default (type, opt) => Mark => {
     }
 
     render() {
-      const {state} = this.props;
+      const {state, icon} = this.props;
       const onClick = e => this.onClick(e);
-
       return (
         <Mark
           type={this.displayName}
-          icon={opt.icon}
+          icon={icon || defaultIcon}
           onClick={onClick}
           isActive={hasMarks(state, this.displayName)}
         />

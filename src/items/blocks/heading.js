@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react';
-import DEFAULT from '../default';
 import Dropdown from 'rc-dropdown';
 import Menu, {Item as MenuItem} from 'rc-menu';
 import {blocks, utils} from 'slate-plugins';
+import FontAwesome from 'react-fontawesome';
 const {heading} = blocks;
 const {hasBlocks} = utils.has;
 const {preventDefault} = utils.defaultFunc;
@@ -15,38 +15,49 @@ export default class Header extends Component {
     this.onClickHeader = this.onClickHeader.bind(this);
   }
 
-  displayName = 'heading';
+  displayName = this.props.type || 'heading';
 
   static propTypes = {
     state: PropTypes.object,
+    type: PropTypes.string,
     onChange: PropTypes.func
   };
 
-  onClickHeader(e, props) {
+  onClickHeader(e, headerType) {
     let {state, onChange} = this.props;
     e.preventDefault();
-    onChange(heading(state, props.type));
+    onChange(heading(state, headerType));
   }
 
   render() {
-    const opt = DEFAULT.blocks.heading;
+    const items = [
+      {element: 'h1', demo: 'Heading 1'},
+      {element: 'h2', demo: 'Heading 2'},
+      {element: 'h3', demo: 'Heading 3'},
+      {element: 'h4', demo: 'Heading 4'}
+    ];
+
     const that = this;
     const {state} = this.props;
     const isActive = hasBlocks(state, this.displayName);
 
     const onSelect = ({item, domEvent}) => {
-      const headerProps = item.props['data-header'];
-      that.onClickHeader(domEvent, headerProps);
+      that.onClickHeader(domEvent, item.props.eventKey);
     };
 
     const menu = (
       <Menu onSelect={onSelect} onMouseDown={preventDefault}>
         {
-          opt.items.map(item => {
+          items.map((item, i) => {
+            const count = i + 1;
             const element = React.createElement(item.element,
-              {style: {cursor: 'pointer'}, onMouseDown: preventDefault}, item.demo);
+              {
+                style: {cursor: 'pointer'},
+                onMouseDown: preventDefault
+              }, item.demo);
             return (
-              <MenuItem key={item.type} ref={item.type} data-header={item}>
+              <MenuItem key={this.displayName + count}
+                ref={this.displayName + count}>
                 {element}
               </MenuItem>
             );
@@ -64,8 +75,8 @@ export default class Header extends Component {
       >
         <span className="slate-toolbar-item" data-active={isActive}
           onMouseDown={preventDefault}>
-          <i className="fa fa-header" />
-          <i className="fa fa-angle-down" />
+          <FontAwesome name="header" />
+          <FontAwesome name="angle-down" />
         </span>
       </Dropdown>
     );

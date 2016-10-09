@@ -4,15 +4,17 @@ import {blocks, utils} from 'slate-plugins';
 const {setListBlock} = blocks;
 const {isList} = utils.is;
 
-export default (type, opt) => Block => {
+export default (type, defaultIcon) => Block => {
   return class pluginDecoration extends Component {
     constructor(props) {
       super(props);
       this.onClick = this.onClick.bind(this);
     }
 
-    displayName = type;
+    displayName = this.props.type || type;
     static propTypes = {
+      type: PropTypes.string,
+      icon: PropTypes.string,
       state: PropTypes.object,
       onChange: PropTypes.func
     };
@@ -24,13 +26,13 @@ export default (type, opt) => Block => {
     }
 
     render() {
-      const {state} = this.props;
+      const {state, icon} = this.props;
       const onClick = e => this.onClick(e);
 
       return (
         <Block
           type={this.displayName}
-          icon={opt.icon}
+          icon={icon || defaultIcon}
           onClick={onClick}
           isActive={isList(state, type)}
         />
