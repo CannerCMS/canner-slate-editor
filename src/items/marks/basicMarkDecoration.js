@@ -13,9 +13,9 @@ export default (type, defaultIcon) => Mark => {
 
     displayName = this.props.type || type;
     static propTypes = {
-      state: PropTypes.object,
-      type: PropTypes.string,
-      onChange: PropTypes.func
+      state: PropTypes.object.isRequired,
+      onChange: PropTypes.func.isRequired,
+      type: PropTypes.string
     };
 
     onClick(e) {

@@ -5,9 +5,9 @@ const {preventDefault} = utils.defaultFunc;
 
 export default class ToolbarIcon extends Component {
   static propTypes = {
-    type: PropTypes.string,
-    icon: PropTypes.string,
-    onClick: PropTypes.func,
+    type: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
     isActive: PropTypes.bool
   };
 

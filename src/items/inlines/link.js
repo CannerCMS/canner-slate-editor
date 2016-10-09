@@ -14,10 +14,10 @@ export default class Link extends Component {
   displayName = this.props.type || 'link';
 
   static propTypes = {
-    state: PropTypes.object,
+    state: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired,
     icon: PropTypes.string,
-    type: PropTypes.string,
-    onChange: PropTypes.func
+    type: PropTypes.string
   };
 
   onClickLink(e) {

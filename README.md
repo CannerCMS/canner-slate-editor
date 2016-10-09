@@ -7,7 +7,31 @@
 $ npm install --save slate-editor-icons
 ```
 
+## Icons support
+
+#### Blocks
+
+- Icons.blocks.Blockquote (blockquote)
+- Icons.blocks.Heading (heading, \<h1/\>, <h2/\> ..., this is a dropdown menu)
+- Icons.blocks.OlList (\<ol/\> list)
+- Icons.blocks.UlList (\<ul/\> list)
+
+#### Inlines
+
+- Icons.inlines.Link (link \<a/\>)
+
+#### Marks
+
+- Icons.marks.Bold (\<b/\>)
+- Icons.marks.Code (\<code/\>)
+- Icons.marks.Italic (\<i/\>)
+- Icons.marks.StrikeThrough (\<s/\>)
+- Icons.marks.Underline (\<u/\>)
+
+
 ## Usage
+
+Every icons in [Icons support](#icons-support) are React element, you can use it any where you like in your React component as below.
 
 
 ```js
@@ -80,6 +104,18 @@ ReactDOM.render(
 , document.getElementById('root'));
 
 ```
+
+## Props
+
+| **props** | **type** | **required** | **default** | **description**  |
+|-----------|----------|--------------|-------------|------------------|
+| state     | object   | true        | null          | slate state |
+| onChange  | func   | true         | null         | onChange function usually `state => this.setState({state})` to update slate state  |
+| icon         | string   | false  | every items have it's own icon see [icon support](#icon-support)       | the icon  |
+type        | string   | false       | every items have it's own type see [icon support](#icon-support)       | slate block, inline, mark type.
+
+
+
 
 ## Start example server
 

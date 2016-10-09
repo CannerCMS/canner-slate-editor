@@ -7,7 +7,7 @@ const {heading} = blocks;
 const {hasBlocks} = utils.has;
 const {preventDefault} = utils.defaultFunc;
 
-import "../../dropdown.less";
+import "../../dropdown.css";
 
 export default class Header extends Component {
   constructor(props) {
@@ -18,9 +18,9 @@ export default class Header extends Component {
   displayName = this.props.type || 'heading';
 
   static propTypes = {
-    state: PropTypes.object,
+    state: PropTypes.object.isRequired,
     type: PropTypes.string,
-    onChange: PropTypes.func
+    onChange: PropTypes.func.isRequired
   };
 
   onClickHeader(e, headerType) {

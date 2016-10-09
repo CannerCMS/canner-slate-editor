@@ -15,8 +15,8 @@ export default (type, defaultIcon) => Block => {
     static propTypes = {
       type: PropTypes.string,
       icon: PropTypes.string,
-      state: PropTypes.object,
-      onChange: PropTypes.func
+      state: PropTypes.object.isRequired,
+      onChange: PropTypes.func.isRequired
     };
 
     onClick(e) {
