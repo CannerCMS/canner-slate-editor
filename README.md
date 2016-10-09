@@ -12,7 +12,7 @@ $ npm install --save slate-editor-icons
 #### Blocks
 
 - Icons.blocks.Blockquote (blockquote)
-- Icons.blocks.Heading (heading, \<h1/\>, <h2/\> ..., this is a dropdown menu)
+- Icons.blocks.Heading (heading, \<h1/\>, \<h2/\> ..., this is a dropdown menu)
 - Icons.blocks.OlList (\<ol/\> list)
 - Icons.blocks.UlList (\<ul/\> list)
 
@@ -111,8 +111,8 @@ ReactDOM.render(
 |-----------|----------|--------------|-------------|------------------|
 | state     | object   | true        | null          | slate state |
 | onChange  | func   | true         | null         | onChange function usually `state => this.setState({state})` to update slate state  |
-| icon         | string   | false  | every items have it's own icon see [icon support](#icon-support)       | the icon  |
-type        | string   | false       | every items have it's own type see [icon support](#icon-support)       | slate block, inline, mark type.
+| icon         | string   | false  | every items have it's own icon see [icons support](#icons-support)       | the icon  |
+type        | string   | false       | every items have it's own type see [icons support](#icons-support)       | slate block, inline, mark type.
 
 
 
