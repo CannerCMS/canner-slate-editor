@@ -25,7 +25,7 @@ export default (type, defaultIcon) => Mark => {
     }
 
     render() {
-      const {state, icon} = this.props;
+      const {state, icon, ...rest} = this.props;
       const onClick = e => this.onClick(e);
       return (
         <Mark
@@ -33,6 +33,7 @@ export default (type, defaultIcon) => Mark => {
           icon={icon || defaultIcon}
           onClick={onClick}
           isActive={hasMarks(state, this.displayName)}
+          {...rest}
         />
       );
     }

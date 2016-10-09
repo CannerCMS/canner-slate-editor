@@ -27,7 +27,7 @@ export default class Blockquote extends Component {
   }
 
   render() {
-    const {state, icon} = this.props;
+    const {state, icon, ...rest} = this.props;
     const onClick = e => this.onClick(e);
 
     return (
@@ -36,6 +36,7 @@ export default class Blockquote extends Component {
         icon={icon || 'quote-left'}
         onClick={onClick}
         isActive={isBlockquote(state)}
+        {...rest}
       />
     );
   }

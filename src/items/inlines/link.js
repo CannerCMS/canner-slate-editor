@@ -27,7 +27,7 @@ export default class Link extends Component {
   }
 
   render() {
-    const {state, icon} = this.props;
+    const {state, icon, ...rest} = this.props;
     const onClick = e => this.onClickLink(e);
 
     return (
@@ -36,6 +36,7 @@ export default class Link extends Component {
         icon={icon || 'link'}
         onClick={onClick}
         isActive={hasInlines(state, this.displayName)}
+        {...rest}
       />
     );
   }

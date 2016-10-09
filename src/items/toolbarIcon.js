@@ -12,11 +12,11 @@ export default class ToolbarIcon extends Component {
   };
 
   render() {
-    const {type, icon, onClick, isActive} = this.props;
+    const {type, icon, onClick, isActive, ...rest} = this.props;
     return (
       <span key={type} className="slate-toolbar-item" onClick={onClick}
         onMouseDown={preventDefault} data-active={isActive}>
-        <FontAwesome name={icon}/>
+        <FontAwesome name={icon} {...rest}/>
       </span>
     );
   }

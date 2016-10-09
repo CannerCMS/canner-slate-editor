@@ -26,7 +26,7 @@ export default (type, defaultIcon) => Block => {
     }
 
     render() {
-      const {state, icon} = this.props;
+      const {state, icon, ...rest} = this.props;
       const onClick = e => this.onClick(e);
 
       return (
@@ -35,6 +35,7 @@ export default (type, defaultIcon) => Block => {
           icon={icon || defaultIcon}
           onClick={onClick}
           isActive={isList(state, type)}
+          {...rest}
         />
       );
     }

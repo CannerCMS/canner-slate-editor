@@ -47,6 +47,7 @@ class App extends React.Component {
           return React.createElement(Type, {
             key: i,
             state: state,
+            size: '2x',
             onChange: onChange
           });
         })}

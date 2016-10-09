@@ -38,7 +38,7 @@ export default class Header extends Component {
     ];
 
     const that = this;
-    const {state} = this.props;
+    const {state, onChange, type, ...rest} = this.props; // eslint-disable-line no-unused-vars
     const isActive = hasBlocks(state, this.displayName);
 
     const onSelect = ({item, domEvent}) => {
@@ -75,8 +75,8 @@ export default class Header extends Component {
       >
         <span className="slate-toolbar-item" data-active={isActive}
           onMouseDown={preventDefault}>
-          <FontAwesome name="header" />
-          <FontAwesome name="angle-down" />
+          <FontAwesome name="header" {...rest}/>
+          <FontAwesome name="angle-down" {...rest}/>
         </span>
       </Dropdown>
     );
