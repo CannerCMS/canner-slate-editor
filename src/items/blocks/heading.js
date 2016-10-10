@@ -62,7 +62,9 @@ export default class Header extends Component {
               }, item.demo);
             return (
               <MenuItem key={this.displayName + count}
-                ref={this.displayName + count}>
+                ref={this.displayName + count}
+                onClick={preventDefault}
+                onMouseDown={preventDefault}>
                 {element}
               </MenuItem>
             );
