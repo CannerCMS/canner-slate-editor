@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import pluginListDecorator from './pluginListDecorator';
 import ToolbarIcon from '../toolbarIcon';
 
-@pluginListDecorator('list-ol', 'list-ol')
+@pluginListDecorator('list-ul', 'list-ul')
 export default class UlList extends Component {
   render() {
     return (

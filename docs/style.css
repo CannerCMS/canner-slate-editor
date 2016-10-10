@@ -1,0 +1,25 @@
+body {
+	background-color: #CCC;
+}
+
+.toolbar {
+	margin: 20px;
+	padding: 10px;
+	display: inline-block;
+	background-color: #FFF;
+}
+
+.toolbar-item {
+	margin: 3px;
+	color: #CCC;
+}
+
+.toolbar-item-active {
+	margin: 3px;
+	color: #333;
+}
+
+.editor {
+	padding: 20px;
+	background-color: #FFF;
+}

@@ -7,8 +7,7 @@ const {hasInlines} = utils.has;
 export default class Link extends Component {
   constructor(props) {
     super(props);
-
-    this.onClickLink = this.onClickLink.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   displayName = this.props.type || 'link';
@@ -20,7 +19,7 @@ export default class Link extends Component {
     type: PropTypes.string
   };
 
-  onClickLink(e) {
+  onClick(e) {
     let {state, onChange} = this.props;
     e.preventDefault();
     onChange(links(state, this.displayName));
@@ -28,7 +27,7 @@ export default class Link extends Component {
 
   render() {
     const {state, icon, ...rest} = this.props;
-    const onClick = e => this.onClickLink(e);
+    const onClick = e => this.onClick(e);
 
     return (
       <ToolbarIcon

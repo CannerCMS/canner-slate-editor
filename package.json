@@ -28,7 +28,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.2.2",
     "babel-preset-airbnb": "^2.0.0",
     "babel-preset-react-hmre": "1.1.1",
-    "babel-runtime": "^6.11.6",
+    "babel-register": "^6.16.3",
     "chai": "^3.5.0",
     "cross-env": "^2.0.1",
     "css-loader": "^0.25.0",
@@ -51,6 +51,8 @@
     "react-dom": "^15.3.1",
     "rimraf": "^2.5.4",
     "slate": "^0.14.15",
+    "slate-edit-blockquote": "^0.1.2",
+    "slate-edit-list": "^0.4.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-hot-middleware": "^2.12.2"
@@ -83,6 +85,6 @@
     "rc-dropdown": "^1.4.10",
     "rc-menu": "^5.0.0",
     "react-fontawesome": "^1.2.0",
-    "slate-plugins": "^0.1.1"
+    "slate-plugins": "^1.2.0"
   }
 }

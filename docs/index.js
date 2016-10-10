@@ -1,7 +1,12 @@
+/* eslint-disable new-cap */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Editor, Raw} from 'slate';
 import Icons from '../src';
+import EditList from 'slate-edit-list';
+import EditBlockquote from 'slate-edit-blockquote';
+
+import "./style.css";
 
 const initialState = Raw.deserialize({
   nodes: [
@@ -31,6 +36,54 @@ const icons = [
   Icons.blocks.UlList
 ];
 
+const LIST_DEFAULT = {
+  typeUL: 'list-ul',
+  typeOL: 'list-ol',
+  typeItem: 'list-item',
+  typeDefault: 'paragraph',
+  ordered: true
+};
+
+const BLOCKQUOTE_DEFAULT = {
+  type: 'blockquote',
+  typeDefault: 'paragraph'
+};
+
+/* eslint-disable react/prop-types, react/display-name */
+const schema = {
+  nodes: {
+    'blockquote': ({children}) => <blockquote>{children}</blockquote>,
+    'list-ul': ({children}) => <ul>{children}</ul>,
+    'list-ol': ({children, attributes}) => <ol {...attributes}>{children}</ol>,
+    'list-item': ({children}) => <li>{children}</li>,
+    'heading1': ({children}) => <h1>{children}</h1>,
+    'heading2': ({children}) => <h2>{children}</h2>,
+    'heading3': ({children}) => <h3>{children}</h3>,
+    'heading4': ({children}) => <h4>{children}</h4>,
+    'heading5': ({children}) => <h5>{children}</h5>,
+    'heading6': ({children}) => <h6>{children}</h6>,
+    'paragraph': ({children}) => <p>{children}</p>,
+    'link': props => {
+      return (
+        <a {...props.attributes} href={props.node.data.get('url')}>
+          {props.children}
+        </a>
+      );
+    },
+    // 'table': props => <table><tbody {...props.attributes}>{props.children}</tbody></table>,
+    'table_row': props => <tr {...props.attributes}>{props.children}</tr>,
+    'table_cell': props => <td {...props.attributes}>{props.children}</td>
+  },
+  marks: {
+    bold: ({children}) => <strong>{children}</strong>,
+    code: ({children}) => <code>{children}</code>,
+    italic: ({children}) => <em>{children}</em>,
+    underline: ({children}) => <u>{children}</u>,
+    strikethrough: ({children}) => <s>{children}</s>
+  }
+};
+/* eslint-enable */
+
 class App extends React.Component {
   // Set the initial state when the app is first constructed.
   state = {
@@ -43,18 +96,29 @@ class App extends React.Component {
 
     return (
       <div style={{margin: '50px'}}>
+        <div className="toolbar">
         {icons.map((Type, i) => {
           return React.createElement(Type, {
             key: i,
             state: state,
             size: '2x',
-            onChange: onChange
+            onChange: onChange,
+            className: "toolbar-item",
+            activeClassName: "toolbar-item-active"
           });
         })}
-        <Editor
-          state={state}
-          onChange={onChange}
-        />
+        </div>
+        <div className="editor">
+          <Editor
+            state={state}
+            schema={schema}
+            onChange={onChange}
+            plugins={[
+              EditList(LIST_DEFAULT),
+              EditBlockquote(BLOCKQUOTE_DEFAULT)
+            ]}
+          />
+        </div>
       </div>
     );
   }

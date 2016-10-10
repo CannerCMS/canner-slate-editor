@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import Dropdown from 'rc-dropdown';
 import Menu, {Item as MenuItem} from 'rc-menu';
 import {blocks, utils} from 'slate-plugins';
-import FontAwesome from 'react-fontawesome';
+import ToolbarIcon from '../toolbarIcon';
 const {heading} = blocks;
 const {hasBlocks} = utils.has;
 const {preventDefault} = utils.defaultFunc;
@@ -27,7 +27,7 @@ export default class Header extends Component {
   onClickHeader(e, headerType) {
     let {state, onChange} = this.props;
     e.preventDefault();
-    onChange(heading(state, headerType));
+    onChange(heading(state, {type: headerType}));
   }
 
   render() {
@@ -74,11 +74,11 @@ export default class Header extends Component {
         overlay={menu}
         animation="slide-up"
       >
-        <span className="slate-toolbar-item" data-active={isActive}
-          onMouseDown={preventDefault}>
-          <FontAwesome name={icon || "header"} {...rest}/>
-          <FontAwesome name="angle-down" {...rest}/>
-        </span>
+        <ToolbarIcon
+          {...this.props}
+          isActive={isActive}
+          icon={icon || "header"}
+        />
       </Dropdown>
     );
   }

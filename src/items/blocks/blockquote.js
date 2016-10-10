@@ -23,7 +23,7 @@ export default class Blockquote extends Component {
   onClick(e) {
     let {state, onChange} = this.props;
     e.preventDefault();
-    onChange(blockquote(state));
+    onChange(blockquote(state, {type: this.displayName}));
   }
 
   render() {
