@@ -13,6 +13,9 @@ export default class Header extends Component {
   constructor(props) {
     super(props);
     this.onClickHeader = this.onClickHeader.bind(this);
+    this.state = {
+      activeKeys: []
+    };
   }
 
   displayName = this.props.type || 'heading';
@@ -27,6 +30,7 @@ export default class Header extends Component {
   onClickHeader(e, headerType) {
     let {state, onChange} = this.props;
     e.preventDefault();
+    this.setState({activeKeys: [headerType]});
     onChange(heading(state, {type: headerType}));
   }
 
@@ -47,14 +51,17 @@ export default class Header extends Component {
     };
 
     const menu = (
-      <Menu onSelect={onSelect} onMouseDown={preventDefault}>
+      <Menu onSelect={onSelect}
+        selectedKeys={this.state.activeKeys}
+        onMouseDown={preventDefault}>
         {
           items.map((item, i) => {
             const count = i + 1;
             const element = React.createElement(item.element,
               {
                 style: {cursor: 'pointer'},
-                onMouseDown: preventDefault
+                onMouseDown: preventDefault,
+                onClick: preventDefault
               }, item.demo);
             return (
               <MenuItem key={this.displayName + count}
