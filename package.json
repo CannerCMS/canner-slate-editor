@@ -37,6 +37,7 @@
     "eslint-config-google": "^0.4.0",
     "eslint-plugin-react": "^6.2.0",
     "express": "^4.14.0",
+    "immutable": "^3.8.1",
     "json-loader": "^0.5.4",
     "karma": "^1.2.0",
     "karma-chrome-launcher": "^2.0.0",
@@ -83,6 +84,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "lodash": "^4.16.4",
     "quill-icons": "^0.2.0",
     "rc-dropdown": "^1.4.10",
     "rc-menu": "^5.0.0",
