@@ -101,10 +101,13 @@ class App extends React.Component {
           return React.createElement(Type, {
             key: i,
             state: state,
-            size: '2x',
             onChange: onChange,
             className: "toolbar-item",
-            activeClassName: "toolbar-item-active"
+            activeClassName: "toolbar-item-active",
+            activeStrokeClassName: "ql-stroke-active",
+            activeFillClassName: "ql-fill-active",
+            activeThinClassName: "ql-thin-active",
+            activeEvenClassName: "ql-even-active"
           });
         })}
         </div>

@@ -83,7 +83,7 @@ export default class Header extends Component {
         <ToolbarIcon
           {...this.props}
           isActive={isActive}
-          icon={icon || "header"}
+          icon={icon || "Header"}
         />
       </Dropdown>
     );

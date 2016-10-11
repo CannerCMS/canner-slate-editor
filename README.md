@@ -1,5 +1,5 @@
 # slate-editor-icons [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> icons ([font-awesome](http://fontawesome.io/icons/)) for slate editors
+> icons ([quill-icons](https://github.com/Canner/quill-icons)) for slate editors
 
 ## Installation
 

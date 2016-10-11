@@ -1,25 +1,78 @@
 body {
-	background-color: #CCC;
+  background-color: #CCC;
+}
+
+.ql-stroke {
+  stroke: #000;
+  fill: transparent;
+}
+
+.ql-stroke-active {
+  stroke: #CCC;
+  fill: transparent;
+}
+
+.ql-stroke-mitter {
+  stroke: #000;
+  fill: transparent;
+}
+
+.ql-stroke-mitter-active {
+  stroke: #CCC;
+  fill: transparent;
+}
+
+.ql-fill {
+  fill: #000;
+}
+
+.ql-fill-active {
+  fill: #CCC;
+}
+
+.ql-even {
+  stroke: #000;
+  fill: #FFF;
+}
+
+.ql-even-active {
+  stroke: #CCC;
+  fill: #FFF;
+}
+
+.ql-color-label {
+  fill: red;
+}
+
+.ql-transparent {
+  opacity: 0.2;
+}
+
+.ql-thin {
+  stroke: #000;
+  fill: transparent;
+  stroke-width: 0.5;
+}
+
+.ql-thin-active {
+  stroke: #CCC;
+  fill: transparent;
+  stroke-width: 0.5;
 }
 
 .toolbar {
-	margin: 20px;
-	padding: 10px;
-	display: inline-block;
-	background-color: #FFF;
+  margin: 20px;
+  padding: 10px;
+  display: inline-block;
+  background-color: #FFF;
 }
 
-.toolbar-item {
-	margin: 3px;
-	color: #CCC;
-}
-
-.toolbar-item-active {
-	margin: 3px;
-	color: #333;
+.toolbar-item, .toolbar-item-active {
+  width: 30px;
+  height: 30px;
 }
 
 .editor {
-	padding: 20px;
-	background-color: #FFF;
+  padding: 20px;
+  background-color: #FFF;
 }

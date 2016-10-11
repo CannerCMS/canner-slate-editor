@@ -32,7 +32,7 @@ export default class Link extends Component {
     return (
       <ToolbarIcon
         type={this.displayName}
-        icon={icon || 'link'}
+        icon={icon || 'Link'}
         onClick={onClick}
         isActive={hasInlines(state, this.displayName)}
         {...rest}

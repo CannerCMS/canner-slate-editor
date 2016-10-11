@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import pluginListDecorator from './pluginListDecorator';
 import ToolbarIcon from '../toolbarIcon';
 
-@pluginListDecorator('list-ol', 'list-ol')
+@pluginListDecorator('list-ol', 'ListOrdered')
 export default class OlList extends Component {
   render() {
     return (

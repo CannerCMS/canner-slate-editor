@@ -33,7 +33,7 @@ export default class Blockquote extends Component {
     return (
       <ToolbarIcon
         type={this.displayName}
-        icon={icon || 'quote-left'}
+        icon={icon || 'Blockquote'}
         onClick={onClick}
         isActive={isBlockquote(state)}
         {...rest}
