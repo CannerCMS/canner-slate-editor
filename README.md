@@ -12,40 +12,40 @@ $ npm install --save slate-editor-icons
 #### Blocks
 
 - Icons.blocks.Blockquote (blockquote)
-  - icon: `quote-left`
+  - icon: `Blockquote`
   - default slate type: `blockquote`
 - Icons.blocks.Heading (heading, \<h1/\>, \<h2/\> ..., this is a dropdown menu)
-  - icon: `header`
+  - icon: `Header`
   - default slate type: h1 - `heading1`, h2 - `heading2`, h3 - `heading3`, h4 - `heading4`.
 - Icons.blocks.OlList (\<ol/\> list)
-  - icon: `list-ol`
+  - icon: `ListOrdered`
   - default slate type: `list-ol`
 - Icons.blocks.UlList (\<ul/\> list)
-  - icon: `list-ul`
+  - icon: `ListBullet`
   - default slate type: `list-ul`
 
 #### Inlines
 
 - Icons.inlines.Link (link \<a/\>)
-  - icon: `link`
+  - icon: `Link`
   - default slate type: `link`
 
 #### Marks
 
 - Icons.marks.Bold (\<b/\>)
-  - icon: `bold`
+  - icon: `Bold`
   - default slate type: `bold`
 - Icons.marks.Code (\<code/\>)
-  - icon: `code`
+  - icon: `Code`
   - default slate type: `code`
 - Icons.marks.Italic (\<i/\>)
-  - icon: `italic`
+  - icon: `Italic`
   - default slate type: `italic`
 - Icons.marks.StrikeThrough (\<s/\>)
-  - icon: `strikethrough`
+  - icon: `Strike`
   - default slate type: `strikethrough`
 - Icons.marks.Underline (\<u/\>)
-  - icon: `underline`
+  - icon: `Underline`
   - default slate type: `underline`
 
 

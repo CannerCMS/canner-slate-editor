@@ -1,0 +1,12 @@
+nodes:
+  - kind: block
+    type: list-ol
+    nodes:
+      - kind: block
+        nodes:
+          - kind: block
+            nodes:
+              - kind: text
+                text: Hello World
+            type: paragraph
+        type: list-item

@@ -28,6 +28,11 @@ module.exports = function(config) {
             test: /\.js$/,
             loaders: ['babel'],
             exclude: path.resolve(__dirname, "node_modules")
+          },
+          {
+            test: /\.yaml$/,
+            include: path.resolve(__dirname, 'test'),
+            loaders: ['json', 'yaml']
           }
         ]
       },

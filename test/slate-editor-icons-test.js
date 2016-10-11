@@ -1,9 +1,53 @@
-/* eslint-disable */
-import assert from 'assert';
-import PackageName from '../src';
+import React from 'react';
+import {expect} from 'chai';
+import {mount} from 'enzyme';
+import Slate from 'slate';
 
-describe('PackageName', function() {
-  it('should have unit test!', function() {
-    // assert(false, 'we expected this package author to add actual unit tests.');
+describe('EditorIcons', function() {
+  const tests = [
+    'link',
+    'bold',
+    'code',
+    'italic',
+    'strikethrough',
+    'underline',
+    'blockquote',
+    'olList',
+    'ulList'
+  ];
+
+  tests.forEach(test => {
+    it(test, done => {
+      const input = require(`./${test}/input.yaml`);
+      const expected = require(`./${test}/expected.yaml`);
+      const stateInput = Slate.Raw.deserialize(input, {terse: true});
+      const {document, selection} = stateInput;
+      const texts = document.getTexts();
+      const first = texts.first();
+      const range = selection.merge({
+        anchorKey: first.key,
+        anchorOffset: 0,
+        focusKey: first.key,
+        focusOffset: 5
+      });
+
+      const nextState = stateInput
+            .transform()
+            .moveTo(range)
+            .apply();
+      const icon = React.createElement(
+        require(`./${test}/icon.js`),
+        {
+          state: nextState,
+          onChange: state => {
+            const newDocJSon = Slate.Raw.serialize(state, {terse: true});
+            expect(newDocJSon).to.deep.equal(expected);
+            done();
+          }
+        }
+      );
+
+      mount(icon).find('svg').simulate('click');
+    });
   });
 });
