@@ -1,3 +1,4 @@
+require('babel-polyfill');
 process.env.NODE_ENV = 'production';
 
 var context = require.context('./test', true, /-test\.jsx?$/);
