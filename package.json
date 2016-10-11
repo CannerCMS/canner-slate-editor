@@ -30,6 +30,7 @@
     "babel-preset-airbnb": "^2.0.0",
     "babel-preset-react-hmre": "1.1.1",
     "babel-register": "^6.16.3",
+    "babel-runtime": "^6.11.6",
     "chai": "^3.5.0",
     "cross-env": "^2.0.1",
     "css-loader": "^0.25.0",
