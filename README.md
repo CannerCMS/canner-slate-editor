@@ -125,6 +125,8 @@ ReactDOM.render(
 
 ```
 
+example: https://github.com/Canner/slate-editor-icons/blob/master/docs/index.js
+
 ## Props
 
 | **props** | **type** | **required** | **default** | **description**  |
