@@ -24,13 +24,17 @@ const initialState = Raw.deserialize({
 }, {terse: true});
 
 const icons = [
+  Icons.history.Undo,
   Icons.marks.Bold,
   Icons.marks.Italic,
   Icons.marks.Underline,
   Icons.marks.Code,
   Icons.marks.StrikeThrough,
+  Icons.marks.Clean,
   Icons.inlines.Link,
-  Icons.blocks.Heading,
+  Icons.blocks.Header1,
+  Icons.blocks.Header2,
+  Icons.blocks.AlignCenter,
   Icons.blocks.Blockquote,
   Icons.blocks.OlList,
   Icons.blocks.UlList
@@ -63,6 +67,14 @@ const schema = {
     'heading5': ({children}) => <h5>{children}</h5>,
     'heading6': ({children}) => <h6>{children}</h6>,
     'paragraph': ({children}) => <p>{children}</p>,
+    'align': props => {
+      return (
+        <p {...props.attributes}
+          style={{textAlign: props.node.data.get('align')}}>
+          {props.children}
+        </p>
+      );
+    },
     'link': props => {
       return (
         <a {...props.attributes} href={props.node.data.get('url')}>

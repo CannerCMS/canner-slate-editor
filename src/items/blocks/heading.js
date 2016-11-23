@@ -4,7 +4,7 @@ import Menu, {Item as MenuItem} from 'rc-menu';
 import {blocks, utils} from 'slate-plugins';
 import ToolbarIcon from '../toolbarIcon';
 const {heading} = blocks;
-const {hasBlocks} = utils.has;
+const {haveBlocks} = utils.have;
 const {preventDefault} = utils.defaultFunc;
 
 import "../../dropdown.css";
@@ -40,7 +40,7 @@ export default class Header extends Component {
 
     const that = this;
     const {state, onChange, icon, type, ...rest} = this.props; // eslint-disable-line no-unused-vars
-    const isActive = hasBlocks(state, this.displayName);
+    const isActive = haveBlocks(state, this.displayName);
     const whatBlock = state.blocks.map(block => block.type);
 
     const onSelect = ({item, domEvent}) => {

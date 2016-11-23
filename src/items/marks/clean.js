@@ -1,40 +1,40 @@
+/* eslint-disable react/prop-types */
 import React, {Component, PropTypes} from 'react';
+import {marks} from 'slate-plugins';
 import ToolbarIcon from '../toolbarIcon';
-import {inlines, utils} from 'slate-plugins';
-const {links} = inlines;
-const {haveInlines} = utils.have;
+const {removeMarkAll} = marks;
 
-export default class Link extends Component {
+export default class Clean extends Component {
   constructor(props) {
     super(props);
+
     this.onClick = this.onClick.bind(this);
   }
 
-  displayName = this.props.type || 'link';
+  displayName = this.props.type || 'clean';
 
   static propTypes = {
-    state: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired,
+    type: PropTypes.string,
     icon: PropTypes.string,
-    type: PropTypes.string
+    state: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired
   };
 
   onClick(e) {
     let {state, onChange} = this.props;
     e.preventDefault();
-    onChange(links(state, this.displayName));
+    onChange(removeMarkAll(state, {type: this.displayName, data: {}}));
   }
 
   render() {
-    const {state, icon, ...rest} = this.props;
+    const {icon, ...rest} = this.props;
     const onClick = e => this.onClick(e);
 
     return (
       <ToolbarIcon
         type={this.displayName}
-        icon={icon || 'Link'}
+        icon={icon || 'Clean'}
         onClick={onClick}
-        isActive={haveInlines(state, this.displayName)}
         {...rest}
       />
     );

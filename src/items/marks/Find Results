@@ -1,0 +1,112 @@
+Searching 27 files for "hasBlock"
+
+/Users/lijung/Documents/canner/slate-editor-icons/src/items/blocks/alignDecorator.js:
+    2  import React, {Component, PropTypes} from 'react';
+    3  import {utils} from 'slate-plugins';
+    4: const {hasBlocks} = utils.has;
+    5  
+    6  export default (type, defaultIcon, align) => Block => {
+    .
+   34        const {state, icon, ...rest} = this.props;
+   35        const onClick = e => this.onClick(e);
+   36:       const isActive = hasBlocks(state, this.displayName);
+   37  
+   38        return (
+
+/Users/lijung/Documents/canner/slate-editor-icons/src/items/blocks/headerDecorator.js:
+    3  import {blocks, utils} from 'slate-plugins';
+    4  const {heading} = blocks;
+    5: const {hasBlocks} = utils.has;
+    6  
+    7  export default (type, defaultIcon) => Block => {
+    .
+   31        const {state, icon, ...rest} = this.props;
+   32        const onClick = e => this.onClick(e);
+   33:       const isActive = hasBlocks(state, this.displayName);
+   34  
+   35        return (
+
+/Users/lijung/Documents/canner/slate-editor-icons/src/items/blocks/heading.js:
+    5  import ToolbarIcon from '../toolbarIcon';
+    6  const {heading} = blocks;
+    7: const {hasBlocks} = utils.has;
+    8  const {preventDefault} = utils.defaultFunc;
+    9  
+   ..
+   41      const that = this;
+   42      const {state, onChange, icon, type, ...rest} = this.props; // eslint-disable-line no-unused-vars
+   43:     const isActive = hasBlocks(state, this.displayName);
+   44      const whatBlock = state.blocks.map(block => block.type);
+   45  
+
+6 matches across 3 files
+
+
+Searching 27 files for "has"
+
+/Users/lijung/Documents/canner/slate-editor-icons/src/items/blocks/alignDecorator.js:
+    2  import React, {Component, PropTypes} from 'react';
+    3  import {utils} from 'slate-plugins';
+    4: const {hasBlocks} = utils.have;
+    5  
+    6  export default (type, defaultIcon, align) => Block => {
+    .
+   34        const {state, icon, ...rest} = this.props;
+   35        const onClick = e => this.onClick(e);
+   36:       const isActive = hasBlocks(state, this.displayName);
+   37  
+   38        return (
+
+/Users/lijung/Documents/canner/slate-editor-icons/src/items/blocks/headerDecorator.js:
+    3  import {blocks, utils} from 'slate-plugins';
+    4  const {heading} = blocks;
+    5: const {hasBlocks} = utils.have;
+    6  
+    7  export default (type, defaultIcon) => Block => {
+    .
+   31        const {state, icon, ...rest} = this.props;
+   32        const onClick = e => this.onClick(e);
+   33:       const isActive = hasBlocks(state, this.displayName);
+   34  
+   35        return (
+
+/Users/lijung/Documents/canner/slate-editor-icons/src/items/blocks/heading.js:
+    5  import ToolbarIcon from '../toolbarIcon';
+    6  const {heading} = blocks;
+    7: const {hasBlocks} = utils.have;
+    8  const {preventDefault} = utils.defaultFunc;
+    9  
+   ..
+   41      const that = this;
+   42      const {state, onChange, icon, type, ...rest} = this.props; // eslint-disable-line no-unused-vars
+   43:     const isActive = hasBlocks(state, this.displayName);
+   44      const whatBlock = state.blocks.map(block => block.type);
+   45  
+
+/Users/lijung/Documents/canner/slate-editor-icons/src/items/inlines/link.js:
+    3  import {inlines, utils} from 'slate-plugins';
+    4  const {links} = inlines;
+    5: const {hasInlines} = utils.has;
+    6  
+    7  export default class Link extends Component {
+    .
+   35          icon={icon || 'Link'}
+   36          onClick={onClick}
+   37:         isActive={hasInlines(state, this.displayName)}
+   38          {...rest}
+   39        />
+
+/Users/lijung/Documents/canner/slate-editor-icons/src/items/marks/basicMarkDecoration.js:
+    3  import {marks, utils} from 'slate-plugins';
+    4  const {toggleMark} = marks;
+    5: const {hasMarks} = utils.has;
+    6  
+    7  export default (type, defaultIcon) => Mark => {
+    .
+   33            icon={icon || defaultIcon}
+   34            onClick={onClick}
+   35:           isActive={hasMarks(state, this.displayName)}
+   36            {...rest}
+   37          />
+
+12 matches across 5 files

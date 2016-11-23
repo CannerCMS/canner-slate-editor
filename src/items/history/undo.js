@@ -1,40 +1,36 @@
+/* eslint-disable react/prop-types */
 import React, {Component, PropTypes} from 'react';
 import ToolbarIcon from '../toolbarIcon';
-import {inlines, utils} from 'slate-plugins';
-const {links} = inlines;
-const {haveInlines} = utils.have;
+import {history} from 'slate-plugins';
+const {undo} = history;
 
-export default class Link extends Component {
+export default class Undo extends Component {
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
   }
 
-  displayName = this.props.type || 'link';
-
+  displayName = this.props.type || 'undo';
   static propTypes = {
     state: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
-    icon: PropTypes.string,
     type: PropTypes.string
   };
 
   onClick(e) {
     let {state, onChange} = this.props;
     e.preventDefault();
-    onChange(links(state, this.displayName));
+    onChange(undo(state));
   }
 
   render() {
-    const {state, icon, ...rest} = this.props;
+    const {icon, ...rest} = this.props;
     const onClick = e => this.onClick(e);
-
     return (
       <ToolbarIcon
         type={this.displayName}
-        icon={icon || 'Link'}
+        icon={icon || 'Undo'}
         onClick={onClick}
-        isActive={haveInlines(state, this.displayName)}
         {...rest}
       />
     );

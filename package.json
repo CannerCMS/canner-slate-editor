@@ -91,6 +91,7 @@
     "quill-icons": "^0.2.0",
     "rc-dropdown": "^1.4.10",
     "rc-menu": "^5.0.0",
-    "slate-plugins": "^1.2.0"
+    "slate": "^0.15.9",
+    "slate-plugins": "^1.5.1"
   }
 }

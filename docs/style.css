@@ -3,17 +3,23 @@ body {
 }
 
 .ql-stroke {
-  stroke: #000;
+  stroke: #444;
   fill: transparent;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5px;
 }
 
 .ql-stroke-active {
   stroke: #CCC;
   fill: transparent;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5px;
 }
 
 .ql-stroke-mitter {
-  stroke: #000;
+  stroke: #444;
   fill: transparent;
 }
 
@@ -23,7 +29,7 @@ body {
 }
 
 .ql-fill {
-  fill: #000;
+  fill: #444;
 }
 
 .ql-fill-active {
@@ -31,7 +37,7 @@ body {
 }
 
 .ql-even {
-  stroke: #000;
+  stroke: #444;
   fill: #FFF;
 }
 
@@ -49,15 +55,15 @@ body {
 }
 
 .ql-thin {
-  stroke: #000;
+  stroke: #444;
   fill: transparent;
-  stroke-width: 0.5;
+  stroke-width: 1;
 }
 
 .ql-thin-active {
   stroke: #CCC;
   fill: transparent;
-  stroke-width: 0.5;
+  stroke-width: 1;
 }
 
 .toolbar {
