@@ -47,7 +47,8 @@ body {
 }
 
 .ql-color-label {
-  fill: red;
+  fill: #000;
+  opacity: 0.2;
 }
 
 .ql-transparent {
