@@ -22,6 +22,7 @@ export default class ToolbarIcon extends Component {
     activeStrokeMitterClassName: PropTypes.string,
     activeColorLabelClassName: PropTypes.string,
     activeThinClassName: PropTypes.string,
+    colorStyle: PropTypes.object,
     type: PropTypes.string,
     icon: PropTypes.string.isRequired,
     onClick: PropTypes.func,
@@ -51,6 +52,7 @@ export default class ToolbarIcon extends Component {
       colorLabelClassName,
       thinClassName,
       className,
+      colorStyle,
       state, // eslint-disable-line no-unused-vars
       ...rest
     } = this.props;
@@ -69,6 +71,7 @@ export default class ToolbarIcon extends Component {
     const fontElement = React.createElement(
       QuillIcons[icon],
       assign(...rest, {
+        colorStyle: colorStyle,
         className: iconClassName,
         strokeClassName: iconStrokeClassName,
         strokeMitterClassName: iconStrokeMitterClassName,

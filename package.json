@@ -90,7 +90,7 @@
     "@canner/rc-color-picker": "^1.1.0",
     "hex-rgb": "^1.0.0",
     "lodash": "^4.16.4",
-    "quill-icons": "^0.2.0",
+    "quill-icons": "^0.3.0",
     "rc-dropdown": "^1.4.10",
     "rc-menu": "^5.0.0",
     "slate": "^0.15.9",
