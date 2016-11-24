@@ -4,6 +4,8 @@ import Italic from './italic';
 import StrikeThrough from './strikethrough';
 import Underline from './underline';
 import Clean from './clean';
+import FontColor from './fontColor';
+import FontBgColor from './fontBgColor';
 
 export default {
   Bold,
@@ -11,5 +13,7 @@ export default {
   Italic,
   StrikeThrough,
   Underline,
-  Clean
+  Clean,
+  FontColor,
+  FontBgColor
 };

@@ -5,6 +5,7 @@ import {Editor, Raw} from 'slate';
 import Icons from '../src';
 import EditList from 'slate-edit-list';
 import EditBlockquote from 'slate-edit-blockquote';
+import hexRgb from 'hex-rgb';
 
 import "./style.css";
 
@@ -31,6 +32,8 @@ const icons = [
   Icons.marks.Code,
   Icons.marks.StrikeThrough,
   Icons.marks.Clean,
+  Icons.marks.FontColor,
+  Icons.marks.FontBgColor,
   Icons.inlines.Link,
   Icons.blocks.Header1,
   Icons.blocks.Header2,
@@ -91,6 +94,27 @@ const schema = {
     code: ({children}) => <code>{children}</code>,
     italic: ({children}) => <em>{children}</em>,
     underline: ({children}) => <u>{children}</u>,
+    fontColor: ({children, mark}) => {
+      const color = mark.get('data').get('color');
+      const alpha = mark.get('data').get('alpha');
+      const rgb = hexRgb(color);
+      return (
+        <span style={{color: `rgba(${rgb.join(',')}, ${alpha / 100})`}}>
+          {children}
+        </span>
+      );
+    },
+    fontBgColor: ({children, mark}) => {
+      const color = mark.get('data').get('color');
+      const alpha = mark.get('data').get('alpha');
+      const rgb = hexRgb(color);
+      return (
+        <span
+          style={{backgroundColor: `rgba(${rgb.join(',')}, ${alpha / 100})`}}>
+          {children}
+        </span>
+      );
+    },
     strikethrough: ({children}) => <s>{children}</s>
   }
 };
