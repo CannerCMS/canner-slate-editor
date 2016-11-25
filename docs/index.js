@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-import React from 'react';
+import React, {PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import {Editor, Raw} from 'slate';
 import Icons from '../src';
@@ -38,6 +38,8 @@ const icons = [
   Icons.blocks.Header1,
   Icons.blocks.Header2,
   Icons.blocks.AlignCenter,
+  Icons.blocks.AlignLeft,
+  Icons.blocks.AlignRight,
   Icons.blocks.Blockquote,
   Icons.blocks.OlList,
   Icons.blocks.UlList
@@ -56,28 +58,39 @@ const BLOCKQUOTE_DEFAULT = {
   typeDefault: 'paragraph'
 };
 
+const makeTagNode = Tag => {
+  const NodeComponent = ({attributes, children, node}) => {
+    const align = node.data.get('align');
+    return (
+      <Tag {...attributes} style={{textAlign: align}}>{children}</Tag>
+    );
+  };
+
+  NodeComponent.displayName = `${Tag}-node`;
+
+  NodeComponent.propTypes = {
+    attributes: PropTypes.object,
+    children: PropTypes.any,
+    node: PropTypes.any
+  };
+
+  return NodeComponent;
+};
+
 /* eslint-disable react/prop-types, react/display-name */
 const schema = {
   nodes: {
-    'blockquote': ({children}) => <blockquote>{children}</blockquote>,
-    'list-ul': ({children}) => <ul>{children}</ul>,
-    'list-ol': ({children, attributes}) => <ol {...attributes}>{children}</ol>,
-    'list-item': ({children}) => <li>{children}</li>,
-    'heading1': ({children}) => <h1>{children}</h1>,
-    'heading2': ({children}) => <h2>{children}</h2>,
-    'heading3': ({children}) => <h3>{children}</h3>,
-    'heading4': ({children}) => <h4>{children}</h4>,
-    'heading5': ({children}) => <h5>{children}</h5>,
-    'heading6': ({children}) => <h6>{children}</h6>,
-    'paragraph': ({children}) => <p>{children}</p>,
-    'align': props => {
-      return (
-        <p {...props.attributes}
-          style={{textAlign: props.node.data.get('align')}}>
-          {props.children}
-        </p>
-      );
-    },
+    'blockquote': makeTagNode('blockquote'),
+    'list-ul': makeTagNode('ul'),
+    'list-ol': makeTagNode('ol'),
+    'list-item': makeTagNode('li'),
+    'heading1': makeTagNode('h1'),
+    'heading2': makeTagNode('h2'),
+    'heading3': makeTagNode('h3'),
+    'heading4': makeTagNode('h4'),
+    'heading5': makeTagNode('h5'),
+    'heading6': makeTagNode('h6'),
+    'paragraph': makeTagNode('p'),
     'link': props => {
       return (
         <a {...props.attributes} href={props.node.data.get('url')}>

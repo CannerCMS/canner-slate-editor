@@ -5,6 +5,8 @@ import UlList from './ulList';
 import Header1 from './header1';
 import Header2 from './header2';
 import AlignCenter from './alignCenter';
+import AlignLeft from './alignLeft';
+import AlignRight from './alignRight';
 
 export default {
   Blockquote,
@@ -13,5 +15,7 @@ export default {
   UlList,
   Header1,
   Header2,
-  AlignCenter
+  AlignCenter,
+  AlignRight,
+  AlignLeft
 };

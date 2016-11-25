@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import React, {Component, PropTypes} from 'react';
-import {utils} from 'slate-plugins';
-const {haveBlocks} = utils.have;
+import {utils, blocks} from 'slate-plugins';
+const {haveDataKeyEqualValueInSomeBlocks} = utils.have;
+const {clearDataByKeyToCurrent, addDataToCurrent} = blocks;
 
 export default (type, defaultIcon, align) => Block => {
   return class AlignDecorator extends Component {
@@ -21,19 +22,19 @@ export default (type, defaultIcon, align) => Block => {
     };
 
     onClick(e) {
-      let {state, onChange} = this.props;
       e.preventDefault();
+      let {state, onChange} = this.props;
+      const isActive = haveDataKeyEqualValueInSomeBlocks(state, type, align);
       onChange(
-        state.transform()
-            .insertBlock({type: this.displayName, data: {align}})
-            .apply()
+        isActive ? clearDataByKeyToCurrent(state, type) :
+          addDataToCurrent(state, {data: {[type]: align}})
       );
     }
 
     render() {
       const {state, icon, ...rest} = this.props;
       const onClick = e => this.onClick(e);
-      const isActive = haveBlocks(state, this.displayName);
+      const isActive = haveDataKeyEqualValueInSomeBlocks(state, type, align);
 
       return (
         <Block
