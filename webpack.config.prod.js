@@ -14,10 +14,7 @@ module.exports = {
     'react-dom': "ReactDOM"
   },
   resolve: {
-    extensions: ['', '.js'],
-    alias: {
-      nodeModules: path.resolve(__dirname, 'node_modules') // eslint-disable-line
-    }
+    extensions: ['', '.js']
   },
   plugins: [
     new webpack.DefinePlugin({

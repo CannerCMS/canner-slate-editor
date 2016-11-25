@@ -3,7 +3,7 @@ import React, {Component, PropTypes} from 'react';
 import {marks, utils} from 'slate-plugins';
 import ToolbarIcon from '../toolbarIcon';
 import ColorPicker from '@canner/rc-color-picker';
-import "nodeModules/@canner/rc-color-picker/assets/index.css";
+import "../../color-picker.css";
 const {addMarkOverwrite} = marks;
 const {haveMarks} = utils.have;
 const {getMarkType} = utils.get;

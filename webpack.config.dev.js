@@ -13,10 +13,7 @@ module.exports = {
     publicPath: '/static/'
   },
   resolve: {
-    extensions: ['', '.js'],
-    alias: {
-      nodeModules: path.resolve(__dirname, 'node_modules') // eslint-disable-line
-    }
+    extensions: ['', '.js']
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
