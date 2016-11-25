@@ -5,7 +5,6 @@ import {Editor, Raw} from 'slate';
 import Icons from '../src';
 import EditList from 'slate-edit-list';
 import EditBlockquote from 'slate-edit-blockquote';
-import hexRgb from 'hex-rgb';
 
 import "./style.css";
 
@@ -108,22 +107,17 @@ const schema = {
     italic: ({children}) => <em>{children}</em>,
     underline: ({children}) => <u>{children}</u>,
     fontColor: ({children, mark}) => {
-      const color = mark.get('data').get('color');
-      const alpha = mark.get('data').get('alpha');
-      const rgb = hexRgb(color);
+      const color = mark.get('data').get('rgba');
       return (
-        <span style={{color: `rgba(${rgb.join(',')}, ${alpha / 100})`}}>
+        <span style={{color}}>
           {children}
         </span>
       );
     },
     fontBgColor: ({children, mark}) => {
-      const color = mark.get('data').get('color');
-      const alpha = mark.get('data').get('alpha');
-      const rgb = hexRgb(color);
+      const color = mark.get('data').get('rgba');
       return (
-        <span
-          style={{backgroundColor: `rgba(${rgb.join(',')}, ${alpha / 100})`}}>
+        <span style={{backgroundColor: color}}>
           {children}
         </span>
       );

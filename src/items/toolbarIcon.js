@@ -87,7 +87,8 @@ export default class ToolbarIcon extends Component {
       <span
         key={type}
         onClick={onClick}
-        onMouseDown={preventDefault} data-active={isActive || false}>
+        onMouseDown={preventDefault}
+        data-active={isActive || false}>
         {fontElement}
       </span>
     );

@@ -3,6 +3,8 @@ import React, {Component, PropTypes} from 'react';
 import {marks, utils} from 'slate-plugins';
 import ToolbarIcon from '../toolbarIcon';
 import ColorPicker from '@canner/rc-color-picker';
+import hexRgb from 'hex-rgb';
+
 import "../../color-picker.css";
 const {addMarkOverwrite} = marks;
 const {haveMarks} = utils.have;
@@ -26,6 +28,8 @@ export default class fontColor extends Component {
 
   onChange(color) {
     let {state, onChange} = this.props;
+    color.rgba = `rgba(${hexRgb(color.color).join(',')}, ${color.alpha / 100})`;
+    this.setState({color});
     onChange(addMarkOverwrite(state, {type: this.displayName, data: color}));
   }
 

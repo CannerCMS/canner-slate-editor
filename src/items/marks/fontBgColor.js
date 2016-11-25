@@ -3,6 +3,7 @@ import React, {Component, PropTypes} from 'react';
 import {marks, utils} from 'slate-plugins';
 import ToolbarIcon from '../toolbarIcon';
 import ColorPicker from '@canner/rc-color-picker';
+import hexRgb from 'hex-rgb';
 import "../../color-picker.css";
 const {addMarkOverwrite} = marks;
 const {haveMarks} = utils.have;
@@ -12,10 +13,13 @@ export default class fontBgColor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: {}
+      color: {},
+      open: false
     };
 
     this.onChange = this.onChange.bind(this);
+    this.onOpen = this.onOpen.bind(this);
+    this.onClose = this.onClose.bind(this);
   }
 
   displayName = this.props.type || 'fontBgColor';
@@ -29,8 +33,17 @@ export default class fontBgColor extends Component {
 
   onChange(color) {
     let {state, onChange} = this.props;
+    color.rgba = `rgba(${hexRgb(color.color).join(',')}, ${color.alpha / 100})`;
     this.setState({color});
     onChange(addMarkOverwrite(state, {type: this.displayName, data: color}));
+  }
+
+  onOpen() {
+    this.setState({open: true});
+  }
+
+  onClose() {
+    this.setState({open: false});
   }
 
   render() {
@@ -50,7 +63,12 @@ export default class fontBgColor extends Component {
     }
 
     return (
-      <ColorPicker color="#000" defaultAlpha={80} onChange={this.onChange}>
+      <ColorPicker
+        color="#000"
+        defaultAlpha={80}
+        onChange={this.onChange}
+        onOpen={this.onOpen}
+        onClose={this.onClose}>
         <ToolbarIcon
           colorStyle={colorStyle}
           type={this.displayName}
