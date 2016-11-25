@@ -1,6 +1,6 @@
 {
   "name": "slate-editor-icons",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "icons for slate editors",
   "homepage": "",
   "author": {
@@ -66,7 +66,7 @@
     "lint": "eslint src test docs",
     "clean": "rimraf lib dist",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "build": "npm run build:commonjs && cp ./src/dropdown.css ./lib",
+    "build": "npm run build:commonjs && cp ./src/*.css ./lib",
     "prepublish": "npm run clean && npm run check:src && npm run build",
     "check:src": "npm run lint",
     "test": "cross-env BABEL_ENV=test karma start --single-run",
