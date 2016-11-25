@@ -5,6 +5,7 @@ import {Editor, Raw} from 'slate';
 import Icons from '../src';
 import EditList from 'slate-edit-list';
 import EditBlockquote from 'slate-edit-blockquote';
+import {Emoji} from 'emoji-mart';
 
 import "./style.css";
 
@@ -34,6 +35,7 @@ const icons = [
   Icons.marks.FontColor,
   Icons.marks.FontBgColor,
   Icons.inlines.Link,
+  Icons.inlines.Emoji,
   Icons.blocks.Header1,
   Icons.blocks.Header2,
   Icons.blocks.AlignCenter,
@@ -95,6 +97,11 @@ const schema = {
         <a {...props.attributes} href={props.node.data.get('url')}>
           {props.children}
         </a>
+      );
+    },
+    'emoji': props => {
+      return (
+        <Emoji emoji={props.node.data.get('code').colons} size={18}/>
       );
     },
     // 'table': props => <table><tbody {...props.attributes}>{props.children}</tbody></table>,

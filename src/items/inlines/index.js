@@ -1,3 +1,7 @@
 import Link from './link';
+import Emoji from './emoji';
 
-export default {Link};
+export default {
+  Link,
+  Emoji
+};

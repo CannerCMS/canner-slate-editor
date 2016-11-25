@@ -87,6 +87,8 @@
   "license": "MIT",
   "dependencies": {
     "@canner/rc-color-picker": "^1.1.4",
+    "emoji-mart": "^0.3.3",
+    "emoji-mart-picker": "^0.1.2",
     "hex-rgb": "^1.0.0",
     "lodash": "^4.16.4",
     "quill-icons": "^0.3.0",

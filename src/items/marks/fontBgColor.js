@@ -13,13 +13,10 @@ export default class fontBgColor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: {},
-      open: false
+      color: {}
     };
 
     this.onChange = this.onChange.bind(this);
-    this.onOpen = this.onOpen.bind(this);
-    this.onClose = this.onClose.bind(this);
   }
 
   displayName = this.props.type || 'fontBgColor';
@@ -36,14 +33,6 @@ export default class fontBgColor extends Component {
     color.rgba = `rgba(${hexRgb(color.color).join(',')}, ${color.alpha / 100})`;
     this.setState({color});
     onChange(addMarkOverwrite(state, {type: this.displayName, data: color}));
-  }
-
-  onOpen() {
-    this.setState({open: true});
-  }
-
-  onClose() {
-    this.setState({open: false});
   }
 
   render() {
@@ -66,9 +55,7 @@ export default class fontBgColor extends Component {
       <ColorPicker
         color="#000"
         defaultAlpha={80}
-        onChange={this.onChange}
-        onOpen={this.onOpen}
-        onClose={this.onClose}>
+        onChange={this.onChange}>
         <ToolbarIcon
           colorStyle={colorStyle}
           type={this.displayName}
