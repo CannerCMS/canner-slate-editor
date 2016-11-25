@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React, {Component, PropTypes} from 'react';
 import ToolbarIcon from '../toolbarIcon';
 import {inlines, utils} from 'slate-plugins';
@@ -21,8 +22,21 @@ export default class Link extends Component {
 
   onClick(e) {
     let {state, onChange} = this.props;
+    let haveLinks = haveInlines(state, this.displayName);
     e.preventDefault();
-    onChange(links(state, this.displayName));
+
+    if (haveLinks) {
+      onChange(links(state, this.displayName));
+    } else if (state.isExpanded) {
+      // prompt for ask url
+      const href = window.prompt('Enter the URL of the link:');
+      onChange(links(state, this.displayName, {href}));
+    } else {
+      // prompt for url and text
+      const href = window.prompt('Enter the URL of the link:');
+      const text = window.prompt('Enter the text for the link:');
+      onChange(links(state, this.displayName, {href, text}));
+    }
   }
 
   render() {
