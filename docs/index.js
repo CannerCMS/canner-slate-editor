@@ -43,6 +43,7 @@ const icons = [
   Icons.blocks.AlignRight,
   Icons.blocks.Indent,
   Icons.blocks.Outdent,
+  Icons.blocks.Video,
   Icons.blocks.Blockquote,
   Icons.blocks.OlList,
   Icons.blocks.UlList
@@ -98,6 +99,26 @@ const schema = {
     'heading5': makeTagNode('h5'),
     'heading6': makeTagNode('h6'),
     'paragraph': makeTagNode('p'),
+    'youtube': ({node}) => {
+      return (
+        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${node.data.get('id')}`}/>
+      );
+    },
+    'dailymotion': ({node}) => {
+      return (
+        <iframe width="560" height="315" src={`https://www.dailymotion.com/embed/video/${node.data.get('id')}`}/>
+      );
+    },
+    'vimeo': ({node}) => {
+      return (
+        <iframe width="560" height="315" src={`https://player.vimeo.com/video/${node.data.get('id')}`}/>
+      );
+    },
+    'youku': ({node}) => {
+      return (
+        <iframe width="560" height="315" src={`https://player.youku.com/embed/${node.data.get('id')}`}/>
+      );
+    },
     'link': props => {
       return (
         <a {...props.attributes} href={props.node.data.get('url')}>
