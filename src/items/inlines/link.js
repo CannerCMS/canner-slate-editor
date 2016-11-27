@@ -30,12 +30,16 @@ export default class Link extends Component {
     } else if (state.isExpanded) {
       // prompt for ask url
       const href = window.prompt('Enter the URL of the link:');
-      onChange(links(state, this.displayName, {href}));
+      if (href) {
+        onChange(links(state, this.displayName, {href}));
+      }
     } else {
       // prompt for url and text
       const href = window.prompt('Enter the URL of the link:');
       const text = window.prompt('Enter the text for the link:');
-      onChange(links(state, this.displayName, {href, text}));
+      if (href && text) {
+        onChange(links(state, this.displayName, {href, text}));
+      }
     }
   }
 
