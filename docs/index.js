@@ -41,6 +41,8 @@ const icons = [
   Icons.blocks.AlignCenter,
   Icons.blocks.AlignLeft,
   Icons.blocks.AlignRight,
+  Icons.blocks.Indent,
+  Icons.blocks.Outdent,
   Icons.blocks.Blockquote,
   Icons.blocks.OlList,
   Icons.blocks.UlList
@@ -62,8 +64,12 @@ const BLOCKQUOTE_DEFAULT = {
 const makeTagNode = Tag => {
   const NodeComponent = ({attributes, children, node}) => {
     const align = node.data.get('align');
+    const indent = node.data.get('indent');
     return (
-      <Tag {...attributes} style={{textAlign: align}}>{children}</Tag>
+      <Tag
+        {...attributes}
+        style={{textAlign: align, paddingLeft: `${3 * indent}em`}}
+      >{children}</Tag>
     );
   };
 

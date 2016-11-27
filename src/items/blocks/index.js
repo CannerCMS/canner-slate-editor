@@ -7,6 +7,8 @@ import Header2 from './header2';
 import AlignCenter from './alignCenter';
 import AlignLeft from './alignLeft';
 import AlignRight from './alignRight';
+import Indent from './indent';
+import Outdent from './outdent';
 
 export default {
   Blockquote,
@@ -17,5 +19,7 @@ export default {
   Header2,
   AlignCenter,
   AlignRight,
-  AlignLeft
+  AlignLeft,
+  Indent,
+  Outdent
 };

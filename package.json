@@ -90,6 +90,7 @@
     "emoji-mart": "^0.3.3",
     "emoji-mart-picker": "^0.1.8",
     "hex-rgb": "^1.0.0",
+    "immutable": "^3.8.1",
     "lodash": "^4.16.4",
     "quill-icons": "^0.3.0",
     "rc-dropdown": "^1.4.10",
