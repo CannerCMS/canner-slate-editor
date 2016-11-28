@@ -5,6 +5,7 @@ import {Editor, Raw} from 'slate';
 import Icons from '../src';
 import EditList from 'slate-edit-list';
 import EditBlockquote from 'slate-edit-blockquote';
+import TrailingBlock from 'slate-trailing-block';
 import {Emoji} from 'emoji-mart';
 
 import "./style.css";
@@ -99,24 +100,36 @@ const schema = {
     'heading5': makeTagNode('h5'),
     'heading6': makeTagNode('h6'),
     'paragraph': makeTagNode('p'),
-    'youtube': ({node}) => {
+    'youtube': ({node, children}) => {
       return (
-        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${node.data.get('id')}`}/>
+        <div>
+          <iframe width="560" height="315" src={`https://www.youtube.com/embed/${node.data.get('id')}`}/>
+          {children}
+        </div>
       );
     },
-    'dailymotion': ({node}) => {
+    'dailymotion': ({node, children}) => {
       return (
-        <iframe width="560" height="315" src={`https://www.dailymotion.com/embed/video/${node.data.get('id')}`}/>
+        <div>
+          <iframe width="560" height="315" src={`https://www.dailymotion.com/embed/video/${node.data.get('id')}`}/>
+          {children}
+        </div>
       );
     },
-    'vimeo': ({node}) => {
+    'vimeo': ({node, children}) => {
       return (
-        <iframe width="560" height="315" src={`https://player.vimeo.com/video/${node.data.get('id')}`}/>
+        <div>
+          <iframe width="560" height="315" src={`https://player.vimeo.com/video/${node.data.get('id')}`}/>
+          {children}
+        </div>
       );
     },
-    'youku': ({node}) => {
+    'youku': ({node, children}) => {
       return (
-        <iframe width="560" height="315" src={`https://player.youku.com/embed/${node.data.get('id')}`}/>
+        <div>
+          <iframe width="560" height="315" src={`https://player.youku.com/embed/${node.data.get('id')}`}/>
+          {children}
+        </div>
       );
     },
     'link': props => {
@@ -195,7 +208,8 @@ class App extends React.Component {
             onChange={onChange}
             plugins={[
               EditList(LIST_DEFAULT),
-              EditBlockquote(BLOCKQUOTE_DEFAULT)
+              EditBlockquote(BLOCKQUOTE_DEFAULT),
+              TrailingBlock({type: 'paragraph'})
             ]}
           />
         </div>
