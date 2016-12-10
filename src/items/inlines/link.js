@@ -1,4 +1,4 @@
-/* eslint-disable no-alert, max-len */
+/* eslint-disable max-len */
 import React, {Component, PropTypes} from 'react';
 import {Modal, Button, Form, Input} from 'antd';
 import ToolbarIcon from '../toolbarIcon';
