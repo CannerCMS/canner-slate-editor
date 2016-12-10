@@ -71,9 +71,9 @@ export default class Link extends Component {
         const href = values.href;
         const text = values.text;
         if (href && text) {
-          onChange(links(state, this.displayName, {href, text}));
+          onChange(links(state, this.displayName, {url: href, text}));
         } else if (href) {
-          onChange(links(state, this.displayName, {href}));
+          onChange(links(state, this.displayName, {url: href}));
         }
 
         that.handleCancel();

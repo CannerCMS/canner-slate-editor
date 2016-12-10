@@ -9,6 +9,7 @@ import TrailingBlock from 'slate-trailing-block';
 import {Emoji} from 'emoji-mart';
 
 import "./style.css";
+import "./github-markdown.css";
 
 const initialState = Raw.deserialize({
   nodes: [
@@ -201,7 +202,7 @@ class App extends React.Component {
           });
         })}
         </div>
-        <div className="editor">
+        <div className="editor markdown-body">
           <Editor
             state={state}
             schema={schema}

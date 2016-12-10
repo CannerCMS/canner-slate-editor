@@ -65,8 +65,6 @@ export default class Video extends Component {
             slateObj = {type: 'vimeo', isVoid: true, data: {id: videoObj.id}};
           } else if (videoObj && videoObj.provider === 'youku') {
             slateObj = {type: 'youku', isVoid: true, data: {id: videoObj.id}};
-          } else {
-            alert('URL not support');
           }
 
           onChange(insertBlock(state, slateObj));
