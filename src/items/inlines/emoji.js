@@ -20,15 +20,7 @@ export default class Emoji extends Component {
 
   onChange(code) {
     let {state, onChange} = this.props;
-    const {selection} = state;
     let newState = state.transform();
-
-    if (
-      selection.get('anchorKey') === '1' && selection.get('anchorOffset') === 0 && // eslint-disable-line
-      selection.get('focusKey') === '1' && selection.get('focusOffset') === 0) {
-      // prevent when emoji in the first char will additional set <br/> bug.
-      newState = newState.insertText(' ');
-    }
 
     onChange(
       newState

@@ -6,7 +6,8 @@
     "transform-decorators-legacy",
     "transform-class-properties",
     "add-module-exports",
-    "transform-runtime"
+    "transform-runtime",
+    ["import", { libraryName: "antd", style: "css" }]
   ],
   "env": {
     "development": {
