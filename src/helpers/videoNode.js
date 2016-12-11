@@ -136,6 +136,8 @@ class VideoNode extends Component {
       <div>
         <Resizable
           lockAspectRatio
+          minConstraints={[256, 182]}
+          maxConstraints={[700, 500]}
           onResize={this.onResize}
           onResizeEnd={this.onResizeEnd}
           width={width}

@@ -123,8 +123,8 @@ const schema = {
     strikethrough: ({children}) => <s>{children}</s>
   }
 };
-/* eslint-enable */
 
+/* eslint-enable */
 class App extends React.Component {
   // Set the initial state when the app is first constructed.
   state = {
