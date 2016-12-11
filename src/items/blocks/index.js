@@ -10,6 +10,7 @@ import AlignRight from './alignRight';
 import Indent from './indent';
 import Outdent from './outdent';
 import Video from './video';
+import Image from './image';
 
 export default {
   Blockquote,
@@ -23,5 +24,6 @@ export default {
   AlignLeft,
   Indent,
   Outdent,
-  Video
+  Video,
+  Image
 };

@@ -11,7 +11,7 @@ import {Emoji} from 'emoji-mart';
 import "./style.css";
 import "./github-markdown.css";
 
-const {commonNode, videoNode} = Icons.helpers;
+const {commonNode, videoNode, imageNode} = Icons.helpers;
 const initialState = Raw.deserialize({
   nodes: [
     {
@@ -47,6 +47,7 @@ const icons = [
   Icons.blocks.Indent,
   Icons.blocks.Outdent,
   Icons.blocks.Video,
+  Icons.blocks.Image,
   Icons.blocks.Blockquote,
   Icons.blocks.OlList,
   Icons.blocks.UlList
@@ -83,6 +84,7 @@ const schema = {
     'dailymotion': videoNode('dailymotion'),
     'vimeo': videoNode('vimeo'),
     'youku': videoNode('youku'),
+    'image': imageNode(),
     'link': props => {
       return (
         <a {...props.attributes} href={props.node.data.get('url')}>
