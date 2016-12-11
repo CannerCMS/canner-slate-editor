@@ -1,8 +1,14 @@
 import React, {PropTypes, Component} from 'react';
 import {blocks} from 'slate-plugins';
 import {Resizable} from 'react-resizable';
-import styles from './videoNode.scss';
-import './react-resizable.lib.scss';
+import FaArrowUp from 'react-icons/lib/fa/arrow-up';
+import FaArrowDown from 'react-icons/lib/fa/arrow-down';
+import FaTrashO from 'react-icons/lib/fa/trash-o';
+import FaEdit from 'react-icons/lib/fa/edit';
+import VideoModal from './videoModal';
+
+import styles from './style/videoNode.scss';
+import './style/react-resizable.lib.scss';
 
 /* eslint-disable require-jsdoc */
 export default function(type) {
@@ -21,10 +27,16 @@ class VideoNode extends Component {
 
     this.onResizeEnd = this.onResizeEnd.bind(this);
     this.onResize = this.onResize.bind(this);
+    this.moveUp = this.moveUp.bind(this);
+    this.moveDown = this.moveDown.bind(this);
+    this.remove = this.remove.bind(this);
+    this.edit = this.edit.bind(this);
+    this.hideModal = this.hideModal.bind(this);
 
     this.state = {
       width: null,
-      height: null
+      height: null,
+      isShow: false
     };
   }
 
@@ -53,8 +65,55 @@ class VideoNode extends Component {
     });
   }
 
+  moveUp() {
+    const {state, node, editor} = this.props;
+    const {document} = state;
+    const parent = document.getParent(node);
+    const index = parent.nodes.indexOf(node) - 1;
+    let newState = state
+      .transform()
+      .moveNodeByKey(node, parent, index === -1 ? 0 : index)
+      .apply();
+    editor.onChange(newState);
+  }
+
+  moveDown() {
+    const {state, node, editor} = this.props;
+    const {document} = state;
+    const parent = document.getParent(node);
+    const index = parent.nodes.indexOf(node) + 1;
+    let newState = state
+      .transform()
+      .moveNodeByKey(node, parent, index > parent.nodes.count() ? parent.nodes.count() : index) // eslint-disable-line max-len
+      .apply();
+    editor.onChange(newState);
+  }
+
+  remove() {
+    const {state, node, editor} = this.props;
+    const newState = state.transform()
+      .unsetSelection()
+      .removeNodeByKey(node.key)
+      .apply();
+
+    editor.onChange(newState);
+  }
+
+  edit(e) {
+    e.preventDefault();
+    this.setState({
+      isShow: true
+    });
+  }
+
+  hideModal() {
+    this.setState({
+      isShow: false
+    });
+  }
+
   render() {
-    const {node, state, type, attributes, children} = this.props;
+    const {node, state, type, attributes, children, editor} = this.props;
     let link;
     const align = node.data.get('align');
     const indent = node.data.get('indent');
@@ -74,31 +133,52 @@ class VideoNode extends Component {
     }
 
     return (
-      <Resizable
-        lockAspectRatio
-        onResize={this.onResize}
-        onResizeEnd={this.onResizeEnd}
-        width={width}
-        height={height}>
-        <div
-          className={isFocused ? styles.videoNodeActive : styles.videoNode}
-          style={{
-            textAlign: align,
-            paddingLeft: `${3 * indent}em`,
-            width,
-            height
-          }}>
-          <div className={styles.overlay}/>
-          <div className={styles.videoToolbar}>
-            <div className={styles.videoToolbarItem}>
+      <div>
+        <Resizable
+          lockAspectRatio
+          onResize={this.onResize}
+          onResizeEnd={this.onResizeEnd}
+          width={width}
+          height={height}>
+          <div
+            className={isFocused ? styles.videoNodeActive : styles.videoNode}
+            style={{
+              textAlign: align,
+              paddingLeft: `${3 * indent}em`,
+              width,
+              height
+            }}>
+            <div className={styles.overlay}/>
+            <div className={styles.videoToolbar}>
+              <div className={styles.videoToolbarItem}>
+                <FaArrowUp onClick={this.moveUp}/>
+              </div>
+              <div className={styles.videoToolbarItem}>
+                <FaArrowDown onClick={this.moveDown}/>
+              </div>
+              <div className={styles.videoToolbarItem}>
+                <FaTrashO onClick={this.remove}/>
+              </div>
+              <div className={styles.videoToolbarItem}>
+                <FaEdit onClick={this.edit}/>
+              </div>
             </div>
+            <iframe
+              {...attributes}
+              src={link}/>
+            {children}
           </div>
-          <iframe
-            {...attributes}
-            src={link}/>
-          {children}
-        </div>
-      </Resizable>
+        </Resizable>
+        <VideoModal
+          onChange={editor.onChange}
+          state={state}
+          initialValue={link}
+          node={node}
+          width={width}
+          height={height}
+          hideModal={this.hideModal}
+          isShow={this.state.isShow}/>
+      </div>
     );
   }
 }
