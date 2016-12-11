@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-import React, {PropTypes} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {Editor, Raw} from 'slate';
 import Icons from '../src';
@@ -11,6 +11,7 @@ import {Emoji} from 'emoji-mart';
 import "./style.css";
 import "./github-markdown.css";
 
+const {commonNode, videoNode} = Icons.helpers;
 const initialState = Raw.deserialize({
   nodes: [
     {
@@ -64,75 +65,24 @@ const BLOCKQUOTE_DEFAULT = {
   typeDefault: 'paragraph'
 };
 
-const makeTagNode = Tag => {
-  const NodeComponent = ({attributes, children, node}) => {
-    const align = node.data.get('align');
-    const indent = node.data.get('indent');
-    return (
-      <Tag
-        {...attributes}
-        style={{textAlign: align, paddingLeft: `${3 * indent}em`}}
-      >{children}</Tag>
-    );
-  };
-
-  NodeComponent.displayName = `${Tag}-node`;
-
-  NodeComponent.propTypes = {
-    attributes: PropTypes.object,
-    children: PropTypes.any,
-    node: PropTypes.any
-  };
-
-  return NodeComponent;
-};
-
 /* eslint-disable react/prop-types, react/display-name */
 const schema = {
   nodes: {
-    'blockquote': makeTagNode('blockquote'),
-    'list-ul': makeTagNode('ul'),
-    'list-ol': makeTagNode('ol'),
-    'list-item': makeTagNode('li'),
-    'heading1': makeTagNode('h1'),
-    'heading2': makeTagNode('h2'),
-    'heading3': makeTagNode('h3'),
-    'heading4': makeTagNode('h4'),
-    'heading5': makeTagNode('h5'),
-    'heading6': makeTagNode('h6'),
-    'paragraph': makeTagNode('p'),
-    'youtube': ({node, children}) => {
-      return (
-        <div>
-          <iframe width="560" height="315" src={`https://www.youtube.com/embed/${node.data.get('id')}`}/>
-          {children}
-        </div>
-      );
-    },
-    'dailymotion': ({node, children}) => {
-      return (
-        <div>
-          <iframe width="560" height="315" src={`https://www.dailymotion.com/embed/video/${node.data.get('id')}`}/>
-          {children}
-        </div>
-      );
-    },
-    'vimeo': ({node, children}) => {
-      return (
-        <div>
-          <iframe width="560" height="315" src={`https://player.vimeo.com/video/${node.data.get('id')}`}/>
-          {children}
-        </div>
-      );
-    },
-    'youku': ({node, children}) => {
-      return (
-        <div>
-          <iframe width="560" height="315" src={`https://player.youku.com/embed/${node.data.get('id')}`}/>
-          {children}
-        </div>
-      );
-    },
+    'blockquote': commonNode('blockquote'),
+    'list-ul': commonNode('ul'),
+    'list-ol': commonNode('ol'),
+    'list-item': commonNode('li'),
+    'heading1': commonNode('h1'),
+    'heading2': commonNode('h2'),
+    'heading3': commonNode('h3'),
+    'heading4': commonNode('h4'),
+    'heading5': commonNode('h5'),
+    'heading6': commonNode('h6'),
+    'paragraph': commonNode('p'),
+    'youtube': videoNode('youtube'),
+    'dailymotion': videoNode('dailymotion'),
+    'vimeo': videoNode('vimeo'),
+    'youku': videoNode('youku'),
     'link': props => {
       return (
         <a {...props.attributes} href={props.node.data.get('url')}>

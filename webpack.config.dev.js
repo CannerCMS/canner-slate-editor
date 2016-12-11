@@ -33,7 +33,26 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: "style!css"
+        loader: "style!css",
+        exclude: /flexboxgrid/
+      },
+      {
+        test: /\.scss$/,
+        loaders: [
+          "style?sourceMap",
+          "css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]",
+          "resolve-url",
+          "sass?sourceMap"
+        ],
+        exclude: [/\.antd.scss$/, /\.lib.scss$/]
+      },
+      {
+        test: [/\.antd.scss$/, /\.lib.scss$/],
+        loaders: [
+          "style",
+          "css",
+          "sass"
+        ]
       },
       {
         test: /\.json$/,
