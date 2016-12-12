@@ -7,7 +7,7 @@ const {heading} = blocks;
 const {haveBlocks} = utils.have;
 const {preventDefault} = utils.defaultFunc;
 
-import "../../dropdown.css";
+import "../../dropdown.lib.scss";
 
 export default class Header extends Component {
   constructor(props) {

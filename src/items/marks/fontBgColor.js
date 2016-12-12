@@ -4,7 +4,7 @@ import {marks, utils} from 'slate-plugins';
 import ToolbarIcon from '../toolbarIcon';
 import ColorPicker from '@canner/rc-color-picker';
 import hexRgb from 'hex-rgb';
-import "../../color-picker.css";
+import "../../color-picker.lib.scss";
 const {addMarkOverwrite} = marks;
 const {haveMarks} = utils.have;
 const {getMarkType} = utils.get;
