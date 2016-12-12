@@ -53,7 +53,6 @@ class ImageNode extends Component {
 
   onResize(e, data) {
     const {width, height} = data.size;
-    console.log(width, height)
     this.setState({
       width,
       height
