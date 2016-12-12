@@ -103,7 +103,10 @@ class ImageNode extends Component {
     const isFocused = state.selection.hasEdgeIn(node);
 
     return (
-      <div>
+      <div style={{
+        textAlign: align,
+        paddingLeft: `${3 * indent}em`
+      }}>
         <Resizable
           lockAspectRatio
           minConstraints={[200, 200]}
@@ -115,8 +118,6 @@ class ImageNode extends Component {
           <div
             className={isFocused ? styles.imageNodeActive : styles.imageNode}
             style={{
-              textAlign: align,
-              paddingLeft: `${3 * indent}em`,
               width,
               height
             }}>
