@@ -4,7 +4,7 @@ import React, {PropTypes} from 'react';
 export default function(Tag) {
   const NodeComponent = ({attributes, children, node}) => {
     const align = node.data.get('align');
-    const indent = node.data.get('indent');
+    const indent = node.data.get('indent') || 0;
     return (
       <Tag
         {...attributes}
