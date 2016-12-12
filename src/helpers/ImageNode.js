@@ -106,7 +106,7 @@ class ImageNode extends Component {
       <div style={{
         textAlign: align,
         paddingLeft: `${3 * indent}em`
-      }}>
+      }} data-slate-type="image">
         <Resizable
           lockAspectRatio
           minConstraints={[200, 200]}

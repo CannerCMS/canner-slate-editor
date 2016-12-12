@@ -136,7 +136,7 @@ class VideoNode extends Component {
       <div style={{
         textAlign: align,
         paddingLeft: `${3 * indent}em`
-      }}>
+      }} data-slate-type="video">
         <Resizable
           lockAspectRatio
           minConstraints={[256, 182]}

@@ -8,6 +8,7 @@ export default function(Tag) {
     return (
       <Tag
         {...attributes}
+        data-slate-type={Tag}
         style={{textAlign: align, paddingLeft: `${3 * indent}em`}}
       >{children}</Tag>
     );
