@@ -133,7 +133,10 @@ class VideoNode extends Component {
     }
 
     return (
-      <div>
+      <div style={{
+        textAlign: align,
+        paddingLeft: `${3 * indent}em`
+      }}>
         <Resizable
           lockAspectRatio
           minConstraints={[256, 182]}
@@ -145,8 +148,6 @@ class VideoNode extends Component {
           <div
             className={isFocused ? styles.videoNodeActive : styles.videoNode}
             style={{
-              textAlign: align,
-              paddingLeft: `${3 * indent}em`,
               width,
               height
             }}>
