@@ -46,11 +46,19 @@ export default class ImageBlock extends Component {
     image.onload = function() {
       const height = image.height;
       const width = image.width;
+      let ratio;
+
+      if (height > 400) {
+        ratio = height / 400;
+      }
 
       onChange(insertBlock(state, {
         type: 'image',
         isVoid: true,
-        data: {src: value, height, width}
+        data: {
+          src: value,
+          height: ratio ? (height / ratio) : height,
+          width: ratio ? (width / ratio) : width}
       }));
 
       that.hideModal();
