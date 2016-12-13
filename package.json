@@ -91,7 +91,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@canner/image-upload": "^0.2.0",
+    "@canner/image-upload": "^0.2.1",
     "@canner/rc-color-picker": "^1.1.4",
     "emoji-mart": "^0.3.3",
     "emoji-mart-picker": "^0.1.8",
