@@ -11,10 +11,10 @@ import styles from './style/videoNode.scss';
 import './style/react-resizable.lib.scss';
 
 /* eslint-disable require-jsdoc */
-export default function(type) {
+export default function(type, readOnly) {
   const NodeComponent = ({...props}) => {
     return (
-      <VideoNode {...props} type={type}/>
+      <VideoNode {...props} type={type} readOnly={readOnly}/>
     );
   };
   return NodeComponent;
@@ -46,7 +46,8 @@ class VideoNode extends Component {
     node: PropTypes.any,
     state: PropTypes.object,
     editor: PropTypes.object,
-    type: PropTypes.string
+    type: PropTypes.string,
+    readOnly: PropTypes.bool
   };
 
   onResizeEnd(e, data) {
@@ -113,7 +114,7 @@ class VideoNode extends Component {
   }
 
   render() {
-    const {node, state, type, attributes, children, editor} = this.props;
+    const {node, state, type, attributes, children, editor, readOnly} = this.props;
     let link;
     const align = node.data.get('align');
     const indent = node.data.get('indent');
@@ -130,6 +131,27 @@ class VideoNode extends Component {
       link = `https://player.vimeo.com/video/${id}`;
     } else if (type === 'youku') {
       link = `https://player.youku.com/embed/${id}`;
+    }
+
+    if (readOnly) {
+      return (
+        <div style={{
+          textAlign: align,
+          paddingLeft: `${3 * indent}em`
+        }} data-slate-type="video">
+          <div
+            className={styles.videoNode}
+            style={{
+              width,
+              height
+            }}>
+            <iframe
+              {...attributes}
+              src={link}/>
+            {children}
+          </div>
+        </div>
+      );
     }
 
     return (

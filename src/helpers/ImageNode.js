@@ -9,10 +9,10 @@ import styles from './style/imageNode.scss';
 import './style/react-resizable.lib.scss';
 
 /* eslint-disable require-jsdoc */
-export default function() {
+export default function(readOnly) {
   const NodeComponent = ({...props}) => {
     return (
-      <ImageNode {...props}/>
+      <ImageNode {...props} readOnly={readOnly}/>
     );
   };
   return NodeComponent;
@@ -40,7 +40,8 @@ class ImageNode extends Component {
     children: PropTypes.any,
     node: PropTypes.any,
     state: PropTypes.object,
-    editor: PropTypes.object
+    editor: PropTypes.object,
+    readOnly: PropTypes.bool
   };
 
   onResizeEnd(e, data) {
@@ -94,13 +95,35 @@ class ImageNode extends Component {
   }
 
   render() {
-    const {node, state, attributes, children} = this.props;
+    const {node, state, attributes, children, readOnly} = this.props;
     const align = node.data.get('align');
     const indent = node.data.get('indent');
     const src = node.data.get('src');
     const width = this.state.width || node.data.get('width');
     const height = this.state.height || node.data.get('height');
     const isFocused = state.selection.hasEdgeIn(node);
+
+    if (readOnly) {
+      // if editor is readOnly
+      return (
+        <div style={{
+          textAlign: align,
+          paddingLeft: `${3 * indent}em`
+        }} data-slate-type="image">
+          <div
+            className={styles.imageNode}
+            style={{
+              width,
+              height
+            }}>
+            <img
+              {...attributes}
+              src={src}/>
+            {children}
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div style={{
