@@ -1,6 +1,6 @@
 {
   "name": "slate-editor-icons",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "icons for slate editors",
   "homepage": "",
   "author": {
@@ -103,7 +103,7 @@
     "react-icons": "^2.2.1",
     "react-resizable": "^1.4.5",
     "slate": "^0.16.4",
-    "slate-plugins": "^1.7.1",
+    "slate-plugins": "^1.7.2",
     "slate-trailing-block": "^0.2.3"
   }
 }
