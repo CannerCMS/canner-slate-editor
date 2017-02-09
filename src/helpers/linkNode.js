@@ -6,7 +6,7 @@ export default function() {
     return (
       <a
         {...attributes}
-        href={node.data.get('url')}
+        href={node.data.get('href')}
         data-slate-type="link">
         {children}
       </a>
