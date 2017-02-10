@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {Emoji} from 'emoji-mart';
+import {Emoji} from '@canner/emoji-mart';
 
 /* eslint-disable require-jsdoc */
 export default function() {
