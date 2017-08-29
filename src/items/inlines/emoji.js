@@ -1,6 +1,7 @@
 /* eslint-disable no-alert */
 import React, {Component, PropTypes} from 'react';
 import EmojiMartPicker from 'emoji-mart-picker';
+import {getData} from '@canner/emoji-mart';
 import ToolbarIcon from '../toolbarIcon';
 
 export default class Emoji extends Component {
@@ -21,13 +22,13 @@ export default class Emoji extends Component {
   onChange(code) {
     let {state, onChange} = this.props;
     let newState = state.transform();
-
+    const emojiData = getData(code);
     onChange(
       newState
         .insertInline({
           type: this.displayName,
           isVoid: true,
-          data: {code}
+          data: {code, emojiData}
         })
         .apply()
     );

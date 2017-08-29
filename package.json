@@ -57,6 +57,7 @@
     "react-addons-test-utils": "^15.3.1",
     "react-dom": "^15.3.1",
     "resolve-url": "^0.2.1",
+    "resolve-url-loader": "^2.1.0",
     "rimraf": "^2.5.4",
     "sass-loader": "^4.0.2",
     "slate-edit-blockquote": "^0.1.2",
@@ -91,9 +92,9 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@canner/emoji-mart": "^0.4.5",
     "@canner/image-upload": "^0.2.1",
     "@canner/rc-color-picker": "^1.1.4",
-    "@canner/emoji-mart": "0.3.4",
     "emoji-mart-picker": "^0.1.8",
     "hex-rgb": "^1.0.0",
     "immutable": "^3.8.1",
