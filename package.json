@@ -1,6 +1,6 @@
 {
   "name": "slate-editor-icons",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "icons for slate editors",
   "homepage": "",
   "author": {
@@ -95,7 +95,7 @@
     "@canner/emoji-mart": "^0.4.5",
     "@canner/image-upload": "^0.2.1",
     "@canner/rc-color-picker": "^1.1.4",
-    "emoji-mart-picker": "^0.1.8",
+    "emoji-mart-picker": "^0.1.9",
     "hex-rgb": "^1.0.0",
     "immutable": "^3.8.1",
     "js-video-url-parser": "^0.2.3",
