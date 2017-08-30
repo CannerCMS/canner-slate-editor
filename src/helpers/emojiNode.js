@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {StudpidEmoji} from '@canner/emoji-mart';
+import StudpidEmoji from '@canner/emoji-mart/dist/studpid-emoji';
 
 /* eslint-disable require-jsdoc */
 export default function() {

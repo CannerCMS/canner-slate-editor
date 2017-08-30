@@ -92,7 +92,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@canner/emoji-mart": "^0.4.5",
+    "@canner/emoji-mart": "^0.4.10",
     "@canner/image-upload": "^0.2.1",
     "@canner/rc-color-picker": "^1.1.4",
     "emoji-mart-picker": "^0.1.9",

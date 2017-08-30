@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@canner/emoji-mart@^0.4.10":
+  version "0.4.10"
+  resolved "https://registry.yarnpkg.com/@canner/emoji-mart/-/emoji-mart-0.4.10.tgz#6b88d7a721057ec17a51259107407b33f6da965a"
+  dependencies:
+    measure-scrollbar "^0.1.0"
+
 "@canner/emoji-mart@^0.4.5":
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/@canner/emoji-mart/-/emoji-mart-0.4.5.tgz#30f0b001f5cb708fc6ad8fddf2a298440ffb56ab"
