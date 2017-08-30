@@ -3,7 +3,11 @@ import {expect} from 'chai';
 import {mount} from 'enzyme';
 import Slate from 'slate';
 
+// hint:
+// paste http://example.com/ at first test
+
 describe('EditorIcons', function() {
+  this.timeout(30000);
   const tests = [
     'link',
     'bold',
