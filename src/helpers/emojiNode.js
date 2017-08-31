@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {Emoji} from '@canner/emoji-mart';
+import StudpidEmoji from '@canner/emoji-mart/dist/studpid-emoji';
 
 /* eslint-disable require-jsdoc */
 export default function() {
@@ -9,12 +9,12 @@ export default function() {
         {...attributes}
         style={{display: 'inline-block'}}
         data-slate-type="emoji">
-        <Emoji emoji={node.data.get('code').colons} size={18}/>
+        <StudpidEmoji emojiData={node.data.get('emojiData')} size={18}/>
       </div>
     );
   };
 
-  EmojiComponent.displayName = `emoji-node`;
+  EmojiComponent.displayName = 'emoji-node';
 
   EmojiComponent.propTypes = {
     attributes: PropTypes.object,
