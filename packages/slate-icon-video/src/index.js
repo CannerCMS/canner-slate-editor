@@ -1,33 +1,27 @@
-/* eslint-disable max-len */
-import React, {Component, PropTypes} from 'react';
-import ToolbarIcon from '../toolbarIcon';
-import VideoModal from '../../helpers/videoModal';
+// @flow
+import * as React from 'react';
+import type {IconProps} from 'shared/src/types';
+import ToolbarIcon from '@canner/slate-icon-shared';
+import VideoModal from './videoModal';
 
-export default class Video extends Component {
-  constructor(props) {
+export default class Video extends React.Component<IconProps, {isShow: boolean}> {
+  typeName: string
+  constructor(props: IconProps) {
     super(props);
-    this.onClick = this.onClick.bind(this);
-    this.hideModal = this.hideModal.bind(this);
+    this.typeName = this.props.type || 'video';
     this.state = {
       isShow: false
     };
   }
 
-  displayName = this.props.type || 'video';
-
-  static propTypes = {
-    icon: PropTypes.string,
-    type: PropTypes.string
-  };
-
-  onClick(e) {
+  onClick = (e: Event) => {
     e.preventDefault();
     this.setState({
       isShow: true
     });
   }
 
-  hideModal() {
+  hideModal = () => {
     this.setState({
       isShow: false
     });
@@ -40,12 +34,13 @@ export default class Video extends Component {
     return (
       <div style={{display: 'inline-block'}}>
         <ToolbarIcon
-          type={this.displayName}
+          type={this.typeName}
           icon={icon || 'Video'}
           onClick={onClick}
           isActive={false}
           {...rest}
         />
+        {/* $FlowFixMe */}
         <VideoModal {...this.props} hideModal={this.hideModal} isShow={this.state.isShow}/>
       </div>
     );

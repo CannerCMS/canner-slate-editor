@@ -1,33 +1,27 @@
-/* eslint-disable max-len */
-import React, {Component, PropTypes} from 'react';
+// @flow
+import * as React from 'react';
 import videoParser from 'js-video-url-parser';
+import type {Change} from 'slate';
 import {Modal, Form, Button, Input} from 'antd';
-import {blocks} from 'slate-plugins';
 
-const insertBlock = blocks.insertBlock;
 const FormItem = Form.Item;
 
+type Props = {
+  change: Change,
+  onChange: (change: Change) => void,
+  hideModal: () => void,
+  node: any,
+  form: any,
+  isShow: boolean,
+  initialValue: string,
+  width: number,
+  height: number
+};
+
 @Form.create()
-export default class VideoModal extends Component {
-  constructor(props) {
-    super(props);
-    this.handleOk = this.handleOk.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
-  }
+export default class VideoModal extends React.Component<Props> {
 
-  static propTypes = {
-    state: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired,
-    hideModal: PropTypes.func.isRequired,
-    node: PropTypes.object,
-    form: PropTypes.object,
-    isShow: PropTypes.bool,
-    initialValue: PropTypes.string,
-    width: PropTypes.number,
-    height: PropTypes.number
-  };
-
-  checkSource(rule, value, callback) {
+  checkSource(rule: string, value: string, callback: any) {
     try {
       const videoObj = videoParser.parse(value);
 
@@ -45,14 +39,14 @@ export default class VideoModal extends Component {
     }
   }
 
-  handleCancel() {
+  handleCancel = () => {
     this.props.form.resetFields();
     this.props.hideModal();
   }
 
-  handleOk(e) {
+  handleOk = (e: Event) => {
     e.preventDefault();
-    const {onChange, state, hideModal, form, initialValue, node, width, height} = this.props;
+    const {onChange, change, hideModal, form, initialValue, node, width, height} = this.props;
 
     form.validateFields((err, values) => {
       if (!err) {
@@ -71,24 +65,28 @@ export default class VideoModal extends Component {
             slateObj = {type: 'youku', isVoid: true, data: {id: videoObj.id}};
           }
 
-          if (width) {
-            slateObj.data.width = width;
-          }
+          if (slateObj && slateObj.data) {
+            if (typeof slateObj.data === 'object' && width) {
+              // $FlowFixMe
+              slateObj.data.width = width;
+            }
 
-          if (height) {
-            slateObj.data.height = height;
+            if (typeof slateObj.data === 'object' && height) {
+              // $FlowFixMe
+              slateObj.data.height = height;
+            }
           }
 
           if (initialValue) {
             // update link
-            const newState = state.transform()
+            const newChange = change
               .insertBlock(slateObj)
-              .unsetSelection()
-              .removeNodeByKey(node.key)
-              .apply();
-            onChange(newState);
+              .deselect()
+              .removeNodeByKey(node.key);
+
+            onChange(newChange);
           } else {
-            onChange(insertBlock(state, slateObj));
+            onChange(change.insertBlock(slateObj));
           }
           form.resetFields();
         }
