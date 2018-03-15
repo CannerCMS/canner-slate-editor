@@ -67,7 +67,7 @@ export default class ToolbarIcon extends React.Component<Props> {
 
     const fontElement = React.createElement(
       QuillIcons[icon],
-      Object.assign(...rest, {
+      Object.assign({...rest}, {
         colorStyle: colorStyle,
         className: iconClassName,
         strokeClassName: iconStrokeClassName,

@@ -1,0 +1,14 @@
+[ignore]
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+esproposal.decorators=ignore
+
+module.name_mapper='^shared\/\(.*\)$' ->'<PROJECT_ROOT>/packages/slate-icon-shared/\1'
+
+[strict]

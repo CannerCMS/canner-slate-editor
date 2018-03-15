@@ -1,26 +1,17 @@
 // @flow
 import * as React from 'react';
 import {type Change} from 'slate';
+import {type IconProps} from 'shared/src/types';
 import {haveDataKeyInSomeBlocks} from '@canner/slate-util-have';
 import blockAddData from '@canner/slate-helper-block-adddata';
 import blockClearDataByKey from '@canner/slate-helper-block-cleardatabykey';
 
-type Props = {
-  type: string,
-  icon: string,
-  change: Change,
-  onChange: (change: Change) => void
-};
+type Props = IconProps;
 
-export default (type, defaultIcon, align) => Block => {
+export default (type: string, defaultIcon: string, align: string) => (Block: React.Element<*>) => {
   return class AlignDecorator extends React.Component<Props> {
-    constructor(props: Props) {
-      super(props);
 
-      this.onClick = this.onClick.bind(this);
-    }
-
-    onClick(e) {
+    onClick = (e: Event) => {
       e.preventDefault();
       let {change, onChange} = this.props;
       const isActive = haveDataKeyInSomeBlocks(change, type, align);
