@@ -53,7 +53,7 @@ export default class VideoModal extends React.Component<Props> {
         const href = values.href;
         if (href) {
           const videoObj = videoParser.parse(href);
-          let slateObj;
+          let slateObj: Object;
 
           if (videoObj && videoObj.provider === 'youtube') {
             slateObj = {type: 'youtube', isVoid: true, data: {id: videoObj.id}};
@@ -67,12 +67,10 @@ export default class VideoModal extends React.Component<Props> {
 
           if (slateObj && slateObj.data) {
             if (typeof slateObj.data === 'object' && width) {
-              // $FlowFixMe
               slateObj.data.width = width;
             }
 
             if (typeof slateObj.data === 'object' && height) {
-              // $FlowFixMe
               slateObj.data.height = height;
             }
           }
