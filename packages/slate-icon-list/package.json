@@ -1,0 +1,30 @@
+{
+  "name": "@canner/slate-icon-list",
+  "version": "1.0.0",
+  "description": "Slate icon for lists",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^22.4.2",
+    "react-test-renderer": "^16.2.0",
+    "slate": "^0.33.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || 16.x",
+    "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  },
+  "dependencies": {
+    "@canner/slate-icon-shared": "^1.0.0",
+    "@canner/slate-helper-block-list": "^0.1.2",
+    "slate-edit-list": "^0.11.2"
+  }
+}
