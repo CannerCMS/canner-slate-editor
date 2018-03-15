@@ -1,44 +1,43 @@
-/* eslint-disable react/prop-types */
-import React, {Component, PropTypes} from 'react';
-import {utils, blocks} from 'slate-plugins';
-const {haveDataKeyEqualValueInSomeBlocks} = utils.have;
-const {clearDataByKeyToCurrent, addDataToCurrent} = blocks;
+// @flow
+import * as React from 'react';
+import {type Change} from 'slate';
+import {haveDataKeyInSomeBlocks} from '@canner/slate-util-have';
+import blockAddData from '@canner/slate-helper-block-adddata';
+import blockClearDataByKey from '@canner/slate-helper-block-cleardatabykey';
+
+type Props = {
+  type: string,
+  icon: string,
+  change: Change,
+  onChange: (change: Change) => void
+};
 
 export default (type, defaultIcon, align) => Block => {
-  return class AlignDecorator extends Component {
-    constructor(props) {
+  return class AlignDecorator extends React.Component<Props> {
+    constructor(props: Props) {
       super(props);
 
       this.onClick = this.onClick.bind(this);
     }
 
-    displayName = this.props.type || type;
-
-    static propTypes = {
-      type: PropTypes.string,
-      icon: PropTypes.string,
-      state: PropTypes.object.isRequired,
-      onChange: PropTypes.func.isRequired
-    };
-
     onClick(e) {
       e.preventDefault();
-      let {state, onChange} = this.props;
-      const isActive = haveDataKeyEqualValueInSomeBlocks(state, type, align);
+      let {change, onChange} = this.props;
+      const isActive = haveDataKeyInSomeBlocks(change, type, align);
       onChange(
-        isActive ? clearDataByKeyToCurrent(state, type) :
-          addDataToCurrent(state, {data: {[type]: align}})
+        isActive ? blockClearDataByKey(change, type) :
+          blockAddData(change, {data: {[type]: align}})
       );
     }
 
     render() {
-      const {state, icon, ...rest} = this.props;
+      const {change, icon, ...rest} = this.props;
       const onClick = e => this.onClick(e);
-      const isActive = haveDataKeyEqualValueInSomeBlocks(state, type, align);
+      const isActive = haveDataKeyInSomeBlocks(change, type, align);
 
       return (
         <Block
-          type={this.displayName}
+          type={this.props.type || type}
           icon={icon || defaultIcon}
           onClick={onClick}
           isActive={isActive}
