@@ -3,7 +3,8 @@ module.exports = {
   plugins: ["react", "flowtype", "prettier"],
   env: {
     browser: true,
-    node: true
+    node: true,
+    jest: true
   },
   rules: {
     "new-cap": 0,

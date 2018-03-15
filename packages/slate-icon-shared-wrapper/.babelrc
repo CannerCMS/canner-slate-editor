@@ -1,0 +1,11 @@
+{
+  "presets": ["env", "react", "flow"],
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-object-assign",
+    ["import", {
+      "libraryName": "antd",
+      "style": true
+    }]
+  ]
+}
