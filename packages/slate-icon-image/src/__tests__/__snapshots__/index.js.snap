@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create a Image icon 1`] = `
+<div
+  style={
+    Object {
+      "display": "inline-block",
+    }
+  }
+>
+  <span
+    data-active={false}
+    onClick={[Function]}
+    onMouseDown={[Function]}
+  >
+    <svg
+      className={undefined}
+      colorLabelClassName={undefined}
+      colorStyle={undefined}
+      height="18px"
+      strokeMitterClassName={undefined}
+      thinClassName={undefined}
+      transparentClassName={undefined}
+      viewBox="0 0 18 18"
+      width="18px"
+    >
+      <rect
+        className="ql-stroke"
+        height="10"
+        width="12"
+        x="3"
+        y="4"
+      />
+      <circle
+        className="ql-fill"
+        cx="6"
+        cy="7"
+        r="1"
+      />
+      <polyline
+        className="ql-even ql-fill"
+        points="5 12 5 11 7 9 8 10 11 7 13 9 13 12 5 12"
+      />
+    </svg>
+  </span>
+</div>
+`;
