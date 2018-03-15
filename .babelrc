@@ -1,24 +1,10 @@
 {
-  "presets": [
-    "airbnb"
-  ],
+  "presets": ["env", "react", "flow", "stage-0"],
   "plugins": [
     "transform-decorators-legacy",
-    "transform-class-properties",
-    "add-module-exports",
-    "transform-runtime",
-    ["import", { libraryName: "antd", style: "css" }]
-  ],
-  "env": {
-    "development": {
-      "presets": [
-        "react-hmre"
-      ]
-    },
-    "production": {
-      "plugins": [
-        "transform-react-remove-prop-types"
-      ]
-    }
-  }
+    ["import", {
+      "libraryName": "antd",
+      "style": true
+    }]
+  ]
 }

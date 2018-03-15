@@ -1,26 +1,20 @@
 module.exports = {
-  extends: [
-    "google",
-    "plugin:react/recommended"
-  ],
-  parser: "babel-eslint",
-  parserOptions: {
-    ecmaVersion: 7,
-    sourceType: "module",
-    ecmaFeatures: {
-      jsx: true
-    }
-  },
+  extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  plugins: ["react", "flowtype", "prettier"],
   env: {
-    browser: true
+    browser: true,
+    node: true
   },
-  plugins: [
-    "react"
-  ],
-  settings: {
-    react: {
-      pragma: "React",  // Pragma to use, default to "React"
-      version: "15.3.1"
-    }
+  rules: {
+    "new-cap": 0,
+    "max-len": 0,
+    "require-jsdoc": 0,
+    "no-return-assign": 0,
+    "no-alert": 0,
+    "no-implicit-coercion": 0,
+    radix: 0
+  },
+  parser: "babel-eslint",
+  globals: {
   }
 };
