@@ -1,30 +1,26 @@
-/* eslint-disable react/prop-types */
-import React, {Component, PropTypes} from 'react';
+// @flow
+import * as React from 'react';
+import type {IconProps} from 'shared/src/types';
 
-export default (type, defaultIcon) => Block => {
-  return class IndentDecorator extends Component {
-    constructor(props) {
+export default (type: string, defaultIcon: string) => (Block: React.Element<*>) => {
+  return class IndentDecorator extends React.Component<IconProps, {isShow: boolean}> {
+    typeName: string
+    constructor(props: IconProps) {
       super(props);
-
-      this.onClick = this.onClick.bind(this);
+      this.state = {
+        isShow: false
+      };
+  
+      this.typeName = this.props.type || type;
     }
 
-    displayName = this.props.type || type;
-
-    static propTypes = {
-      type: PropTypes.string,
-      icon: PropTypes.string,
-      state: PropTypes.object.isRequired,
-      onChange: PropTypes.func.isRequired
-    };
-
-    onClick(e) {
+    onClick = (e: Event) => {
       e.preventDefault();
-      let {state, onChange} = this.props;
-      let newState = state.transform();
+      const {change, onChange} = this.props;
+      const {value} = change;
 
-      if (state.blocks) {
-        state.blocks.forEach(block => {
+      if (value.blocks) {
+        value.blocks.forEach(block => {
           const getBlockIndent = block.get('data') &&
             block.get('data').get('indent') || 0;
           let indent = getBlockIndent;
@@ -42,13 +38,11 @@ export default (type, defaultIcon) => Block => {
 
           const newData = block.setIn(['data', 'indent'], indent);
 
-          newState.setBlock(newData);
+          change.setBlocks(newData);
         });
       }
 
-      onChange(
-        newState.apply()
-      );
+      onChange(change);
     }
 
     render() {
@@ -56,8 +50,9 @@ export default (type, defaultIcon) => Block => {
       const onClick = e => this.onClick(e);
 
       return (
+        // $FlowFixMe
         <Block
-          type={this.displayName}
+          type={this.typeName}
           icon={icon || defaultIcon}
           onClick={onClick}
           isActive={false}
