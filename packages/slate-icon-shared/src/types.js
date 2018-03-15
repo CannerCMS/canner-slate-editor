@@ -1,5 +1,5 @@
 // @flow
-import {Change} from 'slate';
+import type {Change} from 'slate';
 export type IconProps = {
   type: string,
   icon: string,

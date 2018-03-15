@@ -1,23 +1,31 @@
 // @flow
 import * as React from 'react';
-import {type Change} from 'slate';
-import {type IconProps} from 'shared/src/types';
+import type {Change} from 'slate';
+import type {IconProps} from 'shared/src/types';
 import {haveDataKeyInSomeBlocks} from '@canner/slate-util-have';
 import blockAddData from '@canner/slate-helper-block-adddata';
 import blockClearDataByKey from '@canner/slate-helper-block-cleardatabykey';
 
 type Props = IconProps;
 
-export default (type: string, defaultIcon: string, align: string) => (Block: React.Element<*>) => {
+export default (type: string, defaultIcon: string, align: string) =>
+  (Block: React.Element<any>) => {
   return class AlignDecorator extends React.Component<Props> {
+    typeName: string
+
+    constructor(props: Props) {
+      super(props);
+
+      this.typeName = props.type || type;
+    }
 
     onClick = (e: Event) => {
       e.preventDefault();
       let {change, onChange} = this.props;
       const isActive = haveDataKeyInSomeBlocks(change, type, align);
       onChange(
-        isActive ? blockClearDataByKey(change, type) :
-          blockAddData(change, {data: {[type]: align}})
+        isActive ? blockClearDataByKey(change, this.typeName) :
+          blockAddData(change, {data: {[this.typeName]: align}})
       );
     }
 
@@ -27,8 +35,9 @@ export default (type: string, defaultIcon: string, align: string) => (Block: Rea
       const isActive = haveDataKeyInSomeBlocks(change, type, align);
 
       return (
+        // $FlowFixMe
         <Block
-          type={this.props.type || type}
+          type={this.typeName}
           icon={icon || defaultIcon}
           onClick={onClick}
           isActive={isActive}

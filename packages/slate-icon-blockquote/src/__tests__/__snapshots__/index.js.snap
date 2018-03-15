@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create a Blockquote icon 1`] = `
+<span
+  data-active={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+>
+  <svg
+    className={undefined}
+    colorLabelClassName={undefined}
+    colorStyle={undefined}
+    height="18px"
+    strokeMitterClassName={undefined}
+    thinClassName={undefined}
+    transparentClassName={undefined}
+    viewBox="0 0 18 18"
+    width="18px"
+  >
+    <rect
+      className="ql-fill ql-stroke"
+      height="3"
+      width="3"
+      x="4"
+      y="5"
+    />
+    <rect
+      className="ql-fill ql-stroke"
+      height="3"
+      width="3"
+      x="11"
+      y="5"
+    />
+    <path
+      className="ql-even ql-fill ql-stroke"
+      d="M7,8c0,4.031-3,5-3,5"
+    />
+    <path
+      className="ql-even ql-fill ql-stroke"
+      d="M14,8c0,4.031-3,5-3,5"
+    />
+  </svg>
+</span>
+`;

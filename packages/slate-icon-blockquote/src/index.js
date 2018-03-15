@@ -1,41 +1,39 @@
+// @flow
 import React, {Component, PropTypes} from 'react';
-import ToolbarIcon from '../toolbarIcon';
-import {blocks, utils} from 'slate-plugins';
-const {blockquote} = blocks;
-const {isBlockquote} = utils.is;
+import type {IconProps} from 'shared/src/types';
+import ToolbarIcon from '@canner/slate-icon-shared';
+import blockquote, {DEFAULT} from '@canner/slate-helper-block-quote';
+import EditBlockquote from 'slate-edit-blockquote'
 
-export default class Blockquote extends Component {
-  constructor(props) {
+const {isSelectionInBlockquote} = EditBlockquote(DEFAULT).utils;
+
+type Props = IconProps;
+
+export default class Blockquote extends Component<Props> {
+  typeName: string
+
+  constructor(props: Props) {
     super(props);
 
-    this.onClick = this.onClick.bind(this);
+    this.typeName = props.type || 'blockquote';
   }
 
-  displayName = this.props.type || 'blockquote';
-
-  static propTypes = {
-    type: PropTypes.string,
-    icon: PropTypes.string,
-    state: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired
-  };
-
-  onClick(e) {
-    let {state, onChange} = this.props;
+  onClick = (e: Event) => {
+    let {change, onChange} = this.props;
     e.preventDefault();
-    onChange(blockquote(state, {type: this.displayName}));
+    onChange(blockquote(change, {type: this.typeName}));
   }
 
   render() {
-    const {state, icon, ...rest} = this.props;
+    const {change, icon, ...rest} = this.props;
     const onClick = e => this.onClick(e);
 
     return (
       <ToolbarIcon
-        type={this.displayName}
+        type={this.typeName}
         icon={icon || 'Blockquote'}
         onClick={onClick}
-        isActive={isBlockquote(state)}
+        isActive={isSelectionInBlockquote(change.value)}
         {...rest}
       />
     );

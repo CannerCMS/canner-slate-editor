@@ -1,4 +1,6 @@
 [ignore]
+.*/node_modules/styled-components/src/test/**
+.*/node_modules/webpack-cli
 
 [include]
 

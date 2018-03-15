@@ -2,11 +2,9 @@
   "name": "slate-editor-icons",
   "version": "0.12.1",
   "description": "icons for slate editors",
-  "homepage": "",
   "author": {
     "name": "chilijung",
-    "email": "chilijung@gmail.com",
-    "url": ""
+    "email": "chilijung@gmail.com"
   },
   "files": [
     "lib"
@@ -30,6 +28,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "babel-runtime": "^6.11.6",
     "chai": "^3.5.0",
     "cross-env": "^2.0.1",
@@ -69,7 +68,9 @@
     "lint:src": "prettier --write ./packages/*/src/**/*.js && eslint ./packages/*/src/**/*.js",
     "lint:test": "prettier --write ./packages/*/test/**/*.js && eslint ./packages/*/test/**/*.js",
     "start": "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --mode development",
-    "build:docs": "./node_modules/.bin/webpack --config webpack.config.prod.js --mode production"
+    "build:docs": "./node_modules/.bin/webpack --config webpack.config.prod.js --mode production",
+    "lint": "eslint .",
+    "validate": "npm ls"
   },
   "pre-commit": [],
   "repository": "Canner/slate-editor-icons",
