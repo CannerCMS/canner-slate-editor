@@ -1,8 +1,7 @@
 // @flow
 import * as React from 'react';
-import type {Change} from 'slate';
 import type {IconProps} from 'shared/src/types';
-import {haveDataKeyInSomeBlocks} from '@canner/slate-util-have';
+import {haveDataKeyEqualValueInSomeBlocks} from '@canner/slate-util-have';
 import blockAddData from '@canner/slate-helper-block-adddata';
 import blockClearDataByKey from '@canner/slate-helper-block-cleardatabykey';
 
@@ -22,7 +21,7 @@ export default (type: string, defaultIcon: string, align: string) =>
     onClick = (e: Event) => {
       e.preventDefault();
       let {change, onChange} = this.props;
-      const isActive = haveDataKeyInSomeBlocks(change, type, align);
+      const isActive = haveDataKeyEqualValueInSomeBlocks(change, type, align);
       onChange(
         isActive ? blockClearDataByKey(change, this.typeName) :
           blockAddData(change, {data: {[this.typeName]: align}})
@@ -32,7 +31,7 @@ export default (type: string, defaultIcon: string, align: string) =>
     render() {
       const {change, icon, ...rest} = this.props;
       const onClick = e => this.onClick(e);
-      const isActive = haveDataKeyInSomeBlocks(change, type, align);
+      const isActive = haveDataKeyEqualValueInSomeBlocks(change, type, align);
 
       return (
         // $FlowFixMe

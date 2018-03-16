@@ -1,8 +1,9 @@
-import React, {PropTypes} from 'react';
+// @flow
+import * as React from 'react';
+import type {nodeProps} from './type';
 
-/* eslint-disable require-jsdoc */
 export default function(Tag) {
-  const NodeComponent = ({attributes, children, node}) => {
+  const NodeComponent = ({attributes, children, node}: nodeProps) => {
     const align = node.data.get('align');
     const indent = node.data.get('indent') || 0;
     let style;
@@ -23,12 +24,6 @@ export default function(Tag) {
   };
 
   NodeComponent.displayName = `${Tag}-node`;
-
-  NodeComponent.propTypes = {
-    attributes: PropTypes.object,
-    children: PropTypes.any,
-    node: PropTypes.any
-  };
 
   return NodeComponent;
 }

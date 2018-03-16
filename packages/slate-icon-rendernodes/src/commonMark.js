@@ -1,8 +1,9 @@
-import React, {PropTypes} from 'react';
+// @flow
+import * as React from 'react';
+import type {nodeProps} from './type';
 
-/* eslint-disable require-jsdoc */
 export default function(Tag, type) {
-  const MarkComponent = ({attributes, children, mark}) => {
+  const MarkComponent = ({attributes, children, mark}: nodeProps) => {
     const color = mark.get('data').get('rgba');
     return (
       <Tag
@@ -15,12 +16,6 @@ export default function(Tag, type) {
   };
 
   MarkComponent.displayName = `${Tag}-mark`;
-
-  MarkComponent.propTypes = {
-    attributes: PropTypes.object,
-    children: PropTypes.any,
-    mark: PropTypes.any
-  };
 
   return MarkComponent;
 }

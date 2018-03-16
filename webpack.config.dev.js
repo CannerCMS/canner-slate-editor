@@ -5,17 +5,12 @@ module.exports = {
   output: {
     path: path.join(__dirname, "dist"),
     filename: "bundle.js",
-    publicPath: "/static/"
-  },
-  externals: {
-    react: "React",
-    "react-dom": "ReactDOM"
+    publicPath: "/docs/static/"
   },
   resolve: {
     extensions: [".js"],
     alias: {
       packages: path.resolve(__dirname, "./packages"),
-      utils: path.resolve(__dirname, "./utils"),
       'styled-components': path.resolve(__dirname, 'node_modules', 'styled-components'),
     }
   },

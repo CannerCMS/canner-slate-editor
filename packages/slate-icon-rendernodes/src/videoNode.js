@@ -1,5 +1,9 @@
-import React, {PropTypes, Component} from 'react';
-import {blocks} from 'slate-plugins';
+// @flow
+import * as React from 'react';
+import type {Change} from 'slate';
+import type {nodeProps} from './type';
+import blockAddData from '@canner/slate-helper-block-adddata';
+
 import {Resizable} from 'react-resizable';
 import FaArrowUp from 'react-icons/lib/fa/arrow-up';
 import FaArrowDown from 'react-icons/lib/fa/arrow-down';
@@ -10,7 +14,6 @@ import VideoModal from './videoModal';
 import styles from './style/videoNode.scss';
 import './style/react-resizable.lib.scss';
 
-/* eslint-disable require-jsdoc */
 export default function(type, readOnly) {
   const NodeComponent = ({...props}) => {
     return (

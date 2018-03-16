@@ -1,16 +1,19 @@
-import React, {PropTypes, Component} from 'react';
-import {blocks} from 'slate-plugins';
+// @flow
+import * as React from 'react';
+import type {Change} from 'slate';
+import type {nodeProps} from './type';
+import blockAddData from '@canner/slate-helper-block-adddata';
+
 import {Resizable} from 'react-resizable';
 import FaArrowUp from 'react-icons/lib/fa/arrow-up';
 import FaArrowDown from 'react-icons/lib/fa/arrow-down';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
+import {ImageNodeInActive, ImageNodeActive} from './imageNodeComponents/imageComponents';
 
-import styles from './style/imageNode.scss';
-import './style/react-resizable.lib.scss';
+import 'react-resizable/css/styles.css';
 
-/* eslint-disable require-jsdoc */
 export default function(readOnly) {
-  const NodeComponent = ({...props}) => {
+  const NodeComponent = ({...props}: nodeProps) => {
     return (
       <ImageNode {...props} readOnly={readOnly}/>
     );
@@ -18,7 +21,14 @@ export default function(readOnly) {
   return NodeComponent;
 }
 
-class ImageNode extends Component {
+
+type Props = nodeProps & {
+  change: Change,
+  editor: Object,
+  readOnly: Boolean
+};
+
+class ImageNode extends React.Component<Props> {
 
   constructor(props) {
     super(props);
@@ -35,19 +45,10 @@ class ImageNode extends Component {
     };
   }
 
-  static propTypes = {
-    attributes: PropTypes.object,
-    children: PropTypes.any,
-    node: PropTypes.any,
-    state: PropTypes.object,
-    editor: PropTypes.object,
-    readOnly: PropTypes.bool
-  };
-
   onResizeEnd(e, data) {
     const {onChange} = this.props.editor;
     const {width, height} = data.size;
-    onChange(blocks.addDataToCurrent(this.props.state, {
+    onChange(blockAddData(this.props.state, {
       data: {width, height}
     }));
   }
@@ -95,13 +96,13 @@ class ImageNode extends Component {
   }
 
   render() {
-    const {node, state, attributes, children, readOnly} = this.props;
+    const {node, change, attributes, children, readOnly} = this.props;
     const align = node.data.get('align');
     const indent = node.data.get('indent');
     const src = node.data.get('src');
-    const width = this.state.width || node.data.get('width');
-    const height = this.state.height || node.data.get('height');
-    const isFocused = state.selection.hasEdgeIn(node);
+    const width = this.change.width || node.data.get('width');
+    const height = this.change.height || node.data.get('height');
+    const isFocused = change.selection.hasEdgeIn(node);
 
     if (readOnly) {
       // if editor is readOnly
@@ -110,8 +111,7 @@ class ImageNode extends Component {
           textAlign: align,
           paddingLeft: `${3 * indent}em`
         }} data-slate-type="image">
-          <div
-            className={styles.imageNode}
+          <ImageNodeInActive
             style={{
               width,
               height
@@ -120,7 +120,7 @@ class ImageNode extends Component {
               {...attributes}
               src={src}/>
             {children}
-          </div>
+          </ImageNodeInActive>
         </div>
       );
     }
@@ -138,29 +138,42 @@ class ImageNode extends Component {
           onResizeEnd={this.onResizeEnd}
           width={width}
           height={height}>
-          <div
-            className={isFocused ? styles.imageNodeActive : styles.imageNode}
-            style={{
-              width,
-              height
-            }}>
-            <div className={styles.overlay}/>
-            <div className={styles.imageToolbar}>
-              <div className={styles.imageToolbarItem}>
-                <FaArrowUp onClick={this.moveUp}/>
+          {isFocused ? (
+            <ImageNodeActive
+              style={{
+                width,
+                height
+              }}>
+              <div className="overlay"/>
+              <div className="imageToolbar">
+                <div className="imageToolbarItem">
+                  <FaArrowUp onClick={this.moveUp}/>
+                </div>
+                <div className="imageToolbarItem">
+                  <FaArrowDown onClick={this.moveDown}/>
+                </div>
+                <div className="imageToolbarItem">
+                  <FaTrashO onClick={this.remove}/>
+                </div>
               </div>
-              <div className={styles.imageToolbarItem}>
-                <FaArrowDown onClick={this.moveDown}/>
-              </div>
-              <div className={styles.imageToolbarItem}>
-                <FaTrashO onClick={this.remove}/>
-              </div>
-            </div>
-            <img
-              {...attributes}
-              src={src}/>
-            {children}
-          </div>
+              <img
+                {...attributes}
+                src={src}/>
+              {children}
+            </ImageNodeActive>
+          ) : (
+            <ImageNodeInActive
+              style={{
+                width,
+                height
+              }}>
+              <div className="overlay"/>
+              <img
+                {...attributes}
+                src={src}/>
+              {children}
+            </ImageNodeInActive>
+          )}
         </Resizable>
       </div>
     );

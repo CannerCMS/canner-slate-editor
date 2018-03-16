@@ -56,6 +56,7 @@
     "read-metadata": "^1.0.0",
     "regenerator-runtime": "^0.11.1",
     "rimraf": "^2.5.4",
+    "slate-react": "^0.12.0",
     "style-loader": "^0.20.3",
     "styled-components": "^3.2.1",
     "webpack": "^4.0.1",
@@ -83,19 +84,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@canner/emoji-mart": "^0.4.10",
-    "@canner/image-upload": "^0.2.1",
-    "@canner/rc-color-picker": "^1.1.4",
-    "emoji-mart-picker": "^0.1.9",
-    "hex-rgb": "^1.0.0",
-    "immutable": "^3.8.1",
-    "js-video-url-parser": "^0.2.3",
-    "lodash": "^4.16.4",
-    "quill-icons": "^0.3.0",
-    "react-icons": "^2.2.1",
-    "react-resizable": "^1.4.5",
-    "slate": "^0.16.4",
-    "slate-plugins": "^1.7.2",
-    "slate-trailing-block": "^0.2.3"
+    "immutable": "^4.0.0-rc.9",
+    "slate": "^0.33.0",
+    "slate-edit-blockquote": "0.5.0",
+    "slate-edit-list": "^0.11.2",
+    "slate-trailing-block": "^0.4.0"
   }
 }

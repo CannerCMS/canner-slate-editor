@@ -20,11 +20,7 @@
 }
 
 .imageNode {
-	border: 2px solid #FFF;
-
-	.imageToolbar {
-		display: none;
-	}
+	
 }
 
 .imageNodeActive {
