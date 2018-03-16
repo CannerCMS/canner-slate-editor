@@ -6,7 +6,7 @@ import ToolbarIcon from '@canner/slate-icon-shared';
 
 export default class Clean extends React.Component<IconProps> {
   typeName: string
-  constructor(props) {
+  constructor(props: IconProps) {
     super(props);
     this.typeName = this.props.type || 'clean';
   }
@@ -14,7 +14,7 @@ export default class Clean extends React.Component<IconProps> {
   onClick = (e: Event) => {
     let {change, onChange} = this.props;
     e.preventDefault();
-    onChange(removeMarkAll(change, {type: this.displayName, data: {}}));
+    onChange(removeMarkAll(change, {type: this.typeName, data: {}}));
   }
 
   render() {
@@ -23,7 +23,7 @@ export default class Clean extends React.Component<IconProps> {
 
     return (
       <ToolbarIcon
-        type={this.displayName}
+        type={this.typeName}
         icon={icon || 'Clean'}
         onClick={onClick}
         {...rest}

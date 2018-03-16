@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create a FontColor icon 1`] = `
+<div
+  className="rc-color-picker-wrap "
+>
+  <span
+    data-active={false}
+    onClick={[Function]}
+    onMouseDown={[Function]}
+  >
+    <svg
+      className={undefined}
+      evenClassName={undefined}
+      fillClassName={undefined}
+      height="18px"
+      onBlur={undefined}
+      onFocus={undefined}
+      onMouseDown={[Function]}
+      onMouseEnter={undefined}
+      onMouseLeave={undefined}
+      onTouchStart={[Function]}
+      strokeMitterClassName={undefined}
+      style={
+        Object {
+          "backgroundColor": "rgba(0,0,0,1)",
+        }
+      }
+      thinClassName={undefined}
+      unselectable="unselectable"
+      viewBox="0 0 18 18"
+      width="18px"
+    >
+      <line
+        className="ql-stroke ql-color-label ql-transparent"
+        style={Object {}}
+        x1="3"
+        x2="15"
+        y1="15"
+        y2="15"
+      />
+      <polyline
+        className="ql-stroke"
+        points="5.5 11 9 3 12.5 11"
+      />
+      <line
+        className="ql-stroke"
+        x1="11.63"
+        x2="6.38"
+        y1="9"
+        y2="9"
+      />
+    </svg>
+  </span>
+</div>
+`;
