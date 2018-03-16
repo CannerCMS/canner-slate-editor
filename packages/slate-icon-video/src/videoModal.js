@@ -53,7 +53,7 @@ export default class VideoModal extends React.Component<Props> {
         const href = values.href;
         if (href) {
           const videoObj = videoParser.parse(href);
-          let slateObj: Object;
+          let slateObj: Object = {};
 
           if (videoObj && videoObj.provider === 'youtube') {
             slateObj = {type: 'youtube', isVoid: true, data: {id: videoObj.id}};
