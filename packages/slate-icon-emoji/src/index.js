@@ -16,7 +16,7 @@ export default class Emoji extends React.Component<IconProps> {
     onChange(
       change
         .insertInline({
-          type: this.displayName,
+          type: this.typeName,
           isVoid: true,
           data: {emoji}
         })
@@ -30,7 +30,7 @@ export default class Emoji extends React.Component<IconProps> {
       <EmojiMartPicker
         onChange={this.onChange}>
         <ToolbarIcon
-          type={this.displayName}
+          type={this.typeName}
           icon={icon || 'Emoji'}
           isActive={false}
           {...rest}

@@ -1,44 +1,42 @@
-/* eslint-disable max-len */
-import React, {Component, PropTypes} from 'react';
+// @flow
+import * as React from 'react';
+import type {IconProps} from 'shared/src/types';
 import {Modal, Button, Form, Input} from 'antd';
-import ToolbarIcon from '../toolbarIcon';
-import {inlines, utils} from 'slate-plugins';
-const {links} = inlines;
-const {haveInlines} = utils.have;
+import ToolbarIcon from '@canner/slate-icon-shared';
+import links from '@canner/slate-helper-inline-links';
+import {haveInlines} from '@canner/slate-util-have';
 const FormItem = Form.Item;
 
+type State = {
+  showModal: boolean,
+  addLinkText: boolean
+}
+
+type Props = IconProps & {
+  form: any
+}
+
 @Form.create()
-export default class Link extends Component {
-  constructor(props) {
+export default class Link extends React.Component<Props, State> {
+  typeName: string
+  constructor(props: Props) {
     super(props);
-    this.onClick = this.onClick.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
-    this.handleOk = this.handleOk.bind(this);
 
     this.state = {
       showModal: false,
       addLinkText: false
     };
+    this.typeName = this.props.type || 'link';
   }
 
-  displayName = this.props.type || 'link';
-
-  static propTypes = {
-    state: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired,
-    icon: PropTypes.string,
-    type: PropTypes.string,
-    form: PropTypes.object
-  };
-
-  onClick(e) {
-    let {state, onChange} = this.props;
-    let haveLinks = haveInlines(state, this.displayName);
+  onClick = (e: Event) => {
+    let {change, onChange} = this.props;
+    let haveLinks = haveInlines(change, this.typeName);
     e.preventDefault();
 
     if (haveLinks) {
-      onChange(links(state, this.displayName));
-    } else if (state.isExpanded) {
+      onChange(links(change, this.typeName));
+    } else if (change.value.isExpanded) {
       // prompt for ask url
       this.setState({
         showModal: true,
@@ -53,7 +51,7 @@ export default class Link extends Component {
     }
   }
 
-  handleCancel() {
+  handleCancel = () => {
     this.props.form.resetFields();
     this.setState({
       showModal: false,
@@ -61,9 +59,9 @@ export default class Link extends Component {
     });
   }
 
-  handleOk(e) {
+  handleOk = (e: Event) => {
     e.preventDefault();
-    const {onChange, state} = this.props;
+    const {onChange, change} = this.props;
     const that = this;
 
     this.props.form.validateFields((err, values) => {
@@ -71,9 +69,9 @@ export default class Link extends Component {
         const href = values.href;
         const text = values.text;
         if (href && text) {
-          onChange(links(state, this.displayName, {href, text}));
+          onChange(links(change, this.typeName, {href, text}));
         } else if (href) {
-          onChange(links(state, this.displayName, {href}));
+          onChange(links(change, this.typeName, {href}));
         }
 
         that.handleCancel();
@@ -83,17 +81,17 @@ export default class Link extends Component {
 
   render() {
     const {getFieldDecorator} = this.props.form;
-    const {state, icon, ...rest} = this.props;
+    const {change, icon, ...rest} = this.props;
     const {addLinkText, showModal} = this.state;
     const onClick = e => this.onClick(e);
 
     return (
       <div style={{display: 'inline-block'}}>
         <ToolbarIcon
-          type={this.displayName}
+          type={this.typeName}
           icon={icon || 'Link'}
           onClick={onClick}
-          isActive={haveInlines(state, this.displayName)}
+          isActive={haveInlines(change, this.typeName)}
           {...rest}
         />
         <Modal

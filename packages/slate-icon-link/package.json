@@ -1,7 +1,7 @@
 {
-  "name": "@canner/slate-icon-emoji",
+  "name": "@canner/slate-icon-link",
   "version": "1.0.0",
-  "description": "Slate icon for emoji",
+  "description": "Slate icon for link",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest"
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@canner/slate-icon-shared": "^1.0.0",
-    "emoji-mart-picker": "^0.2.1"
+    "@canner/slate-helper-inline-links": "^0.1.2",
+    "@canner/slate-util-have": "^0.1.2"
   }
 }
