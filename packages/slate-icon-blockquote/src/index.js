@@ -1,5 +1,5 @@
 // @flow
-import React, {Component, PropTypes} from 'react';
+import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
 import ToolbarIcon from '@canner/slate-icon-shared';
 import blockquote, {DEFAULT} from '@canner/slate-helper-block-quote';
@@ -9,7 +9,7 @@ const {isSelectionInBlockquote} = EditBlockquote(DEFAULT).utils;
 
 type Props = IconProps;
 
-export default class Blockquote extends Component<Props> {
+export default class Blockquote extends React.Component<Props> {
   typeName: string
 
   constructor(props: Props) {

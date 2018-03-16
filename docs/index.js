@@ -5,6 +5,7 @@ import {Editor} from 'slate-react';
 import {Value} from 'slate';
 import renderNodesFn from 'packages/slate-icon-rendernodes';
 import {AlignCenter, AlignLeft, AlignRight} from 'packages/slate-icon-align';
+import Blockquote from 'packages/slate-icon-blockquote';
 import EditList from 'slate-edit-list';
 import EditBlockquote from 'slate-edit-blockquote';
 import TrailingBlock from 'slate-trailing-block';
@@ -40,7 +41,8 @@ const initialValue = Value.fromJSON({
 const icons = [
   AlignCenter,
   AlignLeft,
-  AlignRight
+  AlignRight,
+  Blockquote
 ];
 
 // const LIST_DEFAULT = {
@@ -120,7 +122,7 @@ class App extends React.Component {
           <Editor
             value={value}
             onChange={onChange}
-            renderNode={commonNode('p')}
+            renderNode={renderNode}
           />
         </div>
       </div>
@@ -129,18 +131,13 @@ class App extends React.Component {
 }
 
 function renderNode(props) {
-  const { node, attributes, children } = props
-  console.log(props)
-  switch (node.type) {
+  switch (props.node.type) {
     case 'paragraph':
-      console.log('paragraph')
-      return commonNode('p');
-    case 'quote':
-      return <blockquote {...attributes}>{children}</blockquote>
-    case 'image': {
-      const src = node.data.get('src')
-      return <img {...attributes} src={src} />
-    }
+      return commonNode('p')(props);
+    case 'blockquote':
+      return commonNode('blockquote')(props)
+    default:
+      return commonNode('p')(props);
   }
 }
 

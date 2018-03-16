@@ -87,7 +87,7 @@ export default class ToolbarIcon extends React.Component<Props> {
       <span
         key={type}
         onClick={onClick}
-        onMouseDown={arg => arg}
+        onMouseDown={e => e.preventDefault()}
         data-active={isActive || false}>
         {fontElement}
       </span>
