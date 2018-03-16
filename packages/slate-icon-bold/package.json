@@ -1,7 +1,7 @@
 {
-  "name": "@canner/slate-icon-emoji",
+  "name": "@canner/slate-icon-bold",
   "version": "1.0.0",
-  "description": "Slate icon for emoji",
+  "description": "A slate icon for bold",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest"
@@ -17,13 +17,7 @@
     "react": "^0.14.0 || ^15.0.0 || 16.x",
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
-    }
-  },
   "dependencies": {
-    "@canner/slate-icon-shared": "^1.0.0",
-    "emoji-mart-picker": "^0.2.2"
+    "@canner/slate-icon-shared": "^1.0.0"
   }
 }

@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import {type Change} from 'slate';
+import basicMarkDecoration from './basicMarkDecoration';
 import QuillIcons from 'quill-icons';
 
 type Props = {
@@ -27,6 +28,8 @@ type Props = {
   isActive?: bool,
   change: Change
 }
+
+export const basicMarkDecorator = basicMarkDecoration;
 
 export default class ToolbarIcon extends React.Component<Props> {
   render() {

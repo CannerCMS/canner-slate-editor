@@ -768,9 +768,9 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
 
-emoji-mart-picker@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/emoji-mart-picker/-/emoji-mart-picker-0.2.1.tgz#7a0ac183af0b4417fc02756dc52e74655bb02618"
+emoji-mart-picker@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/emoji-mart-picker/-/emoji-mart-picker-0.2.2.tgz#d3482a4ebccd734fdc4154d88c271f0b1704bea2"
   dependencies:
     emoji-mart "^2.5.0"
     rc-trigger "^2.3.4"
