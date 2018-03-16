@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create a Underline icon 1`] = `
+<span
+  data-active={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+>
+  <svg
+    className={undefined}
+    colorLabelClassName={undefined}
+    colorStyle={undefined}
+    evenClassName={undefined}
+    height="18px"
+    strokeMitterClassName={undefined}
+    thinClassName={undefined}
+    transparentClassName={undefined}
+    viewBox="0 0 18 18"
+    width="18px"
+  >
+    <path
+      className="ql-stroke"
+      d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"
+    />
+    <rect
+      className="ql-fill"
+      height="1"
+      rx="0.5"
+      ry="0.5"
+      width="12"
+      x="3"
+      y="15"
+    />
+  </svg>
+</span>
+`;

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import basicMarkDecoration from './basicMarkDecoration';
-import ToolbarIcon from '../toolbarIcon';
+import ToolbarIcon, {basicMarkDecorator} from '@canner/slate-icon-shared';
 
-@basicMarkDecoration('underline', 'Underline')
+@basicMarkDecorator('underline', 'Underline')
 export default class Underline extends Component {
   render() {
     return (

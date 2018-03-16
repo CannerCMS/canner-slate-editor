@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import basicMarkDecoration from './basicMarkDecoration';
-import ToolbarIcon from '../toolbarIcon';
+import ToolbarIcon, {basicMarkDecorator} from '@canner/slate-icon-shared';
 
-@basicMarkDecoration('code', 'Code')
+@basicMarkDecorator('code', 'Code')
 export default class Code extends Component {
   render() {
     return (

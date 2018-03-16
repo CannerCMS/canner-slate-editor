@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import basicMarkDecoration from './basicMarkDecoration';
-import ToolbarIcon from '../toolbarIcon';
+import ToolbarIcon, {basicMarkDecorator} from '@canner/slate-icon-shared';
 
-@basicMarkDecoration('italic', 'Italic')
+@basicMarkDecorator('italic', 'Italic')
 export default class Italic extends Component {
   render() {
     return (

@@ -1,0 +1,23 @@
+{
+  "name": "@canner/slate-icon-code",
+  "version": "1.0.0",
+  "description": "A slate icon for code",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^22.4.2",
+    "react-test-renderer": "^16.2.0",
+    "slate": "^0.33.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || 16.x",
+    "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
+  },
+  "dependencies": {
+    "@canner/slate-icon-shared": "^1.0.0"
+  }
+}
