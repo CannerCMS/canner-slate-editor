@@ -1,148 +1,93 @@
 # slate-editor-icons [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> icons ([quill-icons](https://github.com/Canner/quill-icons)) for slate editors
-
-## Installation
-
-```sh
-$ npm install --save slate-editor-icons
-```
-
-## Icons support
-
-#### Blocks
-
-- Icons.blocks.Blockquote (blockquote)
-  - icon: `Blockquote`
-  - default slate type: `blockquote`
-- Icons.blocks.Heading (heading, \<h1/\>, \<h2/\> ..., this is a dropdown menu)
-  - icon: `Header`
-  - default slate type: h1 - `heading1`, h2 - `heading2`, h3 - `heading3`, h4 - `heading4`.
-- Icons.blocks.OlList (\<ol/\> list)
-  - icon: `ListOrdered`
-  - default slate type: `list-ol`
-- Icons.blocks.UlList (\<ul/\> list)
-  - icon: `ListBullet`
-  - default slate type: `list-ul`
-
-#### Inlines
-
-- Icons.inlines.Link (link \<a/\>)
-  - icon: `Link`
-  - default slate type: `link`
-
-#### Marks
-
-- Icons.marks.Bold (\<b/\>)
-  - icon: `Bold`
-  - default slate type: `bold`
-- Icons.marks.Code (\<code/\>)
-  - icon: `Code`
-  - default slate type: `code`
-- Icons.marks.Italic (\<i/\>)
-  - icon: `Italic`
-  - default slate type: `italic`
-- Icons.marks.StrikeThrough (\<s/\>)
-  - icon: `Strike`
-  - default slate type: `strikethrough`
-- Icons.marks.Underline (\<u/\>)
-  - icon: `Underline`
-  - default slate type: `underline`
-
+> Shared icon and render functions for slate editors, icons is extracted from [Quill editor](https://quilljs.com/) (see [quill-icons](https://github.com/Canner/quill-icons) for more information)
 
 ## Usage
 
-Every icons in [Icons support](#icons-support) are React element, you can use it any where you like in your React component as below.
+This project is maintain in a monorepo, see packages in `packages` folder
 
+## Icon packages
+
+### @canner/slate-icon-align
+
+Export components:
+
+- AlignCenter
+- AlignLeft
+- AlignRight
 
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Editor, Raw} from 'slate';
-import Icons from 'slate-editor-icons';
-
-const initialState = Raw.deserialize({
-  nodes: [
-    {
-      kind: 'block',
-      type: 'paragraph',
-      nodes: [
-        {
-          kind: 'text',
-          text: 'A line of text in a paragraph.'
-        }
-      ]
-    }
-  ]
-}, {terse: true});
-
-const icons = [
-  // load marks icons
-  Icons.marks.Bold,
-  Icons.marks.Italic,
-  Icons.marks.Underline,
-  Icons.marks.Code,
-  Icons.marks.StrikeThrough,
-  // load inlines icons
-  Icons.inlines.Link,
-  // load blocks icons
-  Icons.blocks.Heading,
-  Icons.blocks.Blockquote,
-  Icons.blocks.OlList,
-  Icons.blocks.UlList
-];
-
-class App extends React.Component {
-  // Set the initial state when the app is first constructed.
-  state = {
-    state: initialState
-  }
-
-  render() {
-    const {state} = this.state;
-    const onChange = state => this.setState({state});
-
-    return (
-      <div style={{margin: '50px'}}>
-        {icons.map((Type, i) => {
-          return React.createElement(Type, {
-            key: i,
-            state: state,
-            onChange: onChange
-          });
-        })}
-        <Editor
-          state={state}
-          onChange={onChange}
-        />
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(
-  <App/>
-, document.getElementById('root'));
-
+import {AlignCenter, AlignLeft, AlignRight} from '@canner/slate-icon-align';
 ```
 
-example: https://github.com/Canner/slate-editor-icons/blob/master/docs/index.js
+### @canner/slate-icon-blockquote
 
-## Props
+```js
+import Blockquote from 'packages/slate-icon-blockquote';
+```
+
+### @canner/slate-icon-bold
+
+### @canner/slate-icon-clean
+
+### @canner/slate-icon-code
+
+### @canner/slate-icon-emoji
+
+### @canner/slate-icon-fontBgColor
+
+### @canner/slate-icon-fontColor
+
+### @canner/slate-icon-header
+
+Export components: 
+  - Header1
+  - Header2
+
+### @canner/slate-icon-image
+
+### @canner/slate-icon-indent
+
+Export components:
+  - Indent
+  - Outdent
+
+### @canner/slate-icon-italic
+
+### @canner/slate-icon-link
+
+### @canner/slate-icon-list
+
+### @canner/slate-icon-strikethrough
+
+### @canner/slate-icon-underline
+
+### @canner/slate-icon-undo
+
+### @canner/slate-icon-video
+
+### @canner/slate-icon-rendernodes
+
+## Usage
+
+Install icons you want to support in your project, and pass slate editor `Change` and `onChange` function into the component. When users click these icons it will apply changes the called onChange function to update new change to slate editor.
+
+You will need to pass customized icon classname props to your components ([supported classes](https://github.com/Canner/quill-icons#props)), you could look at the example [to setup your icon's styles](https://github.com/Canner/slate-editor-icons/blob/master/docs/style.css) 
+
+
+The best explanation is a simple example: https://github.com/Canner/slate-editor-icons/blob/master/docs/index.js
+
+## Icon Props
 
 | **props** | **type** | **required** | **default** | **description**  |
 |-----------|----------|--------------|-------------|------------------|
-| state     | object   | true        | null          | slate state |
-| onChange  | func   | true         | null         | onChange function usually `state => this.setState({state})` to update slate state  |
-| icon         | string   | false  | every items have it's own icon see [icons support](#icons-support)       | the icon  |
-type        | string   | false       | every items have it's own type see [icons support](#icons-support)       | slate block, inline, mark type.
-
-
+| change     | object   | true        | null          | changes to value |
+| onChange  | func   | true         | null         | onChange function usually `change => this.setState({value})` to update slate state  |
 
 
 ## Start example server
 
 ```
-node devServer.js
+node start
 ```
 
 ## Maintainer
