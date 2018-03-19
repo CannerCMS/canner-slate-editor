@@ -7,7 +7,8 @@
     "test": "jest"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prepublish": "../../node_modules/.bin/babel src -d lib --copy-files"
   },
   "author": "",
   "license": "MIT",
