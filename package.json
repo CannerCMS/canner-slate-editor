@@ -75,15 +75,13 @@
     "build:watch": "lerna exec --parallel -- babel src -d lib --copy-files -w",
     "test": "lerna exec --parallel -- npm test",
     "lint:src": "prettier --write ./packages/*/src/**/*.js && eslint ./packages/*/src/**/*.js",
-    "lint:test": "prettier --write ./packages/*/test/**/*.js && eslint ./packages/*/__tests__/**/*.js",
     "start": "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --mode development",
     "build:docs": "./node_modules/.bin/webpack --config webpack.config.prod.js --mode production",
     "lint": "eslint .",
     "validate": "npm ls"
   },
   "pre-commit": [
-    "lint:src",
-    "list:test"
+    "lint:src"
   ],
   "repository": "Canner/slate-editor-icons",
   "license": "MIT"
