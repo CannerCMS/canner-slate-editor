@@ -26,7 +26,8 @@ type Props = {
   icon: string,
   onClick?: (e: Event) => void,
   isActive?: bool,
-  change: Change
+  change: Change,
+  onChange: (change: Change) => void
 }
 
 export const basicMarkDecorator = basicMarkDecoration;
@@ -55,8 +56,7 @@ export default class ToolbarIcon extends React.Component<Props> {
       thinClassName,
       className,
       colorStyle,
-      change, // eslint-disable-line no-unused-vars
-      ...rest
+      onChange
     } = this.props;
 
     const iconClassName = isActive ? activeClassName : className;
@@ -70,7 +70,8 @@ export default class ToolbarIcon extends React.Component<Props> {
 
     const fontElement = React.createElement(
       QuillIcons[icon],
-      Object.assign({...rest}, {
+      Object.assign({
+        onChange: onChange,
         colorStyle: colorStyle,
         className: iconClassName,
         strokeClassName: iconStrokeClassName,

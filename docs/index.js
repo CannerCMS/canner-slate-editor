@@ -6,15 +6,20 @@ import {Value} from 'slate';
 import renderNodesFn from 'packages/slate-icon-rendernodes';
 import {AlignCenter, AlignLeft, AlignRight} from 'packages/slate-icon-align';
 import Blockquote from 'packages/slate-icon-blockquote';
-import EditList from 'slate-edit-list';
-import EditBlockquote from 'slate-edit-blockquote';
-import TrailingBlock from 'slate-trailing-block';
+import Bold from 'packages/slate-icon-bold';
+import Clean from 'packages/slate-icon-clean';
+import Code from 'packages/slate-icon-code';
+import Emoji from 'packages/slate-icon-emoji';
+import FontBgColor from 'packages/slate-icon-fontBgColor';
+import FontColor from 'packages/slate-icon-fontColor';
 
 import "./style.css";
 import "./github-markdown.css";
 
 const {
-  commonNode
+  commonNode,
+  commonMark,
+  emojiNode
 } = renderNodesFn;
 
 const initialValue = Value.fromJSON({
@@ -42,7 +47,13 @@ const icons = [
   AlignCenter,
   AlignLeft,
   AlignRight,
-  Blockquote
+  Blockquote,
+  Bold,
+  Clean,
+  Code,
+  Emoji,
+  FontBgColor,
+  FontColor
 ];
 
 // const LIST_DEFAULT = {
@@ -123,10 +134,24 @@ class App extends React.Component {
             value={value}
             onChange={onChange}
             renderNode={renderNode}
+            renderMark={renderMark}
           />
         </div>
       </div>
     );
+  }
+}
+
+function renderMark(props) {
+  switch (props.mark.type) {
+    case 'bold':
+      return commonMark('strong')(props);
+    case 'code':
+      return commonMark('code')(props);
+    case 'fontBgColor':
+      return commonMark('span', 'fontBgColor')(props);
+    case 'fontColor':
+      return commonMark('span', 'fontColor')(props);
   }
 }
 
@@ -135,9 +160,9 @@ function renderNode(props) {
     case 'paragraph':
       return commonNode('p')(props);
     case 'blockquote':
-      return commonNode('blockquote')(props)
-    default:
-      return commonNode('p')(props);
+      return commonNode('blockquote')(props);
+    case 'emoji':
+      return emojiNode()(props);
   }
 }
 

@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "@canner/slate-icon-shared": "^1.0.0",
-    "emoji-mart-picker": "^0.2.2"
+    "emoji-mart-picker": "^0.2.3"
   }
 }

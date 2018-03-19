@@ -8,6 +8,8 @@ import {getMarkType} from '@canner/slate-util-get';
 import ColorPicker from 'rc-color-picker';
 import hexRgb from 'hex-rgb';
 
+import 'rc-color-picker/assets/index.css';
+
 export default class fontColor extends React.Component<IconProps> {
   typeName: string
   constructor(props) {
@@ -19,7 +21,7 @@ export default class fontColor extends React.Component<IconProps> {
     let {change, onChange} = this.props;
 
     // $FlowFixMe
-    color.rgba = `rgba(${hexRgb(color.color).join(',')}, ${color.alpha / 100})`;
+    color.rgba = `rgba(${hexRgb(color.color, {format: 'array'}).join(',')}, ${color.alpha / 100})`;
     this.setState({color});
     onChange(addMarkOverwrite(change, {type: this.typeName, data: color}));
   }
@@ -41,7 +43,7 @@ export default class fontColor extends React.Component<IconProps> {
     }
 
     return (
-      <ColorPicker color="#000" onChange={this.onChange}>
+      <ColorPicker onChange={this.onChange}>
         <ToolbarIcon
           colorStyle={colorStyle}
           type={this.typeName}

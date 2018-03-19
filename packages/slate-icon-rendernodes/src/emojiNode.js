@@ -6,12 +6,12 @@ import {Emoji} from 'emoji-mart';
 export default function() {
   const EmojiComponent = ({attributes, node}: nodeProps) => {
     return (
-      <div
+      <span
         {...attributes}
         style={{display: 'inline-block'}}
         data-slate-type="emoji">
-        <Emoji emoji={node.data.get('emojiData')} size={18}/>
-      </div>
+        <Emoji emoji={node.data.get('emoji')} size={18}/>
+      </span>
     );
   };
 

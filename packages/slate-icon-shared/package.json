@@ -21,7 +21,7 @@
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
   "dependencies": {
-    "quill-icons": "^0.4.0",
+    "quill-icons": "^0.5.3",
     "@canner/slate-util-have": "^0.1.2"
   }
 }

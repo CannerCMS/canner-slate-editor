@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
-import {removeMarkAll} from '@canner/slate-helper-mark-removeall';
+import removeMarkAll from '@canner/slate-helper-mark-removeall';
 import ToolbarIcon from '@canner/slate-icon-shared';
 
 export default class Clean extends React.Component<IconProps> {

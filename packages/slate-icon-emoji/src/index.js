@@ -20,6 +20,8 @@ export default class Emoji extends React.Component<IconProps> {
           isVoid: true,
           data: {emoji}
         })
+        .collapseToStartOfNextText()
+        .focus()
     );
   }
 
