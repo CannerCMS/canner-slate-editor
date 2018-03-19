@@ -1,5 +1,6 @@
-# slate-editor-icons [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Shared icon and render functions for slate editors, icons is extracted from [Quill editor](https://quilljs.com/) (see [quill-icons](https://github.com/Canner/quill-icons) for more information)
+# slate-editor-icons
+
+> Shared icons and render functions for slate editors, icons is extracted from [Quill editor](https://quilljs.com/) (see [quill-icons](https://github.com/Canner/quill-icons) for more information)
 
 ## Usage
 
@@ -87,7 +88,7 @@ The best explanation is a simple example: https://github.com/Canner/slate-editor
 ## Start example server
 
 ```
-node start
+npm start
 ```
 
 ## Maintainer
@@ -97,11 +98,3 @@ node start
 ## License
 
 MIT © [Canner](https://github.com/Canner)
-
-
-[npm-image]: https://badge.fury.io/js/slate-editor-icons.svg
-[npm-url]: https://npmjs.org/package/slate-editor-icons
-[travis-image]: https://travis-ci.org/Canner/slate-editor-icons.svg?branch=master
-[travis-url]: https://travis-ci.org/Canner/slate-editor-icons
-[daviddm-image]: https://david-dm.org/Canner/slate-editor-icons.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/Canner/slate-editor-icons

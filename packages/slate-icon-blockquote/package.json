@@ -17,6 +17,9 @@
     "react": "^0.14.0 || ^15.0.0 || 16.x",
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@canner/slate-icon-shared": "^1.0.0",
     "@canner/slate-helper-block-quote": "^0.1.2",
