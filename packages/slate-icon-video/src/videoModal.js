@@ -113,7 +113,7 @@ export default class VideoModal extends React.Component<Props> {
       >
         <Form horizontal="true">
           <FormItem
-            label="Enter the video URL of the link <br/>(support Vimeo, Youtube, Dailymotion, Youku):"
+            label="Enter the video URL of the link (support Vimeo, Youtube, Dailymotion, Youku):"
             hasFeedback
           >
             {getFieldDecorator('href', {
