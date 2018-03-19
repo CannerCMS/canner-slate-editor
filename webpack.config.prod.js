@@ -12,7 +12,11 @@ module.exports = {
     'react-dom': "ReactDOM"
   },
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js'],
+    alias: {
+      packages: path.resolve(__dirname, "./packages"),
+      'styled-components': path.resolve(__dirname, 'node_modules', 'styled-components'),
+    }
   },
   resolveLoader: {
     moduleExtensions: ["-loader"]

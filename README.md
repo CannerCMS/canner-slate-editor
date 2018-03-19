@@ -1,6 +1,6 @@
 # slate-editor-icons
 
-> Shared icons and render functions for slate editors, icons is extracted from [Quill editor](https://quilljs.com/) (see [quill-icons](https://github.com/Canner/quill-icons) for more information)
+> Shared icons and render functions for slate editors, icons are extracted from [Quill editor](https://quilljs.com/) (see [quill-icons](https://github.com/Canner/quill-icons) for more information)
 
 ## Usage
 
