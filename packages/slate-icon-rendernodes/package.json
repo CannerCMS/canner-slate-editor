@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-rendernodes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A slate icon for renderNodes",
   "main": "lib/index.js",
   "scripts": {
@@ -22,10 +22,10 @@
     "styled-components": "^3.2.1"
   },
   "dependencies": {
+    "@canner/slate-helper-block-adddata": "^0.1.2",
+    "@canner/slate-icon-video": "^1.0.1",
     "emoji-mart": "^2.5.0",
     "react-icons": "^2.2.7",
-    "react-resizable": "^1.7.5",
-    "@canner/slate-helper-block-adddata": "^0.1.2",
-    "@canner/slate-icon-video": "^1.0.0"
+    "react-resizable": "^1.7.5"
   }
 }

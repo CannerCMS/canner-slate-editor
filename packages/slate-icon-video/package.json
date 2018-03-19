@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-video",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Slate icon for video",
   "main": "lib/index.js",
   "scripts": {
@@ -17,9 +17,9 @@
     "slate": "^0.33.0"
   },
   "peerDependencies": {
+    "antd": ">=3.2.0",
     "react": "^0.14.0 || ^15.0.0 || 16.x",
-    "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
-    "antd": ">=3.2.0"
+    "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
   "jest": {
     "moduleNameMapper": {
@@ -27,8 +27,8 @@
     }
   },
   "dependencies": {
-    "@canner/slate-icon-shared": "^1.0.0",
     "@canner/image-upload": "^0.10.0",
+    "@canner/slate-icon-shared": "^1.0.1",
     "js-video-url-parser": "^0.2.7"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-blockquote",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A slate icon for blockquote",
   "main": "lib/index.js",
   "scripts": {
@@ -21,8 +21,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@canner/slate-icon-shared": "^1.0.0",
     "@canner/slate-helper-block-quote": "^0.1.2",
+    "@canner/slate-icon-shared": "^1.0.1",
     "slate-edit-blockquote": "0.5.0"
   }
 }
