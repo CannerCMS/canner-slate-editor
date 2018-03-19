@@ -4,11 +4,11 @@ import type {Change} from 'slate';
 import type {nodeProps} from './type';
 import blockAddData from '@canner/slate-helper-block-adddata';
 
-import {Resizable} from 'react-resizable';
+import {ResizableBox} from 'react-resizable';
 import FaArrowUp from 'react-icons/lib/fa/arrow-up';
 import FaArrowDown from 'react-icons/lib/fa/arrow-down';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
-import {ImageNodeInActive, ImageNodeActive} from './imageNodeComponents/imageComponents';
+import {ImageNodeInActive, ImageNodeActive, ImageContiner} from './imageNodeComponents/imageComponents';
 
 import 'react-resizable/css/styles.css';
 
@@ -33,7 +33,7 @@ class ImageNode extends React.Component<Props> {
   constructor(props) {
     super(props);
 
-    this.onResizeEnd = this.onResizeEnd.bind(this);
+    this.onResizeStop = this.onResizeStop.bind(this);
     this.onResize = this.onResize.bind(this);
     this.moveUp = this.moveUp.bind(this);
     this.moveDown = this.moveDown.bind(this);
@@ -45,10 +45,12 @@ class ImageNode extends React.Component<Props> {
     };
   }
 
-  onResizeEnd(e, data) {
-    const {onChange} = this.props.editor;
-    const {width, height} = data.size;
-    onChange(blockAddData(this.props.state, {
+  onResizeStop(e, data) {
+    const {onChange, state} = this.props.editor;
+    const {value} = state;
+    const {width, height} = data.size
+
+    onChange(blockAddData(value.change(), {
       data: {width, height}
     }));
   }
@@ -62,97 +64,89 @@ class ImageNode extends React.Component<Props> {
   }
 
   moveUp() {
-    const {state, node, editor} = this.props;
-    const {document} = state;
-    const parent = document.getParent(node);
+    const {node, editor, parent} = this.props;
+    const {value} = editor.state;
     const index = parent.nodes.indexOf(node) - 1;
-    let newState = state
-      .transform()
-      .moveNodeByKey(node, parent, index === -1 ? 0 : index)
-      .apply();
-    editor.onChange(newState);
+    let newChange = value.change()
+      .moveNodeByKey(node.key, parent.key, index === -1 ? 0 : index);
+
+    editor.onChange(newChange);
   }
 
   moveDown() {
-    const {state, node, editor} = this.props;
-    const {document} = state;
-    const parent = document.getParent(node);
+    const {node, editor, parent} = this.props;
+    const {value} = editor.state;
     const index = parent.nodes.indexOf(node) + 1;
-    let newState = state
-      .transform()
-      .moveNodeByKey(node, parent, index > parent.nodes.count() ? parent.nodes.count() : index) // eslint-disable-line max-len
-      .apply();
-    editor.onChange(newState);
+    let newChange = value.change()
+      .moveNodeByKey(node.key, parent.key, index > parent.nodes.count() ? parent.nodes.count() : index)
+
+    editor.onChange(newChange);
   }
 
   remove() {
-    const {state, node, editor} = this.props;
-    const newState = state.transform()
-      .unsetSelection()
-      .removeNodeByKey(node.key)
-      .apply();
+    const {editor, node} = this.props;
+    const {value} = editor.state;
+    const newChange = value.change()
+      .deselect()
+      .removeNodeByKey(node.key);
 
-    editor.onChange(newState);
+    editor.onChange(newChange);
   }
 
   render() {
-    const {node, change, attributes, children, readOnly} = this.props;
+    const {node, attributes, children, readOnly, isSelected} = this.props;
     const align = node.data.get('align');
     const indent = node.data.get('indent');
     const src = node.data.get('src');
-    const width = this.change.width || node.data.get('width');
-    const height = this.change.height || node.data.get('height');
-    const isFocused = change.selection.hasEdgeIn(node);
+    const width = this.state.width || node.data.get('width');
+    const height = this.state.height || node.data.get('height');
 
     if (readOnly) {
       // if editor is readOnly
       return (
-        <div style={{
-          textAlign: align,
-          paddingLeft: `${3 * indent}em`
-        }} data-slate-type="image">
+        <ImageContiner
+          align={align}
+          data-slate-type="image">
           <ImageNodeInActive
-            style={{
-              width,
-              height
-            }}>
+            width={width}
+            height={height}
+            indent={indent}>
             <img
               {...attributes}
               src={src}/>
             {children}
           </ImageNodeInActive>
-        </div>
+        </ImageContiner>
       );
     }
 
     return (
-      <div style={{
-        textAlign: align,
-        paddingLeft: `${3 * indent}em`
-      }} data-slate-type="image">
-        <Resizable
+      <ImageContiner
+        align={align}
+        data-slate-type="image">
+        <ResizableBox
           lockAspectRatio
           minConstraints={[200, 200]}
           maxConstraints={[700, 700]}
           onResize={this.onResize}
-          onResizeEnd={this.onResizeEnd}
-          width={width}
-          height={height}>
-          {isFocused ? (
+          onResizeStop={this.onResizeStop}
+          width={width + 20}
+          height={height + 20}>
+          {isSelected ? (
             <ImageNodeActive
-              style={{
-                width,
-                height
-              }}>
+              width={width}
+              height={height}
+              align={align}
+              indent={indent}>
               <div className="overlay"/>
-              <div className="imageToolbar">
-                <div className="imageToolbarItem">
+              <div className="toolbar">
+                <div className="toolbarItem">
                   <FaArrowUp onClick={this.moveUp}/>
                 </div>
-                <div className="imageToolbarItem">
+                <div className="toolbarItem">
                   <FaArrowDown onClick={this.moveDown}/>
                 </div>
-                <div className="imageToolbarItem">
+                <div className="toolbarItem">
                   <FaTrashO onClick={this.remove}/>
                 </div>
               </div>
@@ -163,10 +157,10 @@ class ImageNode extends React.Component<Props> {
             </ImageNodeActive>
           ) : (
             <ImageNodeInActive
-              style={{
-                width,
-                height
-              }}>
+              width={width}
+              height={height}
+              align={align}
+              indent={indent}>
               <div className="overlay"/>
               <img
                 {...attributes}
@@ -174,8 +168,8 @@ class ImageNode extends React.Component<Props> {
               {children}
             </ImageNodeInActive>
           )}
-        </Resizable>
-      </div>
+        </ResizableBox>
+      </ImageContiner>
     );
   }
 }

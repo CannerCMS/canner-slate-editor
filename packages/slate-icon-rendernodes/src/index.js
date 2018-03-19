@@ -1,5 +1,5 @@
 import commonNode from './commonNode';
-// import videoNode from './videoNode';
+import videoNode from './videoNode';
 import imageNode from './imageNode';
 import commonMark from './commonMark';
 import emojiNode from './emojiNode';
@@ -7,7 +7,7 @@ import linkNode from './linkNode';
 
 export default {
   commonNode,
-  // videoNode,
+  videoNode,
   imageNode,
   commonMark,
   emojiNode,

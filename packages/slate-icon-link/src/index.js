@@ -107,7 +107,7 @@ export default class Link extends React.Component<Props, State> {
             </Button>
           ]}
         >
-          <Form horizontal>
+          <Form horizontal="true">
             <FormItem
               label="Url"
               hasFeedback

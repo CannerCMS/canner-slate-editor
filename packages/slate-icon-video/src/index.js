@@ -4,6 +4,8 @@ import type {IconProps} from 'shared/src/types';
 import ToolbarIcon from '@canner/slate-icon-shared';
 import VideoModal from './videoModal';
 
+export const VideoModalShared = VideoModal;
+
 export default class Video extends React.Component<IconProps, {isShow: boolean}> {
   typeName: string
   constructor(props: IconProps) {

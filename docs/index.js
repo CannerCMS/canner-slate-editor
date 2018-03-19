@@ -12,6 +12,17 @@ import Code from 'packages/slate-icon-code';
 import Emoji from 'packages/slate-icon-emoji';
 import FontBgColor from 'packages/slate-icon-fontBgColor';
 import FontColor from 'packages/slate-icon-fontColor';
+import {Header1, Header2} from 'packages/slate-icon-header';
+import Image from 'packages/slate-icon-image';
+import {Indent, Outdent} from 'packages/slate-icon-indent';
+import Italic from 'packages/slate-icon-italic';
+import Link from 'packages/slate-icon-link';
+import {OlList, UlList} from 'packages/slate-icon-list';
+import StrikeThrough from 'packages/slate-icon-strikethrough';
+import Underline from 'packages/slate-icon-underline';
+import Undo from 'packages/slate-icon-undo';
+import Video from 'packages/slate-icon-video';
+
 
 import "./style.css";
 import "./github-markdown.css";
@@ -19,7 +30,10 @@ import "./github-markdown.css";
 const {
   commonNode,
   commonMark,
-  emojiNode
+  emojiNode,
+  imageNode,
+  linkNode,
+  videoNode
 } = renderNodesFn;
 
 const initialValue = Value.fromJSON({
@@ -53,55 +67,22 @@ const icons = [
   Code,
   Emoji,
   FontBgColor,
-  FontColor
+  FontColor,
+  Header1,
+  Header2,
+  Image,
+  Indent,
+  Outdent,
+  Italic,
+  Link,
+  OlList,
+  UlList,
+  StrikeThrough,
+  Underline,
+  Undo,
+  Video
 ];
 
-// const LIST_DEFAULT = {
-//   typeUL: 'list-ul',
-//   typeOL: 'list-ol',
-//   typeItem: 'list-item',
-//   typeDefault: 'paragraph',
-//   ordered: true
-// };
-
-// const BLOCKQUOTE_DEFAULT = {
-//   type: 'blockquote',
-//   typeDefault: 'paragraph'
-// };
-
-// const schema = {
-//   nodes: {
-//     'blockquote': commonNode('blockquote'),
-//     'list-ul': commonNode('ul'),
-//     'list-ol': commonNode('ol'),
-//     'list-item': commonNode('li'),
-//     'heading1': commonNode('h1'),
-//     'heading2': commonNode('h2'),
-//     'heading3': commonNode('h3'),
-//     'heading4': commonNode('h4'),
-//     'heading5': commonNode('h5'),
-//     'heading6': commonNode('h6'),
-//     'paragraph': commonNode('p'),
-//     'youtube': videoNode('youtube'),
-//     'dailymotion': videoNode('dailymotion'),
-//     'vimeo': videoNode('vimeo'),
-//     'youku': videoNode('youku'),
-//     'image': imageNode(),
-//     'link': linkNode(),
-//     'emoji': emojiNode()
-//   },
-//   marks: {
-//     bold: commonMark('strong'),
-//     code: commonMark('code'),
-//     italic: commonMark('em'),
-//     underline: commonMark('u'),
-//     fontColor: commonMark('span', 'fontColor'),
-//     fontBgColor: commonMark('span', 'fontBgColor'),
-//     strikethrough: commonMark('s')
-//   }
-// };
-
-/* eslint-enable */
 class App extends React.Component {
   // Set the initial state when the app is first constructed.
   state = {
@@ -152,6 +133,12 @@ function renderMark(props) {
       return commonMark('span', 'fontBgColor')(props);
     case 'fontColor':
       return commonMark('span', 'fontColor')(props);
+    case 'italic':
+      return commonMark('i')(props);
+    case 'strikethrough':
+      return commonMark('s')(props);
+    case 'underline':
+      return commonMark('u')(props);
   }
 }
 
@@ -163,6 +150,28 @@ function renderNode(props) {
       return commonNode('blockquote')(props);
     case 'emoji':
       return emojiNode()(props);
+    case 'heading1':
+      return commonNode('h1')(props);
+    case 'heading2':
+      return commonNode('h2')(props);
+    case 'list-ul':
+      return commonNode('ul')(props);
+    case 'list-ol':
+      return commonNode('ol')(props);
+    case 'list-item':
+      return commonNode('li')(props);
+    case 'image':
+      return imageNode()(props);
+    case 'link':
+      return linkNode()(props);
+    case 'youtube':
+      return videoNode('youtube')(props);
+    case 'dailymotion':
+      return videoNode('dailymotion')(props);
+    case 'youku':
+      return videoNode('youku')(props);
+    case 'vimeo':
+      return videoNode('vimeo')(props);
   }
 }
 

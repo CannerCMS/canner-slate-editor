@@ -1,7 +1,7 @@
 {
-  "name": "@canner/slate-icon-image",
+  "name": "@canner/slate-icon-video",
   "version": "1.0.0",
-  "description": "Slate icon for image",
+  "description": "Slate icon for video",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest"

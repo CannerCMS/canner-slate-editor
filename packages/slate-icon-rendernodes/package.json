@@ -22,6 +22,7 @@
     "emoji-mart": "^2.5.0",
     "react-icons": "^2.2.7",
     "react-resizable": "^1.7.5",
-    "@canner/slate-helper-block-adddata": "^0.1.2"
+    "@canner/slate-helper-block-adddata": "^0.1.2",
+    "@canner/slate-icon-video": "^1.0.0"
   }
 }

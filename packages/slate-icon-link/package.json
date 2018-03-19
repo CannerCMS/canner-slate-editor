@@ -15,7 +15,8 @@
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || 16.x",
-    "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
+    "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
+    "antd": ">=3.2.0"
   },
   "jest": {
     "moduleNameMapper": {
@@ -24,7 +25,7 @@
   },
   "dependencies": {
     "@canner/slate-icon-shared": "^1.0.0",
-    "@canner/slate-helper-inline-links": "^0.1.2",
+    "@canner/slate-helper-inline-links": "^0.1.3",
     "@canner/slate-util-have": "^0.1.2"
   }
 }

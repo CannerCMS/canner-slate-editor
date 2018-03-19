@@ -1,16 +1,33 @@
 // @flow
 import styled from 'styled-components';
 
+export const ImageContiner = styled.div`
+  display: flex;
+  justify-content: ${props => {
+    if (props.align === 'center')
+      return 'center';
+    else if (props.align === 'right')
+      return 'flex-end';
+    return 'flex-start';
+  }};
+`;
+
 export const ImageNodeShared = styled.div`
+  width: ${props => props.width}px;
+  height: ${props => props.height}px;
+  padding-left: ${props => 3 * (props.indent || 0)}em;
+
   display: inline-block;
   position: relative;
+  margin: 10px;
   
   .overlay {
 		z-index: 10;
 		background-color: rgba(0, 0, 0, 0.5);
 	}
 
-	img,
+  img,
+  iframe,
 	.overlay {
 		position: absolute;
 		width: 100%;
@@ -22,9 +39,10 @@ export const ImageNodeShared = styled.div`
 `;
 
 export const ImageNodeInActive = ImageNodeShared.extend`
+
   border: 2px solid #FFF;
 
-  .imageToolbar {
+  .toolbar {
     display: none;
   }
 `;
@@ -32,14 +50,14 @@ export const ImageNodeInActive = ImageNodeShared.extend`
 export const ImageNodeActive = ImageNodeShared.extend`
   border: 2px solid #ef6942;
 
-  .imageToolbar {
+  .toolbar {
     display: block;
     position: absolute;
     left: 0px;
     top: 0px;
     z-index: 100;
 
-    .imageToolbarItem {
+    .toolbarItem {
       display: inline-block;
       color: #FFF;
       padding: 5px;

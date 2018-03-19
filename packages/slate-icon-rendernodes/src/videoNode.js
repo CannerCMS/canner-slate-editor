@@ -4,15 +4,16 @@ import type {Change} from 'slate';
 import type {nodeProps} from './type';
 import blockAddData from '@canner/slate-helper-block-adddata';
 
-import {Resizable} from 'react-resizable';
+import {ResizableBox} from 'react-resizable';
 import FaArrowUp from 'react-icons/lib/fa/arrow-up';
 import FaArrowDown from 'react-icons/lib/fa/arrow-down';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
 import FaEdit from 'react-icons/lib/fa/edit';
-import VideoModal from './videoModal';
+import {VideoModalShared} from '@canner/slate-icon-video';
+import {ImageNodeInActive, ImageNodeActive, ImageContiner} from './imageNodeComponents/imageComponents';
 
-import styles from './style/videoNode.scss';
-import './style/react-resizable.lib.scss';
+
+import 'react-resizable/css/styles.css';
 
 export default function(type, readOnly) {
   const NodeComponent = ({...props}) => {
@@ -23,12 +24,18 @@ export default function(type, readOnly) {
   return NodeComponent;
 }
 
-class VideoNode extends Component {
+type Props = nodeProps & {
+  change: Change,
+  editor: Object,
+  readOnly: Boolean
+};
+
+class VideoNode extends React.Component<Props> {
 
   constructor(props) {
     super(props);
 
-    this.onResizeEnd = this.onResizeEnd.bind(this);
+    this.onResizeStop = this.onResizeStop.bind(this);
     this.onResize = this.onResize.bind(this);
     this.moveUp = this.moveUp.bind(this);
     this.moveDown = this.moveDown.bind(this);
@@ -43,20 +50,12 @@ class VideoNode extends Component {
     };
   }
 
-  static propTypes = {
-    attributes: PropTypes.object,
-    children: PropTypes.any,
-    node: PropTypes.any,
-    state: PropTypes.object,
-    editor: PropTypes.object,
-    type: PropTypes.string,
-    readOnly: PropTypes.bool
-  };
+  onResizeStop(e, data) {
+    const {onChange, state} = this.props.editor;
+    const {value} = state;
+    const {width, height} = data.size
 
-  onResizeEnd(e, data) {
-    const {onChange} = this.props.editor;
-    const {width, height} = data.size;
-    onChange(blocks.addDataToCurrent(this.props.state, {
+    onChange(blockAddData(value.change(), {
       data: {width, height}
     }));
   }
@@ -70,37 +69,33 @@ class VideoNode extends Component {
   }
 
   moveUp() {
-    const {state, node, editor} = this.props;
-    const {document} = state;
-    const parent = document.getParent(node);
+    const {node, editor, parent} = this.props;
+    const {value} = editor.state;
     const index = parent.nodes.indexOf(node) - 1;
-    let newState = state
-      .transform()
-      .moveNodeByKey(node, parent, index === -1 ? 0 : index)
-      .apply();
-    editor.onChange(newState);
+    let newChange = value.change()
+      .moveNodeByKey(node.key, parent.key, index === -1 ? 0 : index);
+
+    editor.onChange(newChange);
   }
 
   moveDown() {
-    const {state, node, editor} = this.props;
-    const {document} = state;
-    const parent = document.getParent(node);
+    const {node, editor, parent} = this.props;
+    const {value} = editor.state;
     const index = parent.nodes.indexOf(node) + 1;
-    let newState = state
-      .transform()
-      .moveNodeByKey(node, parent, index > parent.nodes.count() ? parent.nodes.count() : index) // eslint-disable-line max-len
-      .apply();
-    editor.onChange(newState);
+    let newChange = value.change()
+      .moveNodeByKey(node.key, parent.key, index > parent.nodes.count() ? parent.nodes.count() : index)
+
+    editor.onChange(newChange);
   }
 
   remove() {
-    const {state, node, editor} = this.props;
-    const newState = state.transform()
-      .unsetSelection()
-      .removeNodeByKey(node.key)
-      .apply();
+    const {editor, node} = this.props;
+    const {value} = editor.state;
+    const newChange = value.change()
+      .deselect()
+      .removeNodeByKey(node.key);
 
-    editor.onChange(newState);
+    editor.onChange(newChange);
   }
 
   edit(e) {
@@ -117,14 +112,13 @@ class VideoNode extends Component {
   }
 
   render() {
-    const {node, state, type, attributes, children, editor, readOnly} = this.props;
+    const {node, type, attributes, children, editor, readOnly, isSelected} = this.props;
     let link;
     const align = node.data.get('align');
     const indent = node.data.get('indent');
     const id = node.data.get('id');
     const width = this.state.width || node.data.get('width') || 560;
     const height = this.state.height || node.data.get('height') || 315;
-    const isFocused = state.selection.hasEdgeIn(node);
 
     if (type === 'youtube') {
       link = `https://www.youtube.com/embed/${id}`;
@@ -137,76 +131,89 @@ class VideoNode extends Component {
     }
 
     if (readOnly) {
+      // if editor is readOnly
       return (
-        <div style={{
-          textAlign: align,
-          paddingLeft: `${3 * indent}em`
-        }} data-slate-type="video">
-          <div
-            className={styles.videoNode}
-            style={{
-              width,
-              height
-            }}>
+        <ImageContiner
+          align={align}
+          data-slate-type="video">
+          <ImageNodeInActive
+            width={width}
+            height={height}
+            indent={indent}>
             <iframe
               {...attributes}
               src={link}/>
             {children}
-          </div>
-        </div>
+            {children}
+          </ImageNodeInActive>
+        </ImageContiner>
       );
     }
 
     return (
-      <div style={{
-        textAlign: align,
-        paddingLeft: `${3 * indent}em`
-      }} data-slate-type="video">
-        <Resizable
+      <ImageContiner
+        align={align}
+        data-slate-type="video">
+        <ResizableBox
           lockAspectRatio
           minConstraints={[256, 182]}
           maxConstraints={[700, 500]}
           onResize={this.onResize}
-          onResizeEnd={this.onResizeEnd}
-          width={width}
-          height={height}>
-          <div
-            className={isFocused ? styles.videoNodeActive : styles.videoNode}
-            style={{
-              width,
-              height
-            }}>
-            <div className={styles.overlay}/>
-            <div className={styles.videoToolbar}>
-              <div className={styles.videoToolbarItem}>
-                <FaArrowUp onClick={this.moveUp}/>
-              </div>
-              <div className={styles.videoToolbarItem}>
-                <FaArrowDown onClick={this.moveDown}/>
-              </div>
-              <div className={styles.videoToolbarItem}>
-                <FaTrashO onClick={this.remove}/>
-              </div>
-              <div className={styles.videoToolbarItem}>
+          onResizeStop={this.onResizeStop}
+          width={width + 20}
+          height={height + 20}>
+          {isSelected ? (
+            <ImageNodeActive
+              width={width}
+              height={height}
+              align={align}
+              indent={indent}>
+              <div className="overlay"/>
+              <div className="toolbar">
+                <div className="toolbarItem">
+                  <FaArrowUp onClick={this.moveUp}/>
+                </div>
+                <div className="toolbarItem">
+                  <FaArrowDown onClick={this.moveDown}/>
+                </div>
+                <div className="toolbarItem">
+                  <FaTrashO onClick={this.remove}/>
+                </div>
+                <div className="toolbarItem">
                 <FaEdit onClick={this.edit}/>
               </div>
-            </div>
+              </div>
+              
+              <iframe
+                {...attributes}
+                src={link}/>
+              {children}
+            </ImageNodeActive>
+          ) : (
+            <ImageNodeInActive
+              width={width}
+              height={height}
+              align={align}
+              indent={indent}>
+              <div className="overlay"/>
+              
             <iframe
               {...attributes}
               src={link}/>
             {children}
-          </div>
-        </Resizable>
-        <VideoModal
+            </ImageNodeInActive>
+          )}
+        </ResizableBox>
+        <VideoModalShared
           onChange={editor.onChange}
-          state={state}
+          change={editor.state.value.change()}
           initialValue={link}
           node={node}
           width={width}
           height={height}
           hideModal={this.hideModal}
           isShow={this.state.isShow}/>
-      </div>
+      </ImageContiner>
     );
   }
 }
