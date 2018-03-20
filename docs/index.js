@@ -23,6 +23,11 @@ import Underline from 'packages/slate-icon-underline';
 import Undo from 'packages/slate-icon-undo';
 import Video from 'packages/slate-icon-video';
 
+import {DEFAULT as DEFAULTLIST} from '@canner/slate-helper-block-list';
+import {DEFAULT as DEFAULTBLOCKQUOTE} from '@canner/slate-helper-block-quote';
+import EditList from 'slate-edit-list';
+import EditBlockquote from 'slate-edit-blockquote';
+
 
 import "./style.css";
 import "./github-markdown.css";
@@ -83,6 +88,11 @@ const icons = [
   Video
 ];
 
+const plugins = [
+  EditList(DEFAULTLIST),
+  EditBlockquote(DEFAULTBLOCKQUOTE)
+];
+
 class App extends React.Component {
   // Set the initial state when the app is first constructed.
   state = {
@@ -114,6 +124,7 @@ class App extends React.Component {
           <Editor
             value={value}
             onChange={onChange}
+            plugins={plugins}
             renderNode={renderNode}
             renderMark={renderMark}
           />
