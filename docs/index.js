@@ -107,17 +107,17 @@ class App extends React.Component {
       <div style={{margin: '50px'}}>
         <div className="toolbar">
           {icons.map((Type, i) => {
-            return React.createElement(Type, {
-              key: i,
-              change: value.change(),
-              onChange: onChange,
-              className: "toolbar-item",
-              activeClassName: "toolbar-item-active",
-              activeStrokeClassName: "ql-stroke-active",
-              activeFillClassName: "ql-fill-active",
-              activeThinClassName: "ql-thin-active",
-              activeEvenClassName: "ql-even-active"
-            });
+            return <Type
+              change={value.change()}
+              onChange={onChange}
+              key={i}
+              className="toolbar-item"
+              activeClassName="toolbar-item-active"
+              activeStrokeClassName="ql-stroke-active"
+              activeFillClassName="ql-fill-active"
+              activeThinClassName="ql-thin-active"
+              activeEvenClassName="ql-even-active"
+            />
           })}
         </div>
         <div className="editor markdown-body">

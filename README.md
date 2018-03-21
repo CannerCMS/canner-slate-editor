@@ -72,9 +72,52 @@ Export components:
 
 ## Usage
 
-Install icons you want to support in your project, and pass slate editor `Change` and `onChange` function into the component. When users click these icons it will apply changes the called onChange function to update new change to slate editor.
+Install icons that you want to support in your slate project, and pass slate editor `change (value.change())` and `onChange` function as props into the component. When users click these icons it will apply changes and trigger onChange function to update new change to your editor.
 
-You will need to pass customized icon classname props to your components ([supported classes](https://github.com/Canner/quill-icons#props)), you could look at the example [to setup your icon's styles](https://github.com/Canner/slate-editor-icons/blob/master/docs/style.css) 
+You will need to pass icon classnames as props into your components ([supported classes](https://github.com/Canner/quill-icons#props)), you could look at the example [how to setup your icon's styles](https://github.com/Canner/slate-editor-icons/blob/master/docs/style.css) 
+
+```js
+class App extends React.Component {
+  // Set the initial state when the app is first constructed.
+  state = {
+    value: initialValue // your slate editor's initial value
+  }
+
+  render() {
+    const {value} = this.state;
+    const onChange = ({value}) => this.setState({value});
+
+    return (
+      <div style={{margin: '50px'}}>
+        <div className="toolbar">
+          {icons.map((Type, i) => {
+            return <Type
+              change={value.change()}
+              onChange={onChange}
+              key={i}
+              className="toolbar-item"
+              activeClassName="toolbar-item-active"
+              activeStrokeClassName="ql-stroke-active"
+              activeFillClassName="ql-fill-active"
+              activeThinClassName="ql-thin-active"
+              activeEvenClassName="ql-even-active"
+            />
+          })}
+        </div>
+        <div className="editor markdown-body">
+          <Editor
+            value={value}
+            onChange={onChange}
+            plugins={plugins}
+            renderNode={renderNode}
+            renderMark={renderMark}
+          />
+        </div>
+      </div>
+    );
+  }
+}
+```
 
 
 The best explanation is a simple example: https://github.com/Canner/slate-editor-icons/blob/master/docs/index.js

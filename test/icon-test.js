@@ -1,0 +1,51 @@
+// @flow
+import React from 'react';
+import fs from 'fs';
+import path from 'path';
+import Slate, {Range} from 'slate';
+import readMetadata from 'read-metadata';
+import {mount, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+
+function deserializeValue(json) {
+  return Slate.Value.fromJSON(
+      json,
+      { normalize: false }
+  );
+}
+
+
+export default function(Icon, expectedPath, done) {
+  const input = readMetadata.sync(path.resolve(__dirname, 'input.yaml'));
+
+  let expected;
+  if (fs.existsSync(expectedPath)) {
+    expected = readMetadata.sync(expectedPath);
+  }
+
+  const valueInput = deserializeValue(input, {terse: true});
+  const {document} = valueInput;
+  const first = document.getFirstText();
+  const range = Range.create({
+    anchorKey: first.key,
+    anchorOffset: 0,
+    focusKey: first.key,
+    focusOffset: 5
+  });
+
+  const nextChange = valueInput.change()
+    .select(range);
+
+  const icon = <Icon
+    change={nextChange}
+    onChange={change => {
+        expect(change.value.toJSON()).toEqual(deserializeValue(expected).toJSON());
+        done();
+      }
+    }
+  />
+
+  mount(icon).find('svg').simulate('click');
+};
