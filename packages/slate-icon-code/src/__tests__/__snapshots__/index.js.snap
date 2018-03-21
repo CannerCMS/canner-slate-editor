@@ -8,13 +8,8 @@ exports[`create a Code icon 1`] = `
 >
   <svg
     className={undefined}
-    colorLabelClassName={undefined}
-    colorStyle={undefined}
-    fillClassName={undefined}
     height="18px"
-    strokeMitterClassName={undefined}
-    thinClassName={undefined}
-    transparentClassName={undefined}
+    onChange={undefined}
     viewBox="0 0 18 18"
     width="18px"
   >
