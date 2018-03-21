@@ -4,7 +4,7 @@
   "description": "Slate icon for indent and outdent",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest src",
     "prepublish": "../../node_modules/.bin/babel src -d lib --copy-files"
   },
   "author": "",
