@@ -1,7 +1,7 @@
 {
-  "name": "@canner/slate-icon-rendernodes",
+  "name": "@canner/slate-icon-renderer",
   "version": "1.0.1",
-  "description": "A slate icon for renderNodes",
+  "description": "Renderers for slate nodes and marks",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest src",

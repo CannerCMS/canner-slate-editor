@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Editor} from 'slate-react';
 import {Value} from 'slate';
-import renderNodesFn from 'packages/slate-icon-rendernodes';
+import rendererFn from 'packages/slate-icon-renderer';
 import {AlignCenter, AlignLeft, AlignRight} from 'packages/slate-icon-align';
 import Blockquote from 'packages/slate-icon-blockquote';
 import Bold from 'packages/slate-icon-bold';
@@ -39,7 +39,7 @@ const {
   imageNode,
   linkNode,
   videoNode
-} = renderNodesFn;
+} = rendererFn;
 
 const initialValue = Value.fromJSON({
   document: {
