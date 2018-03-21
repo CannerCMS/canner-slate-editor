@@ -2,6 +2,11 @@
 
 > Shared icons and render functions for slate editors, icons are extracted from [Quill editor](https://quilljs.com/) (see [quill-icons](https://github.com/Canner/quill-icons) for more information)
 
+Editors that build on top of these icons:
+
+- https://github.com/Canner/slate-toolbar
+- https://github.com/Canner/canner-slate-editor
+
 ![Demo](./docs/editor-icons.gif)
 
 ## Usage
@@ -197,6 +202,10 @@ import Video from '@canner/slate-icon-video';
 ```
 
 ### @canner/slate-icon-renderer
+
+```js
+import renderer from '@canner/slate-icon-renderer';
+```
 
 Renderers that define corresponding nodes and marks while rendering your editor.
 

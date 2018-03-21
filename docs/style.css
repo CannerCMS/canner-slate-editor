@@ -78,6 +78,12 @@ body {
   height: 30px;
 }
 
+.toolbar-select {
+  width: 100px;
+  height: 30px;
+  display: inline-block;
+}
+
 .editor {
   padding: 20px;
   background-color: #FFF;

@@ -23,6 +23,9 @@ import Underline from 'packages/slate-icon-underline';
 import Undo from 'packages/slate-icon-undo';
 import Video from 'packages/slate-icon-video';
 
+// select
+import FontSize from 'packages/slate-select-fontsize';
+
 import {DEFAULT as DEFAULTLIST} from '@canner/slate-helper-block-list';
 import {DEFAULT as DEFAULTBLOCKQUOTE} from '@canner/slate-helper-block-quote';
 import EditList from 'slate-edit-list';
@@ -61,6 +64,10 @@ const initialValue = Value.fromJSON({
     ],
   },
 });
+
+const selectors = [
+  FontSize
+]
 
 const icons = [
   AlignCenter,
@@ -106,6 +113,14 @@ class App extends React.Component {
     return (
       <div style={{margin: '50px'}}>
         <div className="toolbar">
+          {selectors.map((Type, i) => {
+            return <Type
+              change={value.change()}
+              onChange={onChange}
+              key={i}
+              className="toolbar-select"
+            />
+          })}
           {icons.map((Type, i) => {
             return <Type
               change={value.change()}
@@ -144,6 +159,8 @@ function renderMark(props) {
       return commonMark('span', 'fontBgColor')(props);
     case 'fontColor':
       return commonMark('span', 'fontColor')(props);
+    case 'fontSize':
+      return commonMark('span', 'fontSize')(props);
     case 'italic':
       return commonMark('i')(props);
     case 'strikethrough':
