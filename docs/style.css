@@ -46,9 +46,11 @@ body {
   fill: #FFF;
 }
 
-.ql-color-label {
-  /* fill: red; */
-}
+/*
+  .ql-color-label {
+    fill: red;
+  }
+*/
 
 .ql-transparent {
   opacity: 0.2;
@@ -79,7 +81,7 @@ body {
 }
 
 .toolbar-select {
-  width: 100px;
+  width: 150px;
   height: 30px;
   display: inline-block;
 }

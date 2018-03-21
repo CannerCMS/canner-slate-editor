@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export default styled.div`
   .Dropdown-root {
     position: relative;
+    margin: 0 4px;
   }
 
   .Dropdown-control {

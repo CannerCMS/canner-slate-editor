@@ -4,10 +4,10 @@ import type {IconProps} from 'shared/src/types';
 import Dropdown from 'react-dropdown';
 import {SharedSelectorDecoration} from '@canner/slate-select-shared';
 
-@SharedSelectorDecoration('fontSize')
-export default class fontSize extends React.Component<IconProps> {
+@SharedSelectorDecoration('letterSpacing')
+export default class LetterSpacing extends React.Component<IconProps> {
   static defaultProps = {
-    options: [12, 16, 20, 24, 28, 32]
+    options: [1, 1.2, 1.4, 1.6, 1.8, 2]
   }
 
   render() {
@@ -18,7 +18,7 @@ export default class fontSize extends React.Component<IconProps> {
         options={['Default', ...options.map(opt => `${opt}px`)]}
         value={defaultValue}
         onChange={onChange}
-        placeholder="Font Size"
+        placeholder="Letter spacing"
         />
     );
   }

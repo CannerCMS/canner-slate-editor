@@ -25,6 +25,7 @@ import Video from 'packages/slate-icon-video';
 
 // select
 import FontSize from 'packages/slate-select-fontsize';
+import LetterSpacing from 'packages/slate-select-letterspacing';
 
 import {DEFAULT as DEFAULTLIST} from '@canner/slate-helper-block-list';
 import {DEFAULT as DEFAULTBLOCKQUOTE} from '@canner/slate-helper-block-quote';
@@ -66,7 +67,8 @@ const initialValue = Value.fromJSON({
 });
 
 const selectors = [
-  FontSize
+  FontSize,
+  LetterSpacing
 ]
 
 const icons = [
@@ -113,27 +115,31 @@ class App extends React.Component {
     return (
       <div style={{margin: '50px'}}>
         <div className="toolbar">
-          {selectors.map((Type, i) => {
-            return <Type
-              change={value.change()}
-              onChange={onChange}
-              key={i}
-              className="toolbar-select"
-            />
-          })}
-          {icons.map((Type, i) => {
-            return <Type
-              change={value.change()}
-              onChange={onChange}
-              key={i}
-              className="toolbar-item"
-              activeClassName="toolbar-item-active"
-              activeStrokeClassName="ql-stroke-active"
-              activeFillClassName="ql-fill-active"
-              activeThinClassName="ql-thin-active"
-              activeEvenClassName="ql-even-active"
-            />
-          })}
+          <div>
+            {selectors.map((Type, i) => {
+              return <Type
+                change={value.change()}
+                onChange={onChange}
+                key={i}
+                className="toolbar-select"
+              />
+            })}
+          </div>
+          <div>
+            {icons.map((Type, i) => {
+              return <Type
+                change={value.change()}
+                onChange={onChange}
+                key={i}
+                className="toolbar-item"
+                activeClassName="toolbar-item-active"
+                activeStrokeClassName="ql-stroke-active"
+                activeFillClassName="ql-fill-active"
+                activeThinClassName="ql-thin-active"
+                activeEvenClassName="ql-even-active"
+              />
+            })}
+          </div>
         </div>
         <div className="editor markdown-body">
           <Editor
@@ -161,6 +167,8 @@ function renderMark(props) {
       return commonMark('span', 'fontColor')(props);
     case 'fontSize':
       return commonMark('span', 'fontSize')(props);
+    case 'letterSpacing':
+      return commonMark('span', 'letterSpacing')(props);
     case 'italic':
       return commonMark('i')(props);
     case 'strikethrough':

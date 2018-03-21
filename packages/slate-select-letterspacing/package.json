@@ -1,7 +1,7 @@
 {
-  "name": "@canner/slate-icon-fontsize",
+  "name": "@canner/slate-icon-letterspacing",
   "version": "1.0.0",
-  "description": "A slate icon for changing font sizes",
+  "description": "A slate icon for changing letter spacing",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest src",

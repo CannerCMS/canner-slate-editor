@@ -1,4 +1,4 @@
 // @flow
-import DropdownContainer from './dropdownContainer';
+import selectorDecoration from './selectorDecoration';
 
-export const CustomDropdownContainer = DropdownContainer;
+export const SharedSelectorDecoration = selectorDecoration;
