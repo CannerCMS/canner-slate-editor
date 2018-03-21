@@ -1,0 +1,14 @@
+document:
+  nodes:
+    - object: block
+      type: list-ul
+      nodes:
+        - object: block
+          nodes:
+            - object: block
+              nodes:
+                - object: text
+                  leaves:
+                    - text: Hello World
+              type: paragraph
+          type: list-item
