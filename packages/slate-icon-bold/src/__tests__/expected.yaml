@@ -1,0 +1,11 @@
+document:
+  nodes:
+    - object: block
+      type: paragraph
+      nodes:
+        - object: text
+          leaves:
+            - marks:
+                - type: bold
+              text: Hello
+            - text: " World"
