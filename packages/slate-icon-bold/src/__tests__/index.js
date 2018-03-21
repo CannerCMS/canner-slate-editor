@@ -36,5 +36,9 @@ test("create a Bold icon", () => {
 });
 
 test("simulate click icon", done => {
-  iconTest(Bold, join(__dirname, "expected.yaml"), done);
+  iconTest({
+    icon: Bold,
+    expectedPath: join(__dirname, "expected.yaml"),
+    callback: done
+  });
 });

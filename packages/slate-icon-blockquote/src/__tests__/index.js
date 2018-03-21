@@ -37,5 +37,9 @@ test("create a Blockquote icon", () => {
 });
 
 test("simulate click icon", done => {
-  iconTest(Blockquote, join(__dirname, "expected.yaml"), done);
+  iconTest({
+    icon: Blockquote,
+    expectedPath: join(__dirname, "expected.yaml"),
+    callback: done
+  });
 });

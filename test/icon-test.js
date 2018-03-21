@@ -17,7 +17,8 @@ function deserializeValue(json) {
 }
 
 
-export default function(Icon, expectedPath, done) {
+export default function(settings) {
+  const {icon, expectedPath, callback} = settings;
   const input = readMetadata.sync(path.resolve(__dirname, 'input.yaml'));
 
   let expected;
@@ -38,14 +39,13 @@ export default function(Icon, expectedPath, done) {
   const nextChange = valueInput.change()
     .select(range);
 
-  const icon = <Icon
-    change={nextChange}
-    onChange={change => {
-        expect(change.value.toJSON()).toEqual(deserializeValue(expected).toJSON());
-        done();
-      }
+  const iconComponent = React.createElement(icon, {
+    change: nextChange,
+    onChange: change => {
+      expect(change.value.toJSON()).toEqual(deserializeValue(expected).toJSON());
+      callback();
     }
-  />
+  })
 
-  mount(icon).find('svg').simulate('click');
+  mount(iconComponent).find('svg').simulate('click');
 };

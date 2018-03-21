@@ -36,5 +36,9 @@ test("create a Code icon", () => {
 });
 
 test("simulate click icon", done => {
-  iconTest(Code, join(__dirname, "expected.yaml"), done);
+  iconTest({
+    icon: Code,
+    expectedPath: join(__dirname, "expected.yaml"),
+    callback: done
+  });
 });
