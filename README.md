@@ -7,6 +7,33 @@ Editors that build on top of these icons:
 - https://github.com/Canner/slate-toolbar
 - https://github.com/Canner/canner-slate-editor
 
+Supported features:
+
+- [Align](#cannerslate-icon-align) - center, left, right
+- [Blockquote](#cannerslate-icon-blockquote)
+- [Bold](#cannerslate-icon-bold)
+- [Clean](#cannerslate-icon-clean)
+- [Code](#cannerslate-icon-code)
+- [Emoji](#cannerslate-icon-emoji)
+- [Font background color](#cannerslate-icon-fontbgcolor)
+- [Font color](#cannerslate-icon-fontcolor)
+- [Header](#cannerslate-icon-header) - header 1, header 2
+- [Image](#cannerslate-icon-image)
+- [Indent](#cannerslate-icon-indent) - indent, outdent
+- [Italic](#cannerslate-icon-italic)
+- [Link](#cannerslate-icon-link)
+- [List](#cannerslate-icon-list) - Ol list, Ul list
+- [Strike through](#cannerslate-icon-strikethrough)
+- [Underline](#cannerslate-icon-underline)
+- [Undo](#cannerslate-icon-undo)
+- [Video](#cannerslate-icon-video)
+
+Supported selectors:
+
+- [Font size](#cannerslate-icon-fontsize)
+- [Line height](#cannerslate-icon-lineheight)
+- [Letter spacing](#cannerslate-icon-letterspacing)
+
 ![Demo](./docs/editor-icons.gif)
 
 ## Usage
@@ -63,7 +90,7 @@ class App extends React.Component {
 
 The best explanation is a simple example: https://github.com/Canner/slate-editor-icons/blob/master/docs/index.js
 
-## Icon Props
+## Icon and selectors' props
 
 All icons must passed these two props to ensure working properly.
 
@@ -209,6 +236,25 @@ import renderer from '@canner/slate-icon-renderer';
 
 Renderers that define corresponding nodes and marks while rendering your editor.
 
+## Selector packages
+
+### @canner/slate-select-fontsize
+
+```js
+import FontSize from '@canner/slate-select-fontsize';
+```
+
+### @canner/slate-select-lineheight
+
+```js
+import LineHeight from '@canner/slate-select-lineheight';
+```
+
+### @canner/slate-select-letterspacing
+
+```js
+import LetterSpacing from '@canner/slate-select-letterspacing';
+```
 
 ## Start example server
 
