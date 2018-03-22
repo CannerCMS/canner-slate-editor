@@ -230,12 +230,6 @@ import Undo from '@canner/slate-icon-undo';
 import Video from '@canner/slate-icon-video';
 ```
 
-### @canner/slate-icon-renderer
-
-```js
-import renderer from '@canner/slate-icon-renderer';
-```
-
 Renderers that define corresponding nodes and marks while rendering your editor.
 
 ## Selector packages
@@ -256,6 +250,14 @@ import LineHeight from '@canner/slate-select-lineheight';
 
 ```js
 import LetterSpacing from '@canner/slate-select-letterspacing';
+```
+
+## Helpers
+
+### @canner/slate-icon-renderer
+
+```js
+import renderer from '@canner/slate-icon-renderer';
 ```
 
 ## Start example server

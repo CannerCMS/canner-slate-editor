@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Editor} from 'slate-react';
 import {Value} from 'slate';
-import rendererFn from 'packages/slate-icon-renderer';
+import rendererFn from 'packages/slate-editor-renderer';
 import {AlignCenter, AlignLeft, AlignRight} from 'packages/slate-icon-align';
 import Blockquote from 'packages/slate-icon-blockquote';
 import Bold from 'packages/slate-icon-bold';
@@ -32,6 +32,15 @@ import {DEFAULT as DEFAULTLIST} from '@canner/slate-helper-block-list';
 import {DEFAULT as DEFAULTBLOCKQUOTE} from '@canner/slate-helper-block-quote';
 import EditList from 'slate-edit-list';
 import EditBlockquote from 'slate-edit-blockquote';
+
+// rules
+import Html from 'slate-html-serializer';
+import {markRules, blockRules} from 'packages/slate-editor-html';
+const html = new Html({ rules: [
+    blockRules('p', 'paragraph'),
+    markRules('strong', 'bold')
+  ]
+})
 
 
 import "./style.css";
@@ -112,6 +121,7 @@ class App extends React.Component {
 
   render() {
     const {value} = this.state;
+    console.log(html.serialize(value))
     const onChange = ({value}) => this.setState({value});
 
     return (
@@ -164,9 +174,9 @@ function renderMark(props) {
     case 'code':
       return commonMark('code')(props);
     case 'fontBgColor':
-      return commonMark('span', 'fontBgColor')(props);
+      return commonMark('span', 'backgroundColor', 'color')(props);
     case 'fontColor':
-      return commonMark('span', 'fontColor')(props);
+      return commonMark('span', 'color', 'color')(props);
     case 'fontSize':
       return commonMark('span', 'fontSize')(props);
     case 'letterSpacing':

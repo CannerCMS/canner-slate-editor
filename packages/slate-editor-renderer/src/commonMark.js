@@ -2,17 +2,15 @@
 import * as React from 'react';
 import type {nodeProps} from './type';
 
-export default function(Tag, type) {
+export default function(Tag, type, dataKey) {
   const MarkComponent = ({attributes, children, mark}: nodeProps) => {
-    const color = mark.get('data').get('color');
 
     return (
       <Tag
         {...attributes}
         style={{
-          color,
-          // dropdown values
-          [type]: mark.get('data').get('value')
+          // appy values to style
+          [type]: mark.get('data').get(dataKey || type)
         }}
         data-slate-type={type || Tag}>
         {children}

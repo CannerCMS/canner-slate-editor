@@ -1,5 +1,5 @@
 {
-  "name": "@canner/slate-icon-renderer",
+  "name": "@canner/slate-editor-renderer",
   "version": "1.0.3",
   "description": "Renderers for slate nodes and marks",
   "main": "lib/index.js",

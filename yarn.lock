@@ -7814,6 +7814,13 @@ slate-edit-list@^0.11.2:
   version "0.11.2"
   resolved "https://registry.yarnpkg.com/slate-edit-list/-/slate-edit-list-0.11.2.tgz#c67b961d98435f9f7747d20b870cbc51d25af7a8"
 
+slate-html-serializer@^0.5.8:
+  version "0.5.8"
+  resolved "https://registry.yarnpkg.com/slate-html-serializer/-/slate-html-serializer-0.5.8.tgz#91ac4005fb364ef23dd3b4d3da8d245d8a2c5cc8"
+  dependencies:
+    slate-dev-logger "^0.1.39"
+    type-of "^2.0.1"
+
 slate-plain-serializer@^0.5.6:
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/slate-plain-serializer/-/slate-plain-serializer-0.5.6.tgz#8a40e94017d37c532a65163f1df17543ec9cae93"

@@ -1,0 +1,11 @@
+{
+  "name": "@canner/slate-editor-html",
+  "version": "1.0.0",
+  "description": "Serializer and Deserializer for slate editor",
+  "main": "lib/index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}

@@ -23,7 +23,9 @@ export default (type: string) => (Selector: React.Element<*>) => {
       if (value.label === 'Default') {
         return onChange(removeType(change, this.typeName))
       }
-      onChange(addMarkOverwrite(change, {type: this.typeName, data: value}));
+      onChange(addMarkOverwrite(change, {type: this.typeName, data: {
+        [this.typeName]: value.value
+      }}));
     }
 
     render() {
