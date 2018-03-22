@@ -1,5 +1,5 @@
 // @flow
-export default function(Tag, markType) {
+export default function(Tag, markType, styleData) {
   return {
     deserialize(el, next) {
       if (markType) {
@@ -12,7 +12,19 @@ export default function(Tag, markType) {
     },
     serialize(obj, children) {
       if (obj.object == 'mark' && obj.type === markType) {
-        return <Tag>{children}</Tag>;
+        let style;
+
+        if (styleData) {
+          style = {
+            [styleData.key]: obj.data.get(styleData.value)
+          }
+        }
+
+        return (
+          <Tag style={style}>
+            {children}
+          </Tag>
+        );
       }
     }
   }

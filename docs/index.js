@@ -35,10 +35,42 @@ import EditBlockquote from 'slate-edit-blockquote';
 
 // rules
 import Html from 'slate-html-serializer';
-import {markRules, blockRules} from 'packages/slate-editor-html';
+import {markRules, blockRules, inlineRules, imageRules, videoRules} from 'packages/slate-editor-html';
 const html = new Html({ rules: [
     blockRules('p', 'paragraph'),
-    markRules('strong', 'bold')
+    blockRules('blockquote', 'blockquote'),
+    blockRules('h1', 'heading1'),
+    blockRules('h2', 'heading2'),
+    blockRules('ul', 'list-ul'),
+    blockRules('ol', 'list-ol'),
+    blockRules('li', 'list-item'),
+    inlineRules('a', 'link'),
+    markRules('strong', 'bold'),
+    markRules('code', 'code'),
+    markRules('i', 'italic'),
+    markRules('s', 'strikethrough'),
+    markRules('u', 'underline'),
+    markRules('span', 'fontBgColor', {
+      key: 'backgroundColor',
+      value: 'color'
+    }),
+    markRules('span', 'fontColor',  {
+      key: 'color',
+      value: 'color'
+    }),
+    markRules('span', 'fontSize',  {
+      key: 'fontSize',
+      value: 'fontSize'
+    }),
+    markRules('span', 'letterSpacing',  {
+      key: 'letterSpacing',
+      value: 'letterSpacing'
+    }),
+    videoRules('youtube'),
+    videoRules('vimeo'),
+    videoRules('dailymotion'),
+    videoRules('youku'),
+    imageRules('image')
   ]
 })
 
@@ -121,7 +153,6 @@ class App extends React.Component {
 
   render() {
     const {value} = this.state;
-    console.log(html.serialize(value))
     const onChange = ({value}) => this.setState({value});
 
     return (
@@ -161,6 +192,14 @@ class App extends React.Component {
             renderNode={renderNode}
             renderMark={renderMark}
           />
+        </div>
+        <div>
+          <h1>Output HTML: </h1>
+          <div dangerouslySetInnerHTML={{__html: html.serialize(value)}} />
+
+          <div>
+            {html.serialize(value)}
+          </div>
         </div>
       </div>
     );

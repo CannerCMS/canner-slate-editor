@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const ImageContiner = styled.div`
   display: flex;
+  margin-left: ${props => 3 * (props.indent || 0)}em;
   justify-content: ${props => {
     if (props.align === "center") return "center";
     else if (props.align === "right") return "flex-end";
@@ -13,7 +14,6 @@ export const ImageContiner = styled.div`
 export const ImageNodeShared = styled.div`
   width: ${props => props.width}px;
   height: ${props => props.height}px;
-  padding-left: ${props => 3 * (props.indent || 0)}em;
 
   display: inline-block;
   position: relative;

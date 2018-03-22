@@ -106,11 +106,11 @@ class ImageNode extends React.Component<Props> {
       return (
         <ImageContiner
           align={align}
+          indent={indent}
           data-slate-type="image">
           <ImageNodeInActive
             width={width}
-            height={height}
-            indent={indent}>
+            height={height}>
             <img
               {...attributes}
               src={src}/>
@@ -123,6 +123,7 @@ class ImageNode extends React.Component<Props> {
     return (
       <ImageContiner
         align={align}
+        indent={indent}
         data-slate-type="image">
         <ResizableBox
           lockAspectRatio
@@ -136,8 +137,7 @@ class ImageNode extends React.Component<Props> {
             <ImageNodeActive
               width={width}
               height={height}
-              align={align}
-              indent={indent}>
+              align={align}>
               <div className="overlay"/>
               <div className="toolbar">
                 <div className="toolbarItem">
@@ -159,8 +159,7 @@ class ImageNode extends React.Component<Props> {
             <ImageNodeInActive
               width={width}
               height={height}
-              align={align}
-              indent={indent}>
+              align={align}>
               <div className="overlay"/>
               <img
                 {...attributes}
