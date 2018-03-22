@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-header",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Slate icons for headers",
   "main": "lib/index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@canner/slate-helper-block-heading": "0.1.2",
-    "@canner/slate-icon-shared": "^1.0.1",
+    "@canner/slate-icon-shared": "^1.0.2",
     "@canner/slate-util-have": "^0.1.2"
   }
 }

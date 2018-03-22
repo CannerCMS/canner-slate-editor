@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-renderer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Renderers for slate nodes and marks",
   "main": "lib/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@canner/slate-helper-block-adddata": "^0.1.2",
-    "@canner/slate-icon-video": "^1.0.1",
+    "@canner/slate-icon-video": "^1.0.2",
     "emoji-mart": "^2.5.0",
     "react-icons": "^2.2.7",
     "react-resizable": "^1.7.5"

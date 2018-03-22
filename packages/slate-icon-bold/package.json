@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-bold",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A slate icon for bold",
   "main": "lib/index.js",
   "scripts": {
@@ -22,6 +22,6 @@
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
   "dependencies": {
-    "@canner/slate-icon-shared": "^1.0.1"
+    "@canner/slate-icon-shared": "^1.0.2"
   }
 }
