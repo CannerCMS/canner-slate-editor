@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-code",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A slate icon for code",
   "main": "lib/index.js",
   "scripts": {
@@ -22,6 +22,6 @@
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
   "dependencies": {
-    "@canner/slate-icon-shared": "^1.0.2"
+    "@canner/slate-icon-shared": "^1.0.3"
   }
 }

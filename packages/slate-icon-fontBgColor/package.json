@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-fontbgcolor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A slate icon for fontBgColor",
   "main": "lib/index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@canner/slate-helper-mark-addoverwrite": "^0.1.2",
-    "@canner/slate-icon-shared": "^1.0.2",
+    "@canner/slate-icon-shared": "^1.0.3",
     "@canner/slate-util-get": "^0.1.2",
     "@canner/slate-util-have": "^0.1.2",
     "hex-rgb": "^2.0.0",
