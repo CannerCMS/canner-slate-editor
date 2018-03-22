@@ -34,7 +34,7 @@ Supported selectors:
 - [Line height](#cannerslate-icon-lineheight)
 - [Letter spacing](#cannerslate-icon-letterspacing)
 
-![Demo](./docs/editor-icons.gif)
+![Demo](./docs/demo.png)
 
 ## Usage
 
