@@ -1,9 +1,9 @@
 import React from "react";
 import { Change, Value } from "slate";
-import FontColor from "../";
+import FontSize from "../";
 import renderer from "react-test-renderer";
 
-test("create a FontColor icon", () => {
+test("create a FontSize icon", () => {
   const initialValue = Value.fromJSON({
     document: {
       nodes: [
@@ -26,7 +26,7 @@ test("create a FontColor icon", () => {
   });
 
   const component = renderer.create(
-    <FontColor change={new Change({ value: initialValue })} />
+    <FontSize change={new Change({ value: initialValue })} />
   );
 
   let tree = component.toJSON();

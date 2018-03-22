@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create a LineHeight icon 1`] = `
+<div
+  className="sc-bdVaJa dcxGBz"
+>
+  <div
+    className="Dropdown-root"
+  >
+    <div
+      className="Dropdown-control "
+      onMouseDown={[Function]}
+      onTouchEnd={[Function]}
+    >
+      <div
+        className="Dropdown-placeholder"
+      >
+        Line height
+      </div>
+      <span
+        className="Dropdown-arrow"
+      />
+    </div>
+  </div>
+</div>
+`;

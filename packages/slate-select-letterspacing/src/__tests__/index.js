@@ -1,9 +1,9 @@
 import React from "react";
 import { Change, Value } from "slate";
-import FontColor from "../";
+import Letterspacing from "../";
 import renderer from "react-test-renderer";
 
-test("create a FontColor icon", () => {
+test("create a Letterspacing icon", () => {
   const initialValue = Value.fromJSON({
     document: {
       nodes: [
@@ -26,7 +26,7 @@ test("create a FontColor icon", () => {
   });
 
   const component = renderer.create(
-    <FontColor change={new Change({ value: initialValue })} />
+    <Letterspacing change={new Change({ value: initialValue })} />
   );
 
   let tree = component.toJSON();
