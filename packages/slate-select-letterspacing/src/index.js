@@ -2,9 +2,9 @@
 import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
 import Dropdown from 'react-dropdown';
-import {SharedSelectorDecoration} from '@canner/slate-select-shared';
+import {SharedMarkSelectorDecoration} from '@canner/slate-select-shared';
 
-@SharedSelectorDecoration('letterSpacing')
+@SharedMarkSelectorDecoration('letterSpacing')
 export default class LetterSpacing extends React.Component<IconProps> {
   static defaultProps = {
     options: [1, 1.2, 1.4, 1.6, 1.8, 2]

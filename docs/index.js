@@ -26,6 +26,7 @@ import Video from 'packages/slate-icon-video';
 // select
 import FontSize from 'packages/slate-select-fontsize';
 import LetterSpacing from 'packages/slate-select-letterspacing';
+import LineHeight from 'packages/slate-select-lineheight';
 
 import {DEFAULT as DEFAULTLIST} from '@canner/slate-helper-block-list';
 import {DEFAULT as DEFAULTBLOCKQUOTE} from '@canner/slate-helper-block-quote';
@@ -68,7 +69,8 @@ const initialValue = Value.fromJSON({
 
 const selectors = [
   FontSize,
-  LetterSpacing
+  LetterSpacing,
+  LineHeight
 ]
 
 const icons = [

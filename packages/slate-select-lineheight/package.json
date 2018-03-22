@@ -1,8 +1,8 @@
 {
-  "name": "@canner/slate-select-shared",
+  "name": "@canner/slate-select-lineheight",
   "version": "1.0.0",
-  "description": "Shared components and utilities in selectors",
-  "main": "./lib/index.js",
+  "description": "A slate selector for setting line height",
+  "main": "lib/index.js",
   "scripts": {
     "test": "jest src",
     "prepublish": "../../node_modules/.bin/babel src -d lib --copy-files"
@@ -22,13 +22,7 @@
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
   "dependencies": {
-    "@canner/slate-helper-mark-removetype": "^0.1.2",
-    "@canner/slate-helper-mark-addoverwrite": "^0.1.2",
-    "@canner/slate-helper-block-adddata": "^0.1.2",
-    "@canner/slate-helper-block-cleardatabykey": "^0.1.2",
     "@canner/slate-select-shared": "^1.0.0",
-    "@canner/slate-util-get": "^0.1.2",
-    "@canner/slate-util-have": "^0.1.2",
-    "styled-components": "^3.2.3"
+    "react-dropdown": "^1.4.0"
   }
 }

@@ -1,4 +1,6 @@
 // @flow
-import selectorDecoration from './selectorDecoration';
+import markSelectorDecoration from './markSelectorDecoration';
+import blockSelectorDecoration from './blockSelectorDecoration';
 
-export const SharedSelectorDecoration = selectorDecoration;
+export const SharedMarkSelectorDecoration = markSelectorDecoration;
+export const SharedBlockSelectorDecoration = blockSelectorDecoration;

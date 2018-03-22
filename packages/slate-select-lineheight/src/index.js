@@ -2,12 +2,12 @@
 import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
 import Dropdown from 'react-dropdown';
-import {SharedMarkSelectorDecoration} from '@canner/slate-select-shared';
+import {SharedBlockSelectorDecoration} from '@canner/slate-select-shared';
 
-@SharedMarkSelectorDecoration('fontSize')
-export default class fontSize extends React.Component<IconProps> {
+@SharedBlockSelectorDecoration('lineHeight')
+export default class LetterSpacing extends React.Component<IconProps> {
   static defaultProps = {
-    options: [12, 16, 20, 24, 28, 32]
+    options: [1, 1.5, 2, 2.5, 3, 3.5, 4]
   }
 
   render() {
@@ -15,10 +15,10 @@ export default class fontSize extends React.Component<IconProps> {
 
     return (
       <Dropdown
-        options={['Default', ...options.map(opt => `${opt}px`)]}
+        options={['Default', ...options.map(opt => `${opt}`)]}
         value={defaultValue}
         onChange={onChange}
-        placeholder="Font Size"
+        placeholder="Line height"
         />
     );
   }

@@ -6,12 +6,13 @@ export default function(Tag) {
   const NodeComponent = ({attributes, children, node}: nodeProps) => {
     const align = node.data.get('align');
     const indent = node.data.get('indent') || 0;
+    const lineHeight = node.data.get('lineHeight');
     let style;
 
     if (Tag === 'ul' || Tag === 'ol') {
-      style = {textAlign: align};
+      style = {textAlign: align, lineHeight};
     } else {
-      style = {textAlign: align, paddingLeft: `${3 * indent}em`};
+      style = {textAlign: align, lineHeight, paddingLeft: `${3 * indent}em`};
     }
 
     return (
