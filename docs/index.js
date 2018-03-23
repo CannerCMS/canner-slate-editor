@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Editor} from 'slate-react';
 import {Value} from 'slate';
+import {Inspector} from 'react-inspector';
 import rendererFn from 'packages/slate-editor-renderer';
 import {AlignCenter, AlignLeft, AlignRight} from 'packages/slate-icon-align';
 import Blockquote from 'packages/slate-icon-blockquote';
@@ -35,7 +36,14 @@ import EditBlockquote from 'slate-edit-blockquote';
 
 // rules
 import Html from 'slate-html-serializer';
-import {markRules, blockRules, inlineRules, imageRules, videoRules} from 'packages/slate-editor-html';
+import {
+  markRules,
+  blockRules,
+  inlineRules,
+  imageRules,
+  videoRules
+} from 'packages/slate-editor-html';
+
 const html = new Html({ rules: [
     blockRules('p', 'paragraph'),
     blockRules('blockquote', 'blockquote'),
@@ -73,7 +81,6 @@ const html = new Html({ rules: [
     imageRules('image')
   ]
 })
-
 
 import "./style.css";
 import "./github-markdown.css";
@@ -154,6 +161,8 @@ class App extends React.Component {
   render() {
     const {value} = this.state;
     const onChange = ({value}) => this.setState({value});
+    const htmlValue = html.serialize(value);
+    const dataObj = html.deserialize(htmlValue).toJSON();
 
     return (
       <div style={{margin: '50px'}}>
@@ -194,12 +203,20 @@ class App extends React.Component {
           />
         </div>
         <div>
-          <h1>Output HTML: </h1>
+          <h1>Current Value: </h1>
+          <Inspector data={value.toJSON()}/>
+        </div>
+        <div>
+          <h1>Serialize HTML: </h1>
           <div dangerouslySetInnerHTML={{__html: html.serialize(value)}} />
 
           <div>
-            {html.serialize(value)}
+            {htmlValue}
           </div>
+        </div>
+        <div>
+          <h1>deserialize from HTML: </h1>
+          <Inspector data={dataObj}/>
         </div>
       </div>
     );

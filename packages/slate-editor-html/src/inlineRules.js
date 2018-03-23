@@ -4,7 +4,7 @@ import React from 'react';
 export default function(Tag, inlineType) {
   return {
     deserialize(el, next) {
-      if (inlineType && el.tagName.toLowerCase() === inlineType) {
+      if (inlineType && el.tagName.toLowerCase() === Tag) {
         return {
           object: 'inline',
           type: inlineType,

@@ -4,7 +4,7 @@ import React from 'react';
 export default function(Tag, markType, styleData) {
   return {
     deserialize(el, next) {
-      if (markType && el.tagName.toLowerCase() === markType) {
+      if (markType && el.tagName.toLowerCase() === Tag) {
         return {
           object: 'mark',
           type: markType,

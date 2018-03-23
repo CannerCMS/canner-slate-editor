@@ -53,6 +53,7 @@
     "react": "^16.2.0",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.2.0",
+    "react-inspector": "^2.2.2",
     "read-metadata": "^1.0.0",
     "regenerator-runtime": "^0.11.1",
     "rimraf": "^2.5.4",

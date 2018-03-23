@@ -36,7 +36,7 @@ export default (type: string, defaultIcon: string) => (Block: React.Element<*>) 
             }
           }
 
-          const newData = block.setIn(['data', 'indent'], indent);
+          const newData = block.setIn(['data', 'indent'], `${3 * indent}em`);
 
           change.setBlocks(newData);
         });
