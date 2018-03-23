@@ -13,8 +13,8 @@ export const ImageContiner = styled.div`
 
 export default function(blockType = 'video') {
   return {
-    deserialize() {
-      if (blockType) {
+    deserialize(el) {
+      if (blockType && el.tagName.toLowerCase() === blockType) {
         return {
           object: 'block',
           type: blockType,

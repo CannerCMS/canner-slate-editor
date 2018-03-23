@@ -4,8 +4,23 @@
   "description": "Serializer and Deserializer for slate editor",
   "main": "lib/index",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest src"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "jest": "^22.4.2",
+    "react-test-renderer": "^16.2.0",
+    "slate": "^0.33.0",
+    "slate-html-serializer": "^0.5.8",
+    "slate-hyperscript": "^0.5.9"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || 16.x",
+    "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
+    "styled-components": "^3.2.1"
+  }
 }

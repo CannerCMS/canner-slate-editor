@@ -1,8 +1,10 @@
 // @flow
+import React from 'react';
+
 export default function(Tag, markType, styleData) {
   return {
     deserialize(el, next) {
-      if (markType) {
+      if (markType && el.tagName.toLowerCase() === markType) {
         return {
           object: 'mark',
           type: markType,

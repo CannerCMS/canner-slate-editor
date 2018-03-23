@@ -2,7 +2,7 @@
 export default function(Tag, blockType) {
   return {
     deserialize(el, next) {
-      if (blockType) {
+      if (blockType && el.tagName.toLowerCase() === blockType) {
         return {
           object: 'block',
           type: blockType,
@@ -16,7 +16,7 @@ export default function(Tag, blockType) {
         const indent = obj.data.get('indent') || 0;
         const lineHeight = obj.data.get('lineHeight');
         let style;
-        
+
         if (Tag === 'ul' || Tag === 'ol') {
           style = {textAlign: align, lineHeight};
         } else {
