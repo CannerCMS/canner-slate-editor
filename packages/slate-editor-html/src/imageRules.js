@@ -15,9 +15,28 @@ export default function(blockType = 'image') {
   return {
     deserialize(el) {
       if (blockType && el.tagName.toLowerCase() === 'img') {
+        let data = {}
+
+        if (el.src) {
+          data.src = el.src;
+        }
+
+        if (el.style.marginLeft) {
+          data.indent = el.style.marginLeft;
+        }
+
+        if (el.style.width) {
+          data.width = el.style.width;
+        }
+
+        if (el.style.height) {
+          data.height = el.style.height;
+        }
+
         return {
           object: 'block',
           type: blockType,
+          data,
           isVoid: true
         }
       }
@@ -25,7 +44,7 @@ export default function(blockType = 'image') {
     serialize(obj) {
       if (obj.object == 'block' && obj.type === blockType) {
         const align = obj.data.get('align');
-        const indent = obj.data.get('indent') || 0;
+        const indent = obj.data.get('indent');
         const src = obj.data.get('src');
         const width = obj.data.get('width');
         const height = obj.data.get('height');
@@ -37,7 +56,7 @@ export default function(blockType = 'image') {
               style={{
                 width,
                 height,
-                marginLeft: `${3 * (indent || 0)}em`
+                marginLeft: indent
               }}/>
           </ImageContiner>
         );

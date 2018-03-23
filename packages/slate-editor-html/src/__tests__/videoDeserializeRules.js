@@ -3,19 +3,19 @@
 
 import Html from "slate-html-serializer";
 import h from "slate-hyperscript";
-import imageRules from "../imageRules";
+import videoRules from "../videoRules";
 
-test("test normal image deserialize with source", () => {
+test("test normal video deserialize with source", () => {
   const html = new Html({
-    rules: [imageRules()]
+    rules: [videoRules("youtube")]
   });
 
-  expect(html.deserialize(`<img src="https://test.png" />`).toJSON()).toEqual(
+  expect(html.deserialize(`<iframe src="https://test.png" />`).toJSON()).toEqual(
     (
       <value>
         <document>
           <block
-            type="image"
+            type="video"
             isVoid
             data={{src: "https://test.png/"}}/>
         </document>
@@ -25,9 +25,9 @@ test("test normal image deserialize with source", () => {
 });
 
 
-test("test normal image deserialize with styles", () => {
+test("test normal video deserialize with styles", () => {
   const html = new Html({
-    rules: [imageRules()]
+    rules: [videoRules()]
   });
 
   expect(html.deserialize(`<img src="https://test.png" style="width: 300px; height: 300px; margin-left: 3em;"/>`).toJSON()).toEqual(
@@ -35,7 +35,7 @@ test("test normal image deserialize with styles", () => {
       <value>
         <document>
           <block
-            type="image"
+            type="video"
             isVoid
             data={{
               src: "https://test.png/",
