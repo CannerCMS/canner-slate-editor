@@ -10,27 +10,31 @@ test("test normal video deserialize with source", () => {
     rules: [videoRules("youtube")]
   });
 
-  expect(html.deserialize(`<iframe src="https://test.png" />`).toJSON()).toEqual(
+  expect(
+    html.deserialize(`<iframe src="https://test.png" />`).toJSON()
+  ).toEqual(
     (
       <value>
         <document>
-          <block
-            type="video"
-            isVoid
-            data={{src: "https://test.png/"}}/>
+          <block type="video" isVoid data={{ src: "https://test.png/" }} />
         </document>
       </value>
     ).toJSON()
   );
 });
 
-
 test("test normal video deserialize with styles", () => {
   const html = new Html({
     rules: [videoRules()]
   });
 
-  expect(html.deserialize(`<img src="https://test.png" style="width: 300px; height: 300px; margin-left: 3em;"/>`).toJSON()).toEqual(
+  expect(
+    html
+      .deserialize(
+        `<img src="https://test.png" style="width: 300px; height: 300px; margin-left: 3em;"/>`
+      )
+      .toJSON()
+  ).toEqual(
     (
       <value>
         <document>
@@ -42,7 +46,8 @@ test("test normal video deserialize with styles", () => {
               width: "300px",
               height: "300px",
               indent: "3em"
-            }}/>
+            }}
+          />
         </document>
       </value>
     ).toJSON()

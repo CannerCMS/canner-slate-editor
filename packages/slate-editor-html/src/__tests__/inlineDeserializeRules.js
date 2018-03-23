@@ -7,10 +7,12 @@ import inlineRules from "../inlineRules";
 
 test("test link deserialize", () => {
   const html = new Html({
-    rules: [inlineRules('a', 'link')]
+    rules: [inlineRules("a", "link")]
   });
 
-  expect(html.deserialize(`<a href="https://test.com">Test</a>`).toJSON()).toEqual(
+  expect(
+    html.deserialize(`<a href="https://test.com">Test</a>`).toJSON()
+  ).toEqual(
     (
       <value>
         <document>
@@ -19,7 +21,8 @@ test("test link deserialize", () => {
               type="link"
               data={{
                 href: "https://test.com/"
-              }}>
+              }}
+            >
               Test
             </inline>
           </block>

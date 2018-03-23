@@ -14,23 +14,25 @@ test("test normal image deserialize with source", () => {
     (
       <value>
         <document>
-          <block
-            type="image"
-            isVoid
-            data={{src: "https://test.png/"}}/>
+          <block type="image" isVoid data={{ src: "https://test.png/" }} />
         </document>
       </value>
     ).toJSON()
   );
 });
 
-
 test("test normal image deserialize with styles", () => {
   const html = new Html({
     rules: [imageRules()]
   });
 
-  expect(html.deserialize(`<img src="https://test.png" style="width: 300px; height: 300px; margin-left: 3em;"/>`).toJSON()).toEqual(
+  expect(
+    html
+      .deserialize(
+        `<img src="https://test.png" style="width: 300px; height: 300px; margin-left: 3em;"/>`
+      )
+      .toJSON()
+  ).toEqual(
     (
       <value>
         <document>
@@ -42,7 +44,8 @@ test("test normal image deserialize with styles", () => {
               width: "300px",
               height: "300px",
               indent: "3em"
-            }}/>
+            }}
+          />
         </document>
       </value>
     ).toJSON()

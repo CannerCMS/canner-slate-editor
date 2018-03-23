@@ -7,7 +7,7 @@ import markRules from "../markRules";
 
 test("test mark deserialize", () => {
   const html = new Html({
-    rules: [markRules('i', 'italic')]
+    rules: [markRules("i", "italic")]
   });
 
   expect(html.deserialize(`<i>Wow</i>`).toJSON()).toEqual(
@@ -15,10 +15,7 @@ test("test mark deserialize", () => {
       <value>
         <document>
           <block type="paragraph">
-            <mark
-              type="italic">
-              Wow
-            </mark>
+            <mark type="italic">Wow</mark>
           </block>
         </document>
       </value>
@@ -29,14 +26,16 @@ test("test mark deserialize", () => {
 test("test mark deserialize with background color", () => {
   const html = new Html({
     rules: [
-      markRules('span', 'fontBgColor', {
-        key: 'backgroundColor',
-        value: 'color'
+      markRules("span", "fontBgColor", {
+        key: "backgroundColor",
+        value: "color"
       })
     ]
   });
 
-  expect(html.deserialize(`<span style="background-color: red;">Wow</span>`).toJSON()).toEqual(
+  expect(
+    html.deserialize(`<span style="background-color: red;">Wow</span>`).toJSON()
+  ).toEqual(
     (
       <value>
         <document>
@@ -45,7 +44,8 @@ test("test mark deserialize with background color", () => {
               type="fontBgColor"
               data={{
                 color: "red"
-              }}>
+              }}
+            >
               Wow
             </mark>
           </block>
@@ -58,14 +58,16 @@ test("test mark deserialize with background color", () => {
 test("test mark deserialize with bg color", () => {
   const html = new Html({
     rules: [
-      markRules('span', 'fontBgColor', {
-        key: 'backgroundColor',
-        value: 'color'
+      markRules("span", "fontBgColor", {
+        key: "backgroundColor",
+        value: "color"
       })
     ]
   });
 
-  expect(html.deserialize(`<span style="background-color: red;">Wow</span>`).toJSON()).toEqual(
+  expect(
+    html.deserialize(`<span style="background-color: red;">Wow</span>`).toJSON()
+  ).toEqual(
     (
       <value>
         <document>
@@ -74,7 +76,8 @@ test("test mark deserialize with bg color", () => {
               type="fontBgColor"
               data={{
                 color: "red"
-              }}>
+              }}
+            >
               Wow
             </mark>
           </block>
@@ -87,14 +90,16 @@ test("test mark deserialize with bg color", () => {
 test("test mark deserialize with font size", () => {
   const html = new Html({
     rules: [
-      markRules('span', 'fontSize', {
-        key: 'fontSize',
-        value: 'fontSize'
+      markRules("span", "fontSize", {
+        key: "fontSize",
+        value: "fontSize"
       })
     ]
   });
 
-  expect(html.deserialize(`<span style="font-size: 20px;">Wow</span>`).toJSON()).toEqual(
+  expect(
+    html.deserialize(`<span style="font-size: 20px;">Wow</span>`).toJSON()
+  ).toEqual(
     (
       <value>
         <document>
@@ -102,8 +107,9 @@ test("test mark deserialize with font size", () => {
             <mark
               type="fontSize"
               data={{
-                fontSize: '20px'
-              }}>
+                fontSize: "20px"
+              }}
+            >
               Wow
             </mark>
           </block>
