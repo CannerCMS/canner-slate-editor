@@ -260,26 +260,26 @@ import LetterSpacing from '@canner/slate-select-letterspacing';
 import renderer from '@canner/slate-icon-renderer';
 ```
 
-#### Methods
+methods:
 
-##### commonNode(TagName) => React.Element<TagName>
+#### commonNode(TagName) => React.Element<TagName>
 
 If you want to render general tag names for nodes such as `p`, `blockquote`, `h1`, `h2`, etc...
 
-##### commonMark(TagName, styleKey?, styleValue?)
+#### commonMark(TagName, styleKey?, styleValue?)
 
 If you want to render general tag names for nodes such as `span`, `strong`, `code`, `i`, etc...
 
-##### emojiNode()
+#### emojiNode()
 rendering emoji
 
-##### imageNode()
+#### imageNode()
 rendering video
 
-##### linkNode()
+#### linkNode()
 renderling inline links
 
-##### videoNode(source: 'youtube' | 'dailymotion' | 'youku' | 'vimeo')
+#### videoNode(source: 'youtube' | 'dailymotion' | 'youku' | 'vimeo')
 rendering video
 
 Supported video sources:
