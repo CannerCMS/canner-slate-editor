@@ -47,8 +47,6 @@ function decorateMdNode(node) {
   let endOffset = 0
   let start = 0
 
-  console.log(tokens)
-
   function getLength(token) {
     if (typeof token == 'string') {
       return token.length
