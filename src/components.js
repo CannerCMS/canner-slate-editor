@@ -16,6 +16,10 @@ export const Italic = styled.span`
   font-style: italic;
 `;
 
+export const Underline = styled.span`
+  font-style: underline;
+`;
+
 export const Punctuation = styled.span`
   opacity: 0.2;
 `;

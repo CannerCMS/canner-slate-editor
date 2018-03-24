@@ -49,6 +49,7 @@
     "eslint-plugin-react": "^7.7.0",
     "flow-bin": "^0.68.0",
     "husky": "^0.13.3",
+    "immutable": "^4.0.0-rc.9",
     "jest": "22.4.2",
     "lint-staged": "^3.4.1",
     "prettier": "^1.9.2",
@@ -56,14 +57,16 @@
     "react-dom": "^16.2.0",
     "rimraf": "^2.6.1",
     "slate": "^0.33.0",
+    "slate-plain-serializer": "^0.5.9",
+    "slate-react": "^0.12.3",
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^3.1.0"
   },
   "peerDependencies": {
-    "slate": ">=0.33.0",
     "react": "^0.14.0 || ^15.0.0 || 16.x",
-    "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
+    "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
+    "slate": ">=0.33.0"
   },
   "dependencies": {
     "prismjs": "^1.13.0",

@@ -3,11 +3,14 @@
  * Most of this was stolen from https://github.com/ianstormtaylor/slate/blob/460498b5ddfcecee7439eafe4f4d31cacde69f41/examples/markdown-preview/index.js
  */
 import React from 'react';
-import getDecorator from './decorator';
+import decorateNode from './decorator';
+import Prism from 'prismjs'
+
 import {
   Title,
   Bold,
   Italic,
+  Underline,
   Punctuation,
   Code,
   List,
@@ -15,11 +18,15 @@ import {
   Url,
 } from './components';
 
+// eslint-disable-next-line
+;Prism.languages.markdown=Prism.languages.extend("markup",{}),Prism.languages.insertBefore("markdown","prolog",{blockquote:{pattern:/^>(?:[\t ]*>)*/m,alias:"punctuation"},code:[{pattern:/^(?: {4}|\t).+/m,alias:"keyword"},{pattern:/``.+?``|`[^`\n]+`/,alias:"keyword"}],title:[{pattern:/\w+.*(?:\r?\n|\r)(?:==+|--+)/,alias:"important",inside:{punctuation:/==+$|--+$/}},{pattern:/(^\s*)#+.+/m,lookbehind:!0,alias:"important",inside:{punctuation:/^#+|#+$/}}],hr:{pattern:/(^\s*)([*-])([\t ]*\2){2,}(?=\s*$)/m,lookbehind:!0,alias:"punctuation"},list:{pattern:/(^\s*)(?:[*+-]|\d+\.)(?=[\t ].)/m,lookbehind:!0,alias:"punctuation"},"url-reference":{pattern:/!?\[[^\]]+\]:[\t ]+(?:\S+|<(?:\\.|[^>\\])+>)(?:[\t ]+(?:"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\((?:\\.|[^)\\])*\)))?/,inside:{variable:{pattern:/^(!?\[)[^\]]+/,lookbehind:!0},string:/(?:"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\((?:\\.|[^)\\])*\))$/,punctuation:/^[\[\]!:]|[<>]/},alias:"url"},bold:{pattern:/(^|[^\\])(\*\*|__)(?:(?:\r?\n|\r)(?!\r?\n|\r)|.)+?\2/,lookbehind:!0,inside:{punctuation:/^\*\*|^__|\*\*$|__$/}},italic:{pattern:/(^|[^\\])([*_])(?:(?:\r?\n|\r)(?!\r?\n|\r)|.)+?\2/,lookbehind:!0,inside:{punctuation:/^[*_]|[*_]$/}},url:{pattern:/!?\[[^\]]+\](?:\([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?\)| ?\[[^\]\n]*\])/,inside:{variable:{pattern:/(!?\[)[^\]]+(?=\]$)/,lookbehind:!0},string:{pattern:/"(?:\\.|[^"\\])*"(?=\)$)/}}}}),Prism.languages.markdown.bold.inside.url=Prism.util.clone(Prism.languages.markdown.url),Prism.languages.markdown.italic.inside.url=Prism.util.clone(Prism.languages.markdown.url),Prism.languages.markdown.bold.inside.italic=Prism.util.clone(Prism.languages.markdown.italic),Prism.languages.markdown.italic.inside.bold=Prism.util.clone(Prism.languages.markdown.bold); // prettier-ignore
+
 type Classnames =
   | 'title'
   | 'bold'
   | 'italic'
   | 'punctuation'
+  | 'underline'
   | 'code'
   | 'list'
   | 'hr'
@@ -47,9 +54,46 @@ const MarkdownPlugin = (options: Options = {}) => {
   const strict = options.strict;
 
   return {
-    schema: {
-      marks: {
-        title: (props: any) => {
+    renderMark: (props) => {
+      const { mark } = props;
+      switch (mark.type) {
+        case 'bold':
+          return (
+            <Bold
+              {...props.attributes}
+              className={classnames.bold}
+            >
+              {props.children}
+            </Bold>
+          );
+        case 'code':
+          return (
+            <Code
+              {...props.attributes}
+              className={classnames.code}
+            >
+              {props.children}
+            </Code>
+          );
+        case 'italic':
+          return (
+            <Italic
+              {...props.attributes}
+              className={classnames.italic}
+            >
+              {props.children}
+            </Italic>
+          );
+        case 'underlined':
+          return (
+            <Underline
+              {...props.attributes}
+              className={classnames.underline}
+            >
+              {props.children}
+            </Underline>
+          );
+        case 'title': {
           const { attributes, children, mark: { data } } = props;
           const level = data.get('level');
           const fontSize =
@@ -63,64 +107,50 @@ const MarkdownPlugin = (options: Options = {}) => {
               {children}
             </Title>
           );
-        },
-        bold: (props: any) => (
-          <Bold
-            {...props.attributes}
-            children={props.children}
-            className={classnames.bold}
-          />
-        ),
-        italic: (props: any) => (
-          <Italic
-            {...props.attributes}
-            children={props.children}
-            className={classnames.italic}
-          />
-        ),
-        punctuation: (props: any) => (
-          <Punctuation
-            {...props.attributes}
-            children={props.children}
-            className={classnames.punctuation}
-          />
-        ),
-        code: (props: any) => (
-          <Code
-            {...props.attributes}
-            children={props.children}
-            className={classnames.code}
-          />
-        ),
-        list: (props: any) => (
-          <List
-            {...props.attributes}
-            children={props.children}
-            className={classnames.list}
-          />
-        ),
-        hr: (props: any) => (
-          <Hr
-            {...props.attributes}
-            children={props.children}
-            className={classnames.hr}
-          />
-        ),
-        url: (props: any) => (
-          <Url
-            {...props.attributes}
-            children={props.children}
-            className={classnames.url}
-          />
-        ),
-      },
-      rules: [
-        {
-          match: () => true,
-          decorate: getDecorator({ strict }),
-        },
-      ],
+        }
+        case 'punctuation': {
+          return (
+            <Punctuation
+              {...props.attributes}
+              className={classnames.punctuation}
+            >
+              {props.children}
+            </Punctuation>
+          );
+        }
+        case 'list': {
+          return (
+            <List
+              {...props.attributes}
+              className={classnames.list}
+            >
+              {props.children}
+            </List>
+          );
+        }
+        case 'hr': {
+          return (
+            <Hr
+              {...props.attributes}
+              className={classnames.hr}
+            >
+              {props.children}
+            </Hr>
+          );
+        }
+        case 'url': {
+          return (
+            <Url
+              {...props.attributes}
+              className={classnames.url}
+            >
+              {props.children}
+            </Url>
+          );
+        }
+      }
     },
+    decorateNode: decorateNode({strict})
   };
 };
 
