@@ -1,0 +1,77 @@
+{
+  "name": "slate-markdown",
+  "version": "0.1.1",
+  "description": "Add live markdown preview to your Slate editor.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/withspectrum/slate-markdown.git"
+  },
+  "main": "lib/index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src test docs",
+    "clean": "rimraf lib dist",
+    "build:flow": "flow-copy-source -v -i '**/test/**' src lib",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build": "npm run build:commonjs && npm run build:flow",
+    "prepublish": "npm run clean && npm run check:src && npm run build",
+    "check:src": "npm run lint",
+    "test": "cross-env BABEL_ENV=test karma start --single-run",
+    "test:watch": "cross-env BABEL_ENV=test karma start",
+    "start": "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --mode development",
+    "build:docs": "./node_modules/.bin/webpack --config webpack.config.prod.js --mode production",
+    "postpublish": "npm run build:docs",
+    "validate": "npm ls"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --single-quote --trailing-comma es5",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-jest": "^22.4.1",
+    "babel-loader": "^7.1.3",
+    "babel-plugin-import": "^1.1.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-runtime": "^6.11.6",
+    "eslint": "^4.18.2",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
+    "flow-bin": "^0.68.0",
+    "husky": "^0.13.3",
+    "jest": "22.4.2",
+    "lint-staged": "^3.4.1",
+    "prettier": "^1.9.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "rimraf": "^2.6.1",
+    "slate": "^0.33.0",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^3.1.0"
+  },
+  "peerDependencies": {
+    "slate": ">=0.33.0",
+    "react": "^0.14.0 || ^15.0.0 || 16.x",
+    "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
+  },
+  "dependencies": {
+    "prismjs": "^1.13.0",
+    "styled-components": "^3.2.1"
+  },
+  "keywords": [
+    "slate",
+    "plugin",
+    "markdown"
+  ]
+}
