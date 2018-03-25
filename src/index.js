@@ -2,8 +2,8 @@
 /**
  * Most of this was stolen from https://github.com/ianstormtaylor/slate/blob/460498b5ddfcecee7439eafe4f4d31cacde69f41/examples/markdown-preview/index.js
  */
-import decorateNode from './decorator';
 import renderMark from './renderMark';
+import renderNode from './renderNode';
 import type {Classnames} from './types';
 import Prism from 'prismjs'
 
@@ -28,11 +28,9 @@ const MarkdownPlugin = (options: Options = {}) => {
 
   const classnames = options.classnames || {};
 
-  const strict = options.strict;
-
   return {
     renderMark: renderMark(classnames, sizes),
-    decorateNode: decorateNode({strict})
+    renderNode: renderNode(classnames, sizes)
   };
 };
 

@@ -16,6 +16,7 @@ module.exports = {
   rules: {
     "react/prop-types": 0,
     "no-implicit-coercion": 0,
-    "max-len": 0
+    "max-len": 0,
+    "no-case-declarations": 0
   }
 };

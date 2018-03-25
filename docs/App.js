@@ -1,8 +1,13 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Editor as $Editor } from 'slate-react'
 import styled from 'styled-components';
-import Plain from 'slate-plain-serializer';
+import {Value} from 'slate';
+import {State} from 'markup-it';
+import markdown from 'markup-it/lib/markdown';
 import MarkdownPlugin from '../src';
+
+import "github-markdown-css";
+import "prismjs/themes/prism.css"
 
 const Wrapper = styled.div`
   max-width: 35em;
@@ -19,14 +24,16 @@ const Editor = styled($Editor)`
 
 const plugins = [MarkdownPlugin()];
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
-
+    const parser = State.create(markdown);
+    const document = parser.deserializeToDocument(
+      '# __slate-markdown__\nAdd **live markdown preview** to your Slate editor.\n## Usage\n### Installation\n`npm install slate-markdown`\n### Demo\nThis is a [Slate editor](https://slatejs.org) with the plugin enabled, try typing some markdown in here!\n## Links\n- Contribute on [GitHub](https://github.com/withspectrum/slate-markdown)\n- Made by the folks at [Spectrum](https://spectrum.chat)\n```js\nconst test = wow()\n```'
+    )
+    
     this.state = {
-      value: Plain.deserialize(
-        '# slate-markdown\nAdd **live markdown preview** to your Slate editor.\n## Usage\n### Installation\n`npm install slate-markdown`\n### Demo\nThis is a [Slate editor](https://slatejs.org) with the plugin enabled, try typing some markdown in here!\n## Links\n- Contribute on [GitHub](https://github.com/withspectrum/slate-markdown)\n- Made by the folks at [Spectrum](https://spectrum.chat)'
-      )
+      value: Value.create({document})
     };
   }
 
@@ -39,7 +46,7 @@ class App extends Component {
   render() {
     const { value } = this.state;
     return (
-      <Wrapper>
+      <Wrapper className="markdown-body">
         <Editor
           value={value}
           plugins={plugins}

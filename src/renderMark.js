@@ -17,7 +17,7 @@ import {
 export default function renderMark(classnames: Classnames, sizes) {
   return (props) => {
     const { mark } = props;
-    switch (mark.type) {
+    switch (mark.type.toLowerCase()) {
       case 'bold':
         return (
           <Bold
