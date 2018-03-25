@@ -27,10 +27,15 @@ const MarkdownPlugin = (options: Options = {}) => {
   ];
 
   const classnames = options.classnames || {};
+  const strict = options.strict;
 
   return {
     renderMark: renderMark(classnames, sizes),
-    renderNode: renderNode(classnames, sizes)
+    renderNode: renderNode(classnames, sizes),
+    onKeyUp: (e, change, editor) => {
+      const {value} = change;
+      console.log(value.texts)
+    }
   };
 };
 

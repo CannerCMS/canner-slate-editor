@@ -12,7 +12,6 @@ import type {Classnames} from './types';
 export default function renderNode(classnames: Classnames, sizes) {
   return (props) => {
     const { node } = props;
-    console.log(node.type)
     switch (node.type.toLowerCase()) {
       case 'header_one':
         return commonNode('h1')(props);
@@ -31,18 +30,15 @@ export default function renderNode(classnames: Classnames, sizes) {
       case 'list-item':
         return commonNode('li')(props);
       case 'code_block':
-        const lang = node.data.get('syntax');
-        let className;
-        if (lang) {
-          className = `language-${lang}`;
-        }
         return (
           <pre>
-            <code className={className}>
+            <code {...props.attributes}>
               {props.children}
             </code>
           </pre>
         );
+      case 'code_line':
+        return <div {...props.attributes}>{props.children}</div>
       // case 'link':
       //   return linkNode()(props);
     }

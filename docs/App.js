@@ -3,6 +3,8 @@ import { Editor as $Editor } from 'slate-react'
 import styled from 'styled-components';
 import {Value} from 'slate';
 import {State} from 'markup-it';
+import Prism from 'slate-prism';
+import PluginEditCode from 'slate-edit-code';
 import markdown from 'markup-it/lib/markdown';
 import MarkdownPlugin from '../src';
 
@@ -22,7 +24,16 @@ const Editor = styled($Editor)`
   line-height: 1.5em;
 `;
 
-const plugins = [MarkdownPlugin()];
+const plugins = [
+  MarkdownPlugin(),
+  Prism({
+    onlyIn: node => node.type === 'code_block',
+    getSyntax: node => node.data.get('syntax')
+  }),
+  PluginEditCode({
+      onlyIn: node => node.type === 'code_block'
+  })
+];
 
 class App extends React.Component {
   constructor(props) {
