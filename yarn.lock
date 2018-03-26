@@ -7499,6 +7499,10 @@ slate-dev-logger@^0.1.39:
   version "0.1.39"
   resolved "https://registry.npmjs.org/slate-dev-logger/-/slate-dev-logger-0.1.39.tgz#744a69b85034244713e6de51483af5713c345af4"
 
+slate-edit-blockquote@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/slate-edit-blockquote/-/slate-edit-blockquote-0.6.0.tgz#be23b4174c4e633c6f4ee94d7dc762adedb4ec98"
+
 slate-edit-code@^0.15.0:
   version "0.15.0"
   resolved "https://registry.npmjs.org/slate-edit-code/-/slate-edit-code-0.15.0.tgz#079a2754a07e8b1d38e230ff444d6ebc6abf3b05"
@@ -7549,6 +7553,10 @@ slate-react@^0.12.3:
 slate-schema-violations@^0.1.7:
   version "0.1.7"
   resolved "https://registry.npmjs.org/slate-schema-violations/-/slate-schema-violations-0.1.7.tgz#cf2c6156eaf545f4d1985d3d1b94c50d6d273a08"
+
+slate-soft-break@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/slate-soft-break/-/slate-soft-break-0.6.0.tgz#1e44815b7ff4ddada055bba14cd0d2d4ef0fd463"
 
 slate@^0.33.0:
   version "0.33.3"

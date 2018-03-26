@@ -75,8 +75,10 @@
     "@canner/slate-icon-renderer": "^1.0.3",
     "markup-it": "^7.0.0",
     "prismjs": "^1.13.0",
+    "slate-edit-blockquote": "^0.6.0",
     "slate-edit-code": "^0.15.0",
     "slate-prism": "^0.4.0",
+    "slate-soft-break": "^0.6.0",
     "styled-components": "^3.2.1"
   },
   "keywords": [

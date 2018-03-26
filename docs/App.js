@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import {Value} from 'slate';
 import {State} from 'markup-it';
 import Prism from 'slate-prism';
+import SoftBreak from 'slate-soft-break';
+import EditBlockquote from 'slate-edit-blockquote';
 import PluginEditCode from 'slate-edit-code';
 import markdown from 'markup-it/lib/markdown';
 import MarkdownPlugin from '../src';
@@ -32,7 +34,8 @@ const plugins = [
   }),
   PluginEditCode({
       onlyIn: node => node.type === 'code_block'
-  })
+  }),
+  EditBlockquote()
 ];
 
 class App extends React.Component {
