@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import {Value} from 'slate';
 import {State} from 'markup-it';
 import Prism from 'slate-prism';
-import SoftBreak from 'slate-soft-break';
 import EditBlockquote from 'slate-edit-blockquote';
 import PluginEditCode from 'slate-edit-code';
 import markdown from 'markup-it/lib/markdown';
+import html from 'markup-it/lib/html';
 import MarkdownPlugin from '../src';
 
 import "github-markdown-css";
@@ -38,11 +38,14 @@ const plugins = [
   EditBlockquote()
 ];
 
+
+const mdParser = State.create(markdown);
+const htmlSerializer = State.create(html);
+
 class App extends React.Component {
   constructor(props) {
     super(props);
-    const parser = State.create(markdown);
-    const document = parser.deserializeToDocument(
+    const document = mdParser.deserializeToDocument(
       '# __slate-markdown__\nAdd **live markdown preview** to your Slate editor.\n## Usage\n### Installation\n`npm install slate-markdown`\n### Demo\nThis is a [Slate editor](https://slatejs.org) with the plugin enabled, try typing some markdown in here!\n## Links\n- Contribute on [GitHub](https://github.com/withspectrum/slate-markdown)\n- Made by the folks at [Spectrum](https://spectrum.chat)\n```js\nconst test = wow()\n```'
     )
     
@@ -60,16 +63,18 @@ class App extends React.Component {
   render() {
     const { value } = this.state;
     return (
-      <Wrapper className="markdown-body">
-        <Editor
-          value={value}
-          plugins={plugins}
-          onChange={this.onChange}
-          sizes={['2em', '1.5874em', '1.2599em', '1em', '1em']}
-          placeholder={'You can write markdown here! (try "## Hello")'}
-          autoFocus
-        />
-      </Wrapper>
+      <React.Fragment>
+        <Wrapper className="markdown-body">
+          <Editor
+            value={value}
+            plugins={plugins}
+            onChange={this.onChange}
+            sizes={['2em', '1.5874em', '1.2599em', '1em', '1em']}
+            placeholder={'You can write markdown here! (try "## Hello")'}
+            autoFocus
+          />
+        </Wrapper>
+      </React.Fragment>
     );
   }
 }
