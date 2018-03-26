@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-italic",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A slate icon for italic",
   "main": "lib/index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
   "dependencies": {
-    "@canner/slate-icon-shared": "^1.0.3",
-    "@canner/slate-editor-renderer": "^1.0.3"
+    "@canner/slate-editor-renderer": "^1.0.4",
+    "@canner/slate-icon-shared": "^1.0.4"
   }
 }

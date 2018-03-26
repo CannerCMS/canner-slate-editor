@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-header",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Slate icons for headers",
   "main": "lib/index.js",
   "scripts": {
@@ -22,9 +22,9 @@
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
   "dependencies": {
+    "@canner/slate-editor-renderer": "^1.0.4",
     "@canner/slate-helper-block-heading": "0.1.2",
-    "@canner/slate-icon-shared": "^1.0.3",
-    "@canner/slate-util-have": "^0.1.2",
-    "@canner/slate-editor-renderer": "^1.0.3"
+    "@canner/slate-icon-shared": "^1.0.4",
+    "@canner/slate-util-have": "^0.1.2"
   }
 }

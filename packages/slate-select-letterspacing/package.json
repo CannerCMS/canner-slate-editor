@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-letterspacing",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A slate icon for changing letter spacing",
   "main": "./lib/index.js",
   "scripts": {
@@ -22,8 +22,8 @@
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
   "dependencies": {
-    "@canner/slate-select-shared": "^1.0.2",
-    "react-dropdown": "^1.4.0",
-    "@canner/slate-editor-renderer": "^1.0.3"
+    "@canner/slate-editor-renderer": "^1.0.4",
+    "@canner/slate-select-shared": "^1.0.3",
+    "react-dropdown": "^1.4.0"
   }
 }

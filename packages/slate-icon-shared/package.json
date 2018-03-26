@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-shared",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Shared utils and functions for slate icons",
   "main": "lib/index.js",
   "directories": {
@@ -25,8 +25,8 @@
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
   "dependencies": {
+    "@canner/slate-editor-renderer": "^1.0.4",
     "@canner/slate-util-have": "^0.1.2",
-    "quill-icons": "^0.5.3",
-    "@canner/slate-editor-renderer": "^1.0.3"
+    "quill-icons": "^0.5.3"
   }
 }
