@@ -1,7 +1,3 @@
-body {
-  background-color: #CCC;
-}
-
 .ql-stroke {
   stroke: #444;
   fill: transparent;
@@ -69,15 +65,14 @@ body {
 }
 
 .toolbar {
-  margin: 20px;
   padding: 10px;
   display: inline-block;
   background-color: #FFF;
 }
 
 .toolbar-item, .toolbar-item-active {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .toolbar-select {
@@ -87,6 +82,7 @@ body {
 }
 
 .editor {
-  padding: 20px;
-  background-color: #FFF;
+  padding: 5px;
+  margin: 5px 10px 5px 5px;
+  border: 1px solid #CCC;
 }

@@ -254,10 +254,10 @@ import LetterSpacing from '@canner/slate-select-letterspacing';
 
 ## Helpers
 
-### @canner/slate-icon-renderer
+### @canner/slate-editor-renderer
 
 ```js
-import renderer from '@canner/slate-icon-renderer';
+import renderer from '@canner/slate-editor-renderer';
 ```
 
 methods:

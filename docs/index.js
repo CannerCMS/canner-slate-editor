@@ -1,9 +1,11 @@
 // @flow
+/* eslint-disable no-console */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Editor} from 'slate-react';
+import beautify from 'js-beautify';
 import {Value} from 'slate';
-import {Inspector} from 'react-inspector';
+import {Row, Col} from 'antd';
 import rendererFn from 'packages/slate-editor-renderer';
 import {AlignCenter, AlignLeft, AlignRight} from 'packages/slate-icon-align';
 import Blockquote from 'packages/slate-icon-blockquote';
@@ -33,6 +35,9 @@ import {DEFAULT as DEFAULTLIST} from '@canner/slate-helper-block-list';
 import {DEFAULT as DEFAULTBLOCKQUOTE} from '@canner/slate-helper-block-quote';
 import EditList from 'slate-edit-list';
 import EditBlockquote from 'slate-edit-blockquote';
+
+import Prism from 'prismjs';
+import "prismjs/themes/prism.css"
 
 // rules
 import Html from 'slate-html-serializer';
@@ -108,7 +113,7 @@ const initialValue = Value.fromJSON({
                 text: 'A line of text in a paragraph.',
               },
             ],
-          },
+          }
         ],
       },
     ],
@@ -158,67 +163,71 @@ class App extends React.Component {
     value: initialValue
   }
 
+  componentDidUpdate() {
+    Prism.highlightAllUnder(document.getElementById('root'));
+  }
+
   render() {
     const {value} = this.state;
     const onChange = ({value}) => this.setState({value});
     const htmlValue = html.serialize(value);
-    const dataObj = html.deserialize(htmlValue).toJSON();
+    const dataObj = html.deserialize(htmlValue);
+    const beautyHTML = beautify.html(htmlValue, { indent_size: 2, space_in_empty_paren: true })
+
+    console.log('--------------Current Value----------------')
+    console.log(value.toJSON())
+    console.log('--------------Deserialize from HTML--------------')
+    console.log(dataObj.toJSON())
 
     return (
-      <div style={{margin: '50px'}}>
-        <div className="toolbar">
-          <div>
-            {selectors.map((Type, i) => {
-              return <Type
-                change={value.change()}
-                onChange={onChange}
-                key={i}
-                className="toolbar-select"
-              />
-            })}
+      <Row>
+        <Col span={12} style={{borderRight: '1px solid #DDD', minHeight: '100vh'}}>
+          <div className="toolbar">
+            <div>
+              {selectors.map((Type, i) => {
+                return <Type
+                  change={value.change()}
+                  onChange={onChange}
+                  key={i}
+                  className="toolbar-select"
+                />
+              })}
+            </div>
+            <div>
+              {icons.map((Type, i) => {
+                return <Type
+                  change={value.change()}
+                  onChange={onChange}
+                  key={i}
+                  className="toolbar-item"
+                  activeClassName="toolbar-item-active"
+                  activeStrokeClassName="ql-stroke-active"
+                  activeFillClassName="ql-fill-active"
+                  activeThinClassName="ql-thin-active"
+                  activeEvenClassName="ql-even-active"
+                />
+              })}
+            </div>
           </div>
-          <div>
-            {icons.map((Type, i) => {
-              return <Type
-                change={value.change()}
-                onChange={onChange}
-                key={i}
-                className="toolbar-item"
-                activeClassName="toolbar-item-active"
-                activeStrokeClassName="ql-stroke-active"
-                activeFillClassName="ql-fill-active"
-                activeThinClassName="ql-thin-active"
-                activeEvenClassName="ql-even-active"
-              />
-            })}
+          <div className="editor markdown-body">
+            <Editor
+              value={value}
+              onChange={onChange}
+              plugins={plugins}
+              renderNode={renderNode}
+              renderMark={renderMark}
+            />
           </div>
-        </div>
-        <div className="editor markdown-body">
-          <Editor
-            value={value}
-            onChange={onChange}
-            plugins={plugins}
-            renderNode={renderNode}
-            renderMark={renderMark}
-          />
-        </div>
-        <div>
-          <h1>Current Value: </h1>
-          <Inspector data={value.toJSON()}/>
-        </div>
-        <div>
-          <h1>Serialize HTML: </h1>
-          <div dangerouslySetInnerHTML={{__html: html.serialize(value)}} />
-
-          <div>
-            {htmlValue}
-          </div>
-        </div>
-        <div>
-          <h1>deserialize from HTML: </h1>
-          <Inspector data={dataObj}/>
-        </div>
-      </div>
+        </Col>
+        <Col span={12} style={{padding: '5px 0 5px 10px'}}>
+          <h3>Serialized HTML</h3>
+          <pre>
+            <code className="language-markup">
+              {beautyHTML}
+            </code>
+          </pre>
+        </Col>
+      </Row>
     );
   }
 }
