@@ -3,6 +3,7 @@ import * as React from 'react';
 import {type Change} from 'slate';
 import basicMarkDecoration from './basicMarkDecoration';
 import QuillIcons from 'quill-icons';
+import commonNode from '@canner/slate-editor-renderer/lib/commonNode';
 
 type Props = {
   className?: string,
@@ -31,6 +32,12 @@ type Props = {
 }
 
 export const basicMarkDecorator = basicMarkDecoration;
+export const ParagraphPlugin = {
+  renderNode: (props) => {
+    if (props.node.type === 'paragraph')
+      return commonNode('p')(props);
+  } 
+}
 
 export default class ToolbarIcon extends React.Component<Props> {
   render() {

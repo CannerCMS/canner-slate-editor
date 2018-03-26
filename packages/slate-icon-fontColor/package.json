@@ -26,6 +26,7 @@
     "@canner/slate-icon-shared": "^1.0.3",
     "@canner/slate-util-get": "^0.1.2",
     "@canner/slate-util-have": "^0.1.2",
+    "@canner/slate-editor-renderer": "^1.0.3",
     "hex-rgb": "^2.0.0",
     "rc-color-picker": "^1.2.6"
   }

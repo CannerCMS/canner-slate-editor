@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@canner/slate-util-have": "^0.1.2",
-    "quill-icons": "^0.5.3"
+    "quill-icons": "^0.5.3",
+    "@canner/slate-editor-renderer": "^1.0.3"
   }
 }

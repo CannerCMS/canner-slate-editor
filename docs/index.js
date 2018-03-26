@@ -9,32 +9,34 @@ import {Row, Col} from 'antd';
 import rendererFn from 'packages/slate-editor-renderer';
 import {AlignCenter, AlignLeft, AlignRight} from 'packages/slate-icon-align';
 import Blockquote from 'packages/slate-icon-blockquote';
-import Bold from 'packages/slate-icon-bold';
+import Bold, {BoldPlugin} from 'packages/slate-icon-bold';
 import Clean from 'packages/slate-icon-clean';
-import Code from 'packages/slate-icon-code';
+import Code, {CodePlugin} from 'packages/slate-icon-code';
 import Emoji from 'packages/slate-icon-emoji';
-import FontBgColor from 'packages/slate-icon-fontBgColor';
-import FontColor from 'packages/slate-icon-fontColor';
+import FontBgColor, {FontBgColorPlugin} from 'packages/slate-icon-fontBgColor';
+import FontColor, {FontColorPlugin} from 'packages/slate-icon-fontColor';
 import {Header1, Header2} from 'packages/slate-icon-header';
 import Image from 'packages/slate-icon-image';
 import {Indent, Outdent} from 'packages/slate-icon-indent';
-import Italic from 'packages/slate-icon-italic';
+import Italic, {ItalicPlugin} from 'packages/slate-icon-italic';
 import Link from 'packages/slate-icon-link';
 import {OlList, UlList} from 'packages/slate-icon-list';
-import StrikeThrough from 'packages/slate-icon-strikethrough';
-import Underline from 'packages/slate-icon-underline';
+import StrikeThrough, {StrikeThroughPlugin} from 'packages/slate-icon-strikethrough';
+import Underline, {UnderlinePlugin} from 'packages/slate-icon-underline';
 import Undo from 'packages/slate-icon-undo';
 import Video from 'packages/slate-icon-video';
 
 // select
-import FontSize from 'packages/slate-select-fontsize';
-import LetterSpacing from 'packages/slate-select-letterspacing';
+import FontSize, {FontSizePlugin} from 'packages/slate-select-fontsize';
+import LetterSpacing, {LetterSpacingPlugin} from 'packages/slate-select-letterspacing';
 import LineHeight from 'packages/slate-select-lineheight';
 
+// plugins
 import {DEFAULT as DEFAULTLIST} from '@canner/slate-helper-block-list';
 import {DEFAULT as DEFAULTBLOCKQUOTE} from '@canner/slate-helper-block-quote';
 import EditList from 'slate-edit-list';
 import EditBlockquote from 'slate-edit-blockquote';
+import {ParagraphPlugin} from 'packages/slate-icon-shared';
 
 import Prism from 'prismjs';
 import "prismjs/themes/prism.css"
@@ -92,7 +94,6 @@ import "./github-markdown.css";
 
 const {
   commonNode,
-  commonMark,
   emojiNode,
   imageNode,
   linkNode,
@@ -147,14 +148,24 @@ const icons = [
   OlList,
   UlList,
   StrikeThrough,
-  Underline,
+  Underline, 
   Undo,
   Video
 ];
 
 const plugins = [
   EditList(DEFAULTLIST),
-  EditBlockquote(DEFAULTBLOCKQUOTE)
+  EditBlockquote(DEFAULTBLOCKQUOTE),
+  ParagraphPlugin,
+  BoldPlugin,
+  CodePlugin,
+  FontBgColorPlugin,
+  FontColorPlugin,
+  ItalicPlugin,
+  StrikeThroughPlugin,
+  UnderlinePlugin,
+  FontSizePlugin,
+  LetterSpacingPlugin
 ];
 
 class App extends React.Component {
@@ -215,7 +226,6 @@ class App extends React.Component {
               onChange={onChange}
               plugins={plugins}
               renderNode={renderNode}
-              renderMark={renderMark}
             />
           </div>
         </Col>
@@ -232,35 +242,8 @@ class App extends React.Component {
   }
 }
 
-function renderMark(props) {
-  switch (props.mark.type) {
-    case 'bold':
-      return commonMark('strong')(props);
-    case 'code':
-      return commonMark('code')(props);
-    case 'fontBgColor':
-      return commonMark('span', 'backgroundColor', 'color')(props);
-    case 'fontColor':
-      return commonMark('span', 'color', 'color')(props);
-    case 'fontSize':
-      return commonMark('span', 'fontSize')(props);
-    case 'letterSpacing':
-      return commonMark('span', 'letterSpacing')(props);
-    case 'italic':
-      return commonMark('i')(props);
-    case 'strikethrough':
-      return commonMark('s')(props);
-    case 'underline':
-      return commonMark('u')(props);
-  }
-}
-
 function renderNode(props) {
   switch (props.node.type) {
-    case 'paragraph':
-      return commonNode('p')(props);
-    case 'blockquote':
-      return commonNode('blockquote')(props);
     case 'emoji':
       return emojiNode()(props);
     case 'heading1':

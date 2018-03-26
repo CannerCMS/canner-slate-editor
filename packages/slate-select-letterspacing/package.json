@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@canner/slate-select-shared": "^1.0.2",
-    "react-dropdown": "^1.4.0"
+    "react-dropdown": "^1.4.0",
+    "@canner/slate-editor-renderer": "^1.0.3"
   }
 }
