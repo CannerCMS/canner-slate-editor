@@ -29,6 +29,7 @@
   "dependencies": {
     "@canner/slate-helper-block-list": "^0.1.2",
     "@canner/slate-icon-shared": "^1.0.3",
-    "slate-edit-list": "^0.11.2"
+    "slate-edit-list": "^0.11.2",
+    "@canner/slate-editor-renderer": "^1.0.3"
   }
 }

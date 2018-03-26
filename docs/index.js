@@ -6,25 +6,24 @@ import {Editor} from 'slate-react';
 import beautify from 'js-beautify';
 import {Value} from 'slate';
 import {Row, Col} from 'antd';
-import rendererFn from 'packages/slate-editor-renderer';
 import {AlignCenter, AlignLeft, AlignRight} from 'packages/slate-icon-align';
 import Blockquote from 'packages/slate-icon-blockquote';
 import Bold, {BoldPlugin} from 'packages/slate-icon-bold';
 import Clean from 'packages/slate-icon-clean';
 import Code, {CodePlugin} from 'packages/slate-icon-code';
-import Emoji from 'packages/slate-icon-emoji';
+import Emoji, {EmojiPlugin} from 'packages/slate-icon-emoji';
 import FontBgColor, {FontBgColorPlugin} from 'packages/slate-icon-fontBgColor';
 import FontColor, {FontColorPlugin} from 'packages/slate-icon-fontColor';
-import {Header1, Header2} from 'packages/slate-icon-header';
-import Image from 'packages/slate-icon-image';
+import {Header1, Header2, HeaderPlugin} from 'packages/slate-icon-header';
+import Image, {ImagePlugin} from 'packages/slate-icon-image';
 import {Indent, Outdent} from 'packages/slate-icon-indent';
 import Italic, {ItalicPlugin} from 'packages/slate-icon-italic';
-import Link from 'packages/slate-icon-link';
-import {OlList, UlList} from 'packages/slate-icon-list';
+import Link, {LinkPlugin} from 'packages/slate-icon-link';
+import {OlList, UlList, ListPlugin} from 'packages/slate-icon-list';
 import StrikeThrough, {StrikeThroughPlugin} from 'packages/slate-icon-strikethrough';
 import Underline, {UnderlinePlugin} from 'packages/slate-icon-underline';
 import Undo from 'packages/slate-icon-undo';
-import Video from 'packages/slate-icon-video';
+import Video, {VideoPlugin} from 'packages/slate-icon-video';
 
 // select
 import FontSize, {FontSizePlugin} from 'packages/slate-select-fontsize';
@@ -92,14 +91,6 @@ const html = new Html({ rules: [
 import "./style.css";
 import "./github-markdown.css";
 
-const {
-  commonNode,
-  emojiNode,
-  imageNode,
-  linkNode,
-  videoNode
-} = rendererFn;
-
 const initialValue = Value.fromJSON({
   document: {
     nodes: [
@@ -165,7 +156,13 @@ const plugins = [
   StrikeThroughPlugin,
   UnderlinePlugin,
   FontSizePlugin,
-  LetterSpacingPlugin
+  LetterSpacingPlugin,
+  EmojiPlugin,
+  HeaderPlugin,
+  ImagePlugin,
+  LinkPlugin,
+  ListPlugin,
+  VideoPlugin
 ];
 
 class App extends React.Component {
@@ -225,7 +222,6 @@ class App extends React.Component {
               value={value}
               onChange={onChange}
               plugins={plugins}
-              renderNode={renderNode}
             />
           </div>
         </Col>
@@ -239,35 +235,6 @@ class App extends React.Component {
         </Col>
       </Row>
     );
-  }
-}
-
-function renderNode(props) {
-  switch (props.node.type) {
-    case 'emoji':
-      return emojiNode()(props);
-    case 'heading1':
-      return commonNode('h1')(props);
-    case 'heading2':
-      return commonNode('h2')(props);
-    case 'list-ul':
-      return commonNode('ul')(props);
-    case 'list-ol':
-      return commonNode('ol')(props);
-    case 'list-item':
-      return commonNode('li')(props);
-    case 'image':
-      return imageNode()(props);
-    case 'link':
-      return linkNode()(props);
-    case 'youtube':
-      return videoNode('youtube')(props);
-    case 'dailymotion':
-      return videoNode('dailymotion')(props);
-    case 'youku':
-      return videoNode('youku')(props);
-    case 'vimeo':
-      return videoNode('vimeo')(props);
   }
 }
 

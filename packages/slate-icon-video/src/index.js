@@ -3,6 +3,20 @@ import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
 import ToolbarIcon from '@canner/slate-icon-shared';
 import VideoModal from './videoModal';
+import videoNode from '@canner/slate-editor-renderer/lib/videoNode';
+
+export const VideoPlugin = {
+  renderNode: (props) => {
+    if (props.node.type === 'youtube') 
+      return videoNode('youtube')(props);
+    else if (props.node.type === 'dailymotion')
+      return videoNode('dailymotion')(props);
+    else if (props.node.type === 'youku')
+      return videoNode('youku')(props);
+    else if (props.node.type === 'vimeo')
+      return videoNode('vimeo')(props);
+  }
+}
 
 export const VideoModalShared = VideoModal;
 

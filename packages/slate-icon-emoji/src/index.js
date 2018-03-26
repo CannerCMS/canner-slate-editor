@@ -3,6 +3,14 @@ import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
 import EmojiMartPicker from 'emoji-mart-picker';
 import ToolbarIcon from '@canner/slate-icon-shared';
+import emojiNode from '@canner/slate-editor-renderer/lib/emojiNode';
+
+export const EmojiPlugin = {
+  renderNode: (props) => {
+    if (props.node.type === 'emoji') 
+      return emojiNode()(props);
+  }
+}
 
 export default class Emoji extends React.Component<IconProps> {
   typeName: string

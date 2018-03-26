@@ -5,6 +5,15 @@ import {Modal, Button, Form, Input} from 'antd';
 import ToolbarIcon from '@canner/slate-icon-shared';
 import links from '@canner/slate-helper-inline-links';
 import {haveInlines} from '@canner/slate-util-have';
+import linkNode from '@canner/slate-editor-renderer/lib/linkNode';
+
+export const LinkPlugin = {
+  renderNode: (props) => {
+    if (props.node.type === 'link') 
+      return linkNode()(props);
+  }
+}
+
 const FormItem = Form.Item;
 
 type State = {
