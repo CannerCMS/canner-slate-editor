@@ -44,6 +44,8 @@ This project is maintain in a monorepo, see packages in `packages` folder
 
 Install icons that you want to support in your slate project, and pass slate editor `change (value.change())` and `onChange` function as props into the component. When users click these icons it will apply changes and trigger onChange function to update new change to your editor.
 
+**NOTE: You have to add corresponding plugins to your editor!**
+
 You will need to pass icon classnames as props into your components ([supported classes](https://github.com/Canner/quill-icons#props)), you could look at the example [how to setup your icon's styles](https://github.com/Canner/slate-editor-icons/blob/master/docs/style.css) 
 
 ```js
@@ -78,9 +80,7 @@ class App extends React.Component {
           <Editor
             value={value}
             onChange={onChange}
-            plugins={plugins}
-            renderNode={renderNode}
-            renderMark={renderMark}
+            plugins={plugins} // ----> use corresponding plugins of your selected icons, for example `Bold` icon use `BoldPlugin`
           />
         </div>
       </div>
@@ -118,17 +118,41 @@ import {AlignCenter, AlignLeft, AlignRight} from '@canner/slate-icon-align';
 
 ### @canner/slate-icon-blockquote
 
+**Icon:**
+
 ```js
 import Blockquote from '@canner/slate-icon-blockquote';
 ```
 
+**Plugin:**
+
+Please install https://github.com/GitbookIO/slate-edit-blockquote
+
+```js
+import {DEFAULT as DEFAULTBLOCKQUOTE} from '@canner/slate-helper-block-quote';
+import EditBlockquote from 'slate-edit-blockquote';
+
+// plugin
+EditBlockquote(DEFAULTBLOCKQUOTE)
+```
+
 ### @canner/slate-icon-bold
+
+**Icon:**
 
 ```js
 import Bold from '@canner/slate-icon-bold';
 ```
 
+**Plugin:**
+
+```js
+import {BoldPlugin} from '@canner/slate-icon-bold';
+```
+
 ### @canner/slate-icon-clean
+
+**Icon:**
 
 ```js
 import Clean from '@canner/slate-icon-clean';
@@ -136,29 +160,63 @@ import Clean from '@canner/slate-icon-clean';
 
 ### @canner/slate-icon-code
 
+**Icon:**
+
 ```js
 import Code from '@canner/slate-icon-code';
 ```
 
+**Plugin:**
+
+```js
+import {CodePlugin} from '@canner/slate-icon-code';
+```
+
 ### @canner/slate-icon-emoji
+
+**Icon:**
 
 ```js
 import Emoji from '@canner/slate-icon-emoji';
 ```
 
+**Plugin:**
+
+```js
+import {EmojiPlugin} from '@canner/slate-icon-emoji';
+```
+
 ### @canner/slate-icon-fontBgColor
+
+**Icon:**
 
 ```js
 import FontBgColor from '@canner/slate-icon-fontbgcolor';
 ```
 
+**Plugin:**
+
+```js
+import {FontBgColorPlugin} from '@canner/slate-icon-fontbgcolor';
+```
+
 ### @canner/slate-icon-fontColor
+
+**Icon:**
 
 ```js
 import FontColor from '@canner/slate-icon-fontcolor';
 ```
 
+**Plugin:**
+
+```js
+import {FontColorPlugin} from '@canner/slate-icon-fontcolor';
+```
+
 ### @canner/slate-icon-header
+
+**Icon:**
 
 Export components: 
   - Header1
@@ -168,13 +226,29 @@ Export components:
 import {Header1, Header2} from '@canner/slate-icon-header';
 ```
 
+**Plugin:**
+
+```js
+import {HeaderPlugin} from '@canner/slate-icon-header';
+```
+
 ### @canner/slate-icon-image
+
+**Icon:**
 
 ```js
 import Image from '@canner/slate-icon-image';
 ```
 
+**Plugin:**
+
+```js
+import {ImagePlugin} from '@canner/slate-icon-image';
+```
+
 ### @canner/slate-icon-indent
+
+**Icon:**
 
 Export components:
   - Indent
@@ -186,17 +260,35 @@ import {Indent, Outdent} from '@canner/slate-icon-indent';
 
 ### @canner/slate-icon-italic
 
+**Icon:**
+
 ```js
 import Italic from '@canner/slate-icon-italic';
 ```
 
+**Plugin:**
+
+```js
+import {ItalicPlugin} from '@canner/slate-icon-italic';
+```
+
 ### @canner/slate-icon-link
+
+**Icon:**
 
 ```js
 import Link from '@canner/slate-icon-link';
 ```
 
+**Plugin:**
+
+```js
+import {LinkPlugin} from '@canner/slate-icon-link';
+```
+
 ### @canner/slate-icon-list
+
+**Icon:**
 
 Export components:
   - OlList
@@ -206,16 +298,38 @@ Export components:
 import {OlList, UlList} from '@canner/slate-icon-list';
 ```
 
+**Plugin:**
+
+```js
+import {ListPlugin} from '@canner/slate-icon-list';
+```
+
 ### @canner/slate-icon-strikethrough
+
+**Icon:**
 
 ```js
 import Strikethrough from '@canner/slate-icon-strikethrough';
 ```
 
+**Plugin:**
+
+```js
+import {StrikeThroughPlugin} from '@canner/slate-icon-strikethrough';
+```
+
 ### @canner/slate-icon-underline
+
+**Icon:**
 
 ```js
 import Underline from '@canner/slate-icon-underline';
+```
+
+**Plugin:**
+
+```js
+import {UnderlinePlugin} from '@canner/slate-icon-underline';
 ```
 
 ### @canner/slate-icon-undo
@@ -226,18 +340,32 @@ import Undo from '@canner/slate-icon-undo';
 
 ### @canner/slate-icon-video
 
+**Icon:**
+
 ```js
 import Video from '@canner/slate-icon-video';
 ```
 
-Renderers that define corresponding nodes and marks while rendering your editor.
+**Plugin:**
+
+```js
+import {VideoPlugin} from '@canner/slate-icon-video';
+```
 
 ## Selector packages
 
 ### @canner/slate-select-fontsize
 
+**Selector:**
+
 ```js
 import FontSize from '@canner/slate-select-fontsize';
+```
+
+**Plugin:**
+
+```js
+import {FontSizePlugin} from '@canner/slate-select-fontsize';
 ```
 
 ### @canner/slate-select-lineheight
@@ -248,17 +376,29 @@ import LineHeight from '@canner/slate-select-lineheight';
 
 ### @canner/slate-select-letterspacing
 
+**Selector:**
+
 ```js
 import LetterSpacing from '@canner/slate-select-letterspacing';
+```
+
+**Plugin:**
+
+```js
+import {LetterSpacingPlugin} from '@canner/slate-select-letterspacing';
 ```
 
 ## Helpers
 
 ### @canner/slate-editor-renderer
 
+**NOTE: You should directly use it's plugin instead of writing render function.**
+
 ```js
 import renderer from '@canner/slate-editor-renderer';
 ```
+
+Renderers that define corresponding nodes and marks while rendering your editor. 
 
 methods:
 
