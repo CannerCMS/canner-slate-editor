@@ -48,6 +48,10 @@ const MarkdownPlugin = () => {
       } else if (matched = currentLineText.match(/^(?: {4}|\t)/m)) {
         // [Code Block] Prefixed by 4 spaces or 1 tab
         return matchCodeBlock(currentTextNode, matched, change);
+      } else if (matched = currentLineText.match(/^\s*```(\w+)?(?:[\t ])/m)) {
+        // [Code block]
+        // ```lang
+        return matchCodeBlock(currentTextNode, matched, change, matched[1]);
       } else if (matched = currentLineText.match(/``.+?``|`[^`\n]+`/)) {
         // [Code] `code`
         return matchCode(currentTextNode, matched, change);
@@ -72,11 +76,9 @@ const MarkdownPlugin = () => {
         return matchHr(currentTextNode, matched, change);
       } else if (matched = currentLineText.match(/!\[([^\]]+)\]\(([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?)\)/)) {
         // ![example](http://example.com "Optional title")
-        // ![example] [id]
         return matchImage(currentTextNode, matched, change);
       } else if (matched = currentLineText.match(/\[([^\]]+)\]\(([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?)\)/)) {
         // [example](http://example.com "Optional title")
-        // [example] [id]
         return matchLink(currentTextNode, matched, change);
       } else if (matched = currentLineText.match(/((?:^\s*)(?:[*+-])(?:[\t ].))/m)) {
         // * item
@@ -86,10 +88,6 @@ const MarkdownPlugin = () => {
       } else if (matched = currentLineText.match(/((?:^\s*)(?:\d+\.)(?:[\t ].))/m)) {
         // 1. item
         return matchList(currentTextNode, matched, change, true);
-      } else if (matched = currentLineText.match(/^\s*```(\w+)?(?:[\t ])/m)) {
-        // [Code block]
-        // ```lang
-        return matchCodeBlock(currentTextNode, matched, change, matched[1]);
       }
     }
   };
