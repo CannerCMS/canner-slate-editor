@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import commonNode from '@canner/slate-editor-renderer/lib/commonNode';
-import imageNode from '@canner/slate-editor-renderer/lib/imageNode';
 import linkNode from '@canner/slate-editor-renderer/lib/linkNode';
 
 export default (props: any) => {
@@ -42,7 +41,12 @@ export default (props: any) => {
     case 'code_line':
       return <div {...props.attributes}>{props.children}</div>
     case 'image':
-      return imageNode()(props);
+      const src = node.data.get('src');
+      return (
+        <img
+        {...props.attributes}
+        src={src}/>
+      );
     case 'link':
       return linkNode()(props);
   }
