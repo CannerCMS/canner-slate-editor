@@ -2,7 +2,7 @@
 import {Range} from 'slate';
 import type {Change, Node} from 'slate';
 
-export default function (currentTextNode: Node, matched: any, change: Change) {
+export default (currentTextNode: Node, matched: any, change: Change) => {
   const matchedLength = matched[0].length;
   const count = (matched[0].match(/#/g) || []).length;
   let header;

@@ -17,6 +17,8 @@ import matchHeader from './match/header';
 import matchBold from './match/bold';
 import matchItalic from './match/italic';
 import matchHr from './match/hr';
+import matchImage from './match/image';
+import matchLink from './match/link';
 
 const KEY_ENTER = 'Enter';
 
@@ -50,12 +52,15 @@ const MarkdownPlugin = () => {
         return matchCode(currentTextNode, matched, change);
       } else if (matched = currentLineText.match(/(^\s*)#{1,6}(?:[\t ])/m)) {
         // [Header] h1 ~ h6
+        // # h1
+        // ## h2
+        // ###### h6
         return matchHeader(currentTextNode, matched, change);
-      } else if (matched = currentLineText.match(/(\*\*|__)(?:(?:\r?\n|\r)(?!\r?\n|\r)|.)+?\1/)) {
-        // [Bold] **strong** __strong__
+      } else if (matched = currentLineText.match(/(\*\*)(?:(?:\r?\n|\r)(?!\r?\n|\r)|.)+?\1/)) {
+        // [Bold] **strong**
         return matchBold(currentTextNode, matched, change);
-      } else if (matched = currentLineText.match(/([*_])(?:(?:\r?\n|\r)(?!\r?\n|\r)|.)+?\1/)) {
-        // [Italic] _em_ *em*
+      } else if (matched = currentLineText.match(/([_])(?:(?:\r?\n|\r)(?!\r?\n|\r)|.)+?\1/)) {
+        // [Italic] _em_
         return matchItalic(currentTextNode, matched, change);
       } else if (matched = currentLineText.match(/(^\s*)([*-])(?:[\t ]*\2){2,}(?=\s*$)/m)) {
         // [HR]
@@ -64,6 +69,14 @@ const MarkdownPlugin = () => {
         // * * *
         // -----------
         return matchHr(currentTextNode, matched, change);
+      } else if (matched = currentLineText.match(/!\[([^\]]+)\]\(([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?)\)/)) {
+        // ![example](http://example.com "Optional title")
+        // ![example] [id]
+        return matchImage(currentTextNode, matched, change);
+      } else if (matched = currentLineText.match(/\[([^\]]+)\]\(([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?)\)/)) {
+        // [example](http://example.com "Optional title")
+        // [example] [id]
+        return matchLink(currentTextNode, matched, change);
       }
     }
   };
