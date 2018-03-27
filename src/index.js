@@ -16,6 +16,7 @@ import matchCode from './match/code';
 import matchHeader from './match/header';
 import matchBold from './match/bold';
 import matchItalic from './match/italic';
+import matchHr from './match/hr';
 
 const KEY_ENTER = 'Enter';
 
@@ -56,6 +57,13 @@ const MarkdownPlugin = () => {
       } else if (matched = currentLineText.match(/([*_])(?:(?:\r?\n|\r)(?!\r?\n|\r)|.)+?\1/)) {
         // [Italic] _em_ *em*
         return matchItalic(currentTextNode, matched, change);
+      } else if (matched = currentLineText.match(/(^\s*)([*-])(?:[\t ]*\2){2,}(?=\s*$)/m)) {
+        // [HR]
+        // ***
+        // ---
+        // * * *
+        // -----------
+        return matchHr(currentTextNode, matched, change);
       }
     }
   };

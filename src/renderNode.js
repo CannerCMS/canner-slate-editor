@@ -27,6 +27,8 @@ export default (props: any) => {
       return commonNode('ol')(props);
     case 'list-item':
       return commonNode('li')(props);
+    case 'hr':
+      return <hr/>;
     case 'code_block':
       return (
         <pre>
