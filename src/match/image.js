@@ -8,9 +8,7 @@ export default function (currentTextNode: Node, matched: any, change: Change) {
       type: 'IMAGE',
       isVoid: true,
       data: {
-        src: matched[1],
-        width: 300,
-        height: 300
+        src: matched[1]
       }
     })
     .collapseToStartOfNextBlock()
