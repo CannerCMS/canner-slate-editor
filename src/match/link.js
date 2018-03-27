@@ -5,7 +5,6 @@ import trailingSpace from '../utils/trailingSpace';
 
 export default function (currentTextNode: Node, matched: any, change: Change) {
   const matchedLength = matched[0].length;
-  console.log(matched)
 
   return change
     .deleteAtRange(Range.create({

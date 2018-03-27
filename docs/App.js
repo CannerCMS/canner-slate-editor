@@ -5,9 +5,11 @@ import {Value} from 'slate';
 import {State} from 'markup-it';
 import Prism from 'slate-prism';
 import EditBlockquote from 'slate-edit-blockquote';
+import EditList from 'slate-edit-list'
 import PluginEditCode from 'slate-edit-code';
 import markdown from 'markup-it/lib/markdown';
 import html from 'markup-it/lib/html';
+import {DEFAULT as DEFAULT_LIST} from '@canner/slate-helper-block-list';
 import MarkdownPlugin from '../src';
 
 import "github-markdown-css";
@@ -33,9 +35,10 @@ const plugins = [
     getSyntax: node => node.data.get('syntax')
   }),
   PluginEditCode({
-      onlyIn: node => node.type === 'code_block'
+    onlyIn: node => node.type === 'code_block'
   }),
-  EditBlockquote()
+  EditBlockquote(),
+  EditList(DEFAULT_LIST)
 ];
 
 

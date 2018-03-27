@@ -19,6 +19,7 @@ import matchItalic from './match/italic';
 import matchHr from './match/hr';
 import matchImage from './match/image';
 import matchLink from './match/link';
+import matchList from './match/list';
 
 const KEY_ENTER = 'Enter';
 
@@ -27,10 +28,10 @@ const MarkdownPlugin = () => {
   return {
     renderMark: renderMark,
     renderNode: renderNode,
-    onKeyDown: (e: any, change: Change, editor: any) => {
+    onKeyDown: (e: any, change: Change) => {
       switch (e.key) {
         case KEY_ENTER:
-          return onEnter(change, editor);
+          return onEnter(change);
       }
     },
     onKeyUp: (e: any, change: Change) => {
@@ -77,6 +78,18 @@ const MarkdownPlugin = () => {
         // [example](http://example.com "Optional title")
         // [example] [id]
         return matchLink(currentTextNode, matched, change);
+      } else if (matched = currentLineText.match(/((?:^\s*)(?:[*+-])(?:[\t ].))/m)) {
+        // * item
+        // + item
+        // - item
+        return matchList(currentTextNode, matched, change, false);
+      } else if (matched = currentLineText.match(/((?:^\s*)(?:\d+\.)(?:[\t ].))/m)) {
+        // 1. item
+        return matchList(currentTextNode, matched, change, true);
+      } else if (matched = currentLineText.match(/^\s*```(\w+)?(?:[\t ])/m)) {
+        // [Code block]
+        // ```lang
+        return matchCodeBlock(currentTextNode, matched, change, matched[1]);
       }
     }
   };
