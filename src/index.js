@@ -14,6 +14,8 @@ import matchBlockquote from './match/blockquote';
 import matchCodeBlock from './match/codeBlock';
 import matchCode from './match/code';
 import matchHeader from './match/header';
+import matchBold from './match/bold';
+import matchItalic from './match/italic';
 
 const KEY_ENTER = 'Enter';
 
@@ -48,6 +50,12 @@ const MarkdownPlugin = () => {
       } else if (matched = currentLineText.match(/(^\s*)#{1,6}(?:[\t ])/m)) {
         // [Header] h1 ~ h6
         return matchHeader(currentTextNode, matched, change);
+      } else if (matched = currentLineText.match(/(\*\*|__)(?:(?:\r?\n|\r)(?!\r?\n|\r)|.)+?\1/)) {
+        // [Bold] **strong** __strong__
+        return matchBold(currentTextNode, matched, change);
+      } else if (matched = currentLineText.match(/([*_])(?:(?:\r?\n|\r)(?!\r?\n|\r)|.)+?\1/)) {
+        // [Italic] _em_ *em*
+        return matchItalic(currentTextNode, matched, change);
       }
     }
   };
