@@ -73,7 +73,7 @@ class App extends React.Component {
             />
           </div>
         </Col>
-        <Col span={12} style={{padding: '5px 0 5px 10px'}}>
+        <Col span={12} style={{padding: '10px'}}>
           <h3>Serialized HTML</h3>
           <pre>
             <code className="language-markup">

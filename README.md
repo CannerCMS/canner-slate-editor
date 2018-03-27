@@ -2,13 +2,15 @@
 
 A markdown editor, that allow your to edit live.
 
-## Live DEMO
+## Live 
+
+DEMO: [https://canner.github.io/slate-md-editor/](https://canner.github.io/slate-md-editor/)
 
 ## Support
 
 ### Blockquote
 
-**In editor enter: **
+**In editor enter:**
 
 ```
 >[space]Blockquote
@@ -16,7 +18,7 @@ A markdown editor, that allow your to edit live.
 
 ### Code block (inline)
 
-**In editor enter: **
+**In editor enter:**
 
 ```
 [space * 4]Code block
@@ -24,7 +26,7 @@ A markdown editor, that allow your to edit live.
 
 ### Code block (triple backticks)
 
-**In editor enter: **
+**In editor enter:**
 
 ```
 [` * 3][space] Code block
