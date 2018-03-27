@@ -1,8 +1,9 @@
 // @flow
 import {Mark, Range} from 'slate';
-import type {Change, Node} from 'slate';
+import type {Change, Text} from 'slate';
+import trailingSpace from '../utils/trailingSpace';
 
-export default function (currentTextNode: Node, matched: any, change: Change) {
+export default function (currentTextNode: Text, matched: any, change: Change) {
   const matchedLength = matched[0].length;
   return change
     .deleteAtRange(Range.create({
@@ -11,5 +12,12 @@ export default function (currentTextNode: Node, matched: any, change: Change) {
       anchorOffset: matched.index,
       focusOffset: matched.index + matchedLength
     }))
-    .insertTextByKey(currentTextNode.key, matched.index, matched[0].replace(/`/g, ""), [Mark.create({type: 'CODE'})])
+    .call(trailingSpace, currentTextNode, matched.index)
+    .insertTextByKey(
+      currentTextNode.key,
+      matched.index,
+      matched[0].replace(/`/g, ""),
+      [Mark.create({type: 'CODE'})]
+    )
+    .call(trailingSpace, currentTextNode, matched.index)
 }
