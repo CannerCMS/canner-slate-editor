@@ -72,7 +72,7 @@
     "slate": ">=0.33.0"
   },
   "dependencies": {
-    "@canner/slate-icon-renderer": "^1.0.3",
+    "@canner/slate-editor-renderer": "^1.0.4",
     "markup-it": "^7.0.0",
     "prismjs": "^1.13.0",
     "slate-edit-blockquote": "^0.6.0",

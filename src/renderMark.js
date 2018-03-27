@@ -1,8 +1,7 @@
 // @flow
-import React from 'react';
-import commonMark from '@canner/slate-icon-renderer/lib/commonMark';
+import commonMark from '@canner/slate-editor-renderer/lib/commonMark';
 
-export default (props) => {
+export default (props: any) => {
   const { mark } = props;
   switch (mark.type.toLowerCase()) {
     case 'bold':

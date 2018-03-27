@@ -93,33 +93,35 @@
     react-loading-image "^0.3.0"
     styled-components "^3.2.0"
 
-"@canner/slate-helper-block-adddata@^0.1.2":
-  version "0.1.3"
-  resolved "https://registry.npmjs.org/@canner/slate-helper-block-adddata/-/slate-helper-block-adddata-0.1.3.tgz#d31facc2b1874563f9c78b17cfae0e93206e30ba"
-
-"@canner/slate-icon-renderer@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/@canner/slate-icon-renderer/-/slate-icon-renderer-1.0.3.tgz#445a271b537ea68c688390c47c6f2071a8004c5d"
+"@canner/slate-editor-renderer@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@canner/slate-editor-renderer/-/slate-editor-renderer-1.0.4.tgz#4420fba95ddeae6f97813319daeb4c369d135c0f"
   dependencies:
     "@canner/slate-helper-block-adddata" "^0.1.2"
-    "@canner/slate-icon-video" "^1.0.3"
+    "@canner/slate-icon-video" "^1.0.4"
     emoji-mart "^2.5.0"
     react-icons "^2.2.7"
     react-resizable "^1.7.5"
 
-"@canner/slate-icon-shared@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/@canner/slate-icon-shared/-/slate-icon-shared-1.0.3.tgz#bc5fea01a1692463a5ab53496256c0403ac13d38"
+"@canner/slate-helper-block-adddata@^0.1.2":
+  version "0.1.3"
+  resolved "https://registry.npmjs.org/@canner/slate-helper-block-adddata/-/slate-helper-block-adddata-0.1.3.tgz#d31facc2b1874563f9c78b17cfae0e93206e30ba"
+
+"@canner/slate-icon-shared@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@canner/slate-icon-shared/-/slate-icon-shared-1.0.4.tgz#b3862f4b608289162ece23ec18bf00255471f99c"
   dependencies:
+    "@canner/slate-editor-renderer" "^1.0.4"
     "@canner/slate-util-have" "^0.1.2"
     quill-icons "^0.5.3"
 
-"@canner/slate-icon-video@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/@canner/slate-icon-video/-/slate-icon-video-1.0.3.tgz#4d73dd49578d787d5c8664e028bd3a5615a0b7cb"
+"@canner/slate-icon-video@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@canner/slate-icon-video/-/slate-icon-video-1.0.4.tgz#656ef828eb1ff89fa54d3c662810ead8fc46aec0"
   dependencies:
     "@canner/image-upload" "^0.10.0"
-    "@canner/slate-icon-shared" "^1.0.3"
+    "@canner/slate-editor-renderer" "^1.0.4"
+    "@canner/slate-icon-shared" "^1.0.4"
     js-video-url-parser "^0.2.7"
 
 "@canner/slate-util-have@^0.1.2":

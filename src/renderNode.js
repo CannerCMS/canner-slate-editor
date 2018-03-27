@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
-import commonNode from '@canner/slate-icon-renderer/lib/commonNode';
+import commonNode from '@canner/slate-editor-renderer/lib/commonNode';
 
-export default (props) => {
+export default (props: any) => {
   const { node } = props;
   switch (node.type.toLowerCase()) {
     case 'header_one':
