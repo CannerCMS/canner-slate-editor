@@ -4,7 +4,7 @@ A markdown editor, that allow your to edit live.
 
 ## Live 
 
-![demo](https://i.imgur.com/lmPwefY.png)
+![demo](https://i.imgur.com/eLOCvlu.gif)
 
 DEMO: [https://canner.github.io/slate-md-editor/](https://canner.github.io/slate-md-editor/)
 
