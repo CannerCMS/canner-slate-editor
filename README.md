@@ -2,6 +2,20 @@
 
 A markdown editor, that allow your to edit live.
 
+## TOC
+
+- [Blockquote](#blockquote)
+- [Code block (inline)](#code-block-inline)
+- [Code block (triple backticks)](#code-block-triple-backticks)
+- [Header](#header)
+- [Bold](#bold)
+- [Italic](#italic)
+- [Hr](#hr)
+- [Link](#link)
+- [Image](#image)
+- [Unordered List](#unordered-list)
+- [Ordered List](#ordered-list)
+
 ## Live 
 
 ![demo](https://i.imgur.com/eLOCvlu.gif)
