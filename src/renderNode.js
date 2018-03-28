@@ -22,11 +22,11 @@ export default (props: any) => {
       return commonNode('p')(props);
     case 'blockquote':
       return commonNode('blockquote')(props);
-    case 'list-ul':
+    case 'unordered_list':
       return commonNode('ul')(props);
-    case 'list-ol':
+    case 'ordered_list':
       return commonNode('ol')(props);
-    case 'list-item':
+    case 'list_item':
       return commonNode('li')(props);
     case 'hr':
       return <hr/>;

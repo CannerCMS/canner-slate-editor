@@ -1,7 +1,7 @@
 // @flow
 import type {Change} from 'slate';
 import EditList from 'slate-edit-list';
-import {DEFAULT as DEFAULT_LIST} from '@canner/slate-helper-block-list';
+import DEFAULT_LIST from '../constant/list';
 const {isSelectionInList} = EditList(DEFAULT_LIST).utils;
 
 export default function onEnter(change: Change) {

@@ -11,8 +11,8 @@ import EditList from 'slate-edit-list'
 import PluginEditCode from 'slate-edit-code';
 import markdown from 'markup-it/lib/markdown';
 import html from 'markup-it/lib/html';
-import {DEFAULT as DEFAULT_LIST} from '@canner/slate-helper-block-list';
 import MarkdownPlugin from '../src';
+import DEFAULT_LIST from '../src/constant/list';
 import readme from '../README.md';
 
 import "github-markdown-css";

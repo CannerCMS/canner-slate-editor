@@ -1,5 +1,6 @@
 // @flow
 import blocklist from '@canner/slate-helper-block-list';
+import DEFAULT_LIST from '../constant/list';
 import {Range} from 'slate';
 import type {Change, Node} from 'slate';
 
@@ -13,9 +14,7 @@ export default function (currentTextNode: Node, matched: any, change: Change, or
   }))
 
   return blocklist(newChange, {
-    typeUL: 'list-ul',
-    typeOL: 'list-ol',
-    typeItem: 'list-item',
-    ordered: ordered
+    ...DEFAULT_LIST,
+    ordered
   })
 }
