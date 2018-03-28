@@ -2,7 +2,6 @@
 
 A markdown editor, that allow your to edit live.
 
-<<<<<<< HEAD
 ## TOC
 
 - [Blockquote](#blockquote)
@@ -22,13 +21,6 @@ A markdown editor, that allow your to edit live.
 ![demo](https://i.imgur.com/eLOCvlu.gif)
 
 DEMO: [https://canner.github.io/slate-md-editor/](https://canner.github.io/slate-md-editor/)
-=======
-[![Greenkeeper badge](https://badges.greenkeeper.io/Canner/slate-markdown.svg?token=8d701143863d7b8431a3893c29e93ab89e6c9fde33a06a4b73b3971971740b37&ts=1521899598949)](https://greenkeeper.io/)
-
-```sh
-npm install slate-markdown
-```
->>>>>>> d707453f952d20791159a32ba6dfa6b83d95ffd8
 
 ## Support
 
