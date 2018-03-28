@@ -1,6 +1,6 @@
 # slate-md-editor
 
-A markdown editor, that allow your to edit live.
+A markdown editor, that allows you to edit live. 
 
 ## TOC
 
