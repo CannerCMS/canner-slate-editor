@@ -56,7 +56,9 @@ Use specific language:
 
 for example:
 
-    ```js[space] Code block
+```js
+const wow = test()
+```
 
 ### Header
 

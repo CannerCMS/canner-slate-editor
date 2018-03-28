@@ -9,17 +9,20 @@ const codePlugin = PluginEditCode({
 
 export default function (currentTextNode: Node, matched: any, change: Change, lang: ?string) {
   const matchedLength = matched[0].length;
+  let newChange = change;
 
-  const newChange = codePlugin.changes.wrapCodeBlock(
-    change.deleteAtRange(Range.create({
+  if (lang) {
+    newChange = change
+      .setBlocks({data: Data.create({syntax: lang})});
+  }
+
+  return codePlugin.changes.wrapCodeBlock(
+    newChange
+    .deleteAtRange(Range.create({
       anchorKey: currentTextNode.key,
       focusKey: currentTextNode.key,
       anchorOffset: matched.index,
       focusOffset: matched.index + matchedLength
-    })))
-
-  if (lang) {
-    return newChange.setBlocks({data: Data.create({syntax: lang})})
-  }
-  return newChange;
+    }))
+  )
 }
