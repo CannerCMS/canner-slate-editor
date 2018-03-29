@@ -1,7 +1,7 @@
 {
-  "name": "@canner/slate-icon-letterspacing",
-  "version": "1.0.4",
-  "description": "A slate icon for changing letter spacing",
+  "name": "@canner/slate-select-letterspacing",
+  "version": "1.0.5",
+  "description": "A slate selector for changing letter spacing",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest src",

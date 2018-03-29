@@ -1,7 +1,7 @@
 {
-  "name": "@canner/slate-icon-fontsize",
-  "version": "1.0.4",
-  "description": "A slate icon for changing font sizes",
+  "name": "@canner/slate-select-fontsize",
+  "version": "1.0.5",
+  "description": "A slate selector for changing font sizes",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest src",
