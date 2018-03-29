@@ -5,7 +5,7 @@ export default function (currentTextNode: Node, matched: any, change: Change) {
   return change
     .removeNodeByKey(currentTextNode.key)
     .insertBlock({
-      type: "HR",
+      type: "hr",
       isVoid: true
     })
     .collapseToStartOfNextBlock()

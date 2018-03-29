@@ -19,7 +19,7 @@ export default function (currentTextNode: Text, matched: any, change: Change) {
       currentTextNode.key,
       matched.index,
       matched[0].replace(new RegExp(reg,"g"), ""),
-      [Mark.create({type: 'ITALIC'})]
+      [Mark.create({type: 'italic'})]
     )
     .call(trailingSpace, currentTextNode, matched.index)
 }

@@ -17,7 +17,7 @@ export default function (currentTextNode: Text, matched: any, change: Change) {
       currentTextNode.key,
       matched.index,
       matched[0].replace(/`/g, ""),
-      [Mark.create({type: 'CODE'})]
+      [Mark.create({type: 'code'})]
     )
     .call(trailingSpace, currentTextNode, matched.index)
 }

@@ -5,7 +5,7 @@ export default function (currentTextNode: Node, matched: any, change: Change) {
   return change
     .removeNodeByKey(currentTextNode.key)
     .insertInline({
-      type: 'IMAGE',
+      type: 'image',
       isVoid: true,
       data: {
         src: matched[2]

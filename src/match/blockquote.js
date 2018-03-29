@@ -5,7 +5,7 @@ import type {Change, Node} from 'slate';
 export default function (currentTextNode: Node, matched: any, change: Change) {
   const matchedLength = matched[0].length;
   return change
-    .setBlocks("BLOCKQUOTE")
+    .setBlocks("blockquote")
     .deleteAtRange(Range.create({
       anchorKey: currentTextNode.key,
       focusKey: currentTextNode.key,

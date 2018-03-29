@@ -17,7 +17,7 @@ export default function (currentTextNode: Node, matched: any, change: Change) {
     .insertText(matched[1])
     .extend(0 - matched[1].length)
     .wrapInline({
-      type: "LINK",
+      type: "link",
       data: { href: matched[2] }
     })
     .collapseToEnd()

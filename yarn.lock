@@ -93,12 +93,12 @@
     react-loading-image "^0.3.0"
     styled-components "^3.2.0"
 
-"@canner/slate-editor-renderer@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@canner/slate-editor-renderer/-/slate-editor-renderer-1.0.4.tgz#4420fba95ddeae6f97813319daeb4c369d135c0f"
+"@canner/slate-editor-renderer@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@canner/slate-editor-renderer/-/slate-editor-renderer-1.0.5.tgz#81465147f59c69a73c2277debf88a68875111c35"
   dependencies:
     "@canner/slate-helper-block-adddata" "^0.1.2"
-    "@canner/slate-icon-video" "^1.0.4"
+    "@canner/slate-icon-video" "^1.0.5"
     emoji-mart "^2.5.0"
     react-icons "^2.2.7"
     react-resizable "^1.7.5"
@@ -113,21 +113,21 @@
   dependencies:
     slate-edit-list "^0.11.2"
 
-"@canner/slate-icon-shared@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@canner/slate-icon-shared/-/slate-icon-shared-1.0.4.tgz#b3862f4b608289162ece23ec18bf00255471f99c"
+"@canner/slate-icon-shared@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@canner/slate-icon-shared/-/slate-icon-shared-1.0.5.tgz#392b163030f4b412ab8804f00a323bbf0d8a77ba"
   dependencies:
-    "@canner/slate-editor-renderer" "^1.0.4"
+    "@canner/slate-editor-renderer" "^1.0.5"
     "@canner/slate-util-have" "^0.1.2"
     quill-icons "^0.5.3"
 
-"@canner/slate-icon-video@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@canner/slate-icon-video/-/slate-icon-video-1.0.4.tgz#656ef828eb1ff89fa54d3c662810ead8fc46aec0"
+"@canner/slate-icon-video@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@canner/slate-icon-video/-/slate-icon-video-1.0.5.tgz#2daebd0c26a2e877588074b0d686c86161150a37"
   dependencies:
     "@canner/image-upload" "^0.10.0"
-    "@canner/slate-editor-renderer" "^1.0.4"
-    "@canner/slate-icon-shared" "^1.0.4"
+    "@canner/slate-editor-renderer" "^1.0.5"
+    "@canner/slate-icon-shared" "^1.0.5"
     js-video-url-parser "^0.2.7"
 
 "@canner/slate-util-have@^0.1.2":
