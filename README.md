@@ -2,6 +2,13 @@
 
 A markdown editor, that allows you to edit live.
 
+## Live 
+
+![demo](https://i.imgur.com/eLOCvlu.gif)
+
+DEMO: [https://canner.github.io/slate-md-editor/](https://canner.github.io/slate-md-editor/)
+
+
 ## Usage
 
 ```
@@ -37,12 +44,6 @@ import Editor from 'slate-md-editor';
 - [Image](#image)
 - [Unordered List](#unordered-list)
 - [Ordered List](#ordered-list)
-
-## Live 
-
-![demo](https://i.imgur.com/eLOCvlu.gif)
-
-DEMO: [https://canner.github.io/slate-md-editor/](https://canner.github.io/slate-md-editor/)
 
 ## Support
 
