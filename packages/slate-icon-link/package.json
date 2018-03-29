@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-link",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Slate icon for link",
   "main": "lib/index.js",
   "scripts": {
@@ -28,9 +28,9 @@
     }
   },
   "dependencies": {
-    "@canner/slate-editor-renderer": "^1.0.4",
+    "@canner/slate-editor-renderer": "^1.0.5",
     "@canner/slate-helper-inline-links": "^0.1.3",
-    "@canner/slate-icon-shared": "^1.0.4",
+    "@canner/slate-icon-shared": "^1.0.5",
     "@canner/slate-util-have": "^0.1.2"
   }
 }
