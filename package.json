@@ -9,7 +9,7 @@
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint src test docs",
+    "lint": "eslint src test docs/*.js",
     "clean": "rimraf lib dist",
     "build:flow": "flow-copy-source -v -i '**/test/**' src lib",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
