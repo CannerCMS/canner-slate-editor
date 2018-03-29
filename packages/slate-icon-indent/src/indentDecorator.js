@@ -21,8 +21,8 @@ export default (type: string, defaultIcon: string) => (Block: React.Element<*>) 
 
       if (value.blocks) {
         value.blocks.forEach(block => {
-          const getBlockIndent = block.get('data') &&
-            block.get('data').get('indent') || 0;
+          const getBlockIndent = (block.get('data') &&
+            block.get('data').get('indent')) || 0;
           let indent = getBlockIndent;
 
           if (defaultIcon === 'Outdent') {
@@ -36,7 +36,7 @@ export default (type: string, defaultIcon: string) => (Block: React.Element<*>) 
             }
           }
 
-          const newData = block.setIn(['data', 'indent'], `${3 * indent}em`);
+          const newData = block.setIn(['data', 'indent'], indent);
 
           change.setBlocks(newData);
         });

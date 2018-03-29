@@ -116,6 +116,12 @@ Export components:
 import {AlignCenter, AlignLeft, AlignRight} from '@canner/slate-icon-align';
 ```
 
+**Plugin:**
+
+```js
+import {ParagraphPlugin} from '@canner/slate-icon-shared';
+```
+
 ### @canner/slate-icon-blockquote
 
 **Icon:**
@@ -134,6 +140,12 @@ import EditBlockquote from 'slate-edit-blockquote';
 
 // plugin
 EditBlockquote(DEFAULTBLOCKQUOTE)
+```
+
+Also add `BlockquotePlugin`
+
+```js
+import {BlockquotePlugin} from '@canner/slate-icon-blockquote';
 ```
 
 ### @canner/slate-icon-bold
@@ -257,6 +269,13 @@ Export components:
 ```js
 import {Indent, Outdent} from '@canner/slate-icon-indent';
 ```
+
+**Plugin:**
+
+```js
+import {ParagraphPlugin} from '@canner/slate-icon-shared';
+```
+
 
 ### @canner/slate-icon-italic
 

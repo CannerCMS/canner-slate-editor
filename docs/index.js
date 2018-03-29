@@ -7,7 +7,7 @@ import beautify from 'js-beautify';
 import {Value} from 'slate';
 import {Row, Col} from 'antd';
 import {AlignCenter, AlignLeft, AlignRight} from 'packages/slate-icon-align';
-import Blockquote from 'packages/slate-icon-blockquote';
+import Blockquote, {BlockquotePlugin} from 'packages/slate-icon-blockquote';
 import Bold, {BoldPlugin} from 'packages/slate-icon-bold';
 import Clean from 'packages/slate-icon-clean';
 import Code, {CodePlugin} from 'packages/slate-icon-code';
@@ -148,6 +148,7 @@ const plugins = [
   EditList(DEFAULTLIST),
   EditBlockquote(DEFAULTBLOCKQUOTE),
   ParagraphPlugin,
+  BlockquotePlugin,
   BoldPlugin,
   CodePlugin,
   FontBgColorPlugin,

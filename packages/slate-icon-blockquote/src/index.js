@@ -4,10 +4,18 @@ import type {IconProps} from 'shared/src/types';
 import ToolbarIcon from '@canner/slate-icon-shared';
 import blockquote, {DEFAULT} from '@canner/slate-helper-block-quote';
 import EditBlockquote from 'slate-edit-blockquote'
+import commonNode from '@canner/slate-editor-renderer/lib/commonNode';
 
 const {isSelectionInBlockquote} = EditBlockquote(DEFAULT).utils;
 
 type Props = IconProps;
+
+export const BlockquotePlugin = {
+  renderNode: (props) => {
+    if (props.node.type === 'blockquote') 
+      return commonNode('blockquote')(props);
+  }
+}
 
 export default class Blockquote extends React.Component<Props> {
   typeName: string
