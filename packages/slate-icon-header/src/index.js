@@ -1,3 +1,5 @@
+// @flow
+import type {Change} from 'slate';
 import Header1Icon from './header1';
 import Header2Icon from './header2';
 
@@ -9,6 +11,18 @@ export const HeaderPlugin = {
       return commonNode('h1')(props);
     else if (props.node.type === 'heading2')
       return commonNode('h2')(props);
+  },
+  onKeyDown: (e: any, change: Change) => {
+    if (e.key === 'Enter') {
+      const {value} = change;
+      const {blocks} = value;
+      const getCurrentblock = blocks.get(0);
+
+      if (
+        getCurrentblock.type === 'heading1' ||
+        getCurrentblock.type === 'heading2'
+      ) return change.insertBlock('paragraph');
+    }
   }
 }
 
