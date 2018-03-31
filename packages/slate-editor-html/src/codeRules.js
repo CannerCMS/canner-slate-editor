@@ -1,21 +1,25 @@
 // @flow
 import React from 'react';
+import PluginEditCode from 'slate-edit-code';
+
+const codePlugin = PluginEditCode({
+  onlyIn: node => node.type === 'code_block'
+});
 
 export default function() {
   return {
-    deserialize(el, next, blockType) {
-      if (blockType) {
-        let data = {}
+    deserialize(el) {
+      if (el.tagName.toLowerCase() === 'pre') {
+        const cls = el.childNodes[0].className;
+        const matched = cls && cls.match(/(?:lang|language)-(\w+)/)
+        const codeBlockNode = codePlugin.utils.deserializeCode(el.textContent);
+        if (matched) {
+          const codeBlock =  codeBlockNode.toJSON();
+          codeBlock.data = {syntax: matched[1]};
+          return codeBlock
+        }
 
-        if (el.href) {
-          data.href = el.href;
-        }
-        return {
-          object: 'block',
-          type: blockType,
-          data,
-          nodes: next(el.childNodes),
-        }
+        return codeBlockNode
       }
     },
     serialize(obj, children) {

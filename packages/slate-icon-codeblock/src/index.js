@@ -2,20 +2,17 @@
 import * as React from 'react';
 import {Data} from 'slate';
 import type {IconProps} from 'shared/src/types';
-import {Modal, Button, Form, Input} from 'antd';
+import {Modal, Button, Form, Select} from 'antd';
 import ToolbarIcon from '@canner/slate-icon-shared';
 import PluginEditCode from 'slate-edit-code';
+import codeBlockNode from '@canner/slate-editor-renderer/lib/codeBlockNode';
+import {languages} from 'prismjs/components.json';
+const Option = Select.Option;
 
 export const CodeBlockPlugin = {
   renderNode: (props) => {
     if (props.node.type === 'code_block') {
-      return (
-        <pre>
-          <code {...props.attributes}>
-            {props.children}
-          </code>
-        </pre>
-      );
+      return codeBlockNode()(props);
     }
   }
 }
@@ -122,7 +119,20 @@ export default class CodeBlock extends React.Component<Props, State> {
               hasFeedback
             >
               {getFieldDecorator('lang')(
-                <Input onClick={e => e.preventDefault()}/>
+                <Select>
+                  {Object.keys(languages)
+                    .filter(lang => {
+                      return languages[lang].title;
+                    })
+                    .map(lang => {
+                      return (
+                        <Option value={lang} key={lang}>
+                          {languages[lang].title}
+                        </Option>
+                      )
+                    })
+                  }
+                </Select>
               )}
             </FormItem>
           </Form>
