@@ -1,12 +1,18 @@
 // @flow
 import React from 'react';
 import PluginEditCode from 'slate-edit-code';
+import {CODE, CODE_LINE} from '@canner/slate-constant/lib/blocks';
 
-const codePlugin = PluginEditCode({
-  onlyIn: node => node.type === 'code_block'
-});
+export default function({codeBlockType, codeLineType} = {}) {
+  if (!codeBlockType)
+    codeBlockType = CODE;
+  if (!codeLineType)
+    codeLineType = CODE_LINE;
 
-export default function() {
+  const codePlugin = PluginEditCode({
+    onlyIn: node => node.type === codeBlockType
+  });
+  
   return {
     deserialize(el) {
       if (el.tagName.toLowerCase() === 'pre') {
@@ -23,13 +29,13 @@ export default function() {
       }
     },
     serialize(obj, children) {
-      if (obj.object == 'block' && obj.type === 'code_line') {
+      if (obj.object == 'block' && obj.type === codeLineType) {
         return (
           <React.Fragment>
             {children}
           </React.Fragment>
         );
-      } else if (obj.object == 'block' && obj.type === 'code_block') {
+      } else if (obj.object == 'block' && obj.type === codeBlockType) {
         const syntax = obj.data.get('syntax');
         const props = {
           className: syntax && `lang-${syntax}`

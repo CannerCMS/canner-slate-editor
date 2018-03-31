@@ -52,7 +52,7 @@ import {
   inlineRules,
   imageRules,
   videoRules,
-  codeRules
+  codeBlockRules
 } from 'packages/slate-editor-html';
 
 const html = new Html({ rules: [
@@ -90,7 +90,7 @@ const html = new Html({ rules: [
     videoRules('dailymotion'),
     videoRules('youku'),
     imageRules('image'),
-    codeRules()
+    codeBlockRules()
   ]
 })
 
@@ -182,7 +182,7 @@ const plugins = [
   EditList(DEFAULTLIST),
   EditBlockquote(DEFAULTBLOCKQUOTE),
   ParagraphPlugin,
-  BlockquotePlugin,
+  BlockquotePlugin(),
   BoldPlugin,
   CodePlugin,
   CodeBlockPlugin,

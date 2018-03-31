@@ -22,6 +22,7 @@
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || 16.x",
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
-    "styled-components": "^3.2.1"
+    "styled-components": "^3.2.1",
+    "@canner/slate-constant": ">=^1.0.2"
   }
 }
