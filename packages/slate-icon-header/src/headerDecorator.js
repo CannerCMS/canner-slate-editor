@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
-import heading from '@canner/slate-helper-block-heading';
+import {PARAGRAPH} from '@canner/slate-constant/lib/blocks';
 import {haveBlocks} from '@canner/slate-util-have';
 
 export default (type: string, defaultIcon: string) => (Block: React.Element<*>) => {
@@ -16,7 +16,8 @@ export default (type: string, defaultIcon: string) => (Block: React.Element<*>) 
     onClick = (e: Event) => {
       let {change, onChange} = this.props;
       e.preventDefault();
-      onChange(heading(change, {type: this.typeName}));
+      const isActive = haveBlocks(change, this.typeName);
+      onChange(change.setBlocks(isActive ? PARAGRAPH : this.typeName));
     }
 
     render() {
