@@ -105,7 +105,9 @@ All icons must passed these two props to ensure working properly.
 
 ## Icon packages
 
-### @canner/slate-icon-align [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-align.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-align)
+### @canner/slate-icon-align
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-align.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-align)
 
 Export components:
 
@@ -123,7 +125,9 @@ import {AlignCenter, AlignLeft, AlignRight} from '@canner/slate-icon-align';
 import {ParagraphPlugin} from '@canner/slate-icon-shared';
 ```
 
-### @canner/slate-icon-blockquote [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-blockquote.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-blockquote)
+### @canner/slate-icon-blockquote
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-blockquote.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-blockquote)
 
 **Icon:**
 
@@ -149,7 +153,9 @@ Also add `BlockquotePlugin`
 import {BlockquotePlugin} from '@canner/slate-icon-blockquote';
 ```
 
-### @canner/slate-icon-bold [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-bold.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-bold)
+### @canner/slate-icon-bold
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-bold.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-bold)
 
 **Icon:**
 
@@ -163,7 +169,9 @@ import Bold from '@canner/slate-icon-bold';
 import {BoldPlugin} from '@canner/slate-icon-bold';
 ```
 
-### @canner/slate-icon-clean [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-clean.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-clean)
+### @canner/slate-icon-clean
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-clean.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-clean)
 
 **Icon:**
 
@@ -171,7 +179,9 @@ import {BoldPlugin} from '@canner/slate-icon-bold';
 import Clean from '@canner/slate-icon-clean';
 ```
 
-### @canner/slate-icon-code [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-code.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-code)
+### @canner/slate-icon-code
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-code.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-code)
 
 **Icon:**
 
@@ -185,7 +195,9 @@ import Code from '@canner/slate-icon-code';
 import {CodePlugin} from '@canner/slate-icon-code';
 ```
 
-### @canner/slate-icon-codeBlock [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-codeBlock.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-codeBlock)
+### @canner/slate-icon-codeBlock
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-codeBlock.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-codeBlock)
 
 **Icon:**
 
@@ -216,7 +228,9 @@ plugins = [
 ]
 ```
 
-### @canner/slate-icon-emoji [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-emoji.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-emoji)
+### @canner/slate-icon-emoji
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-emoji.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-emoji)
 
 **Icon:**
 
@@ -230,7 +244,9 @@ import Emoji from '@canner/slate-icon-emoji';
 import {EmojiPlugin} from '@canner/slate-icon-emoji';
 ```
 
-### @canner/slate-icon-fontbgcolor [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-fontbgcolor.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-fontbgcolor)
+### @canner/slate-icon-fontbgcolor
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-fontbgcolor.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-fontbgcolor)
 
 **Icon:**
 
@@ -244,7 +260,9 @@ import FontBgColor from '@canner/slate-icon-fontbgcolor';
 import {FontBgColorPlugin} from '@canner/slate-icon-fontbgcolor';
 ```
 
-### @canner/slate-icon-fontcolor [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-fontcolor.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-fontcolor)
+### @canner/slate-icon-fontcolor
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-fontcolor.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-fontcolor)
 
 **Icon:**
 
@@ -258,7 +276,9 @@ import FontColor from '@canner/slate-icon-fontcolor';
 import {FontColorPlugin} from '@canner/slate-icon-fontcolor';
 ```
 
-### @canner/slate-icon-header [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-header.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-header)
+### @canner/slate-icon-header
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-header.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-header)
 
 **Icon:**
 
@@ -276,7 +296,9 @@ import {Header1, Header2} from '@canner/slate-icon-header';
 import {HeaderPlugin} from '@canner/slate-icon-header';
 ```
 
-### @canner/slate-icon-image [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-image.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-image)
+### @canner/slate-icon-image
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-image.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-image)
 
 **Icon:**
 
@@ -290,7 +312,9 @@ import Image from '@canner/slate-icon-image';
 import {ImagePlugin} from '@canner/slate-icon-image';
 ```
 
-### @canner/slate-icon-indent [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-indent.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-indent)
+### @canner/slate-icon-indent
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-indent.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-indent)
 
 **Icon:**
 
@@ -309,7 +333,9 @@ import {ParagraphPlugin} from '@canner/slate-icon-shared';
 ```
 
 
-### @canner/slate-icon-italic [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-italic.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-italic)
+### @canner/slate-icon-italic
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-italic.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-italic)
 
 **Icon:**
 
@@ -323,7 +349,9 @@ import Italic from '@canner/slate-icon-italic';
 import {ItalicPlugin} from '@canner/slate-icon-italic';
 ```
 
-### @canner/slate-icon-link [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-link.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-link)
+### @canner/slate-icon-link
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-link.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-link)
 
 **Icon:**
 
@@ -337,7 +365,9 @@ import Link from '@canner/slate-icon-link';
 import {LinkPlugin} from '@canner/slate-icon-link';
 ```
 
-### @canner/slate-icon-list [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-list.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-list)
+### @canner/slate-icon-list
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-list.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-list)
 
 **Icon:**
 
@@ -355,7 +385,9 @@ import {OlList, UlList} from '@canner/slate-icon-list';
 import {ListPlugin} from '@canner/slate-icon-list';
 ```
 
-### @canner/slate-icon-strikethrough [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-strikethrough.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-strikethrough)
+### @canner/slate-icon-strikethrough
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-strikethrough.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-strikethrough)
 
 **Icon:**
 
@@ -369,7 +401,9 @@ import Strikethrough from '@canner/slate-icon-strikethrough';
 import {StrikeThroughPlugin} from '@canner/slate-icon-strikethrough';
 ```
 
-### @canner/slate-icon-underline [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-underline.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-underline)
+### @canner/slate-icon-underline
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-underline.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-underline)
 
 **Icon:**
 
@@ -383,13 +417,17 @@ import Underline from '@canner/slate-icon-underline';
 import {UnderlinePlugin} from '@canner/slate-icon-underline';
 ```
 
-### @canner/slate-icon-undo [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-undo.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-undo)
+### @canner/slate-icon-undo
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-undo.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-undo)
 
 ```js
 import Undo from '@canner/slate-icon-undo';
 ```
 
-### @canner/slate-icon-video [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-video.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-video)
+### @canner/slate-icon-video
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-video.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-video)
 
 **Icon:**
 
@@ -405,7 +443,9 @@ import {VideoPlugin} from '@canner/slate-icon-video';
 
 ## Selector packages
 
-### @canner/slate-select-fontsize [![npm version](https://badge.fury.io/js/%40canner%2Fslate-select-fontsize.svg)](https://badge.fury.io/js/%40canner%2Fslate-select-fontsize)
+### @canner/slate-select-fontsize
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-select-fontsize.svg)](https://badge.fury.io/js/%40canner%2Fslate-select-fontsize)
 
 **Selector:**
 
@@ -419,13 +459,17 @@ import FontSize from '@canner/slate-select-fontsize';
 import {FontSizePlugin} from '@canner/slate-select-fontsize';
 ```
 
-### @canner/slate-select-lineheight [![npm version](https://badge.fury.io/js/%40canner%2Fslate-select-lineheight.svg)](https://badge.fury.io/js/%40canner%2Fslate-select-lineheight)
+### @canner/slate-select-lineheight
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-select-lineheight.svg)](https://badge.fury.io/js/%40canner%2Fslate-select-lineheight)
 
 ```js
 import LineHeight from '@canner/slate-select-lineheight';
 ```
 
-### @canner/slate-select-letterspacing [![npm version](https://badge.fury.io/js/%40canner%2Fslate-select-letterspacing.svg)](https://badge.fury.io/js/%40canner%2Fslate-select-letterspacing)
+### @canner/slate-select-letterspacing
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-select-letterspacing.svg)](https://badge.fury.io/js/%40canner%2Fslate-select-letterspacing)
 
 **Selector:**
 
@@ -441,7 +485,9 @@ import {LetterSpacingPlugin} from '@canner/slate-select-letterspacing';
 
 ## Helpers
 
-### @canner/slate-editor-renderer [![npm version](https://badge.fury.io/js/%40canner%2Fslate-editor-renderer.svg)](https://badge.fury.io/js/%40canner%2Fslate-editor-renderer)
+### @canner/slate-editor-renderer
+
+[![npm version](https://badge.fury.io/js/%40canner%2Fslate-editor-renderer.svg)](https://badge.fury.io/js/%40canner%2Fslate-editor-renderer)
 
 **NOTE: You should directly use it's plugin instead of writing render function.**
 
