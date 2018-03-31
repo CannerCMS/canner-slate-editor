@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-select-fontsize",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A slate selector for changing font sizes",
   "main": "./lib/index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
   "dependencies": {
-    "@canner/slate-editor-renderer": "^1.0.5",
+    "@canner/slate-editor-renderer": "^1.0.6",
     "@canner/slate-select-shared": "^1.0.3",
     "react-dropdown": "^1.4.0"
   }

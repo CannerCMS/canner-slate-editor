@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-image",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Slate icon for image",
   "main": "lib/index.js",
   "scripts": {
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@canner/image-upload": "^0.10.0",
-    "@canner/slate-editor-renderer": "^1.0.5",
-    "@canner/slate-icon-shared": "^1.0.5"
+    "@canner/slate-editor-renderer": "^1.0.6",
+    "@canner/slate-icon-shared": "^1.0.6"
   }
 }
