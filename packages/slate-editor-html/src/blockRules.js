@@ -1,4 +1,5 @@
 // @flow
+import React from 'react';
 export default function(Tag, blockType) {
   return {
     deserialize(el, next) {

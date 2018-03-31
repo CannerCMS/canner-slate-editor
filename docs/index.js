@@ -11,6 +11,7 @@ import Blockquote, {BlockquotePlugin} from 'packages/slate-icon-blockquote';
 import Bold, {BoldPlugin} from 'packages/slate-icon-bold';
 import Clean from 'packages/slate-icon-clean';
 import Code, {CodePlugin} from 'packages/slate-icon-code';
+import CodeBlock, {CodeBlockPlugin} from 'packages/slate-icon-codeblock';
 import Emoji, {EmojiPlugin} from 'packages/slate-icon-emoji';
 import FontBgColor, {FontBgColorPlugin} from 'packages/slate-icon-fontBgColor';
 import FontColor, {FontColorPlugin} from 'packages/slate-icon-fontColor';
@@ -37,6 +38,9 @@ import EditList from 'slate-edit-list';
 import EditBlockquote from 'slate-edit-blockquote';
 import {ParagraphPlugin} from 'packages/slate-icon-shared';
 
+import EditPrism from 'slate-prism'
+import EditCode from 'slate-edit-code'
+
 import Prism from 'prismjs';
 import "prismjs/themes/prism.css"
 
@@ -47,7 +51,8 @@ import {
   blockRules,
   inlineRules,
   imageRules,
-  videoRules
+  videoRules,
+  codeRules
 } from 'packages/slate-editor-html';
 
 const html = new Html({ rules: [
@@ -84,7 +89,8 @@ const html = new Html({ rules: [
     videoRules('vimeo'),
     videoRules('dailymotion'),
     videoRules('youku'),
-    imageRules('image')
+    imageRules('image'),
+    codeRules()
   ]
 })
 
@@ -108,6 +114,26 @@ const initialValue = Value.fromJSON({
           }
         ],
       },
+      {
+        object: 'block',
+        type: 'code_block',
+        nodes: [
+          {
+            object: 'block',
+            type: 'code_line',
+            nodes: [
+              {
+                object: 'text',
+                leaves: [
+                  {
+                    text: 'code block',
+                  },
+                ],
+              }
+            ]
+          }
+        ]
+      }
     ],
   },
 });
@@ -126,6 +152,7 @@ const icons = [
   Bold,
   Clean,
   Code,
+  CodeBlock,
   Emoji,
   FontBgColor,
   FontColor,
@@ -145,12 +172,20 @@ const icons = [
 ];
 
 const plugins = [
+  EditPrism({
+    onlyIn: node => node.type === 'code_block',
+    getSyntax: node => node.data.get('syntax')
+  }),
+  EditCode({
+    onlyIn: node => node.type === 'code_block'
+  }),
   EditList(DEFAULTLIST),
   EditBlockquote(DEFAULTBLOCKQUOTE),
   ParagraphPlugin,
   BlockquotePlugin,
   BoldPlugin,
   CodePlugin,
+  CodeBlockPlugin,
   FontBgColorPlugin,
   FontColorPlugin,
   ItalicPlugin,

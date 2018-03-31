@@ -2737,6 +2737,10 @@ detect-indent@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/detect-indent/-/detect-indent-5.0.0.tgz#3871cc0a6a002e8c3e5b3cf7f336264675f06b9d"
 
+detect-newline@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-2.1.0.tgz#f41f1c10be4b00e87b5f13da680759f2c5bfd3e2"
+
 detect-node@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.0.3.tgz#a2033c09cc8e158d37748fbde7507832bd6ce127"
@@ -2943,6 +2947,10 @@ end-of-stream@^1.0.0, end-of-stream@^1.1.0:
   resolved "https://registry.yarnpkg.com/end-of-stream/-/end-of-stream-1.4.1.tgz#ed29634d19baba463b6ce6b80a37213eab71ec43"
   dependencies:
     once "^1.4.0"
+
+ends-with@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ends-with/-/ends-with-0.2.0.tgz#2f9da98d57a50cfda4571ce4339000500f4e6b8a"
 
 enhanced-resolve@^4.0.0:
   version "4.0.0"
@@ -7895,6 +7903,15 @@ slate-edit-blockquote@0.5.0, slate-edit-blockquote@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/slate-edit-blockquote/-/slate-edit-blockquote-0.5.0.tgz#637c3f46dd0c483810be22d782940c4f9ef1f79b"
 
+slate-edit-code@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/slate-edit-code/-/slate-edit-code-0.15.0.tgz#079a2754a07e8b1d38e230ff444d6ebc6abf3b05"
+  dependencies:
+    detect-indent "^4.0.0"
+    detect-newline "^2.1.0"
+    ends-with "^0.2.0"
+    is-hotkey "^0.1.1"
+
 slate-edit-list@^0.11.2:
   version "0.11.2"
   resolved "https://registry.yarnpkg.com/slate-edit-list/-/slate-edit-list-0.11.2.tgz#c67b961d98435f9f7747d20b870cbc51d25af7a8"
@@ -7911,6 +7928,12 @@ slate-plain-serializer@^0.5.6:
   resolved "https://registry.yarnpkg.com/slate-plain-serializer/-/slate-plain-serializer-0.5.6.tgz#8a40e94017d37c532a65163f1df17543ec9cae93"
   dependencies:
     slate-dev-logger "^0.1.39"
+
+slate-prism@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/slate-prism/-/slate-prism-0.5.0.tgz#009eb74fea38ad76c64db67def7ea0884917adec"
+  dependencies:
+    prismjs "^1.13.0"
 
 slate-prop-types@^0.4.23:
   version "0.4.23"

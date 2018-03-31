@@ -1,11 +1,8 @@
 {
-  "name": "@canner/slate-icon-shared",
-  "version": "1.0.5",
-  "description": "Shared utils and functions for slate icons",
+  "name": "@canner/slate-icon-codeblock",
+  "version": "1.0.0",
+  "description": "A slate icon for creating code blocks",
   "main": "lib/index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "test": "jest src",
     "prepublish": "../../node_modules/.bin/babel src -d lib --copy-files"
@@ -17,16 +14,24 @@
   },
   "devDependencies": {
     "jest": "^22.4.2",
-    "react-test-renderer": "^16.2.0",
-    "slate": "^0.33.0"
+    "react-test-renderer": "^16.2.0"
   },
   "peerDependencies": {
+    "antd": ">=3.2.0",
     "react": "^0.14.0 || ^15.0.0 || 16.x",
-    "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
+    "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
+    "slate": "^0.33.0",
+    "slate-edit-code": "^0.15.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   },
   "dependencies": {
     "@canner/slate-editor-renderer": "^1.0.5",
+    "@canner/slate-icon-shared": "^1.0.5",
     "@canner/slate-util-have": "^0.1.2",
-    "quill-icons": "^0.5.4"
+    "prismjs": "^1.13.0"
   }
 }

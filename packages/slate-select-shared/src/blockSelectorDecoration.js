@@ -29,20 +29,20 @@ export default (type: string) => (Selector: React.Element<*>) => {
     render() {
       // eslint-disable-next-line
       const {options, change, onChange, ...rest} = this.props;
-      const isActive = haveDataKeyInSomeBlocks(change, type);
+      // const isActive = haveDataKeyInSomeBlocks(change, type);
       let defaultValue;
 
-      if (isActive) {
-        const first = change.value.blocks.filter(block => {
-          if (block.data && block.data.get(type))
-            return true
-          return false
-        }).first();
+      // if (isActive) {
+      //   const first = change.value.blocks.filter(block => {
+      //     if (block.data && block.data.get(type))
+      //       return true
+      //     return false
+      //   }).first();
 
-        if (first) {
-          defaultValue = first.data.get(type);
-        }
-      }
+      //   if (first) {
+      //     defaultValue = first.data.get(type);
+      //   }
+      // }
 
       return (
         <CustomDropdownContainer {...rest}>

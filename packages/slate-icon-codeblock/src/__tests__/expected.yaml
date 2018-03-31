@@ -1,0 +1,19 @@
+docoument:
+  nodes:
+    - object: block
+      type: paragraph
+      nodes:
+      - object: text
+        leaves:
+          - text: ""
+      - object: inline
+        type: link
+        nodes:
+        - object: text
+          leaves:
+            - text: Hello
+        data:
+          href: http://example.com/
+      - object: text
+        leaves:
+          - text: " World"

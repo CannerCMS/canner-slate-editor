@@ -2521,9 +2521,9 @@ qs@~6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
 
-quill-icons@^0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/quill-icons/-/quill-icons-0.5.3.tgz#c2a8874deb23776bad7ece47754bd4949b2700b0"
+quill-icons@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/quill-icons/-/quill-icons-0.5.4.tgz#508539db988e96e3a5dac02731bdc378716caaf2"
   dependencies:
     classnames "^2.2.5"
     lodash.omit "^4.5.0"
