@@ -72,11 +72,11 @@ const html = new Html({ rules: [
     markRules('i', 'italic'),
     markRules('s', 'strikethrough'),
     markRules('u', 'underline'),
-    markRules('span', 'fontBgColor', {
+    markRules('span', MARKS.FONTBGCOLOR, {
       key: 'backgroundColor',
       value: 'color'
     }),
-    markRules('span', 'fontColor',  {
+    markRules('span', MARKS.FONTCOLOR,  {
       key: 'color',
       value: 'color'
     }),
@@ -188,15 +188,15 @@ const plugins = [
   BlockquotePlugin(),
   BoldPlugin(),
   CodePlugin(),
-  CodeBlockPlugin,
-  FontBgColorPlugin,
-  FontColorPlugin,
+  CodeBlockPlugin(),
+  FontBgColorPlugin(),
+  FontColorPlugin(),
   ItalicPlugin,
   StrikeThroughPlugin,
   UnderlinePlugin,
   FontSizePlugin,
   LetterSpacingPlugin,
-  EmojiPlugin,
+  EmojiPlugin(),
   HeaderPlugin,
   ImagePlugin,
   LinkPlugin,

@@ -20,7 +20,8 @@
     "antd": ">=3.2.0",
     "react": "^0.14.0 || ^15.0.0 || 16.x",
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
-    "slate": "^0.33.0",
+    "@canner/slate-constant": ">=^1.0.4",
+    "slate": ">=^0.33.0",
     "slate-edit-code": "^0.15.0"
   },
   "jest": {

@@ -7,14 +7,17 @@ import {haveMarks} from '@canner/slate-util-have';
 import {getMarkType} from '@canner/slate-util-get';
 import ColorPicker from 'rc-color-picker';
 import hexRgb from 'hex-rgb';
+import {FONTCOLOR} from '@canner/slate-constant/lib/marks';
 import commonMark from '@canner/slate-editor-renderer/lib/commonMark';
 
 import 'rc-color-picker/assets/index.css';
 
-export const FontColorPlugin = {
-  renderMark: (props) => {
-    if (props.mark.type === 'fontColor') 
-      return commonMark('span', 'color', 'color')(props);
+export const FontColorPlugin = (type = FONTCOLOR) => {
+  return {
+    renderMark: (props) => {
+      if (props.mark.type === type) 
+        return commonMark('span', 'color', 'color')(props);
+    }
   }
 }
 
@@ -23,7 +26,7 @@ export default class fontColor extends React.Component<IconProps> {
   typeName: string
   constructor(props) {
     super(props);
-    this.typeName = this.props.type || 'fontColor';
+    this.typeName = this.props.type || FONTCOLOR;
   }
 
   onChange = (color: {color: string, alpha: number, open: boolean}) => {

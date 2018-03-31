@@ -84,6 +84,12 @@
   dependencies:
     object-values "^2.0.0"
 
+"@canner/slate-constant@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@canner/slate-constant/-/slate-constant-1.0.5.tgz#be0ef8b51e4338262c94cdc887dbbe823e5b4d10"
+  dependencies:
+    object-values "^2.0.0"
+
 "@canner/slate-helper-block-list@^0.1.6":
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/@canner/slate-helper-block-list/-/slate-helper-block-list-0.1.6.tgz#8650d1c36242d01b650b9d0f800644d5a84bcb05"

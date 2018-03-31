@@ -5,21 +5,20 @@ import type {IconProps} from 'shared/src/types';
 import {Modal, Button, Form, Select} from 'antd';
 import ToolbarIcon from '@canner/slate-icon-shared';
 import PluginEditCode from 'slate-edit-code';
+import {CODE, PARAGRAPH} from '@canner/slate-constant/lib/blocks';
 import codeBlockNode from '@canner/slate-editor-renderer/lib/codeBlockNode';
 import {languages} from 'prismjs/components.json';
 const Option = Select.Option;
 
-export const CodeBlockPlugin = {
-  renderNode: (props) => {
-    if (props.node.type === 'code_block') {
-      return codeBlockNode()(props);
+export const CodeBlockPlugin = (type = CODE) => {
+  return {
+    renderNode: (props) => {
+      if (props.node.type === type) {
+        return codeBlockNode()(props);
+      }
     }
   }
 }
-
-const codePlugin = PluginEditCode({
-  onlyIn: node => node.type === 'code_block'
-});
 const FormItem = Form.Item;
 
 type State = {
@@ -39,16 +38,19 @@ export default class CodeBlock extends React.Component<Props, State> {
     this.state = {
       showModal: false
     };
-    this.typeName = this.props.type || 'code_block';
+    this.typeName = this.props.type || CODE;
+    this.codePlugin = PluginEditCode({
+      onlyIn: node => node.type === this.typeName
+    });
   }
 
   onClick = (e: Event) => {
     let {change, onChange} = this.props;
-    let haveCodeBlock = codePlugin.utils.isInCodeBlock(change.value);
+    let haveCodeBlock = this.codePlugin.utils.isInCodeBlock(change.value);
     e.preventDefault();
 
     if (haveCodeBlock) {
-      onChange(codePlugin.changes.unwrapCodeBlock(change, 'paragraph'));
+      onChange(this.codePlugin.changes.unwrapCodeBlock(change, PARAGRAPH));
     } else {
       // open popup
       this.setState({
@@ -79,7 +81,7 @@ export default class CodeBlock extends React.Component<Props, State> {
             .setBlocks({data: Data.create({syntax: lang})});
         }
 
-        onChange(codePlugin.changes.wrapCodeBlock(newChange));
+        onChange(this.codePlugin.changes.wrapCodeBlock(newChange));
         that.handleCancel();
       }
     });
@@ -97,7 +99,7 @@ export default class CodeBlock extends React.Component<Props, State> {
           type={this.typeName}
           icon={icon || 'CodeBlock'}
           onClick={onClick}
-          isActive={codePlugin.utils.isInCodeBlock(change.value)}
+          isActive={this.codePlugin.utils.isInCodeBlock(change.value)}
           {...rest}
         />
         <Modal

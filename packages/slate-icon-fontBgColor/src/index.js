@@ -7,14 +7,17 @@ import {haveMarks} from '@canner/slate-util-have';
 import {getMarkType} from '@canner/slate-util-get';
 import ColorPicker from 'rc-color-picker';
 import hexRgb from 'hex-rgb';
+import {FONTBGCOLOR} from '@canner/slate-constant/lib/marks';
 import commonMark from '@canner/slate-editor-renderer/lib/commonMark';
 
 import 'rc-color-picker/assets/index.css';
 
-export const FontBgColorPlugin = {
-  renderMark: (props) => {
-    if (props.mark.type === 'fontBgColor') 
-      return commonMark('span', 'backgroundColor', 'color')(props);
+export const FontBgColorPlugin = (type = FONTBGCOLOR) => {
+  return {
+    renderMark: (props) => {
+      if (props.mark.type === type) 
+        return commonMark('span', 'backgroundColor', 'color')(props);
+    }
   }
 }
 
@@ -22,7 +25,7 @@ export default class fontBgColor extends React.Component<IconProps, {color: Obje
   typeName: string
   constructor(props: IconProps) {
     super(props);
-    this.typeName = this.props.type || 'fontBgColor';
+    this.typeName = this.props.type || FONTBGCOLOR;
     this.state = {
       color: {}
     };
