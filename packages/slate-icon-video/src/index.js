@@ -5,16 +5,34 @@ import ToolbarIcon from '@canner/slate-icon-shared';
 import VideoModal from './videoModal';
 import videoNode from '@canner/slate-editor-renderer/lib/videoNode';
 
-export const VideoPlugin = {
-  renderNode: (props) => {
-    if (props.node.type === 'youtube') 
-      return videoNode('youtube')(props);
-    else if (props.node.type === 'dailymotion')
-      return videoNode('dailymotion')(props);
-    else if (props.node.type === 'youku')
-      return videoNode('youku')(props);
-    else if (props.node.type === 'vimeo')
-      return videoNode('vimeo')(props);
+export const DEFAULT = {
+  youtube: 'youtube',
+  dailymotion: 'dailymotion',
+  youku: 'youku',
+  vimeo: 'vimeo'
+}
+
+export const VideoPlugin = (type = DEFAULT) => {
+  if (!type.youtube)
+    type.youtube = DEFAULT.youtube
+  if (!type.dailymotion)
+    type.dailymotion = DEFAULT.dailymotion
+  if (!type.youku)
+    type.youku = DEFAULT.youku
+  if (!type.vimeo)
+    type.vimeo = DEFAULT.vimeo
+
+  return {
+    renderNode: (props) => {
+      if (props.node.type === type.youtube) 
+        return videoNode('youtube')(props);
+      else if (props.node.type === type.dailymotion)
+        return videoNode('dailymotion')(props);
+      else if (props.node.type === type.youku)
+        return videoNode('youku')(props);
+      else if (props.node.type === type.vimeo)
+        return videoNode('vimeo')(props);
+    }
   }
 }
 

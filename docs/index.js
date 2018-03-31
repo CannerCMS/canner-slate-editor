@@ -24,7 +24,7 @@ import {OlList, UlList, ListPlugin} from 'packages/slate-icon-list';
 import StrikeThrough, {StrikeThroughPlugin} from 'packages/slate-icon-strikethrough';
 import Underline, {UnderlinePlugin} from 'packages/slate-icon-underline';
 import Undo from 'packages/slate-icon-undo';
-import Video, {VideoPlugin} from 'packages/slate-icon-video';
+import Video, {VideoPlugin, DEFAULT as DEFAULT_VIDEO} from 'packages/slate-icon-video';
 
 // select
 import FontSize, {FontSizePlugin} from 'packages/slate-select-fontsize';
@@ -56,22 +56,22 @@ import {
 } from 'packages/slate-editor-html';
 
 // constants
-import {BLOCKS, MARKS} from '@canner/slate-constant'
-
+import {BLOCKS, MARKS, INLINES} from '@canner/slate-constant'
+console.log(MARKS)
 const html = new Html({ rules: [
     blockRules('p', BLOCKS.PARAGRAPH),
     blockRules('blockquote', BLOCKS.BLOCKQUOTE),
     blockRules('h1', BLOCKS.HEADING_1),
     blockRules('h2', BLOCKS.HEADING_2),
-    blockRules('ul', 'list-ul'),
-    blockRules('ol', 'list-ol'),
-    blockRules('li', 'list-item'),
-    inlineRules('a', 'link'),
+    blockRules('ul', BLOCKS.UL_LIST),
+    blockRules('ol', BLOCKS.OL_LIST),
+    blockRules('li', BLOCKS.LIST_ITEM),
+    inlineRules('a', INLINES.LINK),
     markRules('strong', MARKS.BOLD),
     markRules('code', MARKS.CODE),
-    markRules('i', 'italic'),
-    markRules('s', 'strikethrough'),
-    markRules('u', 'underline'),
+    markRules('i', MARKS.ITALIC),
+    markRules('s', MARKS.STRIKETHROUGH),
+    markRules('u', MARKS.UNDERLINE),
     markRules('span', MARKS.FONTBGCOLOR, {
       key: 'backgroundColor',
       value: 'color'
@@ -80,19 +80,19 @@ const html = new Html({ rules: [
       key: 'color',
       value: 'color'
     }),
-    markRules('span', 'fontSize',  {
+    markRules('span', MARKS.FONTSIZE,  {
       key: 'fontSize',
-      value: 'fontSize'
+      value: MARKS.FONTSIZE
     }),
-    markRules('span', 'letterSpacing',  {
+    markRules('span', MARKS.LETTERSPACING,  {
       key: 'letterSpacing',
-      value: 'letterSpacing'
+      value: MARKS.LETTERSPACING
     }),
-    videoRules('youtube'),
-    videoRules('vimeo'),
-    videoRules('dailymotion'),
-    videoRules('youku'),
-    imageRules('image'),
+    videoRules(DEFAULT_VIDEO.youtube),
+    videoRules(DEFAULT_VIDEO.vimeo),
+    videoRules(DEFAULT_VIDEO.dailymotion),
+    videoRules(DEFAULT_VIDEO.youku),
+    imageRules(BLOCKS.IMAGE),
     codeBlockRules()
   ]
 })
@@ -184,24 +184,24 @@ const plugins = [
   }),
   EditList(DEFAULTLIST),
   EditBlockquote(DEFAULTBLOCKQUOTE),
-  ParagraphPlugin,
+  ParagraphPlugin(),
   BlockquotePlugin(),
   BoldPlugin(),
   CodePlugin(),
   CodeBlockPlugin(),
   FontBgColorPlugin(),
   FontColorPlugin(),
-  ItalicPlugin,
-  StrikeThroughPlugin,
-  UnderlinePlugin,
-  FontSizePlugin,
-  LetterSpacingPlugin,
+  ItalicPlugin(),
+  StrikeThroughPlugin(),
+  UnderlinePlugin(),
+  FontSizePlugin(),
+  LetterSpacingPlugin(),
   EmojiPlugin(),
   HeaderPlugin(),
-  ImagePlugin,
-  LinkPlugin,
-  ListPlugin,
-  VideoPlugin
+  ImagePlugin(),
+  LinkPlugin(),
+  ListPlugin(),
+  VideoPlugin()
 ];
 
 class App extends React.Component {

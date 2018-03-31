@@ -21,7 +21,6 @@ export const ImageNodeShared = styled.div`
 
   .overlay {
     z-index: 10;
-    background-color: rgba(0, 0, 0, 0.5);
   }
 
   img,
@@ -46,6 +45,10 @@ export const ImageNodeInActive = ImageNodeShared.extend`
 
 export const ImageNodeActive = ImageNodeShared.extend`
   border: 2px solid #ef6942;
+
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 
   .toolbar {
     display: block;

@@ -2,16 +2,19 @@
 import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
 import Dropdown from 'react-dropdown';
+import {FONTSIZE} from '@canner/slate-constant/lib/marks';
 import {SharedMarkSelectorDecoration} from '@canner/slate-select-shared';
 import commonMark from '@canner/slate-editor-renderer/lib/commonMark';
 
-export const FontSizePlugin = {
-  renderMark: (props) => {
-    if (props.mark.type === 'fontSize') 
-      return commonMark('span', 'fontSize')(props);
+export const FontSizePlugin = (type = FONTSIZE) => {
+  return {
+    renderMark: (props) => {
+      if (props.mark.type === type) 
+        return commonMark('span', 'fontSize', type)(props);
+    }
   }
 }
-@SharedMarkSelectorDecoration('fontSize')
+@SharedMarkSelectorDecoration(FONTSIZE)
 export default class fontSize extends React.Component<IconProps> {
   static defaultProps = {
     options: [12, 16, 20, 24, 28, 32]

@@ -3,12 +3,15 @@ import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
 import ToolbarIcon from '@canner/slate-icon-shared';
 import ImageUpload from '@canner/image-upload';
+import {IMAGE} from '@canner/slate-constant/lib/blocks';
 import imageNode from '@canner/slate-editor-renderer/lib/imageNode';
 
-export const ImagePlugin = {
-  renderNode: (props) => {
-    if (props.node.type === 'image') 
-      return imageNode()(props);
+export const ImagePlugin = (type = IMAGE) => {
+  return {
+    renderNode: (props) => {
+      if (props.node.type === type) 
+        return imageNode()(props);
+    }
   }
 }
 
@@ -20,7 +23,7 @@ export default class ImageBlock extends React.Component<IconProps, {isShow: bool
       isShow: false
     };
 
-    this.typeName = "image"
+    this.typeName = this.props.type || IMAGE
   }
 
   onClick = (e: Event) => {

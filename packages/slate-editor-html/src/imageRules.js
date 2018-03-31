@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import styled from "styled-components";
+import {IMAGE} from '@canner/slate-constant/lib/blocks';
 
 export const ImageContiner = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ export const ImageContiner = styled.div`
   }};
 `;
 
-export default function(blockType = 'image') {
+export default function(blockType = IMAGE) {
   return {
     deserialize(el) {
       if (blockType && el.tagName.toLowerCase() === 'img') {

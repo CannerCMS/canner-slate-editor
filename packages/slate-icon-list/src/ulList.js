@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import pluginListDecorator from './pluginListDecorator';
 import ToolbarIcon from '@canner/slate-icon-shared';
+import {UL_LIST} from '@canner/slate-constant/lib/blocks';
 
-@pluginListDecorator('list-ul', 'ListBullet')
+@pluginListDecorator(UL_LIST, 'ListBullet')
 export default class UlList extends Component {
   render() {
     return (

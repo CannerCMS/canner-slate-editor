@@ -16,7 +16,7 @@
     "icons"
   ],
   "devDependencies": {
-    "@canner/slate-constant": "^1.0.5",
+    "@canner/slate-constant": "^1.0.8",
     "@canner/slate-helper-block-list": "^0.1.6",
     "@canner/slate-helper-block-quote": "^0.1.6",
     "antd": "^3.3.0",

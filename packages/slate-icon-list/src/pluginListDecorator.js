@@ -3,6 +3,7 @@ import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
 import blocklist, {DEFAULT} from '@canner/slate-helper-block-list';
 import EditList from 'slate-edit-list'
+import {OL_LIST, UL_LIST, LIST_ITEM} from '@canner/slate-constant/lib/blocks';
 
 const {isList} = EditList(DEFAULT).utils;
 
@@ -23,20 +24,20 @@ export default (type: string, defaultIcon: string) => (Block: React.Element<*>) 
     render() {
       const {change, icon, ...rest} = this.props;
       let typeOpts;
-      if (type === 'list-ol') {
+      if (defaultIcon === 'ListOrdered') {
         // ol list
         typeOpts = {
           typeOL: this.typeName,
-          typeUL: 'list-ul',
-          typeItem: 'list-item',
+          typeUL: UL_LIST,
+          typeItem: LIST_ITEM,
           ordered: true
         };
-      } else if (type === 'list-ul') {
+      } else if (defaultIcon === 'ListBullet') {
         // ul list
         typeOpts = {
           typeUL: this.typeName,
-          typeOL: 'list-ol',
-          typeItem: 'list-item',
+          typeOL: OL_LIST,
+          typeItem: LIST_ITEM,
           ordered: false
         };
       }

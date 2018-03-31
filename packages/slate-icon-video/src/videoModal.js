@@ -2,6 +2,7 @@
 import * as React from 'react';
 import videoParser from 'js-video-url-parser';
 import type {Change} from 'slate';
+import {DEFAULT} from './';
 import {Modal, Form, Button, Input} from 'antd';
 
 const FormItem = Form.Item;
@@ -56,13 +57,13 @@ export default class VideoModal extends React.Component<Props> {
           let slateObj: Object = {};
 
           if (videoObj && videoObj.provider === 'youtube') {
-            slateObj = {type: 'youtube', isVoid: true, data: {id: videoObj.id}};
+            slateObj = {type: DEFAULT.youtube, isVoid: true, data: {id: videoObj.id}};
           } else if (videoObj && videoObj.provider === 'dailymotion') {
-            slateObj = {type: 'dailymotion', isVoid: true, data: {id: videoObj.id}};
+            slateObj = {type: DEFAULT.dailymotion, isVoid: true, data: {id: videoObj.id}};
           } else if (videoObj && videoObj.provider === 'vimeo') {
-            slateObj = {type: 'vimeo', isVoid: true, data: {id: videoObj.id}};
+            slateObj = {type: DEFAULT.vimeo, isVoid: true, data: {id: videoObj.id}};
           } else if (videoObj && videoObj.provider === 'youku') {
-            slateObj = {type: 'youku', isVoid: true, data: {id: videoObj.id}};
+            slateObj = {type: DEFAULT.youku, isVoid: true, data: {id: videoObj.id}};
           }
 
           if (slateObj && slateObj.data) {
