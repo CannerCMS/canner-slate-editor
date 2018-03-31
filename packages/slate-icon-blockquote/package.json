@@ -15,8 +15,8 @@
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || 16.x",
-    "@canner/slate-constant": ">=^1.0.2",
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
+    "@canner/slate-constant": ">=^1.0.3",
     "slate": ">=^0.33.0"
   },
   "publishConfig": {
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@canner/slate-editor-renderer": "^1.0.7",
-    "@canner/slate-helper-block-quote": "^0.1.5",
+    "@canner/slate-helper-block-quote": "^0.1.6",
     "@canner/slate-icon-shared": "^1.0.7",
     "slate-edit-blockquote": "0.5.0"
   }

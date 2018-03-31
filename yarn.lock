@@ -78,20 +78,24 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@canner/slate-constant@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@canner/slate-constant/-/slate-constant-1.0.2.tgz#d1f4c1e9e2e70b9a13f0660c980e4b3fcd411ef3"
-
-"@canner/slate-helper-block-list@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@canner/slate-helper-block-list/-/slate-helper-block-list-0.1.3.tgz#86df5c872d8a26e986c8f911253855dd2b9cb763"
+"@canner/slate-constant@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@canner/slate-constant/-/slate-constant-1.0.3.tgz#70d7b547c4a4de65af669cc286b07995c475afeb"
   dependencies:
+    object-values "^2.0.0"
+
+"@canner/slate-helper-block-list@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@canner/slate-helper-block-list/-/slate-helper-block-list-0.1.6.tgz#8650d1c36242d01b650b9d0f800644d5a84bcb05"
+  dependencies:
+    "@canner/slate-constant" "^1.0.3"
     slate-edit-list "^0.11.2"
 
-"@canner/slate-helper-block-quote@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@canner/slate-helper-block-quote/-/slate-helper-block-quote-0.1.3.tgz#b1185dfaabc70a23c91773e96ee7200877046b12"
+"@canner/slate-helper-block-quote@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@canner/slate-helper-block-quote/-/slate-helper-block-quote-0.1.6.tgz#c3f2852daf5e16857a4125ee0b2048c87cf6507f"
   dependencies:
+    "@canner/slate-constant" "^1.0.3"
     slate-edit-blockquote "^0.5.0"
 
 "@sindresorhus/is@^0.7.0":
@@ -5925,6 +5929,10 @@ object-is@^1.0.1:
 object-keys@^1.0.11, object-keys@^1.0.8:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.0.11.tgz#c54601778ad560f1142ce0e01bcca8b56d13426d"
+
+object-values@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/object-values/-/object-values-2.0.0.tgz#13f8b9733790431f2de56973bf2db70a1bf03858"
 
 object-visit@^1.0.0:
   version "1.0.1"

@@ -55,17 +55,20 @@ import {
   codeBlockRules
 } from 'packages/slate-editor-html';
 
+// constants
+import {BLOCKS, MARKS} from '@canner/slate-constant'
+
 const html = new Html({ rules: [
-    blockRules('p', 'paragraph'),
-    blockRules('blockquote', 'blockquote'),
+    blockRules('p', BLOCKS.PARAGRAPH),
+    blockRules('blockquote', BLOCKS.BLOCKQUOTE),
     blockRules('h1', 'heading1'),
     blockRules('h2', 'heading2'),
     blockRules('ul', 'list-ul'),
     blockRules('ol', 'list-ol'),
     blockRules('li', 'list-item'),
     inlineRules('a', 'link'),
-    markRules('strong', 'bold'),
-    markRules('code', 'code'),
+    markRules('strong', MARKS.BOLD),
+    markRules('code', MARKS.CODE),
     markRules('i', 'italic'),
     markRules('s', 'strikethrough'),
     markRules('u', 'underline'),
@@ -183,8 +186,8 @@ const plugins = [
   EditBlockquote(DEFAULTBLOCKQUOTE),
   ParagraphPlugin,
   BlockquotePlugin(),
-  BoldPlugin,
-  CodePlugin,
+  BoldPlugin(),
+  CodePlugin(),
   CodeBlockPlugin,
   FontBgColorPlugin,
   FontColorPlugin,

@@ -19,7 +19,7 @@
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || 16.x",
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
-    "@canner/slate-constant": ">=^1.0.2",
+    "@canner/slate-constant": ">=^1.0.3",
     "slate": ">=^0.33.0"
   },
   "dependencies": {
