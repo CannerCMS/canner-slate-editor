@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-editor-html",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Serializer and Deserializer for slate editor",
   "main": "lib/index",
   "scripts": {

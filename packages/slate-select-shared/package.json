@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-select-shared",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Shared components and utilities in selectors",
   "main": "./lib/index.js",
   "scripts": {
