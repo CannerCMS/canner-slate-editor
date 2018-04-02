@@ -10,10 +10,14 @@ import codeBlockNode from '@canner/slate-editor-renderer/lib/codeBlockNode';
 import {languages} from 'prismjs/components.json';
 const Option = Select.Option;
 
-export const CodeBlockPlugin = (type = CODE) => {
+export const CodeBlockPlugin = (opt) => {
+  const options = Object.assign({
+    type: CODE
+  }, opt);
+
   return {
     renderNode: (props) => {
-      if (props.node.type === type) {
+      if (props.node.type === options.type) {
         return codeBlockNode()(props);
       }
     }

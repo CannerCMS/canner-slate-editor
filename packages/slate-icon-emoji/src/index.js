@@ -6,11 +6,16 @@ import ToolbarIcon from '@canner/slate-icon-shared';
 import {EMOJI} from '@canner/slate-constant/lib/inlines';
 import emojiNode from '@canner/slate-editor-renderer/lib/emojiNode';
 
-export const EmojiPlugin = (type = EMOJI) => {
+export const EmojiPlugin = (opt) => {
+  const options = Object.assign({
+    type: EMOJI,
+    getEmoji: (node) => node.data.get('emoji')
+  }, opt);
+
   return {
     renderNode: (props) => {
-      if (props.node.type === type) 
-        return emojiNode()(props);
+      if (props.node.type === options.type) 
+        return emojiNode({getEmoji: options.getEmoji})(props);
     }
   }
 }

@@ -15,7 +15,7 @@ export const ImageContiner = styled.div`
 export default function(blockType = IMAGE) {
   return {
     deserialize(el) {
-      if (blockType && el.tagName.toLowerCase() === 'img') {
+      if (blockType && el.tagName && el.tagName.toLowerCase() === 'img') {
         let data = {}
 
         if (el.src) {

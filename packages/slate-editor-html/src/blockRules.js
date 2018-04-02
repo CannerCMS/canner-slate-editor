@@ -3,7 +3,7 @@ import React from 'react';
 export default function(Tag, blockType) {
   return {
     deserialize(el, next) {
-      if (blockType && el.tagName.toLowerCase() === Tag) {
+      if (blockType && el.tagName && el.tagName.toLowerCase() === Tag) {
         let data = {}
 
         if (el.style.textAlign) {

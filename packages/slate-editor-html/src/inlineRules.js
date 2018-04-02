@@ -4,7 +4,7 @@ import React from 'react';
 export default function(Tag, inlineType) {
   return {
     deserialize(el, next) {
-      if (inlineType && el.tagName.toLowerCase() === Tag) {
+      if (inlineType && el.tagName && el.tagName.toLowerCase() === Tag) {
         let data = {}
 
         if (el.href) {

@@ -14,7 +14,7 @@ export const ImageContiner = styled.div`
 export default function(blockType = 'video') {
   return {
     deserialize(el) {
-      if (blockType && el.tagName.toLowerCase() === 'iframe') {
+      if (blockType && el.tagName && el.tagName.toLowerCase() === 'iframe') {
         return {
           object: 'block',
           type: blockType,

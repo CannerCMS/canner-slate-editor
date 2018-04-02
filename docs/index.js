@@ -52,7 +52,8 @@ import {
   inlineRules,
   imageRules,
   videoRules,
-  codeBlockRules
+  codeBlockRules,
+  emojiRules
 } from 'packages/slate-editor-html';
 
 // constants
@@ -92,7 +93,8 @@ const html = new Html({ rules: [
     videoRules(DEFAULT_VIDEO.dailymotion),
     videoRules(DEFAULT_VIDEO.youku),
     imageRules(BLOCKS.IMAGE),
-    codeBlockRules()
+    codeBlockRules(),
+    emojiRules()
   ]
 })
 
@@ -166,8 +168,8 @@ const plugins = [
   ParagraphPlugin(),
   BlockquotePlugin(),
   BoldPlugin(),
-  // CodePlugin(),
-  // CodeBlockPlugin(),
+  CodePlugin(),
+  CodeBlockPlugin(),
   // FontBgColorPlugin(),
   // FontColorPlugin(),
   // ItalicPlugin(),
@@ -175,7 +177,7 @@ const plugins = [
   // UnderlinePlugin(),
   // FontSizePlugin(),
   // LetterSpacingPlugin(),
-  // EmojiPlugin(),
+  EmojiPlugin(),
   // HeaderPlugin(),
   // ImagePlugin(),
   // LinkPlugin(),

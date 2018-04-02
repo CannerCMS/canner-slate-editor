@@ -5,7 +5,6 @@ import mapValues from 'lodash.mapvalues';
 
 export default function(Tag, stylesAttr) {
   const MarkComponent = ({attributes, children, mark}: nodeProps) => {
-
     return (
       <Tag
         {...attributes}
