@@ -27,14 +27,18 @@ export default class Emoji extends React.Component<IconProps> {
     this.typeName = this.props.type || EMOJI;
   }
 
+  static defaultProps = {
+    emojiKey: 'emoji'
+  }
+
   onChange = (emoji: Object) => {
-    let {change, onChange} = this.props;
+    let {change, onChange, emojiKey} = this.props;
     onChange(
       change
         .insertInline({
           type: this.typeName,
           isVoid: true,
-          data: {emoji}
+          data: {[emojiKey]: emoji}
         })
         .collapseToStartOfNextText()
         .focus()

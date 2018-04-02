@@ -131,7 +131,7 @@ const plugins = [
   LetterSpacingPlugin(),
   EmojiPlugin(),
   // HeaderPlugin(),
-  // ImagePlugin(),
+  ImagePlugin(),
   // LinkPlugin(),
   // ListPlugin(),
   // VideoPlugin()

@@ -12,10 +12,10 @@ import {ImageNodeInActive, ImageNodeActive, ImageContiner} from './imageNodeComp
 
 import 'react-resizable/css/styles.css';
 
-export default function(readOnly) {
+export default function(options) {
   const NodeComponent = ({...props}: nodeProps) => {
     return (
-      <ImageNode {...props} readOnly={readOnly}/>
+      <ImageNode {...props} {...options}/>
     );
   };
   return NodeComponent;
@@ -94,12 +94,12 @@ class ImageNode extends React.Component<Props> {
   }
 
   render() {
-    const {node, attributes, children, readOnly, isSelected} = this.props;
-    const align = node.data.get('align');
-    const indent = node.data.get('indent');
-    const src = node.data.get('src');
-    const width = this.state.width || node.data.get('width');
-    const height = this.state.height || node.data.get('height');
+    const {node, attributes, children, readOnly, isSelected, getSrc, getWidth, getHeight, textAlign, paddingLeft} = this.props;
+    const align = textAlign(node);
+    const indent = paddingLeft(node);
+    const src = getSrc(node);
+    const width = this.state.width || getWidth(node);
+    const height = this.state.height || getHeight(node);
 
     if (readOnly) {
       // if editor is readOnly

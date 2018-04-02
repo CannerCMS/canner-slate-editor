@@ -1,16 +1,24 @@
 // @flow
 import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
-import ToolbarIcon from '@canner/slate-icon-shared';
+import ToolbarIcon, {nodeAttrs} from '@canner/slate-icon-shared';
 import ImageUpload from '@canner/image-upload';
 import {IMAGE} from '@canner/slate-constant/lib/blocks';
 import imageNode from '@canner/slate-editor-renderer/lib/imageNode';
 
-export const ImagePlugin = (type = IMAGE) => {
+export const ImagePlugin = (opt) => {
+  const options = Object.assign({
+    type: IMAGE,
+    getSrc: (node) => node.data.get('src'),
+    getWidth: (node) => node.data.get('width'),
+    getHeight: (node) => node.data.get('height'),
+    ...nodeAttrs
+  }, opt);
+
   return {
     renderNode: (props) => {
-      if (props.node.type === type) 
-        return imageNode()(props);
+      if (props.node.type === options.type) 
+        return imageNode(options)(props);
     }
   }
 }
@@ -24,6 +32,12 @@ export default class ImageBlock extends React.Component<IconProps, {isShow: bool
     };
 
     this.typeName = this.props.type || IMAGE
+  }
+
+  static defaultProps = {
+    imageSrcKey: 'src',
+    imageHeightKey: 'height',
+    imageWidthKey: 'width'
   }
 
   onClick = (e: Event) => {
@@ -40,7 +54,7 @@ export default class ImageBlock extends React.Component<IconProps, {isShow: bool
   }
 
   onChange = (value: string | Array<string>) => {
-    const {onChange, change} = this.props;
+    const {onChange, change, imageSrcKey, imageHeightKey, imageWidthKey} = this.props;
     const that = this;
     let image = new Image();
 
@@ -58,9 +72,9 @@ export default class ImageBlock extends React.Component<IconProps, {isShow: bool
           type: 'image',
           isVoid: true,
           data: {
-            src: value,
-            height: ratio ? (height / ratio) : height,
-            width: ratio ? (width / ratio) : width}
+            [imageSrcKey]: value,
+            [imageHeightKey]: ratio ? (height / ratio) : height,
+            [imageWidthKey]: ratio ? (width / ratio) : width}
         })
       );
 
