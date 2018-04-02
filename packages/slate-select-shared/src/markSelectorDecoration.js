@@ -36,7 +36,7 @@ export default (type: string) => (Selector: React.Element<*>) => {
 
       if (isActive) {
         const first = getMarkType(change, this.typeName).first().get('data');
-        defaultFont = first.get('value');
+        defaultFont = first.get(this.typeName);
       }
 
       return (

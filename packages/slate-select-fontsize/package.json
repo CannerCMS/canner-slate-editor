@@ -25,6 +25,8 @@
   "dependencies": {
     "@canner/slate-editor-renderer": "^1.0.7",
     "@canner/slate-select-shared": "^1.0.4",
-    "react-dropdown": "^1.4.0"
+    "react-dropdown": "^1.4.0",
+    "lodash.omit": "^4.5.0",
+    "@canner/slate-icon-shared": "^1.0.7"
   }
 }

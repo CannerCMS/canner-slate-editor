@@ -3,6 +3,7 @@ import * as React from 'react';
 import {type Change} from 'slate';
 import basicMarkDecoration from './basicMarkDecoration';
 import {PARAGRAPH} from '@canner/slate-constant/lib/blocks';
+import {FONTSIZE, LETTERSPACING} from '@canner/slate-constant/lib/marks';
 import QuillIcons from 'quill-icons';
 import commonNode from '@canner/slate-editor-renderer/lib/commonNode';
 import omit from 'lodash.omit';
@@ -16,7 +17,9 @@ export const nodeAttrs = {
 
 export const markAttrs = {
   backgroundColor: (mark) => mark.data.getIn(['color', 'color']),
-  color: (mark) => mark.data.getIn(['color', 'color'])
+  color: (mark) => mark.data.getIn(['color', 'color']),
+  fontSize: (mark) => mark.data.get(FONTSIZE),
+  letterSpacing: (mark) => mark.data.get(LETTERSPACING)
 }
 
 type Props = {
