@@ -57,7 +57,6 @@ import {
 
 // constants
 import {BLOCKS, MARKS, INLINES} from '@canner/slate-constant'
-console.log(MARKS)
 const html = new Html({ rules: [
     blockRules('p', BLOCKS.PARAGRAPH),
     blockRules('blockquote', BLOCKS.BLOCKQUOTE),

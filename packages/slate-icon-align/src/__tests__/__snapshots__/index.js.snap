@@ -8,14 +8,8 @@ exports[`create a AlignCenter icon 1`] = `
 >
   <svg
     className={undefined}
-    colorLabelClassName={undefined}
-    colorStyle={undefined}
-    evenClassName={undefined}
-    fillClassName={undefined}
     height="18px"
-    strokeMitterClassName={undefined}
-    thinClassName={undefined}
-    transparentClassName={undefined}
+    onChange={[Function]}
     viewBox="0 0 18 18"
     width="18px"
   >
@@ -52,14 +46,8 @@ exports[`create a AlignLeft icon 1`] = `
 >
   <svg
     className={undefined}
-    colorLabelClassName={undefined}
-    colorStyle={undefined}
-    evenClassName={undefined}
-    fillClassName={undefined}
     height="18px"
-    strokeMitterClassName={undefined}
-    thinClassName={undefined}
-    transparentClassName={undefined}
+    onChange={[Function]}
     viewBox="0 0 18 18"
     width="18px"
   >
@@ -96,14 +84,8 @@ exports[`create a AlignRight icon 1`] = `
 >
   <svg
     className={undefined}
-    colorLabelClassName={undefined}
-    colorStyle={undefined}
-    evenClassName={undefined}
-    fillClassName={undefined}
     height="18px"
-    strokeMitterClassName={undefined}
-    thinClassName={undefined}
-    transparentClassName={undefined}
+    onChange={[Function]}
     viewBox="0 0 18 18"
     width="18px"
   >
