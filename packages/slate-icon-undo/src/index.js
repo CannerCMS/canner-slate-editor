@@ -17,13 +17,15 @@ export default class Undo extends React.Component<IconProps> {
   }
 
   render() {
-    const {icon, ...rest} = this.props;
+    const {icon, change, ...rest} = this.props;
     const onClick = e => this.onClick(e);
     return (
       <ToolbarIcon
         type={this.typeName}
         icon={icon || 'Undo'}
         onClick={onClick}
+        disabled={!change.value.hasUndos}
+        change={change}
         {...rest}
       />
     );

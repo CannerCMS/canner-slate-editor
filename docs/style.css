@@ -11,7 +11,7 @@
   fill: transparent;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 1.5px;
+  stroke-width: 2px;
 }
 
 .ql-stroke-mitter {
@@ -61,7 +61,7 @@
 .ql-thin-active {
   stroke: #CCC;
   fill: transparent;
-  stroke-width: 1;
+  stroke-width: 2;
 }
 
 .toolbar {
@@ -73,6 +73,11 @@
 .toolbar-item, .toolbar-item-active {
   width: 25px;
   height: 25px;
+  margin: 5px;
+}
+
+.toolbar-item-active {
+  border: 1px solid #333;
 }
 
 .toolbar-select {
@@ -85,4 +90,9 @@
   padding: 5px;
   margin: 5px 10px 5px 5px;
   border: 1px solid #CCC;
+}
+
+.toolbar-item-disable > * {
+  stroke: #CCC;
+  cursor: not-allowed;
 }

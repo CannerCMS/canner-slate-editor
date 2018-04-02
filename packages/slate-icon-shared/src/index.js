@@ -7,6 +7,7 @@ import {FONTSIZE, LETTERSPACING} from '@canner/slate-constant/lib/marks';
 import QuillIcons from 'quill-icons';
 import commonNode from '@canner/slate-editor-renderer/lib/commonNode';
 import omit from 'lodash.omit';
+import cx from 'classnames';
 
 export const basicMarkDecorator = basicMarkDecoration;
 export const nodeAttrs = {
@@ -32,6 +33,7 @@ type Props = {
   transparentClassName?: string,
   strokeMitterClassName?: string,
   colorLabelClassName?: string,
+  disableClassName?: string,
   thinClassName?: string,
   activeClassName?: string,
   activeStrokeClassName?: string,
@@ -46,6 +48,7 @@ type Props = {
   icon: string,
   onClick?: (e: Event) => void,
   isActive?: bool,
+  disabled?: bool,
   change: Change,
   onChange: (change: Change) => void
 }
@@ -71,7 +74,9 @@ export default class ToolbarIcon extends React.Component<Props> {
       type,
       icon,
       onClick,
+      disabled,
       isActive,
+      disableClassName,
       activeClassName,
       activeStrokeClassName,
       activeFillClassName,
@@ -106,7 +111,7 @@ export default class ToolbarIcon extends React.Component<Props> {
       Object.assign({
         onChange: onChange,
         colorStyle: colorStyle,
-        className: iconClassName,
+        className: disabled ? cx(iconClassName, disableClassName) : iconClassName,
         strokeClassName: iconStrokeClassName,
         strokeMitterClassName: iconStrokeMitterClassName,
         fillClassName: iconFillClassName,

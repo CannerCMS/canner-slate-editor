@@ -96,6 +96,7 @@ const icons = [
   Header1,
   Header2,
   Image,
+  Video,
   Indent,
   Outdent,
   Italic,
@@ -105,8 +106,7 @@ const icons = [
   StrikeThrough,
   Underline, 
   Undo,
-  Redo,
-  Video
+  Redo
 ];
 
 const plugins = [
@@ -183,6 +183,7 @@ class App extends React.Component {
                   key={i}
                   className="toolbar-item"
                   activeClassName="toolbar-item-active"
+                  disableClassName="toolbar-item-disable"
                   activeStrokeClassName="ql-stroke-active"
                   activeFillClassName="ql-fill-active"
                   activeThinClassName="ql-thin-active"

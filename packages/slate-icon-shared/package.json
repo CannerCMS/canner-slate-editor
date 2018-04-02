@@ -28,7 +28,8 @@
   "dependencies": {
     "@canner/slate-editor-renderer": "^1.0.7",
     "@canner/slate-util-have": "^0.1.2",
-    "quill-icons": "^0.5.4",
-    "lodash.omit": "^4.5.0"
+    "quill-icons": "^0.6.0",
+    "lodash.omit": "^4.5.0",
+    "classnames": "^2.2.5"
   }
 }
