@@ -15,36 +15,37 @@ Editors that build on top of these icons:
 
 Supported features:
 
-- [Align](./packages/slate-icon-align) - center, left, right
-- [Blockquote](./packages/slate-icon-blockquote)
-- [Bold](./packages/slate-icon-bold)
-- [Clean](./packages/slate-icon-clean)
-- [Code](./packages/slate-icon-code)
-- [CodeBlock](./packages/slate-icon-codeblock)
-- [Emoji](./packages/slate-icon-emoji)
-- [Font background color](./packages/slate-icon-fontbgcolor)
-- [Font color](./packages/slate-icon-fontcolor)
-- [Header](./packages/slate-icon-header) - header 1, header 2
-- [Image](./packages/slate-icon-image)
-- [Indent](./packages/slate-icon-indent) - indent, outdent
-- [Italic](./packages/slate-icon-italic)
-- [Link](./packages/slate-icon-link)
-- [List](./packages/slate-icon-list) - Ol list, Ul list
-- [Strike through](./packages/slate-icon-strikethrough)
-- [Underline](./packages/slate-icon-underline)
-- [Undo](./packages/slate-icon-undo)
-- [Video](./packages/slate-icon-video)
+- [Align - @canner/slate-icon-align](./packages/slate-icon-align) - center, left, right
+- [Blockquote - @canner/slate-icon-blockquote](./packages/slate-icon-blockquote)
+- [Bold - @canner/slate-icon-bold](./packages/slate-icon-bold)
+- [Clean - @canner/slate-icon-clean](./packages/slate-icon-clean)
+- [Code - @canner/slate-icon-code](./packages/slate-icon-code)
+- [CodeBlock - @canner/slate-icon-codeblock](./packages/slate-icon-codeblock)
+- [Emoji - @canner/slate-icon-emoji](./packages/slate-icon-emoji)
+- [Font background color - @canner/slate-icon-fontbgcolor](./packages/slate-icon-fontbgcolor)
+- [Font color - @canner/slate-icon-fontcolor](./packages/slate-icon-fontcolor)
+- [Header - @canner/slate-icon-header](./packages/slate-icon-header) - header 1, header 2, header 3, header 4, header 5, header 6
+- [Image - @canner/slate-icon-image](./packages/slate-icon-image)
+- [Indent - @canner/slate-icon-indent](./packages/slate-icon-indent) - indent, outdent
+- [Italic - @canner/slate-icon-italic](./packages/slate-icon-italic)
+- [Link - @canner/slate-icon-link](./packages/slate-icon-link)
+- [List - @canner/slate-icon-list](./packages/slate-icon-list) - Ol list, Ul list
+- [Strike through - @canner/slate-icon-strikethrough](./packages/slate-icon-strikethrough)
+- [Underline - @canner/slate-icon-underline](./packages/slate-icon-underline)
+- [Undo - @canner/slate-icon-undo](./packages/slate-icon-undo)
+- [Redo - @canner/slate-icon-redo](./packages/slate-icon-redo)
+- [Video - @canner/slate-icon-video](./packages/slate-icon-video)
 
 Supported selectors:
 
-- [Font size](./packages/slate-select-fontsize)
-- [Line height](./packages/slate-select-lineheight)
-- [Letter spacing](./packages/slate-select-letterspacing)
+- [Font size - @canner/slate-select-fontsize](./packages/slate-select-fontsize)
+- [Line height - @canner/slate-select-lineheight](./packages/slate-select-lineheight)
+- [Letter spacing - @canner/slate-letterspacing](./packages/slate-select-letterspacing)
 
 Helpers:
 
-- [Renderers](./packages/slate-editor-renderer)
-- [Serializer and deserializer](./packages/slate-editor-html)
+- [Renderers - @canner/slate-editor-renderer](./packages/slate-editor-renderer)
+- [Serializer and deserializer - @canner/slate-editor-html](./packages/slate-editor-html)
 
 ## Usage
 
