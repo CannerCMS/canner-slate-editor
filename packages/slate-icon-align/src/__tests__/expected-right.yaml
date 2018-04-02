@@ -1,0 +1,10 @@
+document:
+  nodes:
+    - object: block
+      data:
+        align: right
+      type: paragraph
+      nodes:
+        - object: text
+          leaves:
+            - text: Hello World

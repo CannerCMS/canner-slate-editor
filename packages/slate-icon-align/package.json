@@ -17,6 +17,11 @@
     "react-test-renderer": "^16.2.0",
     "slate": "^0.33.0"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "^test/(.*)$": "<rootDir>/../../test/$1"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
