@@ -27,6 +27,7 @@
     "@canner/slate-icon-video": "^1.0.7",
     "emoji-mart": "^2.5.0",
     "react-icons": "^2.2.7",
-    "react-resizable": "^1.7.5"
+    "react-resizable": "^1.7.5",
+    "lodash.mapvalues": "^4.6.0"
   }
 }

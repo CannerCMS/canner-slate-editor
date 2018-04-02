@@ -115,26 +115,6 @@ const initialValue = Value.fromJSON({
             ],
           }
         ],
-      },
-      {
-        object: 'block',
-        type: 'code_block',
-        nodes: [
-          {
-            object: 'block',
-            type: 'code_line',
-            nodes: [
-              {
-                object: 'text',
-                leaves: [
-                  {
-                    text: 'code block',
-                  },
-                ],
-              }
-            ]
-          }
-        ]
       }
     ],
   },
@@ -185,22 +165,22 @@ const plugins = [
   EditBlockquote(DEFAULTBLOCKQUOTE),
   ParagraphPlugin(),
   BlockquotePlugin(),
-  BoldPlugin(),
-  CodePlugin(),
-  CodeBlockPlugin(),
-  FontBgColorPlugin(),
-  FontColorPlugin(),
-  ItalicPlugin(),
-  StrikeThroughPlugin(),
-  UnderlinePlugin(),
-  FontSizePlugin(),
-  LetterSpacingPlugin(),
-  EmojiPlugin(),
-  HeaderPlugin(),
-  ImagePlugin(),
-  LinkPlugin(),
-  ListPlugin(),
-  VideoPlugin()
+  // BoldPlugin(),
+  // CodePlugin(),
+  // CodeBlockPlugin(),
+  // FontBgColorPlugin(),
+  // FontColorPlugin(),
+  // ItalicPlugin(),
+  // StrikeThroughPlugin(),
+  // UnderlinePlugin(),
+  // FontSizePlugin(),
+  // LetterSpacingPlugin(),
+  // EmojiPlugin(),
+  // HeaderPlugin(),
+  // ImagePlugin(),
+  // LinkPlugin(),
+  // ListPlugin(),
+  // VideoPlugin()
 ];
 
 class App extends React.Component {

@@ -5,6 +5,7 @@ import basicMarkDecoration from './basicMarkDecoration';
 import {PARAGRAPH} from '@canner/slate-constant/lib/blocks';
 import QuillIcons from 'quill-icons';
 import commonNode from '@canner/slate-editor-renderer/lib/commonNode';
+import omit from 'lodash.omit';
 
 type Props = {
   className?: string,
@@ -33,11 +34,23 @@ type Props = {
 }
 
 export const basicMarkDecorator = basicMarkDecoration;
-export const ParagraphPlugin = (type = PARAGRAPH) => {
+export const nodeAttrs = {
+  textAlign: (node) => node.data.get('align'),
+  paddingLeft: (node) => node.data.get('indent') ? `${3 * node.data.get('indent')}em` : undefined,
+  lineHeight: (node) => node.data.get('lineHeight')
+}
+
+export const ParagraphPlugin = (opt) => {
+  const options = Object.assign({
+    type: PARAGRAPH,
+    tagName: 'p',
+    ...nodeAttrs
+  }, opt);
+
   return {
     renderNode: (props) => {
-      if (props.node.type === type)
-        return commonNode('p')(props);
+      if (props.node.type === options.type)
+        return commonNode(options.tagName, omit(options, ['type', 'tagName']))(props);
     }
   }
 }

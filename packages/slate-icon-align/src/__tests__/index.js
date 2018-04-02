@@ -2,7 +2,7 @@ import React from "react";
 import { Change, Value } from "slate";
 import { join } from "path";
 import { AlignCenter, AlignLeft, AlignRight } from "../";
-import iconTest from 'test/icon-test';
+import iconTest from "test/icon-test";
 import renderer from "react-test-renderer";
 const onChange = arg => arg;
 
@@ -47,8 +47,8 @@ test("click AlignCenter icon", done => {
     icon: AlignCenter,
     expectedPath: join(__dirname, "expected-center.yaml"),
     callback: done
-  })
-})
+  });
+});
 
 test("click AlignCenter icon use customized type", done => {
   iconTest({
@@ -56,16 +56,16 @@ test("click AlignCenter icon use customized type", done => {
     type: "customizeAlign",
     expectedPath: join(__dirname, "custom-expected-center.yaml"),
     callback: done
-  })
-})
+  });
+});
 
 test("click AlignLeft icon", done => {
   iconTest({
     icon: AlignLeft,
     expectedPath: join(__dirname, "expected-left.yaml"),
     callback: done
-  })
-})
+  });
+});
 
 test("click AlignLeft icon use customized type", done => {
   iconTest({
@@ -73,16 +73,16 @@ test("click AlignLeft icon use customized type", done => {
     type: "customizeAlign",
     expectedPath: join(__dirname, "custom-expected-left.yaml"),
     callback: done
-  })
-})
+  });
+});
 
 test("click AlignRight icon", done => {
   iconTest({
     icon: AlignRight,
     expectedPath: join(__dirname, "expected-right.yaml"),
     callback: done
-  })
-})
+  });
+});
 
 test("click AlignRight icon use customized type", done => {
   iconTest({
@@ -90,5 +90,5 @@ test("click AlignRight icon use customized type", done => {
     type: "customizeAlign",
     expectedPath: join(__dirname, "custom-expected-right.yaml"),
     callback: done
-  })
-})
+  });
+});

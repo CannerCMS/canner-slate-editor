@@ -1,19 +1,26 @@
 // @flow
 import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
-import ToolbarIcon from '@canner/slate-icon-shared';
+import ToolbarIcon, {nodeAttrs} from '@canner/slate-icon-shared';
 import blockquote, {DEFAULT} from '@canner/slate-helper-block-quote';
 import {BLOCKQUOTE} from '@canner/slate-constant/lib/blocks';
 import EditBlockquote from 'slate-edit-blockquote'
 import commonNode from '@canner/slate-editor-renderer/lib/commonNode';
+import omit from 'lodash.omit';
 
 type Props = IconProps;
 
-export const BlockquotePlugin = (type = BLOCKQUOTE) => {
+export const BlockquotePlugin = (opt) => {
+  const options = Object.assign({
+    type: BLOCKQUOTE,
+    tagName: 'blockquote',
+    ...nodeAttrs
+  }, opt);
+
   return {
     renderNode: (props) => {
-      if (props.node.type === type) 
-        return commonNode('blockquote')(props);
+      if (props.node.type === options.type) 
+        return commonNode(options.tagName, omit(options, ['type', 'tagName']))(props);
     }
   }
 }

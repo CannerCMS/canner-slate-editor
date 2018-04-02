@@ -18,7 +18,7 @@ function deserializeValue(json) {
 
 
 export default function(settings) {
-  const {icon, expectedPath, callback} = settings;
+  const {icon, expectedPath, callback, type} = settings;
   const input = readMetadata.sync(path.resolve(__dirname, 'input.yaml'));
 
   let expected;
@@ -40,6 +40,7 @@ export default function(settings) {
     .select(range);
 
   const iconComponent = React.createElement(icon, {
+    type,
     change: nextChange,
     onChange: change => {
       expect(change.value.toJSON()).toEqual(deserializeValue(expected).toJSON());
