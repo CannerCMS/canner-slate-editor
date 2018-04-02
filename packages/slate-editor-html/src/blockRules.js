@@ -1,6 +1,9 @@
 // @flow
 import React from 'react';
-export default function(Tag, blockType) {
+import mapValues from 'lodash.mapvalues';
+import {nodeAttrs} from '@canner/slate-icon-shared';
+
+export default function(Tag, blockType, stylesAttr = nodeAttrs) {
   return {
     deserialize(el, next) {
       if (blockType && el.tagName && el.tagName.toLowerCase() === Tag) {
@@ -36,19 +39,8 @@ export default function(Tag, blockType) {
     },
     serialize(obj, children) {
       if (obj.object == 'block' && obj.type === blockType) {
-        const align = obj.data.get('align');
-        const indent = obj.data.get('indent');
-        const lineHeight = obj.data.get('lineHeight');
-        let style;
-
-        if (Tag === 'ul' || Tag === 'ol') {
-          style = {textAlign: align, lineHeight};
-        } else {
-          style = {textAlign: align, lineHeight, paddingLeft: indent};
-        }
-
         return (
-          <Tag style={style}>
+          <Tag style={mapValues(stylesAttr, (val) => val && val(obj))}>
             {children}
           </Tag>
         );

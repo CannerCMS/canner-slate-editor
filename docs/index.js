@@ -24,7 +24,7 @@ import {OlList, UlList, ListPlugin} from 'packages/slate-icon-list';
 import StrikeThrough, {StrikeThroughPlugin} from 'packages/slate-icon-strikethrough';
 import Underline, {UnderlinePlugin} from 'packages/slate-icon-underline';
 import Undo from 'packages/slate-icon-undo';
-import Video, {VideoPlugin, DEFAULT as DEFAULT_VIDEO} from 'packages/slate-icon-video';
+import Video, {VideoPlugin} from 'packages/slate-icon-video';
 
 // select
 import FontSize, {FontSizePlugin} from 'packages/slate-select-fontsize';
@@ -46,57 +46,9 @@ import "prismjs/themes/prism.css"
 
 // rules
 import Html from 'slate-html-serializer';
-import {
-  markRules,
-  blockRules,
-  inlineRules,
-  imageRules,
-  videoRules,
-  codeBlockRules,
-  emojiRules
-} from 'packages/slate-editor-html';
+import {DEFAULT_RULES} from 'packages/slate-editor-html';
 
-// constants
-import {BLOCKS, MARKS, INLINES} from '@canner/slate-constant'
-const html = new Html({ rules: [
-    blockRules('p', BLOCKS.PARAGRAPH),
-    blockRules('blockquote', BLOCKS.BLOCKQUOTE),
-    blockRules('h1', BLOCKS.HEADING_1),
-    blockRules('h2', BLOCKS.HEADING_2),
-    blockRules('ul', BLOCKS.UL_LIST),
-    blockRules('ol', BLOCKS.OL_LIST),
-    blockRules('li', BLOCKS.LIST_ITEM),
-    inlineRules('a', INLINES.LINK),
-    markRules('strong', MARKS.BOLD),
-    markRules('code', MARKS.CODE),
-    markRules('i', MARKS.ITALIC),
-    markRules('s', MARKS.STRIKETHROUGH),
-    markRules('u', MARKS.UNDERLINE),
-    markRules('span', MARKS.FONTBGCOLOR, {
-      key: 'backgroundColor',
-      value: 'color'
-    }),
-    markRules('span', MARKS.FONTCOLOR,  {
-      key: 'color',
-      value: 'color'
-    }),
-    markRules('span', MARKS.FONTSIZE,  {
-      key: 'fontSize',
-      value: MARKS.FONTSIZE
-    }),
-    markRules('span', MARKS.LETTERSPACING,  {
-      key: 'letterSpacing',
-      value: MARKS.LETTERSPACING
-    }),
-    videoRules(DEFAULT_VIDEO.youtube),
-    videoRules(DEFAULT_VIDEO.vimeo),
-    videoRules(DEFAULT_VIDEO.dailymotion),
-    videoRules(DEFAULT_VIDEO.youku),
-    imageRules(BLOCKS.IMAGE),
-    codeBlockRules(),
-    emojiRules()
-  ]
-})
+const html = new Html({ rules: DEFAULT_RULES})
 
 import "./style.css";
 import "./github-markdown.css";
@@ -170,11 +122,11 @@ const plugins = [
   BoldPlugin(),
   CodePlugin(),
   CodeBlockPlugin(),
-  // FontBgColorPlugin(),
-  // FontColorPlugin(),
-  // ItalicPlugin(),
-  // StrikeThroughPlugin(),
-  // UnderlinePlugin(),
+  FontBgColorPlugin(),
+  FontColorPlugin(),
+  ItalicPlugin(),
+  StrikeThroughPlugin(),
+  UnderlinePlugin(),
   // FontSizePlugin(),
   // LetterSpacingPlugin(),
   EmojiPlugin(),

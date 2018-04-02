@@ -3,11 +3,16 @@ import ToolbarIcon, {basicMarkDecorator} from '@canner/slate-icon-shared';
 import {ITALIC} from '@canner/slate-constant/lib/marks';
 import commonMark from '@canner/slate-editor-renderer/lib/commonMark';
 
-export const ItalicPlugin = (type = ITALIC) => {
+export const ItalicPlugin = (opt) => {
+  const options = Object.assign({
+    type: ITALIC,
+    tagName: 'i'
+  }, opt);
+
   return {
     renderMark: (props) => {
-      if (props.mark.type === type) 
-        return commonMark('i')(props);
+      if (props.mark.type === options.type) 
+        return commonMark(options.tagName)(props);
     }
   }
 }

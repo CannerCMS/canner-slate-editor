@@ -8,7 +8,7 @@ export default function(Tag, stylesAttr) {
     return (
       <Tag
         {...attributes}
-        style={mapValues(stylesAttr, (val) => val(mark))}
+        style={mapValues(stylesAttr, (val) => val && val(mark))}
         data-slate-type={Tag}>
         {children}
       </Tag>

@@ -7,6 +7,18 @@ import QuillIcons from 'quill-icons';
 import commonNode from '@canner/slate-editor-renderer/lib/commonNode';
 import omit from 'lodash.omit';
 
+export const basicMarkDecorator = basicMarkDecoration;
+export const nodeAttrs = {
+  textAlign: (node) => node.data.get('align'),
+  paddingLeft: (node) => node.data.get('indent') ? `${3 * node.data.get('indent')}em` : undefined,
+  lineHeight: (node) => node.data.get('lineHeight')
+}
+
+export const markAttrs = {
+  backgroundColor: (mark) => mark.data.getIn(['color', 'color']),
+  color: (mark) => mark.data.getIn(['color', 'color'])
+}
+
 type Props = {
   className?: string,
   strokeClassName?: string,
@@ -31,13 +43,6 @@ type Props = {
   isActive?: bool,
   change: Change,
   onChange: (change: Change) => void
-}
-
-export const basicMarkDecorator = basicMarkDecoration;
-export const nodeAttrs = {
-  textAlign: (node) => node.data.get('align'),
-  paddingLeft: (node) => node.data.get('indent') ? `${3 * node.data.get('indent')}em` : undefined,
-  lineHeight: (node) => node.data.get('lineHeight')
 }
 
 export const ParagraphPlugin = (opt) => {

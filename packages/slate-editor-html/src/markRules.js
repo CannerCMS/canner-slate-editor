@@ -1,7 +1,9 @@
 // @flow
 import React from 'react';
+import mapValues from 'lodash.mapvalues';
+import {markAttrs} from '@canner/slate-icon-shared';
 
-export default function(Tag, markType, styleData) {
+export default function(Tag, markType, stylesAttr = markAttrs) {
   return {
     deserialize(el, next) {
       if (markType && el.tagName && el.tagName.toLowerCase() === Tag) {
@@ -33,16 +35,8 @@ export default function(Tag, markType, styleData) {
     },
     serialize(obj, children) {
       if (obj.object == 'mark' && obj.type === markType) {
-        let style;
-
-        if (styleData) {
-          style = {
-            [styleData.key]: obj.data.get(styleData.value)
-          }
-        }
-
         return (
-          <Tag style={style}>
+          <Tag style={mapValues(stylesAttr, (val) => val && val(obj))}>
             {children}
           </Tag>
         );

@@ -3,11 +3,16 @@ import ToolbarIcon, {basicMarkDecorator} from '@canner/slate-icon-shared';
 import {STRIKETHROUGH} from '@canner/slate-constant/lib/marks';
 import commonMark from '@canner/slate-editor-renderer/lib/commonMark';
 
-export const StrikeThroughPlugin = (type = STRIKETHROUGH) => {
+export const StrikeThroughPlugin = (opt) => {
+  const options = Object.assign({
+    type: STRIKETHROUGH,
+    tagName: 's'
+  }, opt);
+
   return {
     renderMark: (props) => {
-      if (props.mark.type === type) 
-        return commonMark('s')(props);
+      if (props.mark.type === options.type) 
+        return commonMark(options.tagName)(props);
     }
   }
 }

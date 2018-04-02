@@ -15,7 +15,6 @@
   "devDependencies": {
     "jest": "^22.4.2",
     "react-test-renderer": "^16.2.0",
-    "slate": "^0.33.0",
     "slate-html-serializer": "^0.5.8",
     "slate-hyperscript": "^0.5.9"
   },
@@ -23,6 +22,13 @@
     "react": "^0.14.0 || ^15.0.0 || 16.x",
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
     "styled-components": "^3.2.1",
+    "slate": "^0.33.0",
     "@canner/slate-constant": ">=^1.0.2"
+  },
+  "dependencies": {
+    "lodash.mapvalues": "^4.6.0",
+    "@canner/slate-icon-shared": "^1.0.7",
+    "@canner/slate-constant": "^1.0.8",
+    "@canner/slate-icon-video": "^1.0.7"
   }
 }

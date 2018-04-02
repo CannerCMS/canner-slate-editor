@@ -6,6 +6,6 @@ document:
         - object: text
           leaves:
             - marks:
-                - type: italic
+                - type: ITALIC
               text: Hello
             - text: " World"

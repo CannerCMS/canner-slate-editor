@@ -9,7 +9,7 @@ export default function(Tag, stylesAttr) {
       <Tag
         {...attributes}
         data-slate-type={Tag}
-        style={mapValues(stylesAttr, (val) => val(node))}
+        style={mapValues(stylesAttr, (val) => val && val(node))}
       >{children}</Tag>
     );
   };

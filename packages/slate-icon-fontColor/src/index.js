@@ -1,22 +1,29 @@
 // @flow
 import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
-import ToolbarIcon from '@canner/slate-icon-shared';
+import ToolbarIcon, {markAttrs} from '@canner/slate-icon-shared';
 import addMarkOverwrite from '@canner/slate-helper-mark-addoverwrite';
 import {haveMarks} from '@canner/slate-util-have';
 import {getMarkType} from '@canner/slate-util-get';
 import ColorPicker from 'rc-color-picker';
 import hexRgb from 'hex-rgb';
+import omit from 'lodash.omit';
 import {FONTCOLOR} from '@canner/slate-constant/lib/marks';
 import commonMark from '@canner/slate-editor-renderer/lib/commonMark';
 
 import 'rc-color-picker/assets/index.css';
 
-export const FontColorPlugin = (type = FONTCOLOR) => {
+export const FontColorPlugin = (opt) => {
+  const options = Object.assign({
+    type: FONTCOLOR,
+    tagName: 'span',
+    color: markAttrs.color
+  }, opt);
+
   return {
     renderMark: (props) => {
-      if (props.mark.type === type) 
-        return commonMark('span', 'color', 'color')(props);
+      if (props.mark.type === options.type) 
+        return commonMark(options.tagName, omit(options, ['type', 'tagName']))(props);
     }
   }
 }
@@ -28,14 +35,18 @@ export default class fontColor extends React.Component<IconProps> {
     super(props);
     this.typeName = this.props.type || FONTCOLOR;
   }
+  
+  static defaultProps = {
+    colorKey: 'color'
+  }
 
   onChange = (color: {color: string, alpha: number, open: boolean}) => {
-    let {change, onChange} = this.props;
+    let {change, onChange, colorKey} = this.props;
 
     // $FlowFixMe
     color.rgba = `rgba(${hexRgb(color.color, {format: 'array'}).join(',')}, ${color.alpha / 100})`;
     this.setState({color});
-    onChange(addMarkOverwrite(change, {type: this.typeName, data: color}));
+    onChange(addMarkOverwrite(change, {type: this.typeName, data: {[colorKey]: color}}));
   }
 
   render() {
