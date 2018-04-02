@@ -13,7 +13,7 @@ export default function(opt) {
       // TODO deserialize emoji
     // },
     serialize(obj) {
-      if (obj.object == 'inline' && obj.type === options.EMOJI) {
+      if (obj.object == 'inline' && obj.type === options.type) {
         return <span>{options.getEmoji(obj).trim()}</span>;
       }
     }
