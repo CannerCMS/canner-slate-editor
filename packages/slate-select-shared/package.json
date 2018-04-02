@@ -22,7 +22,7 @@
     "slate": ">=^0.33.0"
   },
   "dependencies": {
-    "@canner/slate-helper-block-adddata": "^0.1.2",
+    "@canner/slate-helper-block-adddata": "^0.1.4",
     "@canner/slate-helper-block-cleardatabykey": "^0.1.2",
     "@canner/slate-helper-mark-addoverwrite": "^0.1.2",
     "@canner/slate-helper-mark-removetype": "^0.1.2",
