@@ -1,0 +1,27 @@
+{
+  "name": "@canner/slate-icon-redo",
+  "version": "1.0.7",
+  "description": "Slate icon for redo",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest src",
+    "prepublish": "../../node_modules/.bin/babel src -d lib --copy-files"
+  },
+  "author": "",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "jest": "^22.4.2",
+    "react-test-renderer": "^16.2.0",
+    "slate": "^0.33.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || 16.x",
+    "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
+  },
+  "dependencies": {
+    "@canner/slate-icon-shared": "^1.0.7"
+  }
+}

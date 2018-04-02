@@ -24,6 +24,7 @@ import {OlList, UlList, ListPlugin} from 'packages/slate-icon-list';
 import StrikeThrough, {StrikeThroughPlugin} from 'packages/slate-icon-strikethrough';
 import Underline, {UnderlinePlugin} from 'packages/slate-icon-underline';
 import Undo from 'packages/slate-icon-undo';
+import Redo from 'packages/slate-icon-redo';
 import Video, {VideoPlugin} from 'packages/slate-icon-video';
 
 // select
@@ -104,6 +105,7 @@ const icons = [
   StrikeThrough,
   Underline, 
   Undo,
+  Redo,
   Video
 ];
 
