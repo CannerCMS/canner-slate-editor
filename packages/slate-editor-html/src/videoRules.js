@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import styled from "styled-components";
+import {nodeAttrs} from '@canner/slate-icon-shared';
 
 export const ImageContiner = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ export const ImageContiner = styled.div`
   }};
 `;
 
-export default function(blockType = 'video') {
+export default function(blockType = 'video', stylesAttr = nodeAttrs) {
   return {
     deserialize(el) {
       if (blockType && el.tagName && el.tagName.toLowerCase() === 'iframe') {
@@ -24,12 +25,11 @@ export default function(blockType = 'video') {
     },
     serialize(obj) {
       if (obj.object == 'block' && obj.type === blockType) {
-        const align = obj.data.get('align');
-        const indent = obj.data.get('indent') || 0;
-        
-        const width = obj.data.get('width') || 560;
-        const height = obj.data.get('height') || 315;
-        const id = obj.data.get('id');
+        const align = stylesAttr.textAlign(obj);
+        const indent = stylesAttr.paddingLeft(obj);
+        const width = stylesAttr.width(obj) || 560;
+        const height = stylesAttr.height(obj) || 315;
+        const id = stylesAttr.id(obj);
         let link;
 
         if (blockType === 'youtube') {
@@ -49,7 +49,7 @@ export default function(blockType = 'video') {
               style={{
                 width,
                 height,
-                marginLeft: `${3 * (indent || 0)}em`
+                marginLeft: indent
               }}/>
           </ImageContiner>
         );

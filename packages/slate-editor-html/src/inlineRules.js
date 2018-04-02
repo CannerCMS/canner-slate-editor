@@ -1,7 +1,11 @@
 // @flow
 import React from 'react';
 
-export default function(Tag, inlineType) {
+const DEFAULT_OPT = {
+  getHref: (node) => node.data.get('href')
+}
+
+export default function(Tag, inlineType, options = DEFAULT_OPT) {
   return {
     deserialize(el, next) {
       if (inlineType && el.tagName && el.tagName.toLowerCase() === Tag) {
@@ -20,7 +24,7 @@ export default function(Tag, inlineType) {
     },
     serialize(obj, children) {
       if (obj.object == 'inline' && obj.type === inlineType) {
-        const href = obj.data.get('href');
+        const href = options.getHref(obj);
         const props = {
           href
         };

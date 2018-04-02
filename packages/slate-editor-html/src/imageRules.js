@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {IMAGE} from '@canner/slate-constant/lib/blocks';
+import {nodeAttrs} from '@canner/slate-icon-shared';
 
 export const ImageContiner = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ export const ImageContiner = styled.div`
   }};
 `;
 
-export default function(blockType = IMAGE) {
+export default function(blockType = IMAGE, stylesAttr = nodeAttrs) {
   return {
     deserialize(el) {
       if (blockType && el.tagName && el.tagName.toLowerCase() === 'img') {
@@ -44,11 +45,11 @@ export default function(blockType = IMAGE) {
     },
     serialize(obj) {
       if (obj.object == 'block' && obj.type === blockType) {
-        const align = obj.data.get('align');
-        const indent = obj.data.get('indent');
-        const src = obj.data.get('src');
-        const width = obj.data.get('width');
-        const height = obj.data.get('height');
+        const align = stylesAttr.textAlign(obj);
+        const indent = stylesAttr.paddingLeft(obj);
+        const src = stylesAttr.src(obj);
+        const width = stylesAttr.width(obj);
+        const height = stylesAttr.height(obj);
 
         return (
           <ImageContiner align={align}>
