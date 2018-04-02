@@ -82,8 +82,8 @@ const selectors = [
 ]
 
 const icons = [
-  AlignCenter,
   AlignLeft,
+  AlignCenter,
   AlignRight,
   Blockquote,
   Bold,

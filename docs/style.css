@@ -1,5 +1,5 @@
 .ql-stroke {
-  stroke: #444;
+  stroke: #4f748e;
   fill: transparent;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -7,7 +7,7 @@
 }
 
 .ql-stroke-active {
-  stroke: #CCC;
+  stroke: #333;
   fill: transparent;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -15,30 +15,30 @@
 }
 
 .ql-stroke-mitter {
-  stroke: #444;
+  stroke: #4f748e;
   fill: transparent;
 }
 
 .ql-stroke-mitter-active {
-  stroke: #CCC;
+  stroke: #333;
   fill: transparent;
 }
 
 .ql-fill {
-  fill: #444;
+  fill: #4f748e;
 }
 
 .ql-fill-active {
-  fill: #CCC;
+  fill: #333;
 }
 
 .ql-even {
-  stroke: #444;
+  stroke: #4f748e;
   fill: #FFF;
 }
 
 .ql-even-active {
-  stroke: #CCC;
+  stroke: #333;
   fill: #FFF;
 }
 
@@ -53,13 +53,13 @@
 }
 
 .ql-thin {
-  stroke: #444;
+  stroke: #4f748e;
   fill: transparent;
   stroke-width: 1;
 }
 
 .ql-thin-active {
-  stroke: #CCC;
+  stroke: #333;
   fill: transparent;
   stroke-width: 2;
 }
@@ -70,14 +70,17 @@
   background-color: #FFF;
 }
 
-.toolbar-item, .toolbar-item-active {
+.toolbar-item {
   width: 25px;
   height: 25px;
   margin: 5px;
 }
 
 .toolbar-item-active {
-  border: 1px solid #333;
+  width: 25px;
+  height: 25px;
+  margin: 4px;
+  border: 1px solid #2e4453;
 }
 
 .toolbar-select {
@@ -89,7 +92,7 @@
 .editor {
   padding: 5px;
   margin: 5px 10px 5px 5px;
-  border: 1px solid #CCC;
+  border: 1px solid #2e4453;
 }
 
 .toolbar-item-disable > * {
