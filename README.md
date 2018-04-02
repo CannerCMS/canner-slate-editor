@@ -11,6 +11,8 @@ Editors that build on top of these icons:
 - https://github.com/Canner/slate-toolbar
 - https://github.com/Canner/canner-slate-editor
 
+## Packages
+
 Supported features:
 
 - [Align](./packages/slate-icon-align) - center, left, right
