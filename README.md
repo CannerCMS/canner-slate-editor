@@ -4,6 +4,8 @@
 
 Live demo: https://canner.github.io/slate-editor-icons/
 
+![Demo](./docs/demo.png)
+
 Editors that build on top of these icons:
 
 - https://github.com/Canner/slate-toolbar
@@ -41,8 +43,6 @@ Helpers:
 
 - [Renderers](./packages/slate-editor-renderer)
 - [Serializer and deserializer](./packages/slate-editor-html)
-
-![Demo](./docs/demo.png)
 
 ## Usage
 
