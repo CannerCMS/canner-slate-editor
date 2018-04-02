@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
-import ToolbarIcon from '@canner/slate-icon-shared';
+import ToolbarIcon, {nodeAttrs} from '@canner/slate-icon-shared';
 import VideoModal from './videoModal';
 import videoNode from '@canner/slate-editor-renderer/lib/videoNode';
 
@@ -12,26 +12,28 @@ export const DEFAULT = {
   vimeo: 'vimeo'
 }
 
-export const VideoPlugin = (type = DEFAULT) => {
-  if (!type.youtube)
-    type.youtube = DEFAULT.youtube
-  if (!type.dailymotion)
-    type.dailymotion = DEFAULT.dailymotion
-  if (!type.youku)
-    type.youku = DEFAULT.youku
-  if (!type.vimeo)
-    type.vimeo = DEFAULT.vimeo
+export const VideoPlugin = (opt) => {
+    const options = Object.assign({
+      youtubeType: DEFAULT.youtube,
+      dailymotionType: DEFAULT.dailymotion,
+      youkuType: DEFAULT.youku,
+      vimeoType: DEFAULT.vimeo,
+      getId: (node) => node.data.get('id'),
+      getWidth: (node) => node.data.get('width'),
+      getHeight: (node) => node.data.get('height'),
+      ...nodeAttrs
+    }, opt);
 
   return {
     renderNode: (props) => {
-      if (props.node.type === type.youtube) 
-        return videoNode('youtube')(props);
-      else if (props.node.type === type.dailymotion)
-        return videoNode('dailymotion')(props);
-      else if (props.node.type === type.youku)
-        return videoNode('youku')(props);
-      else if (props.node.type === type.vimeo)
-        return videoNode('vimeo')(props);
+      if (props.node.type === options.youtubeType) 
+        return videoNode('youtube', options)(props);
+      else if (props.node.type === options.dailymotionType)
+        return videoNode('dailymotion', options)(props);
+      else if (props.node.type === options.youkuType)
+        return videoNode('youku', options)(props);
+      else if (props.node.type === options.vimeoType)
+        return videoNode('vimeo', options)(props);
     }
   }
 }
@@ -46,6 +48,14 @@ export default class Video extends React.Component<IconProps, {isShow: boolean}>
     this.state = {
       isShow: false
     };
+  }
+
+  static defaultProps = {
+    youtubeType: DEFAULT.youtube,
+    dailymotionType: DEFAULT.dailymotion,
+    youkuType: DEFAULT.youku,
+    vimeoType: DEFAULT.vimeo,
+    idKey: 'id'
   }
 
   onClick = (e: Event) => {
@@ -75,7 +85,10 @@ export default class Video extends React.Component<IconProps, {isShow: boolean}>
           {...rest}
         />
         {/* $FlowFixMe */}
-        <VideoModal {...this.props} hideModal={this.hideModal} isShow={this.state.isShow}/>
+        <VideoModal
+          {...this.props}
+          hideModal={this.hideModal}
+          isShow={this.state.isShow}/>
       </div>
     );
   }

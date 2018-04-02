@@ -8,11 +8,16 @@ import {haveInlines} from '@canner/slate-util-have';
 import {LINK} from '@canner/slate-constant/lib/inlines';
 import linkNode from '@canner/slate-editor-renderer/lib/linkNode';
 
-export const LinkPlugin = (type = LINK) => {
+export const LinkPlugin = (opt) => {
+  const options = Object.assign({
+    type: LINK,
+    getHref: (node) => node.data.get('href')
+  }, opt);
+
   return {
     renderNode: (props) => {
-      if (props.node.type === type) 
-        return linkNode()(props);
+      if (props.node.type === options.type) 
+        return linkNode(options)(props);
     }
   }
 }
@@ -39,6 +44,11 @@ export default class Link extends React.Component<Props, State> {
       addLinkText: false
     };
     this.typeName = this.props.type || LINK;
+  }
+
+  static defaultProps = {
+    hrefKey: 'href',
+    textKey: 'text'
   }
 
   onClick = (e: Event) => {
@@ -73,7 +83,7 @@ export default class Link extends React.Component<Props, State> {
 
   handleOk = (e: Event) => {
     e.preventDefault();
-    const {onChange, change} = this.props;
+    const {onChange, change, hrefKey, textKey} = this.props;
     const that = this;
 
     this.props.form.validateFields((err, values) => {
@@ -81,9 +91,9 @@ export default class Link extends React.Component<Props, State> {
         const href = values.href;
         const text = values.text;
         if (href && text) {
-          onChange(links(change, this.typeName, {href, text}));
+          onChange(links(change, this.typeName, {[hrefKey]: href, [textKey]: text}));
         } else if (href) {
-          onChange(links(change, this.typeName, {href}));
+          onChange(links(change, this.typeName, {[hrefKey]: href}));
         }
 
         that.handleCancel();

@@ -15,10 +15,10 @@ import {ImageNodeInActive, ImageNodeActive, ImageContiner} from './imageNodeComp
 
 import 'react-resizable/css/styles.css';
 
-export default function(type, readOnly) {
+export default function(type, options) {
   const NodeComponent = ({...props}) => {
     return (
-      <VideoNode {...props} type={type} readOnly={readOnly}/>
+      <VideoNode {...props} {...options} type={type}/>
     );
   };
   return NodeComponent;
@@ -112,13 +112,13 @@ class VideoNode extends React.Component<Props> {
   }
 
   render() {
-    const {node, type, attributes, children, editor, readOnly, isSelected} = this.props;
+    const {node, type, attributes, children, editor, readOnly, isSelected, getId, getWidth, getHeight, textAlign, paddingLeft} = this.props;
     let link;
-    const align = node.data.get('align');
-    const indent = node.data.get('indent');
-    const id = node.data.get('id');
-    const width = this.state.width || node.data.get('width') || 560;
-    const height = this.state.height || node.data.get('height') || 315;
+    const align = textAlign(node);
+    const indent = paddingLeft(node);
+    const id = getId(node);
+    const width = this.state.width || getWidth(node) || 560;
+    const height = this.state.height || getHeight(node) || 315;
 
     if (type === 'youtube') {
       link = `https://www.youtube.com/embed/${id}`;

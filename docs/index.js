@@ -130,11 +130,11 @@ const plugins = [
   FontSizePlugin(),
   LetterSpacingPlugin(),
   EmojiPlugin(),
-  // HeaderPlugin(),
+  HeaderPlugin(),
   ImagePlugin(),
-  // LinkPlugin(),
-  // ListPlugin(),
-  // VideoPlugin()
+  LinkPlugin(),
+  ListPlugin(),
+  VideoPlugin()
 ];
 
 class App extends React.Component {

@@ -6,22 +6,17 @@ import {HEADING_1, HEADING_2, PARAGRAPH} from '@canner/slate-constant/lib/blocks
 
 import commonNode from '@canner/slate-editor-renderer/lib/commonNode';
 
-const DEFAULT = {
-  heading_1: HEADING_1,
-  heading_2: HEADING_2
-}
-
-export const HeaderPlugin = (type = DEFAULT) => {
-  if (!type.heading_1)
-    type.heading_1 = HEADING_1
-  if (!type.heading_2)
-    type.heading_2 = HEADING_2
+export const HeaderPlugin = (opt) => {
+  const options = Object.assign({
+    headingOneType: HEADING_1,
+    headingTwoType: HEADING_2
+  }, opt);
 
   return {
     renderNode: (props) => {
-      if (props.node.type === type.heading_1) 
+      if (props.node.type === options.headingOneType) 
         return commonNode('h1')(props);
-      else if (props.node.type === type.heading_2)
+      else if (props.node.type === options.headingTwoType)
         return commonNode('h2')(props);
     },
     onKeyDown: (e: any, change: Change) => {
@@ -31,8 +26,8 @@ export const HeaderPlugin = (type = DEFAULT) => {
         const getCurrentblock = blocks.get(0);
 
         if (
-          getCurrentblock.type === type.heading_1 ||
-          getCurrentblock.type === type.heading_2
+          getCurrentblock.type === options.headingOneType ||
+          getCurrentblock.type === options.headingTwoType
         )
           return change
             .splitBlock()

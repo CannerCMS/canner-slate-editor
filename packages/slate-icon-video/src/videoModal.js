@@ -2,7 +2,6 @@
 import * as React from 'react';
 import videoParser from 'js-video-url-parser';
 import type {Change} from 'slate';
-import {DEFAULT} from './';
 import {Modal, Form, Button, Input} from 'antd';
 
 const FormItem = Form.Item;
@@ -16,7 +15,12 @@ type Props = {
   isShow: boolean,
   initialValue: string,
   width: number,
-  height: number
+  height: number,
+  youtubeType: string,
+  dailymotionType: string,
+  vimeoType: string,
+  youkuType: string,
+  idKey: string
 };
 
 @Form.create()
@@ -47,7 +51,7 @@ export default class VideoModal extends React.Component<Props> {
 
   handleOk = (e: Event) => {
     e.preventDefault();
-    const {onChange, change, hideModal, form, initialValue, node, width, height} = this.props;
+    const {onChange, change, hideModal, form, initialValue, node, width, height, youtubeType, dailymotionType, youkuType, vimeoType, idKey} = this.props;
 
     form.validateFields((err, values) => {
       if (!err) {
@@ -57,13 +61,13 @@ export default class VideoModal extends React.Component<Props> {
           let slateObj: Object = {};
 
           if (videoObj && videoObj.provider === 'youtube') {
-            slateObj = {type: DEFAULT.youtube, isVoid: true, data: {id: videoObj.id}};
+            slateObj = {type: youtubeType, isVoid: true, data: {[idKey]: videoObj.id}};
           } else if (videoObj && videoObj.provider === 'dailymotion') {
-            slateObj = {type: DEFAULT.dailymotion, isVoid: true, data: {id: videoObj.id}};
+            slateObj = {type: dailymotionType, isVoid: true, data: {[idKey]: videoObj.id}};
           } else if (videoObj && videoObj.provider === 'vimeo') {
-            slateObj = {type: DEFAULT.vimeo, isVoid: true, data: {id: videoObj.id}};
+            slateObj = {type: youkuType, isVoid: true, data: {[idKey]: videoObj.id}};
           } else if (videoObj && videoObj.provider === 'youku') {
-            slateObj = {type: DEFAULT.youku, isVoid: true, data: {id: videoObj.id}};
+            slateObj = {type: vimeoType, isVoid: true, data: {[idKey]: videoObj.id}};
           }
 
           if (slateObj && slateObj.data) {
