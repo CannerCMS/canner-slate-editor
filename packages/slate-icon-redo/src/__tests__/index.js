@@ -1,9 +1,9 @@
 import React from "react";
 import { Change, Value } from "slate";
-import Undo from "../";
+import Redo from "../";
 import renderer from "react-test-renderer";
 
-test("create a Undo icon", () => {
+test("create a Redo icon", () => {
   const initialValue = Value.fromJSON({
     document: {
       nodes: [
@@ -26,7 +26,7 @@ test("create a Undo icon", () => {
   });
 
   const component = renderer.create(
-    <Undo change={new Change({ value: initialValue })} />
+    <Redo change={new Change({ value: initialValue })} />
   );
 
   let tree = component.toJSON();
