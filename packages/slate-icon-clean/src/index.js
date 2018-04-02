@@ -14,7 +14,7 @@ export default class Clean extends React.Component<IconProps> {
   onClick = (e: Event) => {
     let {change, onChange} = this.props;
     e.preventDefault();
-    onChange(removeMarkAll(change, {type: this.typeName, data: {}}));
+    onChange(removeMarkAll(change));
   }
 
   render() {

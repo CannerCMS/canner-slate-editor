@@ -165,7 +165,7 @@ const plugins = [
   EditBlockquote(DEFAULTBLOCKQUOTE),
   ParagraphPlugin(),
   BlockquotePlugin(),
-  // BoldPlugin(),
+  BoldPlugin(),
   // CodePlugin(),
   // CodeBlockPlugin(),
   // FontBgColorPlugin(),

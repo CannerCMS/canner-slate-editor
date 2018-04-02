@@ -1,18 +1,16 @@
 // @flow
 import * as React from 'react';
 import type {nodeProps} from './type';
+import mapValues from 'lodash.mapvalues';
 
-export default function(Tag, type, dataKey) {
+export default function(Tag, stylesAttr) {
   const MarkComponent = ({attributes, children, mark}: nodeProps) => {
 
     return (
       <Tag
         {...attributes}
-        style={{
-          // appy values to style
-          [type]: mark.get('data').get(dataKey || type)
-        }}
-        data-slate-type={type || Tag}>
+        style={mapValues(stylesAttr, (val) => val(mark))}
+        data-slate-type={Tag}>
         {children}
       </Tag>
     );

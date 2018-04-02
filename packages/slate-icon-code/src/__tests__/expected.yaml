@@ -6,6 +6,6 @@ document:
         - object: text
           leaves:
             - marks:
-                - type: code
+                - type: CODE
               text: Hello
             - text: " World"

@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@canner/slate-editor-renderer": "^1.0.7",
-    "@canner/slate-icon-shared": "^1.0.7"
+    "@canner/slate-icon-shared": "^1.0.7",
+    "lodash.omit": "^4.5.0"
   }
 }
