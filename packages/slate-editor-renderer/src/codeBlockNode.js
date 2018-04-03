@@ -20,14 +20,16 @@ const CodeblockLang = styled.div`
   text-transform: uppercase;
 `
 
-export default function(options) {
+export const codeBlockNode = (options) => {
   const CodeBlockComponent = ({attributes, children, node}: nodeProps) => {
     const syntax = options.getSyntax(node);
     return (
       <CodeblockContainer>
-        <CodeblockLang contentEditable={false}>{syntax}</CodeblockLang>
+        {syntax &&
+          <CodeblockLang contentEditable={false}>{syntax}</CodeblockLang>
+        }
         <pre>
-          <code className={syntax && `lang-${syntax}`} {...attributes}>
+          <code {...attributes}>
             {children}
           </code>
         </pre>
@@ -38,4 +40,16 @@ export default function(options) {
   CodeBlockComponent.displayName = 'codeblock-node';
 
   return CodeBlockComponent;
+}
+
+export const codeLineNode = () => {
+  const CodeLineComponent = ({attributes, children}: nodeProps) => {
+    return (
+      <div {...attributes}>{children}</div>
+    );
+  };
+
+  CodeLineComponent.displayName = 'codeline-node';
+
+  return CodeLineComponent;
 }

@@ -15,7 +15,8 @@ export const nodeAttrs = {
   paddingLeft: (node) => node.data.get('indent') ? `${3 * node.data.get('indent')}em` : undefined,
   lineHeight: (node) => node.data.get('lineHeight'),
   width: (node) => node.data.get('width'),
-  height: (node) => node.data.get('height')
+  height: (node) => node.data.get('height'),
+  src: (node) => node.data.get('src')
 }
 
 export const markAttrs = {

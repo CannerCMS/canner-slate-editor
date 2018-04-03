@@ -1,12 +1,13 @@
 // @flow
 import mark from './markRules';
 import block from './blockRules';
-import voidBlockRules from './voidBlockRules';
+import voidBlock from './voidBlockRules';
 import inline from './inlineRules';
 import image from './imageRules';
 import video from './videoRules';
 import codeBlock from './codeBlockRules';
 import emoji from './emojiRules';
+import voidNode from './voidNodeRules'
 import {BLOCKS, MARKS, INLINES} from '@canner/slate-constant'
 import {DEFAULT as DEFAULT_VIDEO} from '@canner/slate-icon-video'
 
@@ -26,7 +27,7 @@ export const DEFAULT_RULES = [
   blockRules('ul', BLOCKS.UL_LIST),
   blockRules('ol', BLOCKS.OL_LIST),
   blockRules('li', BLOCKS.LIST_ITEM),
-  voidBlockRules('hr', BLOCKS.HR),
+  voidBlock('hr', BLOCKS.HR),
   inlineRules('a', INLINES.LINK),
   markRules('strong', MARKS.BOLD),
   markRules('code', MARKS.CODE),
@@ -43,5 +44,8 @@ export const DEFAULT_RULES = [
   videoRules(DEFAULT_VIDEO.youku),
   imageRules(BLOCKS.IMAGE),
   codeBlockRules(),
-  emojiRules()
+  emojiRules(),
+
+  // some void node types that generate from 'markup-it'
+  voidNode('unstyled')
 ]

@@ -4,7 +4,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Editor} from 'slate-react';
 import beautify from 'js-beautify';
-import {Value} from 'slate';
 import {Row, Col} from 'antd';
 import {AlignCenter, AlignLeft, AlignRight} from 'packages/slate-icon-align';
 import Blockquote, {BlockquotePlugin} from 'packages/slate-icon-blockquote';
@@ -47,6 +46,8 @@ import TrailingBlock from 'slate-trailing-block'
 import Prism from 'prismjs';
 import "prismjs/themes/prism.css"
 
+import initialValue from './initialValue';
+
 // rules
 import Html from 'slate-html-serializer';
 import {DEFAULT_RULES} from 'packages/slate-editor-html';
@@ -55,27 +56,6 @@ const html = new Html({ rules: DEFAULT_RULES})
 
 import "./style.css";
 import "./github-markdown.css";
-
-const initialValue = Value.fromJSON({
-  document: {
-    nodes: [
-      {
-        object: 'block',
-        type: 'paragraph',
-        nodes: [
-          {
-            object: 'text',
-            leaves: [
-              {
-                text: 'A line of text in a paragraph.',
-              },
-            ],
-          }
-        ],
-      }
-    ],
-  },
-});
 
 const selectors = [
   FontSize,

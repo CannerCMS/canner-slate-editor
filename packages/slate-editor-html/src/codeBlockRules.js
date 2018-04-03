@@ -32,9 +32,9 @@ export default function(opt) {
     serialize(obj, children) {
       if (obj.object == 'block' && obj.type === options.codeLineType) {
         return (
-          <React.Fragment>
+          <div>
             {children}
-          </React.Fragment>
+          </div>
         );
       } else if (obj.object == 'block' && obj.type === options.codeBlockType) {
         const syntax = options.getSyntax(obj);

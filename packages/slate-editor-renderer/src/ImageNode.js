@@ -87,7 +87,6 @@ class ImageNode extends React.Component<Props> {
     const {editor, node} = this.props;
     const {value} = editor.state;
     const newChange = value.change()
-      .deselect()
       .removeNodeByKey(node.key);
 
     editor.onChange(newChange);

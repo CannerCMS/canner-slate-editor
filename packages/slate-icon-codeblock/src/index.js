@@ -5,21 +5,24 @@ import type {IconProps} from 'shared/src/types';
 import {Modal, Button, Form, Select} from 'antd';
 import ToolbarIcon from '@canner/slate-icon-shared';
 import PluginEditCode from 'slate-edit-code';
-import {CODE, PARAGRAPH} from '@canner/slate-constant/lib/blocks';
-import codeBlockNode from '@canner/slate-editor-renderer/lib/codeBlockNode';
+import {CODE, CODE_LINE, PARAGRAPH} from '@canner/slate-constant/lib/blocks';
+import {codeBlockNode, codeLineNode} from '@canner/slate-editor-renderer/lib/codeBlockNode';
 import {languages} from 'prismjs/components.json';
 const Option = Select.Option;
 
 export const CodeBlockPlugin = (opt) => {
   const options = Object.assign({
-    type: CODE,
+    codeType: CODE,
+    codeLineType: CODE_LINE,
     getSyntax: (node) => node.data.get('syntax')
   }, opt);
 
   return {
     renderNode: (props) => {
-      if (props.node.type === options.type) {
+      if (props.node.type === options.codeType) {
         return codeBlockNode(options)(props);
+      } else if (props.node.type === options.codeLineType) {
+        return codeLineNode()(props);
       }
     }
   }

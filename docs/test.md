@@ -4,8 +4,6 @@
 
 Live demo: https://canner.github.io/slate-editor-icons/
 
-![Demo](./docs/demo.png)
-
 Editors that build on top of these icons:
 
 - https://github.com/Canner/slate-toolbar
@@ -59,7 +57,7 @@ Install icons that you want to support in your slate project, and pass slate edi
 
 You will need to pass icon classnames as props into your components ([supported classes](https://github.com/Canner/quill-icons#props)), you could look at the example [how to setup your icon's styles](https://github.com/Canner/slate-editor-icons/blob/master/docs/style.css) 
 
-```js
+```javascript
 class App extends React.Component {
   // Set the initial state when the app is first constructed.
   state = {
@@ -106,12 +104,6 @@ The best explanation is a simple example: https://github.com/Canner/slate-editor
 ## Icon and selectors' props
 
 All icons must passed these two props to ensure working properly.
-
-| **props** | **type** | **required** | **default** | **description**  |
-|-----------|----------|--------------|-------------|------------------|
-| type     | string   | false        | each icons are different  | customized block/mark types |
-| change     | object   | true        | null          | changes to value |
-| onChange  | func   | true         | null         | onChange function usually `change => this.setState({value})` to update slate state  |
 
 ## Start example server
 
