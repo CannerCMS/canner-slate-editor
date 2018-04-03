@@ -51,7 +51,7 @@ export const Overlay = styled.div`
   border: 0px;
   top: 0px;
   left: 0px;
-`
+`;
 
 export const Toolbar = styled.div`
   z-index: 1000;
@@ -62,11 +62,11 @@ export const Toolbar = styled.div`
   z-index: 100;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 0 0 3px 0;
-`
+`;
 
 export const ToolbarItem = styled.div`
   display: inline-block;
   color: #333;
   padding: 3px;
   font-size: 20px;
-`
+`;
