@@ -26,6 +26,7 @@ Supported features:
 - [Emoji - @canner/slate-icon-emoji](./packages/slate-icon-emoji)
 - [Font background color - @canner/slate-icon-fontbgcolor](./packages/slate-icon-fontbgcolor)
 - [Font color - @canner/slate-icon-fontcolor](./packages/slate-icon-fontcolor)
+- [Hr - @canner/slate-icon-hr](./packages/slate-icon-hr)
 - [Header - @canner/slate-icon-header](./packages/slate-icon-header) - header 1, header 2, header 3, header 4, header 5, header 6
 - [Image - @canner/slate-icon-image](./packages/slate-icon-image)
 - [Indent - @canner/slate-icon-indent](./packages/slate-icon-indent) - indent, outdent
