@@ -13,6 +13,8 @@ Editors that build on top of these icons:
 
 ## Packages
 
+**DON'T DIRECTLY INSTALL `slate-editor-icons`**
+
 Supported features:
 
 - [Align - @canner/slate-icon-align](./packages/slate-icon-align) - center, left, right
