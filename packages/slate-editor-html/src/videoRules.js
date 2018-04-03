@@ -12,7 +12,12 @@ export const ImageContiner = styled.div`
   }};
 `;
 
-export default function(blockType = 'video', stylesAttr = nodeAttrs) {
+const defaultAttrs = {
+  id: (node) => node.data.get('id'),
+  ...nodeAttrs
+}
+
+export default function(blockType = 'video', stylesAttr = defaultAttrs) {
   return {
     deserialize(el) {
       if (blockType && el.tagName && el.tagName.toLowerCase() === 'iframe') {

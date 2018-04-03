@@ -8,7 +8,8 @@ import {ResizableBox} from 'react-resizable';
 import FaArrowUp from 'react-icons/lib/fa/arrow-up';
 import FaArrowDown from 'react-icons/lib/fa/arrow-down';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
-import {ImageNodeInActive, ImageNodeActive, ImageContiner} from './components/image';
+import {ImageNodeInActive, ImageNodeActive, ImageContiner,
+  Toolbar, ToolbarItem, Overlay} from './components/image';
 
 import 'react-resizable/css/styles.css';
 
@@ -137,18 +138,18 @@ class ImageNode extends React.Component<Props> {
               width={width}
               height={height}
               align={align}>
-              <div className="overlay"/>
-              <div className="toolbar">
-                <div className="toolbarItem">
+              <Overlay/>
+              <Toolbar>
+                <ToolbarItem>
                   <FaArrowUp onClick={this.moveUp}/>
-                </div>
-                <div className="toolbarItem">
+                </ToolbarItem>
+                <ToolbarItem>
                   <FaArrowDown onClick={this.moveDown}/>
-                </div>
-                <div className="toolbarItem">
+                </ToolbarItem>
+                <ToolbarItem>
                   <FaTrashO onClick={this.remove}/>
-                </div>
-              </div>
+                </ToolbarItem>
+              </Toolbar>
               <img
                 {...attributes}
                 src={src}/>
@@ -159,7 +160,6 @@ class ImageNode extends React.Component<Props> {
               width={width}
               height={height}
               align={align}>
-              <div className="overlay"/>
               <img
                 {...attributes}
                 src={src}/>

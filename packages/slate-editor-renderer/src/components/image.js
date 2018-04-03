@@ -24,46 +24,49 @@ export const ImageNodeShared = styled.div`
   }
 
   img,
-  iframe,
-  .overlay {
+  iframe {
     position: absolute;
-    width: 100%;
-    height: 100%;
     border: 0px;
     top: 0px;
     left: 0px;
+    width: 100%;
+    height: 100%;
   }
 `;
 
 export const ImageNodeInActive = ImageNodeShared.extend`
   border: 2px solid #fff;
-
-  .toolbar {
-    display: none;
-  }
 `;
 
 export const ImageNodeActive = ImageNodeShared.extend`
   border: 2px solid #ef6942;
-
-  .overlay {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-
-  .toolbar {
-    display: block;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: 100;
-
-    .toolbarItem {
-      display: inline-block;
-      color: #fff;
-      padding: 5px;
-      margin: 2px;
-      border-radius: 2px;
-      background-color: #333;
-    }
-  }
 `;
+
+export const Overlay = styled.div`
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: 0px;
+  top: 0px;
+  left: 0px;
+`
+
+export const Toolbar = styled.div`
+  z-index: 1000;
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0 0 3px 0;
+`
+
+export const ToolbarItem = styled.div`
+  display: inline-block;
+  color: #333;
+  padding: 3px;
+  font-size: 20px;
+`

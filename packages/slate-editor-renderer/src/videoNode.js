@@ -9,8 +9,9 @@ import FaArrowUp from 'react-icons/lib/fa/arrow-up';
 import FaArrowDown from 'react-icons/lib/fa/arrow-down';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
 import FaEdit from 'react-icons/lib/fa/edit';
-import {VideoModalShared} from './components/videoModal';
-import {ImageNodeInActive, ImageNodeActive, ImageContiner} from './components/image';
+import VideoModal from './components/videoModal';
+import {ImageNodeInActive, ImageNodeActive, ImageContiner,
+  Toolbar, ToolbarItem, Overlay} from './components/image';
 
 import 'react-resizable/css/styles.css';
 
@@ -91,7 +92,6 @@ class VideoNode extends React.Component<Props> {
     const {editor, node} = this.props;
     const {value} = editor.state;
     const newChange = value.change()
-      .deselect()
       .removeNodeByKey(node.key);
 
     editor.onChange(newChange);
@@ -167,21 +167,21 @@ class VideoNode extends React.Component<Props> {
               height={height}
               align={align}
               indent={indent}>
-              <div className="overlay"/>
-              <div className="toolbar">
-                <div className="toolbarItem">
+              <Overlay/>
+              <Toolbar>
+                <ToolbarItem>
                   <FaArrowUp onClick={this.moveUp}/>
-                </div>
-                <div className="toolbarItem">
+                </ToolbarItem>
+                <ToolbarItem>
                   <FaArrowDown onClick={this.moveDown}/>
-                </div>
-                <div className="toolbarItem">
+                </ToolbarItem>
+                <ToolbarItem>
                   <FaTrashO onClick={this.remove}/>
-                </div>
-                <div className="toolbarItem">
-                <FaEdit onClick={this.edit}/>
-              </div>
-              </div>
+                </ToolbarItem>
+                <ToolbarItem>
+                  <FaEdit onClick={this.edit}/>
+                </ToolbarItem>
+              </Toolbar>
               
               <iframe
                 {...attributes}
@@ -194,16 +194,15 @@ class VideoNode extends React.Component<Props> {
               height={height}
               align={align}
               indent={indent}>
-              <div className="overlay"/>
-              
-            <iframe
-              {...attributes}
-              src={link}/>
-            {children}
+              <Overlay/>
+              <iframe
+                {...attributes}
+                src={link}/>
+              {children}
             </ImageNodeInActive>
           )}
         </ResizableBox>
-        <VideoModalShared
+        <VideoModal
           onChange={editor.onChange}
           change={editor.state.value.change()}
           initialValue={link}

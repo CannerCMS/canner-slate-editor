@@ -64,12 +64,6 @@
   stroke-width: 2;
 }
 
-.toolbar {
-  padding: 10px;
-  display: inline-block;
-  background-color: #FFF;
-}
-
 .toolbar-item {
   width: 25px;
   height: 25px;

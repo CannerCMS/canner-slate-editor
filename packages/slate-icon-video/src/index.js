@@ -38,8 +38,6 @@ export const VideoPlugin = (opt) => {
   }
 }
 
-export const VideoModalShared = VideoModal;
-
 export default class Video extends React.Component<IconProps, {isShow: boolean}> {
   typeName: string
   constructor(props: IconProps) {
