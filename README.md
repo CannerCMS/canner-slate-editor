@@ -6,6 +6,7 @@
 `slate-editor-icons` are for managing feature functions and components. If you don't want to assemble editor by yourself you can directly use list below, which use these packages to build editors on top of it:
 
 1. **Another rich text editor using Slate framework, with beautiful design:  https://github.com/Canner/canner-slate-editor**
+3. **A markdown editor, that allows you to edit live.: https://github.com/Canner/slate-md-editor**
 2. **Quick and customizable way to implement medium like toolbar in your slate editor: https://github.com/Canner/slate-toolbar**
 
 Live demo: https://canner.github.io/slate-editor-icons/
