@@ -2,14 +2,16 @@
 
 > Shared icons and render functions for slate editors, icons are extracted from [Quill editor](https://quilljs.com/) (see [quill-icons](https://github.com/Canner/quill-icons) for more information)
 
+### IMPORTANT NOTE:
+`slate-editor-icons` are for managing feature functions and components. If you don't want to assemble editor by yourself you can directly use list below, which use these packages to build editors on top of it:
+
+- Another rich text editor using Slate framework, with beautiful design: https://github.com/Canner/canner-slate-editor
+- Quick and customizable way to implement medium like toolbar in your slate editor: https://github.com/Canner/slate-toolbar
+
 Live demo: https://canner.github.io/slate-editor-icons/
 
 ![Demo](./docs/demo.png)
 
-Editors that build on top of these icons:
-
-- https://github.com/Canner/slate-toolbar
-- https://github.com/Canner/canner-slate-editor
 
 ## Packages
 
@@ -100,7 +102,6 @@ class App extends React.Component {
   }
 }
 ```
-
 
 The best explanation is a simple example: https://github.com/Canner/slate-editor-icons/blob/master/docs/index.js
 
