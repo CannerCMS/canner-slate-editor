@@ -1,6 +1,7 @@
 // @flow
 import mark from './markRules';
 import block from './blockRules';
+import voidBlockRules from './voidBlockRules';
 import inline from './inlineRules';
 import image from './imageRules';
 import video from './videoRules';
@@ -25,6 +26,7 @@ export const DEFAULT_RULES = [
   blockRules('ul', BLOCKS.UL_LIST),
   blockRules('ol', BLOCKS.OL_LIST),
   blockRules('li', BLOCKS.LIST_ITEM),
+  voidBlockRules('hr', BLOCKS.HR),
   inlineRules('a', INLINES.LINK),
   markRules('strong', MARKS.BOLD),
   markRules('code', MARKS.CODE),

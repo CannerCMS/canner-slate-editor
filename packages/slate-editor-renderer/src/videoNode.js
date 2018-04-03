@@ -9,9 +9,8 @@ import FaArrowUp from 'react-icons/lib/fa/arrow-up';
 import FaArrowDown from 'react-icons/lib/fa/arrow-down';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
 import FaEdit from 'react-icons/lib/fa/edit';
-import {VideoModalShared} from '@canner/slate-icon-video';
-import {ImageNodeInActive, ImageNodeActive, ImageContiner} from './imageNodeComponents/imageComponents';
-
+import {VideoModalShared} from './components/videoModal';
+import {ImageNodeInActive, ImageNodeActive, ImageContiner} from './components/image';
 
 import 'react-resizable/css/styles.css';
 

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
 import ToolbarIcon, {nodeAttrs} from '@canner/slate-icon-shared';
-import VideoModal from './videoModal';
+import VideoModal from '@canner/slate-editor-renderer/lib/components/videoModal';
 import videoNode from '@canner/slate-editor-renderer/lib/videoNode';
 
 export const DEFAULT = {

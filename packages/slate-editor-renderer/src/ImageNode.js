@@ -8,7 +8,7 @@ import {ResizableBox} from 'react-resizable';
 import FaArrowUp from 'react-icons/lib/fa/arrow-up';
 import FaArrowDown from 'react-icons/lib/fa/arrow-down';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
-import {ImageNodeInActive, ImageNodeActive, ImageContiner} from './imageNodeComponents/imageComponents';
+import {ImageNodeInActive, ImageNodeActive, ImageContiner} from './components/image';
 
 import 'react-resizable/css/styles.css';
 

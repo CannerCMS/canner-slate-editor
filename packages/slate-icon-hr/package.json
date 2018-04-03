@@ -1,7 +1,7 @@
 {
-  "name": "@canner/slate-editor-renderer",
+  "name": "@canner/slate-icon-hr",
   "version": "1.0.7",
-  "description": "Renderers for slate nodes and marks",
+  "description": "Slate icons for hr",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest src",
@@ -19,15 +19,11 @@
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || 16.x",
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
-    "styled-components": "^3.2.1",
-    "slate": "^0.33.0"
+    "@canner/slate-constant": ">=^1.0.5",
+    "slate": ">=^0.33.0"
   },
   "dependencies": {
-    "@canner/slate-helper-block-adddata": "^0.1.4",
-    "emoji-mart": "^2.5.0",
-    "react-icons": "^2.2.7",
-    "react-resizable": "^1.7.5",
-    "lodash.mapvalues": "^4.6.0",
-    "js-video-url-parser": "^0.2.7"
+    "@canner/slate-editor-renderer": "^1.0.7",
+    "@canner/slate-icon-shared": "^1.0.7"
   }
 }

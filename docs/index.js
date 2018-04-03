@@ -16,6 +16,7 @@ import Emoji, {EmojiPlugin} from 'packages/slate-icon-emoji';
 import FontBgColor, {FontBgColorPlugin} from 'packages/slate-icon-fontBgColor';
 import FontColor, {FontColorPlugin} from 'packages/slate-icon-fontColor';
 import {Header1, Header2, HeaderPlugin} from 'packages/slate-icon-header';
+import Hr, {HrPlugin} from 'packages/slate-icon-hr';
 import Image, {ImagePlugin} from 'packages/slate-icon-image';
 import {Indent, Outdent} from 'packages/slate-icon-indent';
 import Italic, {ItalicPlugin} from 'packages/slate-icon-italic';
@@ -41,6 +42,7 @@ import {ParagraphPlugin} from 'packages/slate-icon-shared';
 
 import EditPrism from 'slate-prism'
 import EditCode from 'slate-edit-code'
+import TrailingBlock from 'slate-trailing-block'
 
 import Prism from 'prismjs';
 import "prismjs/themes/prism.css"
@@ -93,6 +95,7 @@ const icons = [
   Emoji,
   FontBgColor,
   FontColor,
+  Hr,
   Header1,
   Header2,
   Image,
@@ -117,6 +120,7 @@ const plugins = [
   EditCode({
     onlyIn: node => node.type === 'code_block'
   }),
+  TrailingBlock(),
   EditList(DEFAULTLIST),
   EditBlockquote(DEFAULTBLOCKQUOTE),
   ParagraphPlugin(),
@@ -133,6 +137,7 @@ const plugins = [
   LetterSpacingPlugin(),
   EmojiPlugin(),
   HeaderPlugin(),
+  HrPlugin(),
   ImagePlugin(),
   LinkPlugin(),
   ListPlugin(),
