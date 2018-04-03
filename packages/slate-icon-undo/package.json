@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-undo",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "Slate icon for undo",
   "main": "lib/index.js",
   "scripts": {
@@ -22,6 +22,6 @@
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
   "dependencies": {
-    "@canner/slate-icon-shared": "^1.0.7"
+    "@canner/slate-icon-shared": "^1.1.0"
   }
 }

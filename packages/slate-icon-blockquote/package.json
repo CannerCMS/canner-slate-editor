@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-blockquote",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "A slate icon for blockquote",
   "main": "lib/index.js",
   "scripts": {
@@ -14,19 +14,19 @@
     "react-test-renderer": "^16.2.0"
   },
   "peerDependencies": {
+    "@canner/slate-constant": ">=^1.0.3",
     "react": "^0.14.0 || ^15.0.0 || 16.x",
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
-    "@canner/slate-constant": ">=^1.0.3",
     "slate": ">=^0.33.0"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@canner/slate-editor-renderer": "^1.0.7",
+    "@canner/slate-editor-renderer": "^1.1.0",
     "@canner/slate-helper-block-quote": "^0.1.6",
-    "@canner/slate-icon-shared": "^1.0.7",
-    "slate-edit-blockquote": "0.5.0",
-    "lodash.omit": "^4.5.0"
+    "@canner/slate-icon-shared": "^1.1.0",
+    "lodash.omit": "^4.5.0",
+    "slate-edit-blockquote": "0.5.0"
   }
 }
