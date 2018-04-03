@@ -12,13 +12,14 @@ const Option = Select.Option;
 
 export const CodeBlockPlugin = (opt) => {
   const options = Object.assign({
-    type: CODE
+    type: CODE,
+    getSyntax: (node) => node.data.get('syntax')
   }, opt);
 
   return {
     renderNode: (props) => {
       if (props.node.type === options.type) {
-        return codeBlockNode()(props);
+        return codeBlockNode(options)(props);
       }
     }
   }
@@ -48,6 +49,10 @@ export default class CodeBlock extends React.Component<Props, State> {
     });
   }
 
+  static defaultProps = {
+    syntaxKey: 'syntax'
+  }
+
   onClick = (e: Event) => {
     let {change, onChange} = this.props;
     let haveCodeBlock = this.codePlugin.utils.isInCodeBlock(change.value);
@@ -72,7 +77,7 @@ export default class CodeBlock extends React.Component<Props, State> {
 
   handleOk = (e: Event) => {
     e.preventDefault();
-    const {onChange, change} = this.props;
+    const {onChange, change, syntaxKey} = this.props;
     const that = this;
 
     this.props.form.validateFields((err, values) => {
@@ -82,7 +87,7 @@ export default class CodeBlock extends React.Component<Props, State> {
 
         if (lang) {
           newChange = change
-            .setBlocks({data: Data.create({syntax: lang})});
+            .setBlocks({data: Data.create({[syntaxKey]: lang})});
         }
 
         onChange(this.codePlugin.changes.wrapCodeBlock(newChange));
@@ -125,7 +130,7 @@ export default class CodeBlock extends React.Component<Props, State> {
               hasFeedback
             >
               {getFieldDecorator('lang')(
-                <Select>
+                <Select placeholder="Select a language (optional)">
                   {Object.keys(languages)
                     .filter(lang => {
                       return languages[lang].title;
