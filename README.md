@@ -107,7 +107,9 @@ Example
 **In editor enter:**
 
 ```
-**strong**
+**strong**[space]
+or
+__strong__[space]
 ```
 
 ### Italic
@@ -115,8 +117,21 @@ Example
 **In editor enter:**
 
 ```
-_italic_
+_italic_[space]
+or
+*italic*[space]
 ```
+
+### Bold + Italic
+
+**In editor enter:**
+
+```
+___[strong + italic]___[space]
+or
+***[strong + italic]***[space]
+```
+
 
 ### Hr
 
@@ -133,7 +148,7 @@ or
 **In editor enter:**
 
 ```
-[example](http://example.com "Optional title")
+[example](http://example.com "Optional title")[space]
 ```
 
 ### Image
@@ -141,7 +156,7 @@ or
 **In editor enter:**
 
 ```
-![example](http://example.com "Optional title")
+![example](http://example.com "Optional title")[space]
 ```
 
 ### Unordered list
@@ -153,7 +168,7 @@ or
 or
 +[space]
 or
-- [space]
+-[space]
 ```
 
 ### Ordered List

@@ -14,6 +14,7 @@ import matchCode from './match/code';
 import matchHeader from './match/header';
 import matchBold from './match/bold';
 import matchItalic from './match/italic';
+import matchBoldItalic from './match/boldItalic';
 import matchHr from './match/hr';
 import matchImage from './match/image';
 import matchLink from './match/link';
@@ -97,12 +98,19 @@ const checkPatterns = function(change) {
     } else if (matched = currentLineText.match(/\[([^\]]+)\]\(([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?)\)/)) {
       // [example](http://example.com "Optional title")
       return matchLink(currentTextNode, matched, change);
-    } else if (matched = ((lastChar === '*' || lastChar === '_') && prevTextFromSpace.match(/\s?(\*\*|__)((?!\1).)+?\1$/m))) {
-      // [Bold] **strong**, __strong__
-      return matchBold(currentTextNode, matched, change);
-    } else if (matched = ((lastChar === '*' || lastChar === '_') && prevTextFromSpace.match(/\s?(\*|_)((?!\1).)+?\1$/m))) {
-      // [Italic] _em_, *em*
-      return matchItalic(currentTextNode, matched, change);
+    }
+
+    if (lastChar === '*' || lastChar === '_') {
+      if (matched = prevTextFromSpace.match(/\s?(\*\*\*|___)((?!\1).)+?\1$/m)) {
+        // [Bold + Italic] ***[strong + italic]***, ___[strong + italic]___
+        return matchBoldItalic(currentTextNode, matched, change);
+      } else if (matched = prevTextFromSpace.match(/\s?(\*\*|__)((?!\1).)+?\1$/m)) {
+        // [Bold] **strong**, __strong__
+        return matchBold(currentTextNode, matched, change);
+      } else if (matched = prevTextFromSpace.match(/\s?(\*|_)((?!\1).)+?\1$/m)) {
+        // [Italic] _em_, *em*
+        return matchItalic(currentTextNode, matched, change);
+      }
     }
   }
 }
