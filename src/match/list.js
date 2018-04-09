@@ -3,7 +3,7 @@ import blocklist from '@canner/slate-helper-block-list';
 import {Range} from 'slate';
 import type {Change, Node} from 'slate';
 
-export default function (listOptions: any, currentTextNode: Node, matched: any, change: Change, ordered: boolean) {
+export default function (listOption: any, currentTextNode: Node, matched: any, change: Change, ordered: boolean) {
   const matchedLength = matched[0].length;
   const newChange = change.deleteAtRange(Range.create({
     anchorKey: currentTextNode.key,
@@ -13,7 +13,7 @@ export default function (listOptions: any, currentTextNode: Node, matched: any, 
   }))
 
   return blocklist(newChange, {
-    ...listOptions,
+    ...listOption,
     ordered
   })
 }

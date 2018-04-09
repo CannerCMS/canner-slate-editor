@@ -130,7 +130,7 @@ export default (opt: {[string]: any}) => {
     onKeyDown: (e: any, change: Change) => {
       switch (e.key) {
         case KEY_ENTER:
-          return onEnter(change);
+          return onEnter(options, change);
         case KEY_SPACE:
           return checkPatterns(options, change);
       }
