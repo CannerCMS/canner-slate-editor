@@ -3,7 +3,7 @@ import {Mark, Range} from 'slate';
 import type {Change, Text} from 'slate';
 import trailingSpace from '../utils/trailingSpace';
 
-export default function (currentTextNode: Text, matched: any, change: Change) {
+export default function (type: string, currentTextNode: Text, matched: any, change: Change) {
   const matchedLength = matched[0].length;
 
   return change
@@ -18,7 +18,7 @@ export default function (currentTextNode: Text, matched: any, change: Change) {
       currentTextNode.key,
       matched.index,
       matched[0].trim().replace(new RegExp(matched[1], "g"), ""),
-      [Mark.create({type: 'code'})]
+      [Mark.create({type})]
     )
     .call(trailingSpace, currentTextNode, matched.index)
 }

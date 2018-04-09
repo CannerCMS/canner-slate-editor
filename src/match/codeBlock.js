@@ -3,12 +3,9 @@ import {Range, Data} from 'slate';
 import type {Change, Node} from 'slate';
 import PluginEditCode from 'slate-edit-code';
 
-const codePlugin = PluginEditCode({
-  onlyIn: node => node.type === 'code_block'
-})
-
-export default function (currentTextNode: Node, matched: any, change: Change, lang: ?string) {
+export default function (codeOption: {[string]: any}, currentTextNode: Node, matched: any, change: Change, lang: ?string) {
   const matchedLength = matched[0].length;
+  const codePlugin = PluginEditCode(codeOption)
   let newChange = change;
 
   if (lang) {

@@ -4,6 +4,13 @@ import type {Change} from 'slate';
 import renderMark from './renderMark';
 import renderNode from './renderNode';
 
+// constant
+import {KEY_ENTER, KEY_SPACE} from './constant/keys';
+import DEFAULT_LIST from './constant/list';
+import BLOCKS from 'markup-it/lib/constants/blocks';
+import MARKS from 'markup-it/lib/constants/marks';
+import INLINES from 'markup-it/lib/constants/inlines';
+
 // handler
 import onEnter from './handler/onEnter';
 
@@ -28,18 +35,11 @@ const codePlugin = PluginEditCode({
 })
 
 
-const KEY_ENTER = 'Enter';
-const KEY_SPACE = ' ';
-
-const checkPatterns = function(change) {
+const checkPatterns = function(options, change) {
   const {value} = change;
   const {texts} = value;
   const currentTextNode = texts.get(0);
   const currentLineText = currentTextNode.text;
-  const isSelectRange = (
-    value.selection.anchorKey !== value.selection.focusKey
-    || value.selection.anchorOffset !== value.selection.focusOffset
-  );
   let matched;
 
   // if is in code block ignore matched patterns
@@ -47,88 +47,94 @@ const checkPatterns = function(change) {
     return;
   }
 
-  // if it is not select in a range
-  if (!isSelectRange) {
-    // reference: https://github.com/PrismJS/prism/blob/gh-pages/components/prism-markdown.js
-    // blocks
-    if (matched = currentLineText.match(/^>/m)) {
-      // [blockquote] punctuation, blockquote
-      return matchBlockquote(currentTextNode, matched, change);
-    } else if (matched = currentLineText.match(/^(?: {3}|\t)/m)) {
-      // [Code Block] Prefixed by 4 spaces or 1 tab
-      return matchCodeBlock(currentTextNode, matched, change);
-    } else if (matched = currentLineText.match(/^\s*```(\w+)?/m)) {
-      // [Code block]
-      // ```lang
-      return matchCodeBlock(currentTextNode, matched, change, matched[1]);
-    } else if (matched = currentLineText.match(/(^\s*)#{1,6}/m)) {
-      // [Header] h1 ~ h6
-      // # h1
-      // ## h2
-      // ###### h6
-      return matchHeader(currentTextNode, matched, change);
-    } else if (matched = currentLineText.match(/(^\s*)([*-])(?:[\t ]*\2){2,}/m)) {
-      // [HR]
-      // ***
-      // ---
-      // * * *
-      // -----------
-      return matchHr(currentTextNode, matched, change);
-    } else if (matched = currentLineText.match(/((?:^\s*)(?:[*+-]))/m)) {
-      // * item
-      // + item
-      // - item
-      return matchList(currentTextNode, matched, change, false);
-    } else if (matched = currentLineText.match(/((?:^\s*)(?:\d+\.))/m)) {
-      // 1. item
-      return matchList(currentTextNode, matched, change, true);
-    }
+  // reference: https://github.com/PrismJS/prism/blob/gh-pages/components/prism-markdown.js
+  // blocks
+  if (matched = currentLineText.match(/^>/m)) {
+    // [blockquote] punctuation, blockquote
+    return matchBlockquote(options.blocks.BLOCKQUOTE, currentTextNode, matched, change);
+  } else if (matched = currentLineText.match(/^(?: {3}|\t)/m)) {
+    // [Code Block] Prefixed by 4 spaces or 1 tab
+    return matchCodeBlock(options.codeOption, currentTextNode, matched, change);
+  } else if (matched = currentLineText.match(/^\s*```(\w+)?/m)) {
+    // [Code block]
+    // ```lang
+    return matchCodeBlock(options.codeOption, currentTextNode, matched, change, matched[1]);
+  } else if (matched = currentLineText.match(/(^\s*)#{1,6}/m)) {
+    // [Header] h1 ~ h6
+    // # h1
+    // ## h2
+    // ###### h6
+    return matchHeader(options, currentTextNode, matched, change);
+  } else if (matched = currentLineText.match(/(^\s*)([*-])(?:[\t ]*\2){2,}/m)) {
+    // [HR]
+    // ***
+    // ---
+    // * * *
+    // -----------
+    return matchHr(options.blocks.HR, currentTextNode, matched, change);
+  } else if (matched = currentLineText.match(/((?:^\s*)(?:[*+-]))/m)) {
+    // * item
+    // + item
+    // - item
+    return matchList(options.listOption, currentTextNode, matched, change, false);
+  } else if (matched = currentLineText.match(/((?:^\s*)(?:\d+\.))/m)) {
+    // 1. item
+    return matchList(options.listOption, currentTextNode, matched, change, true);
+  }
 
-    const offsetBeforeSpace = value.selection.anchorOffset - 1;
-    const lastChar = currentLineText.charAt(offsetBeforeSpace);
-    const prevTextFromSpace = currentLineText.substr(0, offsetBeforeSpace + 1)
+  const offsetBeforeSpace = value.selection.anchorOffset - 1;
+  const lastChar = currentLineText.charAt(offsetBeforeSpace);
+  const prevTextFromSpace = currentLineText.substr(0, offsetBeforeSpace + 1)
 
-    // inline patterns
-    if (matched = (lastChar === '`' && prevTextFromSpace.match(/\s?(`|``)((?!\1).)+?\1$/m))) {
-      // [Code] `code`
-      return matchCode(currentTextNode, matched, change);
-    } else if (matched = currentLineText.match(/!\[([^\]]+)\]\(([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?)\)/)) {
-      // ![example](http://example.com "Optional title")
-      return matchImage(currentTextNode, matched, change);
-    } else if (matched = currentLineText.match(/\[([^\]]+)\]\(([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?)\)/)) {
-      // [example](http://example.com "Optional title")
-      return matchLink(currentTextNode, matched, change);
-    }
+  // inline patterns
+  if (matched = (lastChar === '`' && prevTextFromSpace.match(/\s?(`|``)((?!\1).)+?\1$/m))) {
+    // [Code] `code`
+    return matchCode(options.marks.CODE, currentTextNode, matched, change);
+  } else if (matched = currentLineText.match(/!\[([^\]]+)\]\(([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?)\)/)) {
+    // ![example](http://example.com "Optional title")
+    return matchImage(options.inlines.IMAGE, currentTextNode, matched, change);
+  } else if (matched = currentLineText.match(/\[([^\]]+)\]\(([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?)\)/)) {
+    // [example](http://example.com "Optional title")
+    return matchLink(options.inlines.LINK, currentTextNode, matched, change);
+  }
 
-    if (lastChar === '*' || lastChar === '_') {
-      if (matched = prevTextFromSpace.match(/\s?(\*\*\*|___)((?!\1).)+?\1$/m)) {
-        // [Bold + Italic] ***[strong + italic]***, ___[strong + italic]___
-        return matchBoldItalic(currentTextNode, matched, change);
-      } else if (matched = prevTextFromSpace.match(/\s?(\*\*|__)((?!\1).)+?\1$/m)) {
-        // [Bold] **strong**, __strong__
-        return matchBold(currentTextNode, matched, change);
-      } else if (matched = prevTextFromSpace.match(/\s?(\*|_)((?!\1).)+?\1$/m)) {
-        // [Italic] _em_, *em*
-        return matchItalic(currentTextNode, matched, change);
-      }
+  if (lastChar === '*' || lastChar === '_') {
+    if (matched = prevTextFromSpace.match(/\s?(\*\*\*|___)((?!\1).)+?\1$/m)) {
+      // [Bold + Italic] ***[strong + italic]***, ___[strong + italic]___
+      return matchBoldItalic(options.marks, currentTextNode, matched, change);
+    } else if (matched = prevTextFromSpace.match(/\s?(\*\*|__)((?!\1).)+?\1$/m)) {
+      // [Bold] **strong**, __strong__
+      return matchBold(options.marks.BOLD, currentTextNode, matched, change);
+    } else if (matched = prevTextFromSpace.match(/\s?(\*|_)((?!\1).)+?\1$/m)) {
+      // [Italic] _em_, *em*
+      return matchItalic(options.marks.ITALIC, currentTextNode, matched, change);
     }
   }
 }
 
-const MarkdownPlugin = () => {
+export default (opt: {[string]: any}) => {
+  const options = {
+    blocks: Object.assign(BLOCKS, opt.blocks),
+    marks: Object.assign(MARKS, opt.marks),
+    inlines: Object.assign(INLINES, opt.inlines),
+    codeOption: {
+      onlyIn: node => node.type === 'code_block'
+    },
+    blockquoteOption: {},
+    listOption: DEFAULT_LIST
+  }
 
   return {
-    renderMark: renderMark,
-    renderNode: renderNode,
+    renderMark: renderMark(options.marks),
+    renderNode: renderNode({...options.blocks, ...options.inlines}),
     onKeyDown: (e: any, change: Change) => {
       switch (e.key) {
         case KEY_ENTER:
           return onEnter(change);
         case KEY_SPACE:
-          return checkPatterns(change);
+          return checkPatterns(options, change);
       }
     }
   };
 };
 
-export default MarkdownPlugin;

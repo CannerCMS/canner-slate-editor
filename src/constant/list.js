@@ -1,7 +1,8 @@
 // @flow
+import blocks from 'markup-it/lib/constants/blocks';
 
 export default {
-  types: ["ordered_list", "unordered_list"],
-  typeItem: "list_item",
-  typeDefault: "paragraph"
+  types: [blocks.OL_LIST, blocks.UL_LIST],
+  typeItem: blocks.LIST_ITEM,
+  typeDefault: blocks.PARAGRAPH
 }

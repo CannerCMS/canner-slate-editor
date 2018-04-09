@@ -9,11 +9,11 @@ import html from 'markup-it/lib/html';
 import Editor from '../src';
 import readme from '../README.md';
 
-import "github-markdown-css";
 import 'antd/dist/antd.css';
 
 const mdParser = State.create(markdown);
 const htmlSerializer = State.create(html);
+const MdEditor = Editor();
 
 class App extends React.Component {
   constructor(props) {
@@ -42,14 +42,11 @@ class App extends React.Component {
     return (
       <Row>
         <Col span={12} style={{borderRight: '1px solid #DDD', minHeight: '100vh'}}>
-          <div
-            className="markdown-body"
-            style={{padding: '5px 0 5px 10px'}}>
-            <Editor
-              value={value}
-              onChange={this.onChange}
-            />
-          </div>
+          <MdEditor
+            value={value}
+            onChange={this.onChange}
+            style={{margin: '20px'}}
+          />
         </Col>
         <Col span={12} style={{padding: '10px'}}>
           <h3>Serialized HTML</h3>

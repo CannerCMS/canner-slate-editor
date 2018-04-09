@@ -2,23 +2,23 @@
 import {Range} from 'slate';
 import type {Change, Node} from 'slate';
 
-export default (currentTextNode: Node, matched: any, change: Change) => {
+export default (options: {[string]: any}, currentTextNode: Node, matched: any, change: Change) => {
   const matchedLength = matched[0].length;
   const count = (matched[0].match(/#/g) || []).length;
   let header;
 
   if (count === 1)
-    header = "header_one";
+    header = options.HEADING_1;
   else if (count === 2)
-    header = "header_two";
+    header = options.HEADING_2;
   else if (count === 3)
-    header = "header_three"
+    header = options.HEADING_3;
   else if (count === 4)
-    header = "header_four"
+    header = options.HEADING_4;
   else if (count === 5)
-    header = "header_five"
+    header = options.HEADING_5;
   else if (count === 6)
-    header = "header_six"
+    header = options.HEADING_6;
   else
     return 
 
