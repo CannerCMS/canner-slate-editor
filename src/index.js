@@ -1,33 +1,36 @@
 // @flow
-import * as React from 'react';
-import type {Value, Change} from 'slate';
-import { Editor } from 'slate-react'
-import EditPrism from 'slate-prism';
-import EditBlockquote from 'slate-edit-blockquote';
-import EditList from 'slate-edit-list'
-import PluginEditCode from 'slate-edit-code';
-import DEFAULT_LIST from './constant/list';
-import BLOCKS from 'markup-it/lib/constants/blocks';
+import * as React from "react";
+import type { Value, Change } from "slate";
+import { Editor } from "slate-react";
+import EditPrism from "slate-prism";
+import EditBlockquote from "slate-edit-blockquote";
+import EditList from "slate-edit-list";
+import PluginEditCode from "slate-edit-code";
+import DEFAULT_LIST from "./constant/list";
+import BLOCKS from "markup-it/lib/constants/blocks";
 
-import mdPlugin from './markdownPlugin';
-import "prismjs/themes/prism.css"
+import mdPlugin from "./markdownPlugin";
+import "prismjs/themes/prism.css";
 import "github-markdown-css";
 
 export const MarkdownPlugin = mdPlugin;
 
-export default (opt: {[string]: any}) => {
-  const options = Object.assign({
-    markdownOption: {},
-    prismOption: {
-      onlyIn: node => node.type === BLOCKS.CODE,
-      getSyntax: node => node.data.get('syntax')
+export default (opt: { [string]: any }) => {
+  const options = Object.assign(
+    {
+      markdownOption: {},
+      prismOption: {
+        onlyIn: node => node.type === BLOCKS.CODE,
+        getSyntax: node => node.data.get("syntax")
+      },
+      codeOption: {
+        onlyIn: node => node.type === BLOCKS.CODE
+      },
+      blockquoteOption: {},
+      listOption: DEFAULT_LIST
     },
-    codeOption: {
-      onlyIn: node => node.type === BLOCKS.CODE
-    },
-    blockquoteOption: {},
-    listOption: DEFAULT_LIST
-  }, opt)
+    opt
+  );
 
   const plugins = [
     MarkdownPlugin(options.markdownOption),
@@ -40,11 +43,11 @@ export default (opt: {[string]: any}) => {
   type Props = {
     value: Value,
     onChange: (change: Change) => void
-  }
+  };
 
   return class MdEditor extends React.Component<Props> {
     render() {
-      const {value, onChange, ...rest} = this.props;
+      const { value, onChange, ...rest } = this.props;
       return (
         <div className="markdown-body">
           <Editor
@@ -56,5 +59,5 @@ export default (opt: {[string]: any}) => {
         </div>
       );
     }
-  }
-}
+  };
+};
