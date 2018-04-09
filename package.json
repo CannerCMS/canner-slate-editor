@@ -9,7 +9,7 @@
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint src test docs/*.js",
+    "lint": "prettier --write ./src/**/*.js ./docs/*.js && eslint src test docs/*.js",
     "clean": "rimraf lib dist",
     "build:flow": "flow-copy-source -v -i '**/test/**' src lib",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
@@ -22,12 +22,6 @@
     "build:docs": "./node_modules/.bin/webpack --config webpack.config.prod.js --mode production",
     "postpublish": "npm run build:docs",
     "validate": "npm ls"
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write ./src/**/*.js ./docs/*.js",
-      "git add"
-    ]
   },
   "devDependencies": {
     "antd": "^3.3.3",
@@ -57,7 +51,6 @@
     "immutable": "^4.0.0-rc.9",
     "jest": "22.4.2",
     "js-beautify": "^1.7.5",
-    "lint-staged": "^3.4.1",
     "less": "2.3.1",
     "less-loader": "^4.1.0",
     "prettier": "^1.9.2",
