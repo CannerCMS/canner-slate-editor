@@ -6,7 +6,6 @@ import trailingSpace from '../utils/trailingSpace';
 export default function (currentTextNode: Text, matched: any, change: Change) {
   const matchedLength = matched[0].length;
   const reg = matched[1] === '**' ? /\*\*/ : matched[1]
-
   return change
     .deleteAtRange(Range.create({
       anchorKey: currentTextNode.key,
@@ -18,7 +17,7 @@ export default function (currentTextNode: Text, matched: any, change: Change) {
     .insertTextByKey(
       currentTextNode.key,
       matched.index,
-      matched[0].replace(new RegExp(reg,"g"), ""),
+      matched[0].trim().replace(new RegExp(reg, "g"), ""),
       [Mark.create({type: 'bold'})]
     )
     .call(trailingSpace, currentTextNode, matched.index)

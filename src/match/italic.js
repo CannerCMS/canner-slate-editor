@@ -18,7 +18,7 @@ export default function (currentTextNode: Text, matched: any, change: Change) {
     .insertTextByKey(
       currentTextNode.key,
       matched.index,
-      matched[0].replace(new RegExp(reg,"g"), ""),
+      matched[0].replace(new RegExp(reg, "g"), ""),
       [Mark.create({type: 'italic'})]
     )
     .call(trailingSpace, currentTextNode, matched.index)

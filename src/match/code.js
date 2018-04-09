@@ -5,6 +5,7 @@ import trailingSpace from '../utils/trailingSpace';
 
 export default function (currentTextNode: Text, matched: any, change: Change) {
   const matchedLength = matched[0].length;
+
   return change
     .deleteAtRange(Range.create({
       anchorKey: currentTextNode.key,
@@ -16,7 +17,7 @@ export default function (currentTextNode: Text, matched: any, change: Change) {
     .insertTextByKey(
       currentTextNode.key,
       matched.index,
-      matched[0].replace(/`/g, ""),
+      matched[0].trim().replace(new RegExp(matched[1], "g"), ""),
       [Mark.create({type: 'code'})]
     )
     .call(trailingSpace, currentTextNode, matched.index)

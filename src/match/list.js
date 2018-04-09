@@ -10,7 +10,7 @@ export default function (currentTextNode: Node, matched: any, change: Change, or
     anchorKey: currentTextNode.key,
     focusKey: currentTextNode.key,
     anchorOffset: matched.index,
-    focusOffset: matched.index + matchedLength - 1
+    focusOffset: matched.index + matchedLength
   }))
 
   return blocklist(newChange, {
