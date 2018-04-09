@@ -130,6 +130,7 @@ This will replace default `BOLD` setting to your new setting.
 - [Bold](#bold)
 - [Italic](#italic)
 - [Bold + Italic](#bold--italic)
+- [Strikethrough](#strikethrough)
 - [Hr](#hr)
 - [Link](#link)
 - [Image](#image)
@@ -223,6 +224,13 @@ or
 ***[strong + italic]***[space]
 ```
 
+### Strikethrough
+
+**In editor enter:**
+
+```
+~[strikethrough]~[space]
+```
 
 ### Hr
 
