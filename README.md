@@ -39,6 +39,7 @@ import Editor from 'slate-md-editor';
 - [Header](#header)
 - [Bold](#bold)
 - [Italic](#italic)
+- [Bold + Italic](#bold--italic)
 - [Hr](#hr)
 - [Link](#link)
 - [Image](#image)
