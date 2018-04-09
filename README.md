@@ -11,6 +11,10 @@ DEMO: [https://canner.github.io/slate-md-editor/](https://canner.github.io/slate
 
 ## Usage
 
+There is two ways to use, you could use it as a complete markdown editor or use as a slate plugin in your editor.
+
+## Complete markdown editor
+
 ```
 npm install slate-md-editor
 ```
@@ -19,11 +23,43 @@ Render the complete markdown editor
 
 ```js
 import Editor from 'slate-md-editor';
+const MdEditor = Editor(options);
 
-<Editor
+<MdEditor
   value={value}
   onChange={this.onChange}
 />
+```
+
+### Options
+
+Pass your customized settings here.
+
+`slate-md-editor` build on top of various slate plugins, `[xxxxOption]` will pass it's settings directly to corresponding plugins.
+
+```js
+// default settings
+{
+  markdownOption: {},
+  prismOption: {
+    // https://github.com/GitbookIO/slate-prism
+    onlyIn: node => node.type === 'code_block',
+    getSyntax: node => node.data.get('syntax')
+  },
+  codeOption: {
+    // https://github.com/GitbookIO/slate-edit-code
+    onlyIn: node => node.type === 'code_block'
+  },
+  blockquoteOption: {
+    // https://github.com/GitbookIO/slate-edit-blockquote
+  },
+  listOption: {
+    // https://github.com/GitbookIO/slate-edit-list
+    types: ['ordered_list', 'unordered_list'],
+    typeItem: 'list_item',
+    typeDefault: 'paragraph'
+  }
+}
 ```
 
 ### Props
@@ -31,7 +67,61 @@ import Editor from 'slate-md-editor';
 - **value**: Slate `Value`
 - **onChange**: `(Change) => void`
 
-## TOC
+## As slate plugin
+
+```js
+import {MarkdownPlugin} from 'slate-md-editor';
+const plugins = [
+  MarkdownPlugin(options)
+]
+
+<Editor
+  value={value}
+  onChange={this.onChange}
+  plugins={plugins}
+/>
+```
+
+### Options
+
+`MarkdownPlugin` also use many other plugins as dependencies, and allows you to pass their customized settings.
+
+Additionally, ***blocks, marks, inlines*** default types are the same as [Markup-it](https://github.com/GitbookIO/markup-it).
+
+
+```js
+// Default settings
+{
+  blocks: BLOCKS, // https://github.com/GitbookIO/markup-it/blob/master/src/constants/blocks.js
+  marks: MARKS, // https://github.com/GitbookIO/markup-it/blob/master/src/constants/marks.js
+  inlines: INLINES, // https://github.com/GitbookIO/markup-it/blob/master/src/constants/inlines.js
+  codeOption: {
+    // https://github.com/GitbookIO/slate-edit-code
+    onlyIn: node => node.type === BLOCKS.CODE
+  },
+  blockquoteOption: {
+    // https://github.com/GitbookIO/slate-edit-blockquote
+
+  },
+  listOption: {
+    // https://github.com/GitbookIO/slate-edit-list
+  }
+}
+```
+
+If you want to change a type, you could set that specific key type alone, without all types.
+
+For example, you want to change `BOLD` default type to `bold_type`. Just pass object as below
+
+```js
+{
+  marks: {BOLD: 'bold_type'}
+}
+```
+
+This will replace default `BOLD` setting to your new setting.
+
+# Feature TOC
 
 - [Blockquote](#blockquote)
 - [Code block (inline)](#code-block-inline)

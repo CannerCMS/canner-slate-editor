@@ -117,11 +117,11 @@ export default (opt: {[string]: any}) => {
     blocks: Object.assign(BLOCKS, opt.blocks),
     marks: Object.assign(MARKS, opt.marks),
     inlines: Object.assign(INLINES, opt.inlines),
-    codeOption: {
-      onlyIn: node => node.type === 'code_block'
-    },
-    blockquoteOption: {},
-    listOption: DEFAULT_LIST
+    codeOption: Object.assign({
+      onlyIn: node => node.type === BLOCKS.CODE
+    }, opt.codeOption),
+    blockquoteOption: Object.assign({}, opt.blockquoteOption),
+    listOption: Object.assign(DEFAULT_LIST, opt.listOption)
   }
 
   return {

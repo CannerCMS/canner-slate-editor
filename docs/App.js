@@ -13,7 +13,12 @@ import 'antd/dist/antd.css';
 
 const mdParser = State.create(markdown);
 const htmlSerializer = State.create(html);
-const MdEditor = Editor();
+const MdEditor = Editor({
+  markdownOption: {
+    // customized types
+    marks: {BOLD: 'bold_type'}
+  }
+});
 
 class App extends React.Component {
   constructor(props) {
