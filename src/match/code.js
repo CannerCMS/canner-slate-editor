@@ -2,6 +2,7 @@
 import { Mark, Range } from "slate";
 import type { Change, Text } from "slate";
 import trailingSpace from "../utils/trailingSpace";
+import removeAllMark from "@canner/slate-helper-mark-removeall";
 
 export default function(
   type: string,
@@ -10,6 +11,7 @@ export default function(
   change: Change
 ) {
   const matchedLength = matched[0].length;
+  const addText = matched[0].trim().replace(new RegExp(matched[1], "g"), "");
 
   return change
     .deleteAtRange(
@@ -20,12 +22,9 @@ export default function(
         focusOffset: matched.index + matchedLength
       })
     )
+    .insertTextByKey(currentTextNode.key, matched.index, addText, [
+      Mark.create({ type })
+    ])
     .call(trailingSpace, currentTextNode, matched.index)
-    .insertTextByKey(
-      currentTextNode.key,
-      matched.index,
-      matched[0].trim().replace(new RegExp(matched[1], "g"), ""),
-      [Mark.create({ type })]
-    )
-    .call(trailingSpace, currentTextNode, matched.index);
+    .call(removeAllMark);
 }
