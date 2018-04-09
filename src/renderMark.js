@@ -11,6 +11,8 @@ export default (opts: any) => {
         return commonMark("code")(props);
       case opts.ITALIC:
         return commonMark("i")(props);
+      case opts.STRIKETHROUGH:
+        return commonMark("s")(props);
     }
   };
 };

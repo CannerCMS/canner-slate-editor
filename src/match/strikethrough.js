@@ -11,8 +11,8 @@ export default function(
   change: Change
 ) {
   const matchedLength = matched[0].length;
-  const reg = matched[1] === "**" ? /\*\*/ : matched[1];
-  const addText = matched[0].replace(new RegExp(reg, "g"), "");
+  const addText = matched[0].trim().replace(new RegExp(/~/, "g"), "");
+
   return change
     .deleteAtRange(
       Range.create({

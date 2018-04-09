@@ -21,6 +21,7 @@ import matchCode from "./match/code";
 import matchHeader from "./match/header";
 import matchBold from "./match/bold";
 import matchItalic from "./match/italic";
+import matchStrikeThrough from './match/strikethrough';
 import matchBoldItalic from "./match/boldItalic";
 import matchHr from "./match/hr";
 import matchImage from "./match/image";
@@ -148,6 +149,20 @@ const checkPatterns = function(options, change) {
       // [Italic] _em_, *em*
       return matchItalic(
         options.marks.ITALIC,
+        currentTextNode,
+        matched,
+        change
+      );
+    }
+  }
+
+  if (lastChar === "~") {
+    if (
+      (matched = prevTextFromSpace.match(/\s?(~)((?!\1).)+?\1$/m))
+    ) {
+      // [Strike Through] ~strikethrough~
+      return matchStrikeThrough(
+        options.marks.STRIKETHROUGH,
         currentTextNode,
         matched,
         change
