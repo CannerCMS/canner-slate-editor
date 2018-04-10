@@ -7,6 +7,14 @@ import blockClearDataByKey from '@canner/slate-helper-block-cleardatabykey';
 
 type Props = IconProps;
 
+export const applyChange = (change, type, align) => {
+  const isActive = haveDataKeyEqualValueInSomeBlocks(change, type, align);
+
+  if (isActive)
+    return change.call(blockClearDataByKey, type);
+  return change.call(blockAddData, {data: {[type]: align}});
+}
+
 export default (type: string, defaultIcon: string, align: string) =>
   (Block: React.Element<any>) => {
   return class AlignDecorator extends React.Component<Props> {
@@ -21,11 +29,8 @@ export default (type: string, defaultIcon: string, align: string) =>
     onClick = (e: Event) => {
       e.preventDefault();
       let {change, onChange} = this.props;
-      const isActive = haveDataKeyEqualValueInSomeBlocks(change, type, align);
-      onChange(
-        isActive ? blockClearDataByKey(change, this.typeName) :
-          blockAddData(change, {data: {[this.typeName]: align}})
-      );
+      
+      onChange(applyChange(change, this.typeName, align));
     }
 
     render() {

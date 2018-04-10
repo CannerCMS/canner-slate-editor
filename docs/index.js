@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import {Editor} from 'slate-react';
 import beautify from 'js-beautify';
 import {Row, Col} from 'antd';
-import {AlignCenter, AlignLeft, AlignRight} from 'packages/slate-icon-align';
+import {AlignCenter, AlignLeft, AlignRight, AlignCenterPlugin, AlignLeftPlugin, AlignRightPlugin} from 'packages/slate-icon-align';
 import Blockquote, {BlockquotePlugin} from 'packages/slate-icon-blockquote';
 import Bold, {BoldPlugin} from 'packages/slate-icon-bold';
 import Clean from 'packages/slate-icon-clean';
@@ -103,6 +103,9 @@ const plugins = [
   TrailingBlock(),
   EditList(DEFAULTLIST),
   EditBlockquote(DEFAULTBLOCKQUOTE),
+  AlignCenterPlugin(),
+  AlignRightPlugin(),
+  AlignLeftPlugin(),
   ParagraphPlugin(),
   BlockquotePlugin(),
   BoldPlugin(),

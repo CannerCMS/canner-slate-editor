@@ -16,13 +16,13 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@canner/slate-helper-block-adddata@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@canner/slate-helper-block-adddata/-/slate-helper-block-adddata-0.1.2.tgz#59debee617df1b36ffbb101a0d09b4b4477d9ac9"
+"@canner/slate-helper-block-adddata@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@canner/slate-helper-block-adddata/-/slate-helper-block-adddata-0.1.4.tgz#65e6ea4a9cbc0a123a89a09dbb656345ba1fb7de"
 
-"@canner/slate-helper-block-cleardatabykey@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@canner/slate-helper-block-cleardatabykey/-/slate-helper-block-cleardatabykey-0.1.2.tgz#2e6d02cb18071da292ef0a2fa1633cab8dd6949f"
+"@canner/slate-helper-block-cleardatabykey@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@canner/slate-helper-block-cleardatabykey/-/slate-helper-block-cleardatabykey-0.1.3.tgz#2ce4676e87a8ef29787f4763bb40b264ae57e480"
 
 "@canner/slate-util-have@^0.1.2":
   version "0.1.2"
@@ -1434,6 +1434,10 @@ is-glob@^2.0.0, is-glob@^2.0.1:
   resolved "https://registry.yarnpkg.com/is-glob/-/is-glob-2.0.1.tgz#d096f926a3ded5600f3fdfd91198cb0888c2d863"
   dependencies:
     is-extglob "^1.0.0"
+
+is-hotkey@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/is-hotkey/-/is-hotkey-0.1.2.tgz#aeda5e4f542284700ae18b46980fb0637c021198"
 
 is-number@^2.1.0:
   version "2.1.0"
