@@ -75,7 +75,7 @@ const checkPatterns = function(options, change) {
     // # h1
     // ## h2
     // ###### h6
-    return matchHeader(options, currentTextNode, matched, change);
+    return matchHeader(options.blocks, currentTextNode, matched, change);
   } else if (
     (matched = currentLineText.match(/(^\s*)([*-])(?:[\t ]*\2){2,}/m))
   ) {
