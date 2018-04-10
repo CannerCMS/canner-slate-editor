@@ -2,6 +2,7 @@
 import * as React from 'react';
 import {type Change} from 'slate';
 import basicMarkDecoration from './basicMarkDecoration';
+import basicMarkPlugin from './basicMarkPlugin';
 import {PARAGRAPH} from '@canner/slate-constant/lib/blocks';
 import {FONTSIZE, LETTERSPACING} from '@canner/slate-constant/lib/marks';
 import QuillIcons from 'quill-icons';
@@ -9,7 +10,9 @@ import commonNode from '@canner/slate-editor-renderer/lib/commonNode';
 import omit from 'lodash.omit';
 import cx from 'classnames';
 
-export const basicMarkDecorator = basicMarkDecoration;
+export const markDecorator = basicMarkDecoration;
+export const markPlugin = basicMarkPlugin;
+
 export const nodeAttrs = {
   textAlign: (node) => node.data.get('align'),
   paddingLeft: (node) => node.data.get('indent') ? `${3 * node.data.get('indent')}em` : undefined,

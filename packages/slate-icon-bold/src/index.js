@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import ToolbarIcon, {basicMarkDecorator} from '@canner/slate-icon-shared';
+import ToolbarIcon, {markDecorator, markPlugin} from '@canner/slate-icon-shared';
 import {BOLD} from '@canner/slate-constant/lib/marks';
-import commonMark from '@canner/slate-editor-renderer/lib/commonMark';
 
 export const BoldPlugin = (opt) => {
   const options = Object.assign({
@@ -9,15 +8,10 @@ export const BoldPlugin = (opt) => {
     tagName: 'strong'
   }, opt);
 
-  return {
-    renderMark: (props) => {
-      if (props.mark.type === options.type) 
-        return commonMark(options.tagName)(props);
-    }
-  }
+  return markPlugin(options, 'cmd+b')
 }
 
-@basicMarkDecorator(BOLD, 'Bold')
+@markDecorator(BOLD, 'Bold')
 export default class Bold extends Component {
   render() {
     return (

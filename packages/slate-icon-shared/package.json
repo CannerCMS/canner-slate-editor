@@ -30,6 +30,7 @@
     "@canner/slate-util-have": "^0.1.2",
     "classnames": "^2.2.5",
     "lodash.omit": "^4.5.0",
-    "quill-icons": "^0.6.0"
+    "quill-icons": "^0.6.0",
+    "is-hotkey": "^0.1.2"
   }
 }
