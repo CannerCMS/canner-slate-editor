@@ -25,7 +25,7 @@ const plugins = [
 
 #### Hot key
 
-<kbd>Cmd</kbd>+<kbd>i</kbd>
+<kbd>CMD</kbd>+<kbd>i</kbd>
 
 #### Options
 
