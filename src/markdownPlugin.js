@@ -1,8 +1,6 @@
 // @flow
 
 import type { Change } from "slate";
-import renderMark from "./renderMark";
-import renderNode from "./renderNode";
 
 // constant
 import { KEY_ENTER, KEY_SPACE } from "./constant/keys";
@@ -187,8 +185,6 @@ export default (opt: { [string]: any }) => {
   };
 
   return {
-    renderMark: renderMark(options.marks),
-    renderNode: renderNode({ ...options.blocks, ...options.inlines }),
     onKeyDown: (e: any, change: Change) => {
       switch (e.key) {
         case KEY_ENTER:

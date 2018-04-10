@@ -40,7 +40,11 @@ Pass your customized settings here.
 ```js
 // default settings
 {
-  markdownOption: {},
+  markdownOption: {
+    blocks: BLOCKS, // https://github.com/GitbookIO/markup-it/blob/master/src/constants/blocks.js
+    marks: MARKS, // https://github.com/GitbookIO/markup-it/blob/master/src/constants/marks.js
+    inlines: INLINES, // https://github.com/GitbookIO/markup-it/blob/master/src/constants/inlines.js
+  },
   prismOption: {
     // https://github.com/GitbookIO/slate-prism
     onlyIn: node => node.type === 'code_block',

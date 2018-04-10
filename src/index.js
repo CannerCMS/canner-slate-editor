@@ -8,8 +8,12 @@ import EditList from "slate-edit-list";
 import PluginEditCode from "slate-edit-code";
 import DEFAULT_LIST from "./constant/list";
 import BLOCKS from "markup-it/lib/constants/blocks";
+import MARKS from "markup-it/lib/constants/marks";
+import INLINES from "markup-it/lib/constants/inlines";
 
 import mdPlugin from "./markdownPlugin";
+import renderMark from "./renderMark";
+import renderNode from "./renderNode";
 import "prismjs/themes/prism.css";
 import "github-markdown-css";
 
@@ -18,7 +22,11 @@ export const MarkdownPlugin = mdPlugin;
 export default (opt: { [string]: any }) => {
   const options = Object.assign(
     {
-      markdownOption: {},
+      markdownOption: {
+        blocks: Object.assign(BLOCKS, opt.blocks),
+        marks: Object.assign(MARKS, opt.marks),
+        inlines: Object.assign(INLINES, opt.inlines)
+      },
       prismOption: {
         onlyIn: node => node.type === BLOCKS.CODE,
         getSyntax: node => node.data.get("syntax")
@@ -54,6 +62,8 @@ export default (opt: { [string]: any }) => {
             value={value}
             plugins={plugins}
             onChange={onChange}
+            renderMark={renderMark(options.markdownOption.marks)}
+            renderNode={renderNode({ ...options.markdownOption.blocks, ...options.markdownOption.inlines })}
             {...rest}
           />
         </div>
