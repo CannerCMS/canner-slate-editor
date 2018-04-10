@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-hr",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Slate icons for hr",
   "main": "lib/index.js",
   "scripts": {
@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "@canner/slate-editor-renderer": "^1.1.0",
-    "@canner/slate-icon-shared": "^1.1.0"
+    "@canner/slate-icon-shared": "^1.1.1"
   }
 }
