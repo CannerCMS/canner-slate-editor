@@ -22,12 +22,9 @@ export default function(
         focusOffset: matched.index + matchedLength
       })
     )
-    .insertTextByKey(
-      currentTextNode.key,
-      matched.index,
-      addText,
-      [Mark.create({ type })]
-    )
+    .insertTextByKey(currentTextNode.key, matched.index, addText, [
+      Mark.create({ type })
+    ])
     .call(trailingSpace, currentTextNode, matched.index)
     .call(removeAllMark);
 }
