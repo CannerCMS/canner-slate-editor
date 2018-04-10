@@ -26,8 +26,8 @@
     "@canner/slate-editor-renderer": "^1.1.0",
     "@canner/slate-helper-block-quote": "^0.1.6",
     "@canner/slate-icon-shared": "^1.1.1",
+    "is-hotkey": "^0.1.2",
     "lodash.omit": "^4.5.0",
-    "slate-edit-blockquote": "0.5.0",
-    "is-hotkey": "^0.1.2"
+    "slate-edit-blockquote": "0.5.0"
   }
 }
