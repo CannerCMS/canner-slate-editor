@@ -6,35 +6,18 @@ import Header3Icon from './header3';
 import Header4Icon from './header4';
 import Header5Icon from './header5';
 import Header6Icon from './header6';
+import {applyChange} from './headerDecorator';
 import {HEADING_1, HEADING_2, HEADING_3, HEADING_4, HEADING_5, HEADING_6, PARAGRAPH} from '@canner/slate-constant/lib/blocks';
+import isHotkey from 'is-hotkey';
 
 import commonNode from '@canner/slate-editor-renderer/lib/commonNode';
 import {nodeAttrs} from '@canner/slate-icon-shared';
 
-export const HeaderPlugin = (opt) => {
-  const options = Object.assign({
-    headingOneType: HEADING_1,
-    headingTwoType: HEADING_2,
-    headingThreeType: HEADING_3,
-    headingFourType: HEADING_4,
-    headingFiveType: HEADING_5,
-    headingSixType: HEADING_6
-  }, opt);
-
+const plugin = (type, tagName, hotkey) => {
   return {
     renderNode: (props) => {
-      if (props.node.type === options.headingOneType) 
-        return commonNode('h1', nodeAttrs)(props);
-      else if (props.node.type === options.headingTwoType)
-        return commonNode('h2', nodeAttrs)(props);
-      else if (props.node.type === options.headingThreeType)
-        return commonNode('h3', nodeAttrs)(props);
-      else if (props.node.type === options.headingFourType)
-        return commonNode('h4', nodeAttrs)(props);
-      else if (props.node.type === options.headingFiveType)
-        return commonNode('h5', nodeAttrs)(props);
-      else if (props.node.type === options.headingSixType)
-        return commonNode('h6', nodeAttrs)(props);
+      if (props.node.type === type) 
+        return commonNode(tagName, nodeAttrs)(props);
     },
     onKeyDown: (e: any, change: Change) => {
       if (e.key === 'Enter') {
@@ -43,20 +26,24 @@ export const HeaderPlugin = (opt) => {
         const getCurrentblock = blocks.get(0);
 
         if (
-          getCurrentblock.type === options.headingOneType ||
-          getCurrentblock.type === options.headingTwoType ||
-          getCurrentblock.type === options.headingThreeType ||
-          getCurrentblock.type === options.headingFourType ||
-          getCurrentblock.type === options.headingFiveType ||
-          getCurrentblock.type === options.headingSixType
+          getCurrentblock.type === type
         )
           return change
             .splitBlock()
             .setBlock(PARAGRAPH);
+      } else if (isHotkey(hotkey, e)) {
+        return change.call(applyChange, type);
       }
     }
   }
 }
+
+export const HeaderOnePlugin = (type = HEADING_1) => plugin(type, 'h1', 'ctrl+opt+1')
+export const HeaderTwoPlugin = (type = HEADING_2) => plugin(type, 'h2', 'ctrl+opt+2')
+export const HeaderThreePlugin = (type = HEADING_3) => plugin(type, 'h3', 'ctrl+opt+3')
+export const HeaderFourPlugin = (type = HEADING_4) => plugin(type, 'h4', 'ctrl+opt+4')
+export const HeaderFivePlugin = (type = HEADING_5) => plugin(type, 'h5', 'ctrl+opt+5')
+export const HeaderSixPlugin = (type = HEADING_6) => plugin(type, 'h6', 'ctrl+opt+6')
 
 export const Header1 = Header1Icon;
 export const Header2 = Header2Icon;

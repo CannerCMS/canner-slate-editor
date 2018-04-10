@@ -4,6 +4,11 @@ import type {IconProps} from 'shared/src/types';
 import {PARAGRAPH} from '@canner/slate-constant/lib/blocks';
 import {haveBlocks} from '@canner/slate-util-have';
 
+export const applyChange = (change, type) => {
+  const isActive = haveBlocks(change, type);
+  return change.setBlocks(isActive ? PARAGRAPH : type)
+}
+
 export default (type: string, defaultIcon: string) => (Block: React.Element<*>) => {
   return class HeaderDecorator extends React.Component<IconProps> {
     typeName: string
@@ -16,8 +21,8 @@ export default (type: string, defaultIcon: string) => (Block: React.Element<*>) 
     onClick = (e: Event) => {
       let {change, onChange} = this.props;
       e.preventDefault();
-      const isActive = haveBlocks(change, this.typeName);
-      onChange(change.setBlocks(isActive ? PARAGRAPH : this.typeName));
+      
+      onChange(applyChange(change, this.typeName));
     }
 
     render() {

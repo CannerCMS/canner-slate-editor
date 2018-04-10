@@ -25,6 +25,7 @@
   "dependencies": {
     "@canner/slate-editor-renderer": "^1.1.0",
     "@canner/slate-icon-shared": "^1.1.1",
-    "@canner/slate-util-have": "^0.1.2"
+    "@canner/slate-util-have": "^0.1.2",
+    "is-hotkey": "^0.1.2"
   }
 }
