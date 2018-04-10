@@ -7,6 +7,7 @@ import {BLOCKQUOTE} from '@canner/slate-constant/lib/blocks';
 import EditBlockquote from 'slate-edit-blockquote'
 import commonNode from '@canner/slate-editor-renderer/lib/commonNode';
 import omit from 'lodash.omit';
+import isHotkey from 'is-hotkey';
 
 type Props = IconProps;
 
@@ -21,6 +22,11 @@ export const BlockquotePlugin = (opt) => {
     renderNode: (props) => {
       if (props.node.type === options.type) 
         return commonNode(options.tagName, omit(options, ['type', 'tagName']))(props);
+    },
+    onKeyDown(event, change) {
+      if (isHotkey('ctrl+opt+q', event)) {
+        return blockquote(change, {type: options.type})
+      }
     }
   }
 }

@@ -3,6 +3,17 @@ import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
 import removeMarkAll from '@canner/slate-helper-mark-removeall';
 import ToolbarIcon from '@canner/slate-icon-shared';
+import isHotkey from 'is-hotkey';
+
+export const CleanPlugin = () => {
+  return {
+    onKeyDown(event, change) {
+      if (isHotkey('ctrl+opt+n', event)) {
+        return removeMarkAll(change)
+      }
+    }
+  }
+}
 
 export default class Clean extends React.Component<IconProps> {
   typeName: string

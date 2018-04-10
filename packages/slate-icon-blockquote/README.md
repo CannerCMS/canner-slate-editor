@@ -2,13 +2,13 @@
 
 [![npm version](https://badge.fury.io/js/%40canner%2Fslate-icon-blockquote.svg)](https://badge.fury.io/js/%40canner%2Fslate-icon-blockquote)
 
-**Icon:**
+## Icon
 
 ```js
 import Blockquote from '@canner/slate-icon-blockquote';
 ```
 
-**Plugin:**
+## Plugin
 
 Please install https://github.com/GitbookIO/slate-edit-blockquote
 
@@ -24,4 +24,10 @@ Also add `BlockquotePlugin`
 
 ```js
 import {BlockquotePlugin} from '@canner/slate-icon-blockquote';
+
+BlockquotePlugin(options)
 ```
+
+#### Hot key
+
+<kbd>Ctrl</kbd>+<kbd>opt</kbd>+<kbd>q</kbd>

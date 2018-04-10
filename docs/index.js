@@ -8,7 +8,7 @@ import {Row, Col} from 'antd';
 import {AlignCenter, AlignLeft, AlignRight, AlignCenterPlugin, AlignLeftPlugin, AlignRightPlugin} from 'packages/slate-icon-align';
 import Blockquote, {BlockquotePlugin} from 'packages/slate-icon-blockquote';
 import Bold, {BoldPlugin} from 'packages/slate-icon-bold';
-import Clean from 'packages/slate-icon-clean';
+import Clean, {CleanPlugin} from 'packages/slate-icon-clean';
 import Code, {CodePlugin} from 'packages/slate-icon-code';
 import CodeBlock, {CodeBlockPlugin} from 'packages/slate-icon-codeblock';
 import Emoji, {EmojiPlugin} from 'packages/slate-icon-emoji';
@@ -109,6 +109,7 @@ const plugins = [
   ParagraphPlugin(),
   BlockquotePlugin(),
   BoldPlugin(),
+  CleanPlugin(),
   CodePlugin(),
   CodeBlockPlugin(),
   FontBgColorPlugin(),
