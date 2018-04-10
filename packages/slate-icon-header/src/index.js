@@ -9,6 +9,7 @@ import Header6Icon from './header6';
 import {HEADING_1, HEADING_2, HEADING_3, HEADING_4, HEADING_5, HEADING_6, PARAGRAPH} from '@canner/slate-constant/lib/blocks';
 
 import commonNode from '@canner/slate-editor-renderer/lib/commonNode';
+import {nodeAttrs} from '@canner/slate-icon-shared';
 
 export const HeaderPlugin = (opt) => {
   const options = Object.assign({
@@ -23,17 +24,17 @@ export const HeaderPlugin = (opt) => {
   return {
     renderNode: (props) => {
       if (props.node.type === options.headingOneType) 
-        return commonNode('h1')(props);
+        return commonNode('h1', nodeAttrs)(props);
       else if (props.node.type === options.headingTwoType)
-        return commonNode('h2')(props);
+        return commonNode('h2', nodeAttrs)(props);
       else if (props.node.type === options.headingThreeType)
-        return commonNode('h3')(props);
+        return commonNode('h3', nodeAttrs)(props);
       else if (props.node.type === options.headingFourType)
-        return commonNode('h4')(props);
+        return commonNode('h4', nodeAttrs)(props);
       else if (props.node.type === options.headingFiveType)
-        return commonNode('h5')(props);
+        return commonNode('h5', nodeAttrs)(props);
       else if (props.node.type === options.headingSixType)
-        return commonNode('h6')(props);
+        return commonNode('h6', nodeAttrs)(props);
     },
     onKeyDown: (e: any, change: Change) => {
       if (e.key === 'Enter') {
