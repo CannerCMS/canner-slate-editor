@@ -17,7 +17,7 @@ import Underline from '@canner/slate-icon-underline';
 ```js
 import {UnderlinePlugin} from '@canner/slate-icon-underline';
 
-// this will add render method for this mark, and also support hot key for bold.
+// this will add render method for this mark, and also support hot key for underline.
 const plugins = [
   UnderlinePlugin(options)
 ]
@@ -25,7 +25,7 @@ const plugins = [
 
 #### Hot key
 
-<kbd>Cmd</kbd>+<kbd>u</kbd>
+<kbd>CMD</kbd>+<kbd>u</kbd>
 
 #### Options
 

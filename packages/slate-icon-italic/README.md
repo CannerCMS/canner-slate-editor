@@ -17,7 +17,7 @@ import Italic from '@canner/slate-icon-italic';
 ```js
 import {ItalicPlugin} from '@canner/slate-icon-italic';
 
-// this will add render method for this mark, and also support hot key for bold.
+// this will add render method for this mark, and also support hot key for italic.
 const plugins = [
   ItalicPlugin(options)
 ]
@@ -25,7 +25,7 @@ const plugins = [
 
 #### Hot key
 
-<kbd>CMD</kbd>+<kbd>i</kbd>
+<kbd>Cmd</kbd>+<kbd>i</kbd>
 
 #### Options
 

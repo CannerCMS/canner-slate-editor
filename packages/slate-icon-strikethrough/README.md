@@ -17,7 +17,7 @@ import Strikethrough from '@canner/slate-icon-strikethrough';
 ```js
 import {StrikeThroughPlugin} from '@canner/slate-icon-strikethrough';
 
-// this will add render method for this mark, and also support hot key for bold.
+// this will add render method for this mark, and also support hot key for strikethrough.
 const plugins = [
   StrikeThroughPlugin(options)
 ]

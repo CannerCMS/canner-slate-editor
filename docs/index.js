@@ -24,7 +24,7 @@ import {OlList, UlList, ListPlugin} from 'packages/slate-icon-list';
 import StrikeThrough, {StrikeThroughPlugin} from 'packages/slate-icon-strikethrough';
 import Underline, {UnderlinePlugin} from 'packages/slate-icon-underline';
 import Undo from 'packages/slate-icon-undo';
-import Redo from 'packages/slate-icon-redo';
+import Redo, {RedoPlugin} from 'packages/slate-icon-redo';
 import Video, {VideoPlugin} from 'packages/slate-icon-video';
 
 // select
@@ -117,6 +117,7 @@ const plugins = [
   LetterSpacingPlugin(),
   EmojiPlugin(),
   HeaderPlugin(),
+  RedoPlugin(),
   HrPlugin(),
   ImagePlugin(),
   LinkPlugin(),

@@ -2,6 +2,17 @@
 import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
 import ToolbarIcon from '@canner/slate-icon-shared';
+import isHotkey from 'is-hotkey';
+
+export const RedoPlugin = () => {
+  return {
+    onKeyDown(event, change) {
+      if (isHotkey('cmd+shift+y', event)) {
+        change.call(change => change.redo());
+      }
+    }
+  }
+}
 
 export default class Redo extends React.Component<IconProps> {
   typeName: string
