@@ -94,7 +94,7 @@ export default class ImageDraggableContainer extends React.Component<
     width = ratio ? width / ratio : width;
     height = ratio ? height / ratio : height;
 
-    if (readOnly) {
+    if (!isSelected || readOnly) {
       // if editor is readOnly
       return (
         <ImageContiner align={align} indent={indent} data-slate-type="image">
@@ -118,30 +118,19 @@ export default class ImageDraggableContainer extends React.Component<
           width={width + 10}
           height={height + 10}
         >
-          {isSelected ? (
-            <ImageNodeActive
-              width={width + 10}
-              height={height + 10}
-              align={align}
-            >
-              <Toolbar>
-                <ToolbarItem>
-                  <FaTrashO onClick={this.remove} />
-                </ToolbarItem>
-              </Toolbar>
-              <img {...attributes} src={src} />
-              {children}
-            </ImageNodeActive>
-          ) : (
-            <ImageNodeInActive
-              width={width + 10}
-              height={height + 10}
-              align={align}
-            >
-              <img {...attributes} src={src} />
-              {children}
-            </ImageNodeInActive>
-          )}
+          <ImageNodeActive
+            width={width + 10}
+            height={height + 10}
+            align={align}
+          >
+            <Toolbar>
+              <ToolbarItem>
+                <FaTrashO onClick={this.remove} />
+              </ToolbarItem>
+            </Toolbar>
+            <img {...attributes} src={src} />
+            {children}
+          </ImageNodeActive>
         </Resizable>
       </ImageContiner>
     );

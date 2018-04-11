@@ -32,6 +32,7 @@ class ImageNode extends React.Component<Props> {
     const src = getSrc(node);
     const nodeWidth = getWidth(node);
     const nodeHeight = getHeight(node);
+
     return (
       <React.Fragment>
         <ImageLoading

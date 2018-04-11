@@ -123,7 +123,7 @@ class VideoNode extends React.Component<Props> {
       link = `https://player.youku.com/embed/${id}`;
     }
 
-    if (readOnly) {
+    if (!isSelected || readOnly) {
       // if editor is readOnly
       return (
         <ImageContiner
@@ -155,47 +155,31 @@ class VideoNode extends React.Component<Props> {
           onResizeStop={this.onResizeStop}
           width={width + 10}
           height={height + 10}>
-          {isSelected ? (
-            <ImageNodeActive
-              width={width + 10}
-              height={height + 10}
-              align={align}
-              indent={indent}>
-              <Toolbar>
-                <ToolbarItem>
-                  <FaExternal onClick={() => {
-                    const win = window.open(link, '_blank');
-                    win.focus();
-                  }}/>
-                </ToolbarItem>
-                <ToolbarItem>
-                  <FaEdit onClick={this.edit}/>
-                </ToolbarItem>
-                <ToolbarItem>
-                  <FaTrashO onClick={this.remove}/>
-                </ToolbarItem>
-              </Toolbar>
-              <iframe
-                {...attributes}
-                style={{pointerEvents: 'none'}}
-                src={link}/>
-              {children}
-            </ImageNodeActive>
-          ) : (
-            <ImageNodeInActive
-              width={width + 10}
-              height={height + 10}
-              align={align}
-              indent={indent}>
-              <iframe
-                {...attributes}
-                width={width}
-                height={height}
-                style={{pointerEvents: 'none'}}
-                src={link}/>
-              {children}
-            </ImageNodeInActive>
-          )}
+          <ImageNodeActive
+            width={width + 10}
+            height={height + 10}
+            align={align}
+            indent={indent}>
+            <Toolbar>
+              <ToolbarItem>
+                <FaExternal onClick={() => {
+                  const win = window.open(link, '_blank');
+                  win.focus();
+                }}/>
+              </ToolbarItem>
+              <ToolbarItem>
+                <FaEdit onClick={this.edit}/>
+              </ToolbarItem>
+              <ToolbarItem>
+                <FaTrashO onClick={this.remove}/>
+              </ToolbarItem>
+            </Toolbar>
+            <iframe
+              {...attributes}
+              style={{pointerEvents: 'none'}}
+              src={link}/>
+            {children}
+          </ImageNodeActive>
         </Resizable>
         <VideoModal
           youkuType={youkuType}
