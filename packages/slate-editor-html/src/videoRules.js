@@ -3,7 +3,11 @@ import React from 'react';
 import styled from "styled-components";
 import {nodeAttrs} from '@canner/slate-icon-shared';
 
-export const ImageContiner = styled.span`
+export const VideoContiner = styled.iframe`
+  src: ${props => props.src};
+  width: ${props => props.width};
+  height: ${props => props.height};
+  margin-left: ${props => props.indent};
   display: flex;
   justify-content: ${props => {
     if (props.align === "center") return "center";
@@ -17,19 +21,19 @@ const defaultAttrs = {
   ...nodeAttrs
 }
 
-export default function(blockType = 'video', stylesAttr = defaultAttrs) {
+export default function(inlineType = 'video', stylesAttr = defaultAttrs) {
   return {
     deserialize(el) {
-      if (blockType && el.tagName && el.tagName.toLowerCase() === 'iframe') {
+      if (inlineType && el.tagName && el.tagName.toLowerCase() === 'iframe') {
         return {
-          object: 'block',
-          type: blockType,
+          object: 'inline',
+          type: inlineType,
           isVoid: true
         }
       }
     },
     serialize(obj) {
-      if (obj.object == 'block' && obj.type === blockType) {
+      if (obj.object == 'inline' && obj.type === inlineType) {
         const align = stylesAttr.textAlign(obj);
         const indent = stylesAttr.paddingLeft(obj);
         const width = stylesAttr.width(obj) || 560;
@@ -37,26 +41,23 @@ export default function(blockType = 'video', stylesAttr = defaultAttrs) {
         const id = stylesAttr.id(obj);
         let link;
 
-        if (blockType === 'youtube') {
+        if (inlineType === 'youtube') {
           link = `https://www.youtube.com/embed/${id}`;
-        } else if (blockType === 'dailymotion') {
+        } else if (inlineType === 'dailymotion') {
           link = `https://www.dailymotion.com/embed/video/${id}`;
-        } else if (blockType === 'vimeo') {
+        } else if (inlineType === 'vimeo') {
           link = `https://player.vimeo.com/video/${id}`;
-        } else if (blockType === 'youku') {
+        } else if (inlineType === 'youku') {
           link = `https://player.youku.com/embed/${id}`;
         }
 
         return (
-          <ImageContiner align={align}>
-            <iframe
-              src={link}
-              style={{
-                width,
-                height,
-                marginLeft: indent
-              }}/>
-          </ImageContiner>
+          <VideoContiner
+            align={align}
+            width={width}
+            height={height}
+            indent={indent}
+            src={link}/>
         );
       }
     }

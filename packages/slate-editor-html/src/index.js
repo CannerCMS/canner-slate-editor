@@ -42,7 +42,7 @@ export const DEFAULT_RULES = [
   videoRules(DEFAULT_VIDEO.vimeo),
   videoRules(DEFAULT_VIDEO.dailymotion),
   videoRules(DEFAULT_VIDEO.youku),
-  imageRules(BLOCKS.IMAGE),
+  imageRules(INLINES.IMAGE),
   codeBlockRules(),
   emojiRules(),
 

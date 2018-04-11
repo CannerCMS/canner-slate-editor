@@ -3,15 +3,9 @@ import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
 import ToolbarIcon, {nodeAttrs} from '@canner/slate-icon-shared';
 import VideoModal from '@canner/slate-editor-renderer/lib/components/videoModal';
-import videoNode from '@canner/slate-editor-renderer/lib/videoNode';
+import videoNode, {DEFAULT as DEFAULT_VIDEO} from '@canner/slate-editor-renderer/lib/videoNode';
 
-export const DEFAULT = {
-  youtube: 'youtube',
-  dailymotion: 'dailymotion',
-  youku: 'youku',
-  vimeo: 'vimeo'
-}
-
+export const DEFAULT = DEFAULT_VIDEO;
 export const VideoPlugin = (opt) => {
     const options = Object.assign({
       youtubeType: DEFAULT.youtube,

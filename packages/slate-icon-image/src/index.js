@@ -3,7 +3,7 @@ import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
 import ToolbarIcon, {nodeAttrs} from '@canner/slate-icon-shared';
 import ImageUpload from '@canner/image-upload';
-import {IMAGE} from '@canner/slate-constant/lib/blocks';
+import {IMAGE} from '@canner/slate-constant/lib/inlines';
 import imageNode from '@canner/slate-editor-renderer/lib/imageNode';
 
 export const ImagePlugin = (opt) => {
@@ -23,7 +23,7 @@ export const ImagePlugin = (opt) => {
   }
 }
 
-export default class ImageBlock extends React.Component<IconProps, {isShow: boolean}> {
+export default class ImageInline extends React.Component<IconProps, {isShow: boolean}> {
   typeName: string
   constructor(props: IconProps) {
     super(props);
@@ -68,7 +68,7 @@ export default class ImageBlock extends React.Component<IconProps, {isShow: bool
       }
 
       onChange(
-        change.insertBlock({
+        change.insertInline({
           type: 'image',
           isVoid: true,
           data: {

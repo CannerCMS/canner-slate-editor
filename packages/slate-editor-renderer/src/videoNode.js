@@ -2,7 +2,7 @@
 import * as React from 'react';
 import type {Change} from 'slate';
 import type {nodeProps} from './type';
-import blockAddData from '@canner/slate-helper-block-adddata';
+import inlineAddData from '@canner/slate-helper-inline-adddata';
 
 import {Resizable} from 'react-resizable';
 import FaArrowUp from 'react-icons/lib/fa/arrow-up';
@@ -14,6 +14,13 @@ import {ImageNodeInActive, ImageNodeActive, ImageContiner,
   Toolbar, ToolbarItem, Overlay} from './components/image';
 
 import 'react-resizable/css/styles.css';
+
+export const DEFAULT = {
+  youtube: 'youtube',
+  dailymotion: 'dailymotion',
+  youku: 'youku',
+  vimeo: 'vimeo'
+}
 
 export default function(type, options) {
   const NodeComponent = ({...props}) => {
@@ -50,12 +57,20 @@ class VideoNode extends React.Component<Props> {
     };
   }
 
+  static defaultProps = {
+    youtubeType: DEFAULT.youtube,
+    dailymotionType: DEFAULT.dailymotion,
+    youkuType: DEFAULT.youku,
+    vimeoType: DEFAULT.vimeo,
+    idKey: 'id'
+  }
+
   onResizeStop(e, data) {
     const {onChange, state} = this.props.editor;
     const {value} = state;
     const {width, height} = data.size
 
-    onChange(blockAddData(value.change(), {
+    onChange(inlineAddData(value.change(), {
       data: {width, height}
     }));
   }
@@ -111,7 +126,9 @@ class VideoNode extends React.Component<Props> {
   }
 
   render() {
-    const {node, type, attributes, children, editor, readOnly, isSelected, getId, getWidth, getHeight, textAlign, paddingLeft} = this.props;
+    const {node, type, attributes, children, editor,
+      readOnly, isSelected, getId, getWidth, getHeight,
+      textAlign, paddingLeft, youtubeType, dailymotionType, youkuType, vimeoType, idKey} = this.props;
     let link;
     const align = textAlign(node);
     const indent = paddingLeft(node);
@@ -203,6 +220,11 @@ class VideoNode extends React.Component<Props> {
           )}
         </Resizable>
         <VideoModal
+          youkuType={youkuType}
+          youtubeType={youtubeType}
+          vimeoType={vimeoType}
+          dailymotionType={dailymotionType}
+          idKey={idKey}
           onChange={editor.onChange}
           change={editor.state.value.change()}
           initialValue={link}

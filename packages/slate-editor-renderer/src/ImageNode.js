@@ -2,7 +2,7 @@
 import * as React from 'react';
 import type {Change} from 'slate';
 import type {nodeProps} from './type';
-import blockAddData from '@canner/slate-helper-block-adddata';
+import inlineAddData from '@canner/slate-helper-inline-adddata';
 
 import {Resizable} from 'react-resizable';
 import FaArrowUp from 'react-icons/lib/fa/arrow-up';
@@ -51,7 +51,7 @@ class ImageNode extends React.Component<Props> {
     const {value} = state;
     const {width, height} = data.size
 
-    onChange(blockAddData(value.change(), {
+    onChange(inlineAddData(value.change(), {
       data: {width, height}
     }));
   }

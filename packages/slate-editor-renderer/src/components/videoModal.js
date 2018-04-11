@@ -114,13 +114,12 @@ export default class VideoModal extends React.Component<Props> {
           if (initialValue) {
             // update link
             const newChange = change
-              .insertBlock(slateObj)
-              .deselect()
-              .removeNodeByKey(node.key);
+              .removeNodeByKey(node.key)
+              .insertInline(slateObj);
 
             onChange(newChange);
           } else {
-            onChange(change.insertBlock(slateObj));
+            onChange(change.insertInline(slateObj));
           }
           form.resetFields();
         }

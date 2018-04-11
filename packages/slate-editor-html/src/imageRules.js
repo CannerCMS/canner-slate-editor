@@ -1,10 +1,14 @@
 // @flow
 import React from 'react';
 import styled from "styled-components";
-import {IMAGE} from '@canner/slate-constant/lib/blocks';
+import {IMAGE} from '@canner/slate-constant/lib/inlines';
 import {nodeAttrs} from '@canner/slate-icon-shared';
 
-export const ImageContiner = styled.span`
+export const ImageContiner = styled.img`
+  src: ${props => props.src};
+  width: ${props => props.width};
+  height: ${props => props.height};
+  margin-left: ${props => props.indent};
   display: flex;
   justify-content: ${props => {
     if (props.align === "center") return "center";
@@ -18,10 +22,10 @@ const defaultAttrs = {
   ...nodeAttrs
 }
 
-export default function(blockType = IMAGE, stylesAttr = defaultAttrs) {
+export default function(inlineType = IMAGE, stylesAttr = defaultAttrs) {
   return {
     deserialize(el) {
-      if (blockType && el.tagName && el.tagName.toLowerCase() === 'img') {
+      if (inlineType && el.tagName && el.tagName.toLowerCase() === 'img') {
         let data = {}
 
         if (el.src) {
@@ -41,15 +45,15 @@ export default function(blockType = IMAGE, stylesAttr = defaultAttrs) {
         }
 
         return {
-          object: 'block',
-          type: blockType,
+          object: 'inline',
+          type: inlineType,
           data,
           isVoid: true
         }
       }
     },
     serialize(obj) {
-      if (obj.object == 'block' && obj.type === blockType) {
+      if (obj.object == 'inline' && obj.type === inlineType) {
         const align = stylesAttr.textAlign(obj);
         const indent = stylesAttr.paddingLeft(obj);
         const src = stylesAttr.src(obj);
@@ -57,15 +61,12 @@ export default function(blockType = IMAGE, stylesAttr = defaultAttrs) {
         const height = stylesAttr.height(obj);
 
         return (
-          <ImageContiner align={align}>
-            <img
-              src={src}
-              style={{
-                width,
-                height,
-                marginLeft: indent
-              }}/>
-          </ImageContiner>
+          <ImageContiner
+            align={align}
+            width={width}
+            height={height}
+            indent={indent}
+            src={src}/>
         );
       }
     }

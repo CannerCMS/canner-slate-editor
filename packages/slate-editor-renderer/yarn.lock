@@ -16,9 +16,9 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@canner/slate-helper-block-adddata@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@canner/slate-helper-block-adddata/-/slate-helper-block-adddata-0.1.4.tgz#65e6ea4a9cbc0a123a89a09dbb656345ba1fb7de"
+"@canner/slate-helper-inline-adddata@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@canner/slate-helper-inline-adddata/-/slate-helper-inline-adddata-0.1.1.tgz#97d2b04013fb788b5cdd96ecdb79f3e85b7a280c"
 
 abab@^1.0.4:
   version "1.0.4"
