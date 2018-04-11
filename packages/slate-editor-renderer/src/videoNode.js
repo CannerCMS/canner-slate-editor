@@ -7,6 +7,7 @@ import inlineAddData from '@canner/slate-helper-inline-adddata';
 import {Resizable} from 'react-resizable';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
 import FaEdit from 'react-icons/lib/fa/edit';
+import FaExternal from 'react-icons/lib/fa/external-link';
 import VideoModal from './components/videoModal';
 import {ImageNodeInActive, ImageNodeActive, ImageContiner,
   Toolbar, ToolbarItem} from './components/image';
@@ -162,10 +163,16 @@ class VideoNode extends React.Component<Props> {
               indent={indent}>
               <Toolbar>
                 <ToolbarItem>
-                  <FaTrashO onClick={this.remove}/>
+                  <FaExternal onClick={() => {
+                    const win = window.open(link, '_blank');
+                    win.focus();
+                  }}/>
                 </ToolbarItem>
                 <ToolbarItem>
                   <FaEdit onClick={this.edit}/>
+                </ToolbarItem>
+                <ToolbarItem>
+                  <FaTrashO onClick={this.remove}/>
                 </ToolbarItem>
               </Toolbar>
               <iframe
