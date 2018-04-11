@@ -1,6 +1,16 @@
 // @flow
 import styled from "styled-components";
 
+export const Alert = styled.span`
+  border: 1px solid #ffa39e;
+  background-color: #fff1f0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(0,0,0,.65);
+  border-radius: 4px;
+  padding: 8px 15px;
+`
+
 export const ImageContiner = styled.span`
   display: flex;
   margin-left: ${props => 3 * (props.indent || 0)}em;
@@ -25,7 +35,7 @@ export const ImageNodeShared = styled.span`
     border: 0px;
     top: 5px;
     left: 5px;
-    max-width: calc(100% - 10px);
+    max-width: calc(100% - 10px) !important;
     width: ${props => props.width - 14}px;
     height: ${props => props.height - 17}px;
   }

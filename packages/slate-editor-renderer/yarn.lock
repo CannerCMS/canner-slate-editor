@@ -16,9 +16,9 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@canner/slate-helper-inline-adddata@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@canner/slate-helper-inline-adddata/-/slate-helper-inline-adddata-0.1.1.tgz#97d2b04013fb788b5cdd96ecdb79f3e85b7a280c"
+"@canner/slate-helper-inline-adddata@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@canner/slate-helper-inline-adddata/-/slate-helper-inline-adddata-0.1.2.tgz#071b256d20a21051fd945cf634f0db1a1ba0331f"
 
 abab@^1.0.4:
   version "1.0.4"
@@ -2541,6 +2541,10 @@ react-icons@^2.2.7:
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-2.2.7.tgz#d7860826b258557510dac10680abea5ca23cf650"
   dependencies:
     react-icon-base "2.1.0"
+
+react-loading-image@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-loading-image/-/react-loading-image-0.4.0.tgz#53a6fa6c93f38cdcf4f2a016a20d49f9a6a3fcf2"
 
 react-resizable@^1.7.5:
   version "1.7.5"

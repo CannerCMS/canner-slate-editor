@@ -24,6 +24,10 @@ export const DEFAULT_RULES = [
   blockRules('blockquote', BLOCKS.BLOCKQUOTE),
   blockRules('h1', BLOCKS.HEADING_1),
   blockRules('h2', BLOCKS.HEADING_2),
+  blockRules('h3', BLOCKS.HEADING_3),
+  blockRules('h4', BLOCKS.HEADING_4),
+  blockRules('h5', BLOCKS.HEADING_5),
+  blockRules('h6', BLOCKS.HEADING_6),
   blockRules('ul', BLOCKS.UL_LIST),
   blockRules('ol', BLOCKS.OL_LIST),
   blockRules('li', BLOCKS.LIST_ITEM),
@@ -47,5 +51,6 @@ export const DEFAULT_RULES = [
   emojiRules(),
 
   // some void node types that generate from 'markup-it'
-  voidNode('unstyled')
+  voidNode('unstyled'),
+  voidNode('html')
 ]

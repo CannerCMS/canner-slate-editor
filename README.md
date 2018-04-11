@@ -11,7 +11,7 @@
 
 Live demo: https://canner.github.io/slate-editor-icons/
 
-![Demo](./docs/demo.png)
+![Demo](https://raw.githubusercontent.com/Canner/slate-editor-icons/master/docs/demo.png)
 
 
 ## Packages
@@ -109,12 +109,6 @@ The best explanation is a simple example: https://github.com/Canner/slate-editor
 ## Icon and selectors' props
 
 All icons must passed these two props to ensure working properly.
-
-| **props** | **type** | **required** | **default** | **description**  |
-|-----------|----------|--------------|-------------|------------------|
-| type     | string   | false        | each icons are different  | customized block/mark types |
-| change     | object   | true        | null          | changes to value |
-| onChange  | func   | true         | null         | onChange function usually `change => this.setState({value})` to update slate state  |
 
 ## Start example server
 

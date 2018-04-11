@@ -63,8 +63,8 @@ export default class ImageInline extends React.Component<IconProps, {isShow: boo
       const width = image.width;
       let ratio;
 
-      if (height > 400) {
-        ratio = height / 400;
+      if (width > 500) {
+        ratio = width / 500;
       }
 
       onChange(
