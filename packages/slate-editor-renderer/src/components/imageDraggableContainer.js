@@ -1,14 +1,19 @@
 // @flow
 
-import * as React from 'react';
-import type {Change} from 'slate';
-import type {nodeProps} from './type';
-import inlineAddData from '@canner/slate-helper-inline-adddata';
+import * as React from "react";
+import type { Change } from "slate";
+import type { nodeProps } from "./type";
+import inlineAddData from "@canner/slate-helper-inline-adddata";
 
-import {Resizable} from 'react-resizable';
-import FaTrashO from 'react-icons/lib/fa/trash-o';
-import {ImageNodeInActive, ImageNodeActive, ImageContiner,
-  Toolbar, ToolbarItem} from './image';
+import { Resizable } from "react-resizable";
+import FaTrashO from "react-icons/lib/fa/trash-o";
+import {
+  ImageNodeInActive,
+  ImageNodeActive,
+  ImageContiner,
+  Toolbar,
+  ToolbarItem
+} from "./image";
 
 type Props = nodeProps & {
   change: Change,
@@ -20,8 +25,10 @@ type State = {
   width: ?number,
   height: ?number
 };
-export default class ImageDraggableContainer extends React.Component<Props, State> {
-
+export default class ImageDraggableContainer extends React.Component<
+  Props,
+  State
+> {
   constructor(props) {
     super(props);
 
@@ -36,16 +43,18 @@ export default class ImageDraggableContainer extends React.Component<Props, Stat
   }
 
   onResizeStop(e, data) {
-    const {onChange, state} = this.props.editor;
-    const {value} = state;
-    const {width, height} = data.size
-    onChange(inlineAddData(value.change(), {
-      data: {width, height}
-    }));
+    const { onChange, state } = this.props.editor;
+    const { value } = state;
+    const { width, height } = data.size;
+    onChange(
+      inlineAddData(value.change(), {
+        data: { width, height }
+      })
+    );
   }
 
   onResize(e, data) {
-    const {width, height} = data.size;
+    const { width, height } = data.size;
     this.setState({
       width,
       height
@@ -53,16 +62,24 @@ export default class ImageDraggableContainer extends React.Component<Props, Stat
   }
 
   remove() {
-    const {editor, node} = this.props;
-    const {value} = editor.state;
-    const newChange = value.change()
-      .removeNodeByKey(node.key);
+    const { editor, node } = this.props;
+    const { value } = editor.state;
+    const newChange = value.change().removeNodeByKey(node.key);
 
     editor.onChange(newChange);
   }
 
   render() {
-    const {node, attributes, children, readOnly, isSelected, getSrc, textAlign, paddingLeft} = this.props;
+    const {
+      node,
+      attributes,
+      children,
+      readOnly,
+      isSelected,
+      getSrc,
+      textAlign,
+      paddingLeft
+    } = this.props;
     const align = textAlign(node);
     const indent = paddingLeft(node);
     const src = getSrc(node);
@@ -74,22 +91,15 @@ export default class ImageDraggableContainer extends React.Component<Props, Stat
       ratio = width / 500;
     }
 
-    width = ratio ? (width / ratio) : width;
-    height = ratio ? (height / ratio) : height;
+    width = ratio ? width / ratio : width;
+    height = ratio ? height / ratio : height;
 
     if (readOnly) {
       // if editor is readOnly
       return (
-        <ImageContiner
-          align={align}
-          indent={indent}
-          data-slate-type="image">
-          <ImageNodeInActive
-            width={width}
-            height={height}>
-            <img
-              {...attributes}
-              src={src}/>
+        <ImageContiner align={align} indent={indent} data-slate-type="image">
+          <ImageNodeInActive width={width} height={height}>
+            <img {...attributes} src={src} />
             {children}
           </ImageNodeInActive>
         </ImageContiner>
@@ -97,10 +107,7 @@ export default class ImageDraggableContainer extends React.Component<Props, Stat
     }
 
     return (
-      <ImageContiner
-        align={align}
-        indent={indent}
-        data-slate-type="image">
+      <ImageContiner align={align} indent={indent} data-slate-type="image">
         <Resizable
           handleSize={[20, 20]}
           lockAspectRatio
@@ -109,30 +116,29 @@ export default class ImageDraggableContainer extends React.Component<Props, Stat
           onResize={this.onResize}
           onResizeStop={this.onResizeStop}
           width={width + 10}
-          height={height + 10}>
+          height={height + 10}
+        >
           {isSelected ? (
             <ImageNodeActive
               width={width + 10}
               height={height + 10}
-              align={align}>
+              align={align}
+            >
               <Toolbar>
                 <ToolbarItem>
-                  <FaTrashO onClick={this.remove}/>
+                  <FaTrashO onClick={this.remove} />
                 </ToolbarItem>
               </Toolbar>
-              <img
-                {...attributes}
-                src={src}/>
+              <img {...attributes} src={src} />
               {children}
             </ImageNodeActive>
           ) : (
             <ImageNodeInActive
               width={width + 10}
               height={height + 10}
-              align={align}>
-              <img
-                {...attributes}
-                src={src}/>
+              align={align}
+            >
+              <img {...attributes} src={src} />
               {children}
             </ImageNodeInActive>
           )}

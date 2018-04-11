@@ -6,10 +6,10 @@ export const Alert = styled.span`
   background-color: #fff1f0;
   font-size: 14px;
   line-height: 1.5;
-  color: rgba(0,0,0,.65);
+  color: rgba(0, 0, 0, 0.65);
   border-radius: 4px;
   padding: 8px 15px;
-`
+`;
 
 export const ImageContiner = styled.span`
   display: flex;
