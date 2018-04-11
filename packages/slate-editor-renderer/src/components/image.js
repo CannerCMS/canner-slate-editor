@@ -23,11 +23,11 @@ export const ImageNodeShared = styled.span`
   iframe {
     position: absolute;
     border: 0px;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    pointer-events: "none";
+    top: 5px;
+    left: 5px;
+    max-width: calc(100% - 10px);
+    width: ${props => props.width - 14}px;
+    height: ${props => props.height - 17}px;
   }
 `;
 
@@ -43,8 +43,8 @@ export const Toolbar = styled.span`
   z-index: 1000;
   display: block;
   position: absolute;
-  right: 0px;
-  top: 0px;
+  right: 10px;
+  top: 10px;
   z-index: 100;
 `;
 

@@ -136,7 +136,6 @@ class VideoNode extends React.Component<Props> {
               {...attributes}
               src={link}/>
             {children}
-            {children}
           </ImageNodeInActive>
         </ImageContiner>
       );
@@ -153,12 +152,12 @@ class VideoNode extends React.Component<Props> {
           maxConstraints={[700, 500]}
           onResize={this.onResize}
           onResizeStop={this.onResizeStop}
-          width={width + 20}
-          height={height + 20}>
+          width={width + 10}
+          height={height + 10}>
           {isSelected ? (
             <ImageNodeActive
-              width={width}
-              height={height}
+              width={width + 10}
+              height={height + 10}
               align={align}
               indent={indent}>
               <Toolbar>
@@ -169,7 +168,6 @@ class VideoNode extends React.Component<Props> {
                   <FaEdit onClick={this.edit}/>
                 </ToolbarItem>
               </Toolbar>
-              
               <iframe
                 {...attributes}
                 style={{pointerEvents: 'none'}}
@@ -178,12 +176,14 @@ class VideoNode extends React.Component<Props> {
             </ImageNodeActive>
           ) : (
             <ImageNodeInActive
-              width={width}
-              height={height}
+              width={width + 10}
+              height={height + 10}
               align={align}
               indent={indent}>
               <iframe
                 {...attributes}
+                width={width}
+                height={height}
                 style={{pointerEvents: 'none'}}
                 src={link}/>
               {children}

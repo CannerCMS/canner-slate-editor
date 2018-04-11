@@ -102,18 +102,18 @@ class ImageNode extends React.Component<Props> {
         indent={indent}
         data-slate-type="image">
         <Resizable
-          // handleSize={[20, 20]}
+          handleSize={[20, 20]}
           lockAspectRatio
           minConstraints={[200, 200]}
           maxConstraints={[700, 700]}
           onResize={this.onResize}
           onResizeStop={this.onResizeStop}
-          width={width + 20}
-          height={height + 20}>
+          width={width + 10}
+          height={height + 10}>
           {isSelected ? (
             <ImageNodeActive
-              width={width}
-              height={height}
+              width={width + 10}
+              height={height + 10}
               align={align}>
               <Toolbar>
                 <ToolbarItem>
@@ -127,8 +127,8 @@ class ImageNode extends React.Component<Props> {
             </ImageNodeActive>
           ) : (
             <ImageNodeInActive
-              width={width}
-              height={height}
+              width={width + 10}
+              height={height + 10}
               align={align}>
               <img
                 {...attributes}
