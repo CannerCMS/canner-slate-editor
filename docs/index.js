@@ -14,7 +14,7 @@ import CodeBlock, {CodeBlockPlugin} from 'packages/slate-icon-codeblock';
 import Emoji, {EmojiPlugin} from 'packages/slate-icon-emoji';
 import FontBgColor, {FontBgColorPlugin} from 'packages/slate-icon-fontBgColor';
 import FontColor, {FontColorPlugin} from 'packages/slate-icon-fontColor';
-import {Header1, Header2, HeaderOnePlugin, HeaderTwoPlugin} from 'packages/slate-icon-header';
+import {Header1, Header2, HeaderOnePlugin, HeaderTwoPlugin, HeaderThreePlugin} from 'packages/slate-icon-header';
 import Hr, {HrPlugin} from 'packages/slate-icon-hr';
 import Image, {ImagePlugin} from 'packages/slate-icon-image';
 import {Indent, Outdent} from 'packages/slate-icon-indent';
@@ -122,6 +122,7 @@ const plugins = [
   EmojiPlugin(),
   HeaderOnePlugin(),
   HeaderTwoPlugin(),
+  HeaderThreePlugin(),
   RedoPlugin(),
   HrPlugin(),
   ImagePlugin(),

@@ -32,7 +32,8 @@ const plugin = (type, tagName, hotkey) => {
             .splitBlock()
             .setBlock(PARAGRAPH);
       } else if (isHotkey(hotkey, e)) {
-        return change.call(applyChange, type);
+        change.call(applyChange, type);
+        return false;
       }
     }
   }
