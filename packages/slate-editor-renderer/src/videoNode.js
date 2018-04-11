@@ -4,7 +4,7 @@ import type {Change} from 'slate';
 import type {nodeProps} from './type';
 import blockAddData from '@canner/slate-helper-block-adddata';
 
-import {ResizableBox} from 'react-resizable';
+import {Resizable} from 'react-resizable';
 import FaArrowUp from 'react-icons/lib/fa/arrow-up';
 import FaArrowDown from 'react-icons/lib/fa/arrow-down';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
@@ -153,7 +153,7 @@ class VideoNode extends React.Component<Props> {
       <ImageContiner
         align={align}
         data-slate-type="video">
-        <ResizableBox
+        <Resizable
           lockAspectRatio
           minConstraints={[256, 182]}
           maxConstraints={[700, 500]}
@@ -201,7 +201,7 @@ class VideoNode extends React.Component<Props> {
               {children}
             </ImageNodeInActive>
           )}
-        </ResizableBox>
+        </Resizable>
         <VideoModal
           onChange={editor.onChange}
           change={editor.state.value.change()}

@@ -4,7 +4,7 @@ import type {Change} from 'slate';
 import type {nodeProps} from './type';
 import blockAddData from '@canner/slate-helper-block-adddata';
 
-import {ResizableBox} from 'react-resizable';
+import {Resizable} from 'react-resizable';
 import FaArrowUp from 'react-icons/lib/fa/arrow-up';
 import FaArrowDown from 'react-icons/lib/fa/arrow-down';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
@@ -125,7 +125,8 @@ class ImageNode extends React.Component<Props> {
         align={align}
         indent={indent}
         data-slate-type="image">
-        <ResizableBox
+        <Resizable
+          // handleSize={[20, 20]}
           lockAspectRatio
           minConstraints={[200, 200]}
           maxConstraints={[700, 700]}
@@ -166,7 +167,7 @@ class ImageNode extends React.Component<Props> {
               {children}
             </ImageNodeInActive>
           )}
-        </ResizableBox>
+        </Resizable>
       </ImageContiner>
     );
   }

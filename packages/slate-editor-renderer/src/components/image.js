@@ -1,7 +1,7 @@
 // @flow
 import styled from "styled-components";
 
-export const ImageContiner = styled.div`
+export const ImageContiner = styled.span`
   display: flex;
   margin-left: ${props => 3 * (props.indent || 0)}em;
   justify-content: ${props => {
@@ -11,7 +11,7 @@ export const ImageContiner = styled.div`
   }};
 `;
 
-export const ImageNodeShared = styled.div`
+export const ImageNodeShared = styled.span`
   width: ${props => props.width}px;
   height: ${props => props.height}px;
 
@@ -42,7 +42,7 @@ export const ImageNodeActive = ImageNodeShared.extend`
   border: 2px solid #ef6942;
 `;
 
-export const Overlay = styled.div`
+export const Overlay = styled.span`
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.2);
   width: 100%;
@@ -53,20 +53,21 @@ export const Overlay = styled.div`
   left: 0px;
 `;
 
-export const Toolbar = styled.div`
+export const Toolbar = styled.span`
   z-index: 1000;
   display: block;
   position: absolute;
-  left: 0px;
+  right: 0px;
   top: 0px;
   z-index: 100;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 0 0 3px 0;
 `;
 
-export const ToolbarItem = styled.div`
+export const ToolbarItem = styled.span`
   display: inline-block;
-  color: #333;
+  color: #FFF;
   padding: 3px;
-  font-size: 20px;
+  margin: 3px;
+  background-image: linear-gradient(180deg, #464646, #151515);
+  font-size: 16px;
+  border-radius: 5px;
 `;
