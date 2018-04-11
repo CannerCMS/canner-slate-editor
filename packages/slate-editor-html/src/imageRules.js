@@ -4,7 +4,7 @@ import styled from "styled-components";
 import {IMAGE} from '@canner/slate-constant/lib/blocks';
 import {nodeAttrs} from '@canner/slate-icon-shared';
 
-export const ImageContiner = styled.div`
+export const ImageContiner = styled.span`
   display: flex;
   justify-content: ${props => {
     if (props.align === "center") return "center";

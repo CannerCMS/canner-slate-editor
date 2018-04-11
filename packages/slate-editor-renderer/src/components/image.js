@@ -64,7 +64,7 @@ export const Toolbar = styled.span`
 
 export const ToolbarItem = styled.span`
   display: inline-block;
-  color: #FFF;
+  color: #fff;
   padding: 3px;
   margin: 3px;
   background-image: linear-gradient(180deg, #464646, #151515);

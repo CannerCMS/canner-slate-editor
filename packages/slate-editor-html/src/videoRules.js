@@ -3,7 +3,7 @@ import React from 'react';
 import styled from "styled-components";
 import {nodeAttrs} from '@canner/slate-icon-shared';
 
-export const ImageContiner = styled.div`
+export const ImageContiner = styled.span`
   display: flex;
   justify-content: ${props => {
     if (props.align === "center") return "center";
