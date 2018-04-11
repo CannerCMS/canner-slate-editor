@@ -19,10 +19,6 @@ export const ImageNodeShared = styled.span`
   position: relative;
   margin: 10px;
 
-  .overlay {
-    z-index: 10;
-  }
-
   img,
   iframe {
     position: absolute;
@@ -31,6 +27,7 @@ export const ImageNodeShared = styled.span`
     left: 0px;
     width: 100%;
     height: 100%;
+    pointer-events: 'none';
   }
 `;
 
@@ -40,17 +37,6 @@ export const ImageNodeInActive = ImageNodeShared.extend`
 
 export const ImageNodeActive = ImageNodeShared.extend`
   border: 2px solid #ef6942;
-`;
-
-export const Overlay = styled.span`
-  z-index: 100;
-  background-color: rgba(0, 0, 0, 0.2);
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  border: 0px;
-  top: 0px;
-  left: 0px;
 `;
 
 export const Toolbar = styled.span`

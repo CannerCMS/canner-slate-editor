@@ -5,11 +5,9 @@ import type {nodeProps} from './type';
 import inlineAddData from '@canner/slate-helper-inline-adddata';
 
 import {Resizable} from 'react-resizable';
-import FaArrowUp from 'react-icons/lib/fa/arrow-up';
-import FaArrowDown from 'react-icons/lib/fa/arrow-down';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
 import {ImageNodeInActive, ImageNodeActive, ImageContiner,
-  Toolbar, ToolbarItem, Overlay} from './components/image';
+  Toolbar, ToolbarItem} from './components/image';
 
 import 'react-resizable/css/styles.css';
 
@@ -36,8 +34,6 @@ class ImageNode extends React.Component<Props> {
 
     this.onResizeStop = this.onResizeStop.bind(this);
     this.onResize = this.onResize.bind(this);
-    this.moveUp = this.moveUp.bind(this);
-    this.moveDown = this.moveDown.bind(this);
     this.remove = this.remove.bind(this);
 
     this.state = {
@@ -62,26 +58,6 @@ class ImageNode extends React.Component<Props> {
       width,
       height
     });
-  }
-
-  moveUp() {
-    const {node, editor, parent} = this.props;
-    const {value} = editor.state;
-    const index = parent.nodes.indexOf(node) - 1;
-    let newChange = value.change()
-      .moveNodeByKey(node.key, parent.key, index === -1 ? 0 : index);
-
-    editor.onChange(newChange);
-  }
-
-  moveDown() {
-    const {node, editor, parent} = this.props;
-    const {value} = editor.state;
-    const index = parent.nodes.indexOf(node) + 1;
-    let newChange = value.change()
-      .moveNodeByKey(node.key, parent.key, index > parent.nodes.count() ? parent.nodes.count() : index)
-
-    editor.onChange(newChange);
   }
 
   remove() {
@@ -139,14 +115,7 @@ class ImageNode extends React.Component<Props> {
               width={width}
               height={height}
               align={align}>
-              <Overlay/>
               <Toolbar>
-                <ToolbarItem>
-                  <FaArrowUp onClick={this.moveUp}/>
-                </ToolbarItem>
-                <ToolbarItem>
-                  <FaArrowDown onClick={this.moveDown}/>
-                </ToolbarItem>
                 <ToolbarItem>
                   <FaTrashO onClick={this.remove}/>
                 </ToolbarItem>
