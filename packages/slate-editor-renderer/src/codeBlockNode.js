@@ -2,7 +2,6 @@
 import * as React from 'react';
 import type {nodeProps} from './type';
 import styled from 'styled-components';
-import {Icon, Dropdown} from 'antd';
 
 const CodeblockContainer = styled.div`
   position: relative;
