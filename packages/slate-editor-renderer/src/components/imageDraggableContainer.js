@@ -46,9 +46,11 @@ export default class ImageDraggableContainer extends React.Component<
     const { editor } = this.props;
     const { width, height } = data.size;
 
-    editor.change(change => change.call(inlineAddData, {
-      data: { width, height }
-    }));
+    editor.change(change =>
+      change.call(inlineAddData, {
+        data: { width, height }
+      })
+    );
   }
 
   onResize(e, data) {
@@ -122,7 +124,8 @@ export default class ImageDraggableContainer extends React.Component<
               <ToolbarItem>
                 <FaTrashO
                   onMouseDown={e => e.preventDefault()}
-                  onClick={this.remove} />
+                  onClick={this.remove}
+                />
               </ToolbarItem>
             </Toolbar>
             <img {...attributes} src={src} />

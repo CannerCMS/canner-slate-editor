@@ -1,13 +1,13 @@
 // @flow
 
-import * as React from 'react';
-import type {Change} from 'slate';
-import type {nodeProps} from '../type';
+import * as React from "react";
+import type { Change } from "slate";
+import type { nodeProps } from "../type";
 
-import QuillIcons from 'quill-icons';
+import QuillIcons from "quill-icons";
 import FaTrashO from "react-icons/lib/fa/trash-o";
-import styled from 'styled-components';
-import EditTable from 'slate-edit-table';
+import styled from "styled-components";
+import EditTable from "slate-edit-table";
 
 type Props = nodeProps & {
   change: Change,
@@ -18,7 +18,7 @@ type Props = nodeProps & {
 const TableActiveContainer = styled.div`
   position: relative;
   border: 2px solid #ef6942;
-`
+`;
 
 export const Toolbar = styled.span`
   z-index: 1000;
@@ -40,19 +40,19 @@ export const ToolbarItem = styled.span`
   cursor: pointer;
 
   .__table-quill-class {
-    margin: 2px
+    margin: 2px;
   }
 
   .__table-quill-fa-class {
-    margin: 3px
+    margin: 3px;
   }
 
   .__table-quill-fill {
-    fill: #FFF;
+    fill: #fff;
   }
 
   .__table-quill-transparent {
-    fill: #CCC;
+    fill: #ccc;
   }
 
   .__table-quill-row-transparent {
@@ -60,7 +60,7 @@ export const ToolbarItem = styled.span`
   }
 
   .__table-quill-stroke {
-    stroke: #FFF;
+    stroke: #fff;
   }
 `;
 
@@ -73,38 +73,38 @@ export default class Table extends React.Component<Props> {
 
   onRemove = () => {
     const { change } = this.props.editor;
-    change(this.editTable.changes.removeTable)
-  }
+    change(this.editTable.changes.removeTable);
+  };
 
   onRemoveColumn = () => {
     const { change } = this.props.editor;
-    change(this.editTable.changes.removeColumn)
-  }
+    change(this.editTable.changes.removeColumn);
+  };
 
   onRemoveRow = () => {
     const { change } = this.props.editor;
-    change(this.editTable.changes.removeRow)
-  }
+    change(this.editTable.changes.removeRow);
+  };
 
   onInsertColumn = () => {
     const { change } = this.props.editor;
-    change(this.editTable.changes.insertColumn)
-  }
+    change(this.editTable.changes.insertColumn);
+  };
 
   onInsertRow = () => {
     const { change } = this.props.editor;
-    change(this.editTable.changes.insertRow)
-  }
+    change(this.editTable.changes.insertRow);
+  };
 
   render() {
-    const {attributes, children, isSelected, readOnly} = this.props;
+    const { attributes, children, isSelected, readOnly } = this.props;
 
     if (!isSelected || readOnly) {
       return (
         <table>
           <tbody {...attributes}>{children}</tbody>
         </table>
-      )
+      );
     }
 
     return (
@@ -116,7 +116,8 @@ export default class Table extends React.Component<Props> {
               onClick={this.onRemoveColumn}
               className="__table-quill-class"
               fillClassName="__table-quill-fill"
-              transparentClassName="__table-quill-transparent"/>
+              transparentClassName="__table-quill-transparent"
+            />
           </ToolbarItem>
           <ToolbarItem>
             <QuillIcons.TableDeleteRows
@@ -125,7 +126,8 @@ export default class Table extends React.Component<Props> {
               className="__table-quill-class"
               strokeClassName="__table-quill-stroke"
               fillClassName="__table-quill-fill"
-              transparentClassName="__table-quill-row-transparent"/>
+              transparentClassName="__table-quill-row-transparent"
+            />
           </ToolbarItem>
           <ToolbarItem>
             <QuillIcons.TableInsertColumns
@@ -133,7 +135,8 @@ export default class Table extends React.Component<Props> {
               onClick={this.onInsertColumn}
               className="__table-quill-class"
               fillClassName="__table-quill-fill"
-              transparentClassName="__table-quill-transparent"/>
+              transparentClassName="__table-quill-transparent"
+            />
           </ToolbarItem>
           <ToolbarItem>
             <QuillIcons.TableInsertRows
@@ -142,13 +145,15 @@ export default class Table extends React.Component<Props> {
               className="__table-quill-class"
               strokeClassName="__table-quill-stroke"
               fillClassName="__table-quill-fill"
-              transparentClassName="__table-quill-row-transparent"/>
+              transparentClassName="__table-quill-row-transparent"
+            />
           </ToolbarItem>
           <ToolbarItem>
             <FaTrashO
               onMouseDown={e => e.preventDefault()}
               onClick={this.onRemove}
-              className="__table-quill-fa-class"/>
+              className="__table-quill-fa-class"
+            />
           </ToolbarItem>
         </Toolbar>
         <table>
