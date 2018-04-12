@@ -4,6 +4,7 @@ import * as React from "react";
 import type { Change } from "slate";
 import type { nodeProps } from "../type";
 
+import {Tooltip} from 'antd';
 import QuillIcons from "quill-icons";
 import FaTrashO from "react-icons/lib/fa/trash-o";
 import styled from "styled-components";
@@ -111,49 +112,59 @@ export default class Table extends React.Component<Props> {
       <TableActiveContainer>
         <Toolbar>
           <ToolbarItem>
-            <QuillIcons.TableDeleteColumns
-              onMouseDown={e => e.preventDefault()}
-              onClick={this.onRemoveColumn}
-              className="__table-quill-class"
-              fillClassName="__table-quill-fill"
-              transparentClassName="__table-quill-transparent"
-            />
+            <Tooltip title="Remove column">
+              <QuillIcons.TableDeleteColumns
+                onMouseDown={e => e.preventDefault()}
+                onClick={this.onRemoveColumn}
+                className="__table-quill-class"
+                fillClassName="__table-quill-fill"
+                transparentClassName="__table-quill-transparent"
+              />
+            </Tooltip>
           </ToolbarItem>
           <ToolbarItem>
-            <QuillIcons.TableDeleteRows
-              onMouseDown={e => e.preventDefault()}
-              onClick={this.onRemoveRow}
-              className="__table-quill-class"
-              strokeClassName="__table-quill-stroke"
-              fillClassName="__table-quill-fill"
-              transparentClassName="__table-quill-row-transparent"
-            />
+            <Tooltip title="Remove row">
+              <QuillIcons.TableDeleteRows
+                onMouseDown={e => e.preventDefault()}
+                onClick={this.onRemoveRow}
+                className="__table-quill-class"
+                strokeClassName="__table-quill-stroke"
+                fillClassName="__table-quill-fill"
+                transparentClassName="__table-quill-row-transparent"
+              />
+            </Tooltip>
           </ToolbarItem>
           <ToolbarItem>
-            <QuillIcons.TableInsertColumns
-              onMouseDown={e => e.preventDefault()}
-              onClick={this.onInsertColumn}
-              className="__table-quill-class"
-              fillClassName="__table-quill-fill"
-              transparentClassName="__table-quill-transparent"
-            />
+            <Tooltip title="Insert column">
+              <QuillIcons.TableInsertColumns
+                onMouseDown={e => e.preventDefault()}
+                onClick={this.onInsertColumn}
+                className="__table-quill-class"
+                fillClassName="__table-quill-fill"
+                transparentClassName="__table-quill-transparent"
+              />
+            </Tooltip>
           </ToolbarItem>
           <ToolbarItem>
-            <QuillIcons.TableInsertRows
-              onMouseDown={e => e.preventDefault()}
-              onClick={this.onInsertRow}
-              className="__table-quill-class"
-              strokeClassName="__table-quill-stroke"
-              fillClassName="__table-quill-fill"
-              transparentClassName="__table-quill-row-transparent"
-            />
+            <Tooltip title="Insert row">
+              <QuillIcons.TableInsertRows
+                onMouseDown={e => e.preventDefault()}
+                onClick={this.onInsertRow}
+                className="__table-quill-class"
+                strokeClassName="__table-quill-stroke"
+                fillClassName="__table-quill-fill"
+                transparentClassName="__table-quill-row-transparent"
+              />
+            </Tooltip>
           </ToolbarItem>
           <ToolbarItem>
-            <FaTrashO
-              onMouseDown={e => e.preventDefault()}
-              onClick={this.onRemove}
-              className="__table-quill-fa-class"
-            />
+            <Tooltip title="Remove table">
+              <FaTrashO
+                onMouseDown={e => e.preventDefault()}
+                onClick={this.onRemove}
+                className="__table-quill-fa-class"
+              />
+            </Tooltip>
           </ToolbarItem>
         </Toolbar>
         <table>

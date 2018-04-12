@@ -3,8 +3,9 @@
 import * as React from "react";
 import type { Change } from "slate";
 import type { nodeProps } from "./type";
-import inlineAddData from "@canner/slate-helper-inline-adddata";
 
+import {Tooltip} from 'antd';
+import inlineAddData from "@canner/slate-helper-inline-adddata";
 import { Resizable } from "react-resizable";
 import FaTrashO from "react-icons/lib/fa/trash-o";
 import {
@@ -122,10 +123,12 @@ export default class ImageDraggableContainer extends React.Component<
           >
             <Toolbar>
               <ToolbarItem>
-                <FaTrashO
-                  onMouseDown={e => e.preventDefault()}
-                  onClick={this.remove}
-                />
+                <Tooltip title="Remove">
+                  <FaTrashO
+                    onMouseDown={e => e.preventDefault()}
+                    onClick={this.remove}
+                  />
+                </Tooltip>
               </ToolbarItem>
             </Toolbar>
             <img {...attributes} src={src} />
