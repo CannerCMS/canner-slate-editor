@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-editor-renderer",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "Renderers for slate nodes and marks",
   "main": "lib/index.js",
   "scripts": {
@@ -27,10 +27,10 @@
     "emoji-mart": "^2.5.0",
     "js-video-url-parser": "^0.2.7",
     "lodash.mapvalues": "^4.6.0",
-    "react-icons": "^2.2.7",
-    "react-resizable": "^1.7.5",
-    "react-loading-image": "^0.4.0",
     "quill-icons": "^0.6.0",
+    "react-icons": "^2.2.7",
+    "react-loading-image": "^0.4.0",
+    "react-resizable": "^1.7.5",
     "slate-edit-table": "^0.15.0-alpha.4"
   }
 }

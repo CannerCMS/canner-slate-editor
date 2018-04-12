@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-indent",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "Slate icon for indent and outdent",
   "main": "lib/index.js",
   "scripts": {
@@ -27,6 +27,6 @@
     }
   },
   "dependencies": {
-    "@canner/slate-icon-shared": "^1.1.1"
+    "@canner/slate-icon-shared": "^1.2.1"
   }
 }
