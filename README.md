@@ -41,6 +41,7 @@ Supported features:
 - [Undo - @canner/slate-icon-undo](./packages/slate-icon-undo)
 - [Redo - @canner/slate-icon-redo](./packages/slate-icon-redo)
 - [Video - @canner/slate-icon-video](./packages/slate-icon-video)
+- [Table - @canner/slate-icon-table](./packages/slate-icon-table)
 
 Supported selectors:
 
