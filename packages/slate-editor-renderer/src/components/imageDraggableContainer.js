@@ -4,7 +4,7 @@ import * as React from "react";
 import type { Change } from "slate";
 import type { nodeProps } from "./type";
 
-import {Tooltip} from 'antd';
+import { Tooltip } from "antd";
 import inlineAddData from "@canner/slate-helper-inline-adddata";
 import { Resizable } from "react-resizable";
 import FaTrashO from "react-icons/lib/fa/trash-o";
