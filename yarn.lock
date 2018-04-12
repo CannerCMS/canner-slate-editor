@@ -8046,6 +8046,10 @@ slate-edit-list@^0.11.2:
   version "0.11.2"
   resolved "https://registry.yarnpkg.com/slate-edit-list/-/slate-edit-list-0.11.2.tgz#c67b961d98435f9f7747d20b870cbc51d25af7a8"
 
+slate-edit-table@^0.15.0-alpha.4:
+  version "0.15.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/slate-edit-table/-/slate-edit-table-0.15.0-alpha.4.tgz#d34362738ab30b980f3bd777ed9e2b8bb8499a6c"
+
 slate-html-serializer@^0.5.8:
   version "0.5.8"
   resolved "https://registry.yarnpkg.com/slate-html-serializer/-/slate-html-serializer-0.5.8.tgz#91ac4005fb364ef23dd3b4d3da8d245d8a2c5cc8"

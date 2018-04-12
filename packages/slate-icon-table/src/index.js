@@ -20,7 +20,7 @@ export const TablePlugin = (opt) => {
   return {
     renderNode: (props) => {
       if (props.node.type === options.typeTable) 
-        return tableNode()(props);
+        return tableNode(options)(props);
       else if (props.node.type === options.typeRow)
         return tableRowNode()(props);
       else if (props.node.type === options.typeCell)

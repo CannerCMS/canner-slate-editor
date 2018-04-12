@@ -43,6 +43,7 @@ import {ParagraphPlugin} from 'packages/slate-icon-shared';
 import EditPrism from 'slate-prism'
 import EditCode from 'slate-edit-code'
 import TrailingBlock from 'slate-trailing-block'
+import EditTable from 'slate-edit-table'
 
 import Prism from 'prismjs';
 import "prismjs/themes/prism.css"
@@ -103,6 +104,7 @@ const plugins = [
     onlyIn: node => node.type === 'code_block'
   }),
   TrailingBlock(),
+  EditTable(),
   EditList(DEFAULTLIST),
   EditBlockquote(DEFAULTBLOCKQUOTE),
   AlignCenterPlugin(),

@@ -63,12 +63,11 @@ class VideoNode extends React.Component<Props> {
   }
 
   onResizeStop(e, data) {
-    const {onChange, state} = this.props.editor;
-    const {value} = state;
-    const {width, height} = data.size
+    const { editor } = this.props;
+    const { width, height } = data.size;
 
-    onChange(inlineAddData(value.change(), {
-      data: {width, height}
+    editor.change(change => change.call(inlineAddData, {
+      data: { width, height }
     }));
   }
 
@@ -81,12 +80,8 @@ class VideoNode extends React.Component<Props> {
   }
 
   remove() {
-    const {editor, node} = this.props;
-    const {value} = editor.state;
-    const newChange = value.change()
-      .removeNodeByKey(node.key);
-
-    editor.onChange(newChange);
+    const { editor, node } = this.props;
+    editor.change(change => change.removeNodeByKey(node.key));
   }
 
   edit(e) {
@@ -162,16 +157,22 @@ class VideoNode extends React.Component<Props> {
             indent={indent}>
             <Toolbar>
               <ToolbarItem>
-                <FaExternal onClick={() => {
-                  const win = window.open(link, '_blank');
-                  win.focus();
-                }}/>
+                <FaExternal
+                  onMouseDown={e => e.preventDefault()}
+                  onClick={() => {
+                    const win = window.open(link, '_blank');
+                    win.focus();
+                  }}/>
               </ToolbarItem>
               <ToolbarItem>
-                <FaEdit onClick={this.edit}/>
+                <FaEdit
+                  onMouseDown={e => e.preventDefault()}
+                  onClick={this.edit}/>
               </ToolbarItem>
               <ToolbarItem>
-                <FaTrashO onClick={this.remove}/>
+                <FaTrashO
+                  onMouseDown={e => e.preventDefault()}
+                  onClick={this.remove}/>
               </ToolbarItem>
             </Toolbar>
             <iframe

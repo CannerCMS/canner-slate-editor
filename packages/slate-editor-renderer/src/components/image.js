@@ -59,11 +59,12 @@ export const Toolbar = styled.span`
 `;
 
 export const ToolbarItem = styled.span`
-  display: inline-block;
+  display: inline-flex;
   color: #fff;
-  padding: 3px;
+  padding: 6px;
   margin: 3px;
   background-image: linear-gradient(180deg, #464646, #151515);
   font-size: 16px;
   border-radius: 5px;
+  cursor: pointer;
 `;
