@@ -2,6 +2,7 @@
 import * as React from 'react';
 import type {nodeProps} from './type';
 import styled from 'styled-components';
+import {Icon, Dropdown} from 'antd';
 
 const CodeblockContainer = styled.div`
   position: relative;
@@ -9,12 +10,11 @@ const CodeblockContainer = styled.div`
 
 const CodeblockLang = styled.div`
   position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 10px;
+  right: 2px;
+  top: 2px;
+  font-size: 14px;
   padding: 4px;
-  background-color: #f5f2f0;
-  border: 1px solid #CCC;
+  background-color: #EEE;
   color: #555;
   border-radius: 3px;
   text-transform: uppercase;
@@ -25,9 +25,7 @@ export const codeBlockNode = (options) => {
     const syntax = options.getSyntax(node);
     return (
       <CodeblockContainer>
-        {syntax &&
-          <CodeblockLang contentEditable={false}>{syntax}</CodeblockLang>
-        }
+        <CodeblockLang contentEditable={false}>{syntax || 'TXT'}</CodeblockLang>
         <pre>
           <code {...attributes}>
             {children}
