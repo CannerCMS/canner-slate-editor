@@ -11,7 +11,7 @@ import Bold, {BoldPlugin} from 'packages/slate-icon-bold';
 import Clean, {CleanPlugin} from 'packages/slate-icon-clean';
 import Code, {CodePlugin} from 'packages/slate-icon-code';
 import CodeBlock, {CodeBlockPlugin} from 'packages/slate-icon-codeblock';
-import Emoji, {EmojiPlugin} from 'packages/slate-icon-emoji';
+// import Emoji, {EmojiPlugin} from 'packages/slate-icon-emoji';
 import FontBgColor, {FontBgColorPlugin} from 'packages/slate-icon-fontBgColor';
 import FontColor, {FontColorPlugin} from 'packages/slate-icon-fontColor';
 import {Header1, Header2, HeaderOnePlugin, HeaderTwoPlugin, HeaderThreePlugin} from 'packages/slate-icon-header';
@@ -19,6 +19,7 @@ import Hr, {HrPlugin} from 'packages/slate-icon-hr';
 import Image, {ImagePlugin} from 'packages/slate-icon-image';
 import {Indent, Outdent} from 'packages/slate-icon-indent';
 import Italic, {ItalicPlugin} from 'packages/slate-icon-italic';
+import Table, {TablePlugin} from 'packages/slate-icon-table';
 import Link, {LinkPlugin} from 'packages/slate-icon-link';
 import {OlList, UlList, ListPlugin} from 'packages/slate-icon-list';
 import StrikeThrough, {StrikeThroughPlugin} from 'packages/slate-icon-strikethrough';
@@ -72,7 +73,7 @@ const icons = [
   Clean,
   Code,
   CodeBlock,
-  Emoji,
+  // Emoji,
   FontBgColor,
   FontColor,
   Hr,
@@ -86,6 +87,7 @@ const icons = [
   Link,
   OlList,
   UlList,
+  Table,
   StrikeThrough,
   Underline, 
   Undo,
@@ -119,7 +121,8 @@ const plugins = [
   UnderlinePlugin(),
   FontSizePlugin(),
   LetterSpacingPlugin(),
-  EmojiPlugin(),
+  TablePlugin(),
+  // EmojiPlugin(),
   HeaderOnePlugin(),
   HeaderTwoPlugin(),
   HeaderThreePlugin(),
