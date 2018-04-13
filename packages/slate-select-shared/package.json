@@ -28,6 +28,7 @@
     "@canner/slate-helper-mark-removetype": "^0.1.2",
     "@canner/slate-util-get": "^0.1.2",
     "@canner/slate-util-have": "^0.1.2",
+    "quill-icons": "^0.6.0",
     "styled-components": "^3.2.3"
   }
 }

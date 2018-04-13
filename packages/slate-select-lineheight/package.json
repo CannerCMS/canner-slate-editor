@@ -19,10 +19,11 @@
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || 16.x",
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
-    "slate": ">=^0.33.0"
+    "slate": ">=^0.33.0",
+    "antd": ">=^3.3.x"
   },
   "dependencies": {
     "@canner/slate-select-shared": "^1.2.1",
-    "react-dropdown": "^1.4.0"
+    "@canner/slate-icon-shared": "^1.2.1"
   }
 }

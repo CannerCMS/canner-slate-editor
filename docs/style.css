@@ -78,9 +78,8 @@
 }
 
 .toolbar-select {
-  width: 150px;
-  height: 30px;
   display: inline-block;
+  margin-right: 3px;
 }
 
 .editor {

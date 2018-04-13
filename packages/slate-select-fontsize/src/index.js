@@ -1,7 +1,8 @@
 // @flow
 import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
-import Dropdown from 'react-dropdown';
+import {Dropdown, Menu} from 'antd';
+import ToolbarIcon from '@canner/slate-icon-shared';
 import {markAttrs} from '@canner/slate-icon-shared';
 import {FONTSIZE} from '@canner/slate-constant/lib/marks';
 import {SharedMarkSelectorDecoration} from '@canner/slate-select-shared';
@@ -25,19 +26,50 @@ export const FontSizePlugin = (opt) => {
 @SharedMarkSelectorDecoration(FONTSIZE)
 export default class fontSize extends React.Component<IconProps> {
   static defaultProps = {
-    options: [12, 16, 20, 24, 28, 32]
+    options: [12, 16, 20, 24, 28, 32],
+    displayType: 'button'
   }
 
   render() {
-    const {options, defaultValue, onChange} = this.props;
+    const {options, defaultValue, onChange, displayType, icon, ...rest} = this.props;
+    const opt = ['Default', ...options.map(opt => `${opt}px`)];
+
+    const menu = (
+      <Menu
+        onClick={({key}) => onChange({value: key})}>
+        {
+          opt.map(item => (
+            <Menu.Item
+              onMouseDown={e => e.preventDefault()}
+              key={item}>
+              {item === 'Default' ? 'Default' : `${item}`}
+            </Menu.Item>
+          ))
+        }
+      </Menu>
+    );
+
+    if (displayType === 'button') {
+      return (
+        <div {...rest}>
+          <Dropdown.Button overlay={menu}>
+            <b>Size:</b> {(defaultValue && `${defaultValue}`) || 'Default'}
+          </Dropdown.Button>
+        </div>
+      );
+    }
 
     return (
-      <Dropdown
-        options={['Default', ...options.map(opt => `${opt}px`)]}
-        value={defaultValue}
-        onChange={onChange}
-        placeholder="Font Size"
-        />
-    );
+      <Dropdown overlay={menu} trigger={['click']}>
+        <span>
+          <ToolbarIcon
+            type={'fontSize'}
+            icon={icon || 'Size'}
+            isActive={defaultValue || false}
+            {...rest}
+            />
+        </span>
+      </Dropdown>
+    )
   }
 }

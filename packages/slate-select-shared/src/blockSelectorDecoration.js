@@ -4,7 +4,6 @@ import type {IconProps} from './types';
 import blockAddData from '@canner/slate-helper-block-adddata';
 import clearDataKey from '@canner/slate-helper-block-cleardatabykey';
 import {haveDataKeyInSomeBlocks} from '@canner/slate-util-have';
-import CustomDropdownContainer from './dropdownContainer';
 
 export default (type: string) => (Selector: React.Element<*>) => {
   return class SharedSelector extends React.Component<IconProps> {
@@ -14,16 +13,16 @@ export default (type: string) => (Selector: React.Element<*>) => {
       this.typeName = this.props.type || type;
     }
 
-    onChange = (value) => {
+    onChange = ({value}) => {
       let {change, onChange} = this.props;
       this.setState({value});
   
       // if select `default` remove font size settings
-      if (value.label === 'Default') {
-        return onChange(clearDataKey(change, type))
+      if (value === 'Default') {
+        return onChange(clearDataKey(change, type).select())
       }
 
-      onChange(blockAddData(change, {data: {[type]: value.value}}));
+      onChange(blockAddData(change, {data: {[type]: value}}).select());
     }
 
     render() {
@@ -45,13 +44,12 @@ export default (type: string) => (Selector: React.Element<*>) => {
       }
 
       return (
-        <CustomDropdownContainer {...rest}>
-          <Selector
-            options={options}
-            defaultValue={defaultValue}
-            onChange={this.onChange}
+        <Selector
+          options={options}
+          defaultValue={defaultValue}
+          onChange={this.onChange}
+          {...rest}
           />
-        </CustomDropdownContainer>
       );
     }
   };

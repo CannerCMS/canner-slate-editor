@@ -63,8 +63,8 @@ import "./github-markdown.css";
 
 const selectors = [
   FontSize,
-  LetterSpacing,
-  LineHeight
+  LineHeight,
+  LetterSpacing
 ]
 
 const icons = [
@@ -181,7 +181,7 @@ class App extends React.Component {
       <Tabs>
         <TabPane tab="editor" key="editor">
           <Row>
-            <Col style={{borderRight: '1px solid #DDD', minHeight: '100vh'}}>
+            <Col style={{minHeight: '100vh'}}>
               <div className="toolbar">
                 <div>
                   {selectors.map((Type, i) => {
