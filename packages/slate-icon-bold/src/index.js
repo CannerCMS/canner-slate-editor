@@ -1,3 +1,4 @@
+// @flow
 import React, {Component} from 'react';
 import ToolbarIcon, {markDecorator, markPlugin} from '@canner/slate-icon-shared';
 import {BOLD} from '@canner/slate-constant/lib/marks';
