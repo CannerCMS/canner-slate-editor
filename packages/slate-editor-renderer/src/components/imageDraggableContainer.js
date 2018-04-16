@@ -115,11 +115,7 @@ export default class ImageDraggableContainer extends React.Component<
           width={width + 10}
           height={height + 10}
         >
-          <ImageNodeActive
-            width={width}
-            height={height}
-            align={align}
-          >
+          <ImageNodeActive width={width} height={height} align={align}>
             <Toolbar>
               <ToolbarItem>
                 <Tooltip title="Remove">
