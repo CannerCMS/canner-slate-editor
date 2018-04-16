@@ -33,6 +33,7 @@ import {BoldPlugin} from '@canner/slate-icon-bold';
 import {CodePlugin} from '@canner/slate-icon-code';
 import {StrikeThroughPlugin} from '@canner/slate-icon-strikethrough';
 import {UnderlinePlugin} from '@canner/slate-icon-underline';
+import {ItalicPlugin} from '@canner/slate-icon-italic';
 
 import mdPlugin from "./markdownPlugin";
 import "prismjs/themes/prism.css";
@@ -83,7 +84,8 @@ export default (opt: { [string]: any } = {}) => {
     BoldPlugin(),
     CodePlugin(),
     StrikeThroughPlugin(),
-    UnderlinePlugin()
+    UnderlinePlugin(),
+    ItalicPlugin()
   ];
 
   type Props = {
