@@ -5,7 +5,6 @@ import removeType from '@canner/slate-helper-mark-removetype';
 import addMarkOverwrite from '@canner/slate-helper-mark-addoverwrite';
 import {haveMarks} from '@canner/slate-util-have';
 import {getMarkType} from '@canner/slate-util-get';
-import CustomDropdownContainer from './dropdownContainer';
 
 export default (type: string) => (Selector: React.Element<*>) => {
   return class SharedSelector extends React.Component<IconProps> {
@@ -40,13 +39,12 @@ export default (type: string) => (Selector: React.Element<*>) => {
       }
 
       return (
-        <CustomDropdownContainer {...rest}>
-          <Selector
-            options={options}
-            defaultValue={defaultFont}
-            onChange={this.onChange}
-          />
-        </CustomDropdownContainer>
+        <Selector
+          options={options}
+          defaultValue={defaultFont}
+          onChange={this.onChange}
+          {...rest}
+        />
       );
     }
   };

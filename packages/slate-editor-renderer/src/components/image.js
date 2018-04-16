@@ -22,8 +22,8 @@ export const ImageContiner = styled.span`
 `;
 
 export const ImageNodeShared = styled.span`
-  width: ${props => props.width}px;
-  height: ${props => props.height}px;
+  width: ${props => props.width + 20}px;
+  height: ${props => props.height + 20}px;
 
   display: inline-block;
   position: relative;
@@ -36,9 +36,8 @@ export const ImageNodeShared = styled.span`
     top: 5px;
     left: 5px;
     max-width: calc(100% - 10px) !important;
-    width: ${props => (props.width < 300 ? props.width : props.width - 14)}px;
-    height: ${props =>
-      props.height < 300 ? props.width : props.height - 17}px;
+    width: ${props => props.width}px;
+    height: ${props => props.height}px;
   }
 `;
 

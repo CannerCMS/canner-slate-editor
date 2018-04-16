@@ -153,8 +153,8 @@ class VideoNode extends React.Component<Props> {
           width={width + 10}
           height={height + 10}>
           <ImageNodeActive
-            width={width + 10}
-            height={height + 10}
+            width={width}
+            height={height}
             align={align}
             indent={indent}>
             <Toolbar>

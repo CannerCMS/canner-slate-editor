@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import fs from 'fs';
 import path from 'path';
@@ -26,7 +25,7 @@ export default function(settings) {
     expected = readMetadata.sync(expectedPath);
   }
 
-  const valueInput = deserializeValue(input, {terse: true});
+  const valueInput = deserializeValue(input);
   const {document} = valueInput;
   const first = document.getFirstText();
   const range = Range.create({

@@ -109,7 +109,6 @@ export default class ImageDraggableContainer extends React.Component<
         <Resizable
           handleSize={[20, 20]}
           lockAspectRatio
-          minConstraints={[200, 200]}
           maxConstraints={[700, 700]}
           onResize={this.onResize}
           onResizeStop={this.onResizeStop}
@@ -117,8 +116,8 @@ export default class ImageDraggableContainer extends React.Component<
           height={height + 10}
         >
           <ImageNodeActive
-            width={width + 10}
-            height={height + 10}
+            width={width}
+            height={height}
             align={align}
           >
             <Toolbar>
