@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-editor-renderer",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Renderers for slate nodes and marks",
   "main": "lib/index.js",
   "scripts": {
