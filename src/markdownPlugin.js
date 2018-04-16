@@ -169,7 +169,7 @@ const checkPatterns = function(options, change) {
   }
 };
 
-export default (opt: { [string]: any }) => {
+export default (opt: { [string]: any } = {}) => {
   const options = {
     blocks: Object.assign(BLOCKS, opt.blocks),
     marks: Object.assign(MARKS, opt.marks),
