@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-emoji",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Slate icon for emoji",
   "main": "lib/index.js",
   "scripts": {
@@ -28,8 +28,8 @@
     }
   },
   "dependencies": {
-    "@canner/slate-editor-renderer": "^1.2.3",
-    "@canner/slate-icon-shared": "^1.2.3",
+    "@canner/slate-editor-renderer": "^1.2.4",
+    "@canner/slate-icon-shared": "^1.2.4",
     "emoji-mart-picker": "^0.2.3"
   }
 }

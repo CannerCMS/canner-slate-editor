@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-select-lineheight",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A slate selector for setting line height",
   "main": "lib/index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "slate": ">=^0.33.0"
   },
   "dependencies": {
-    "@canner/slate-icon-shared": "^1.2.3",
-    "@canner/slate-select-shared": "^1.2.2"
+    "@canner/slate-icon-shared": "^1.2.4",
+    "@canner/slate-select-shared": "^1.2.4"
   }
 }
