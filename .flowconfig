@@ -1,5 +1,8 @@
 [ignore]
 .*/node_modules/fbjs/node_modules/.*
+./docs/static/.*
+./docs/.*
+./packages/.*
 
 [include]
 
@@ -12,7 +15,5 @@ esproposal.decorators=ignore
 module.file_ext=.js
 module.file_ext=.json
 module.file_ext=.jsx
-
-module.name_mapper='^shared\/\(.*\)$' ->'<PROJECT_ROOT>/packages/slate-icon-shared/\1'
 
 [strict]

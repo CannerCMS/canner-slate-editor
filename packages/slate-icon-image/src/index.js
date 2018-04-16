@@ -85,7 +85,7 @@ export default class ImageInline extends React.Component<IconProps, {isShow: boo
   }
 
   render() {
-    const {icon, ...rest} = this.props;
+    const {icon, serviceConfig, galleryConfig, multiple, ...rest} = this.props;
     const onClick = e => this.onClick(e);
 
     return (
@@ -98,6 +98,9 @@ export default class ImageInline extends React.Component<IconProps, {isShow: boo
           {...rest}
         />
         <ImageUpload
+          serviceConfig={serviceConfig}
+          galleryConfig={galleryConfig}
+          multiple={multiple}
           onChange={this.onChange}
           closeEditPopup={this.hideModal}
           editPopup={this.state.isShow}/>

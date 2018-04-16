@@ -29,7 +29,7 @@
     }
   },
   "dependencies": {
-    "@canner/image-upload": "^0.10.0",
+    "@canner/image-upload": "^0.11.0",
     "@canner/slate-editor-renderer": "^1.2.1",
     "@canner/slate-icon-shared": "^1.2.1"
   }
