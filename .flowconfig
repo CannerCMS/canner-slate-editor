@@ -1,4 +1,7 @@
 [ignore]
+.*/node_modules/config-chain/.*
+.*/node_modules/slate-edit-list/.*
+
 
 [include]
 

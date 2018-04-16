@@ -6,20 +6,41 @@ import EditPrism from "slate-prism";
 import EditBlockquote from "slate-edit-blockquote";
 import EditList from "slate-edit-list";
 import PluginEditCode from "slate-edit-code";
-import DEFAULT_LIST from "./constant/list";
+import {DEFAULT as DEFAULT_LIST} from "@canner/slate-helper-block-list";
 import BLOCKS from "markup-it/lib/constants/blocks";
 import MARKS from "markup-it/lib/constants/marks";
 import INLINES from "markup-it/lib/constants/inlines";
 
+// blocks
+import {BlockquotePlugin} from '@canner/slate-icon-blockquote';
+import {ListPlugin} from '@canner/slate-icon-list';
+import {CodeBlockPlugin} from '@canner/slate-icon-codeBlock';
+import {HrPlugin} from '@canner/slate-icon-hr';
+import {LinkPlugin} from '@canner/slate-icon-link';
+import {ImagePlugin} from '@canner/slate-icon-image';
+import {
+  HeaderOnePlugin,
+  HeaderTwoPlugin,
+  HeaderThreePlugin,
+  HeaderFourPlugin,
+  HeaderFivePlugin,
+  HeaderSixPlugin
+} from '@canner/slate-icon-header';
+import {ParagraphPlugin} from '@canner/slate-icon-shared';
+
+// marks plugin
+import {BoldPlugin} from '@canner/slate-icon-bold';
+import {CodePlugin} from '@canner/slate-icon-code';
+import {StrikeThroughPlugin} from '@canner/slate-icon-strikethrough';
+import {UnderlinePlugin} from '@canner/slate-icon-underline';
+
 import mdPlugin from "./markdownPlugin";
-import renderMark from "./renderMark";
-import renderNode from "./renderNode";
 import "prismjs/themes/prism.css";
 import "github-markdown-css";
 
 export const MarkdownPlugin = mdPlugin;
 
-export default (opt: { [string]: any }) => {
+export default (opt: { [string]: any } = {}) => {
   const options = Object.assign(
     {
       markdownOption: {
@@ -45,7 +66,24 @@ export default (opt: { [string]: any }) => {
     EditPrism(options.prismOption),
     PluginEditCode(options.codeOption),
     EditBlockquote(options.blockquoteOption),
-    EditList(options.listOption)
+    EditList(options.listOption),
+    BlockquotePlugin(options.blockquoteOption),
+    ListPlugin(options.listOption),
+    CodeBlockPlugin(options.codeOption),
+    HrPlugin(),
+    LinkPlugin(),
+    ImagePlugin(),
+    HeaderOnePlugin(),
+    HeaderTwoPlugin(),
+    HeaderThreePlugin(),
+    HeaderFourPlugin(),
+    HeaderFivePlugin(),
+    HeaderSixPlugin(),
+    ParagraphPlugin(),
+    BoldPlugin(),
+    CodePlugin(),
+    StrikeThroughPlugin(),
+    UnderlinePlugin()
   ];
 
   type Props = {
@@ -62,8 +100,6 @@ export default (opt: { [string]: any }) => {
             value={value}
             plugins={plugins}
             onChange={onChange}
-            renderMark={renderMark(options.markdownOption.marks)}
-            renderNode={renderNode({ ...options.markdownOption.blocks, ...options.markdownOption.inlines })}
             {...rest}
           />
         </div>

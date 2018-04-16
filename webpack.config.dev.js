@@ -8,7 +8,10 @@ module.exports = {
     publicPath: '/docs/static/'
   },
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js'],
+    alias: {
+      'styled-components': path.resolve(__dirname, 'node_modules', 'styled-components'),
+    }
   },
   resolveLoader: {
     moduleExtensions: ["-loader"]
