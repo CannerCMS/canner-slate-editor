@@ -28,12 +28,14 @@ export default class HRIcon extends React.Component<IconProps> {
   onClick = (e: Event) => {
     let {change, onChange} = this.props;
     e.preventDefault();
+    
     onChange(
       change.insertBlock({
         type: this.typeName,
         isVoid: true
       })
       .collapseToStartOfNextBlock()
+      .focus()
     );
   }
 

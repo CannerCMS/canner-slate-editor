@@ -120,7 +120,8 @@ export default class VideoModal extends React.Component<Props> {
             onChange(newChange);
           } else {
             onChange(
-              change.insertInline(slateObj)
+              change
+                .insertInline(slateObj)
                 .collapseToStartOfNextText()
                 .focus()
             );
