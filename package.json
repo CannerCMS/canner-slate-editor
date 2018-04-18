@@ -83,7 +83,7 @@
     "test": "lerna exec --parallel -- npm test",
     "lint:src": "prettier --write ./packages/*/src/**/*.js && eslint ./packages/*/src/**/*.js",
     "start": "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --mode development",
-    "build:docs": "./node_modules/.bin/webpack --config webpack.config.prod.js --mode production",
+    "build:docs": "npm run build && ./node_modules/.bin/webpack --config webpack.config.prod.js --mode production",
     "lint": "eslint .",
     "validate": "npm ls"
   },
