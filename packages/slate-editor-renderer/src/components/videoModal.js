@@ -119,7 +119,11 @@ export default class VideoModal extends React.Component<Props> {
 
             onChange(newChange);
           } else {
-            onChange(change.insertInline(slateObj));
+            onChange(
+              change.insertInline(slateObj)
+                .collapseToStartOfNextText()
+                .focus()
+            );
           }
           form.resetFields();
         }

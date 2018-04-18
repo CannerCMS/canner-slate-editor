@@ -116,15 +116,16 @@ class VideoNode extends React.Component<Props> {
     if (!isSelected || readOnly) {
       // if editor is readOnly
       return (
-        <ImageNodeInActive
-          {...attributes}
-          width={width}
-          height={height}>
-          <iframe
-            style={{pointerEvents: 'none'}}
-            src={link}/>
+        <span {...attributes}>
+          <ImageNodeInActive
+            width={width}
+            height={height}>
+            <iframe
+              style={{pointerEvents: 'none'}}
+              src={link}/>
+          </ImageNodeInActive>
           {children}
-        </ImageNodeInActive>
+        </span>
       );
     }
 

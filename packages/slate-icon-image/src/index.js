@@ -75,6 +75,8 @@ export default class ImageInline extends React.Component<IconProps, {isShow: boo
             [imageHeightKey]: ratio ? (height / ratio) : height,
             [imageWidthKey]: ratio ? (width / ratio) : width}
         })
+        .collapseToStartOfNextText()
+        .focus()
       );
 
       that.hideModal();
