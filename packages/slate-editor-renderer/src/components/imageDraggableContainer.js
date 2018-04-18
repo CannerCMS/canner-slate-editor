@@ -5,15 +5,16 @@ import type { Change } from "slate";
 import type { nodeProps } from "./type";
 
 import { Tooltip } from "antd";
-import inlineAddData from "@canner/slate-helper-inline-adddata";
-import { Resizable } from "react-resizable";
+// import { Resizable } from "react-resizable";
 import FaTrashO from "react-icons/lib/fa/trash-o";
+// import FaEdit from 'react-icons/lib/fa/edit';
 import {
   ImageNodeInActive,
   ImageNodeActive,
   Toolbar,
   ToolbarItem
 } from "./image";
+import ImageModal from './imageModal';
 
 type Props = nodeProps & {
   change: Change,
@@ -23,7 +24,8 @@ type Props = nodeProps & {
 
 type State = {
   width: ?number,
-  height: ?number
+  height: ?number,
+  isShow: boolean
 };
 export default class ImageDraggableContainer extends React.Component<
   Props,
@@ -32,42 +34,55 @@ export default class ImageDraggableContainer extends React.Component<
   constructor(props) {
     super(props);
 
-    this.onResizeStop = this.onResizeStop.bind(this);
-    this.onResize = this.onResize.bind(this);
-    this.remove = this.remove.bind(this);
+    // this.onResizeStop = this.onResizeStop.bind(this);
+    // this.onResize = this.onResize.bind(this);
 
     this.state = {
       width: null,
-      height: null
+      height: null,
+      isShow: false
     };
   }
 
-  onResizeStop(e, data) {
-    const { editor } = this.props;
-    const { width, height } = data.size;
+  // onResizeStop(e, data) {
+  //   const { editor } = this.props;
+  //   const { width, height } = data.size;
 
-    editor.change(change =>
-      change.call(inlineAddData, {
-        data: { width, height }
-      })
-    );
-  }
+  // editor.change(change =>
+  //   change.call(inlineAddData, {
+  //     data: { width, height }
+  //   })
+  // );
+  // }
 
-  onResize(e, data) {
-    const { width, height } = data.size;
-    this.setState({
-      width,
-      height
-    });
-  }
+  // onResize(e, data) {
+  //   const { width, height } = data.size;
+  //   this.setState({
+  //     width,
+  //     height
+  //   });
+  // }
 
-  remove() {
+  remove = () => {
     const { editor, node } = this.props;
     editor.change(change => change.removeNodeByKey(node.key));
   }
 
+  edit = (e) => {
+    e.preventDefault();
+    this.setState({
+      isShow: true
+    });
+  }
+
+  hideModal = () => {
+    this.setState({
+      isShow: false
+    });
+  }
+
   render() {
-    const { node, readOnly, isSelected, getSrc } = this.props;
+    const { node, readOnly, isSelected, getSrc, editor } = this.props;
     const src = getSrc(node);
     let ratio;
     let width = this.state.width || this.props.width;
@@ -90,15 +105,7 @@ export default class ImageDraggableContainer extends React.Component<
     }
 
     return (
-      <Resizable
-        handleSize={[20, 20]}
-        lockAspectRatio
-        maxConstraints={[700, 700]}
-        onResize={this.onResize}
-        onResizeStop={this.onResizeStop}
-        width={width + 10}
-        height={height + 10}
-      >
+      <span>
         <ImageNodeActive width={width} height={height}>
           <Toolbar>
             <ToolbarItem>
@@ -109,10 +116,24 @@ export default class ImageDraggableContainer extends React.Component<
                 />
               </Tooltip>
             </ToolbarItem>
+            {/* <ToolbarItem>
+              <Tooltip title="Edit size">
+                <FaEdit
+                  onMouseDown={e => e.preventDefault()}
+                  onClick={this.edit}/>
+              </Tooltip>
+            </ToolbarItem> */}
           </Toolbar>
           <img src={src} />
         </ImageNodeActive>
-      </Resizable>
+        <ImageModal
+          onChange={editor.onChange}
+          node={node}
+          width={width}
+          height={height}
+          hideModal={this.hideModal}
+          isShow={this.state.isShow}/>
+      </span>
     );
   }
 }

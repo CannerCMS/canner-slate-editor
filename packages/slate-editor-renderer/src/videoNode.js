@@ -5,9 +5,9 @@ import type {nodeProps} from './type';
 import inlineAddData from '@canner/slate-helper-inline-adddata';
 
 import {Tooltip} from 'antd';
-import {Resizable} from 'react-resizable';
+// import {Resizable} from 'react-resizable';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
-import FaEdit from 'react-icons/lib/fa/edit';
+// import FaEdit from 'react-icons/lib/fa/edit';
 import FaExternal from 'react-icons/lib/fa/external-link';
 import VideoModal from './components/videoModal';
 import {ImageNodeInActive, ImageNodeActive, Toolbar, ToolbarItem} from './components/image';
@@ -43,9 +43,6 @@ class VideoNode extends React.Component<Props> {
 
     this.onResizeStop = this.onResizeStop.bind(this);
     this.onResize = this.onResize.bind(this);
-    this.remove = this.remove.bind(this);
-    this.edit = this.edit.bind(this);
-    this.hideModal = this.hideModal.bind(this);
 
     this.state = {
       width: null,
@@ -79,26 +76,26 @@ class VideoNode extends React.Component<Props> {
     });
   }
 
-  remove() {
+  remove = () => {
     const { editor, node } = this.props;
     editor.change(change => change.removeNodeByKey(node.key));
   }
 
-  edit(e) {
-    e.preventDefault();
+  edit = (e) => {
+    e.preventDefault()
     this.setState({
       isShow: true
     });
   }
 
-  hideModal() {
+  hideModal = () => {
     this.setState({
       isShow: false
     });
   }
 
   render() {
-    const {node, type, attributes, editor,
+    const {node, type, attributes, children, editor,
       readOnly, isSelected, getId, getWidth, getHeight,
       youtubeType, dailymotionType, youkuType, vimeoType, idKey} = this.props;
     let link;
@@ -120,19 +117,20 @@ class VideoNode extends React.Component<Props> {
       // if editor is readOnly
       return (
         <ImageNodeInActive
+          {...attributes}
           width={width}
-          height={height}
-          {...attributes}>
+          height={height}>
           <iframe
             style={{pointerEvents: 'none'}}
             src={link}/>
+          {children}
         </ImageNodeInActive>
       );
     }
 
     return (
-      <React.Fragment>
-        <Resizable
+      <span {...attributes}>
+        {/* <Resizable
           handleSize={[20, 20]}
           lockAspectRatio
           minConstraints={[256, 182]}
@@ -140,9 +138,8 @@ class VideoNode extends React.Component<Props> {
           onResize={this.onResize}
           onResizeStop={this.onResizeStop}
           width={width + 10}
-          height={height + 10}>
+          height={height + 10}> */}
           <ImageNodeActive
-            {...attributes}
             width={width}
             height={height}>
             <Toolbar>
@@ -156,13 +153,13 @@ class VideoNode extends React.Component<Props> {
                     }}/>
                 </Tooltip>
               </ToolbarItem>
-              <ToolbarItem>
+              {/* <ToolbarItem>
                 <Tooltip title="Edit">
                   <FaEdit
                     onMouseDown={e => e.preventDefault()}
                     onClick={this.edit}/>
                 </Tooltip>
-              </ToolbarItem>
+              </ToolbarItem> */}
               <ToolbarItem>
                 <Tooltip title="Remove">
                   <FaTrashO
@@ -175,7 +172,7 @@ class VideoNode extends React.Component<Props> {
               style={{pointerEvents: 'none'}}
               src={link}/>
           </ImageNodeActive>
-        </Resizable>
+        {/* </Resizable> */}
         <VideoModal
           youkuType={youkuType}
           youtubeType={youtubeType}
@@ -190,7 +187,8 @@ class VideoNode extends React.Component<Props> {
           height={height}
           hideModal={this.hideModal}
           isShow={this.state.isShow}/>
-      </React.Fragment>
+        {children}
+      </span>
     );
   }
 }
