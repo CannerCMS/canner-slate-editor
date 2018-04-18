@@ -67,12 +67,7 @@ export default class ImageDraggableContainer extends React.Component<
   }
 
   render() {
-    const {
-      node,
-      readOnly,
-      isSelected,
-      getSrc
-    } = this.props;
+    const { node, readOnly, isSelected, getSrc } = this.props;
     const src = getSrc(node);
     let ratio;
     let width = this.state.width || this.props.width;
