@@ -28,7 +28,7 @@ export default class ImageModal extends React.Component<Props> {
   handleOk = (e: Event) => {
     e.preventDefault();
     const { onChange, change, hideModal, form, target } = this.props;
-    change.select(target)
+    change.select(target);
 
     form.validateFields((err, values) => {
       if (!err) {
@@ -36,7 +36,7 @@ export default class ImageModal extends React.Component<Props> {
         onChange(change => {
           change.call(inlineAddData, {
             data: { width, height }
-          })
+          });
         });
         form.resetFields();
         hideModal();
