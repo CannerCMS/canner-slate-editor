@@ -14,7 +14,7 @@ import {
   Toolbar,
   ToolbarItem
 } from "./image";
-import ImageModal from './imageModal';
+import ImageModal from "./imageModal";
 
 type Props = nodeProps & {
   change: Change,
@@ -66,20 +66,20 @@ export default class ImageDraggableContainer extends React.Component<
   remove = () => {
     const { editor, node } = this.props;
     editor.change(change => change.removeNodeByKey(node.key));
-  }
+  };
 
-  edit = (e) => {
+  edit = e => {
     e.preventDefault();
     this.setState({
       isShow: true
     });
-  }
+  };
 
   hideModal = () => {
     this.setState({
       isShow: false
     });
-  }
+  };
 
   render() {
     const { node, readOnly, isSelected, getSrc, editor } = this.props;
@@ -132,7 +132,8 @@ export default class ImageDraggableContainer extends React.Component<
           width={width}
           height={height}
           hideModal={this.hideModal}
-          isShow={this.state.isShow}/>
+          isShow={this.state.isShow}
+        />
       </span>
     );
   }

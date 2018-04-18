@@ -19,7 +19,6 @@ type Props = {
 
 @Form.create()
 export default class ImageModal extends React.Component<Props> {
-
   handleCancel = () => {
     this.props.form.resetFields();
     this.props.hideModal();
@@ -27,15 +26,11 @@ export default class ImageModal extends React.Component<Props> {
 
   handleOk = (e: Event) => {
     e.preventDefault();
-    const {
-      onChange,
-      hideModal,
-      form
-    } = this.props;
+    const { onChange, hideModal, form } = this.props;
 
     form.validateFields((err, values) => {
       if (!err) {
-        const {width, height} = values;
+        const { width, height } = values;
         onChange(change =>
           change.call(inlineAddData, {
             data: { width, height }
@@ -75,10 +70,7 @@ export default class ImageModal extends React.Component<Props> {
         ]}
       >
         <Form horizontal="true">
-          <FormItem
-            label="Width:"
-            hasFeedback
-          >
+          <FormItem label="Width:" hasFeedback>
             {getFieldDecorator("width", {
               rules: [
                 {
@@ -96,10 +88,7 @@ export default class ImageModal extends React.Component<Props> {
               initialValue: width
             })(<Input onClick={e => e.preventDefault()} />)}
           </FormItem>
-          <FormItem
-            label="Height:"
-            hasFeedback
-          >
+          <FormItem label="Height:" hasFeedback>
             {getFieldDecorator("height", {
               rules: [
                 {
