@@ -47,7 +47,7 @@ const checkPatterns = function(options, change) {
 
   // reference: https://github.com/PrismJS/prism/blob/gh-pages/components/prism-markdown.js
   // blocks
-  if ((matched = currentLineText.match(/^>/m))) {
+  if ((matched = currentLineText.match(/^>\s/m))) {
     // [blockquote] punctuation, blockquote
     return matchBlockquote(
       options.blocks.BLOCKQUOTE,
@@ -55,10 +55,10 @@ const checkPatterns = function(options, change) {
       matched,
       change
     );
-  } else if ((matched = currentLineText.match(/^(?: {3}|\t)/m))) {
+  } else if ((matched = currentLineText.match(/^(?: {4}|\t)/m))) {
     // [Code Block] Prefixed by 4 spaces or 1 tab
     return matchCodeBlock(options.codeOption, currentTextNode, matched, change);
-  } else if ((matched = currentLineText.match(/^\s*```(\w+)?/m))) {
+  } else if ((matched = currentLineText.match(/^\s*```(\w+)?\s/m))) {
     // [Code block]
     // ```lang
     return matchCodeBlock(
@@ -68,7 +68,7 @@ const checkPatterns = function(options, change) {
       change,
       matched[1]
     );
-  } else if ((matched = currentLineText.match(/(^\s*)#{1,6}/m))) {
+  } else if ((matched = currentLineText.match(/(^\s*)#{1,6}\s/m))) {
     // [Header] h1 ~ h6
     // # h1
     // ## h2
@@ -83,7 +83,7 @@ const checkPatterns = function(options, change) {
     // * * *
     // -----------
     return matchHr(options.blocks.HR, currentTextNode, matched, change);
-  } else if ((matched = currentLineText.match(/((?:^\s*)(?:[*+-]))/m))) {
+  } else if ((matched = currentLineText.match(/((?:^\s*)(?:[*+-]\s))/m))) {
     // * item
     // + item
     // - item
@@ -94,7 +94,7 @@ const checkPatterns = function(options, change) {
       change,
       false
     );
-  } else if ((matched = currentLineText.match(/((?:^\s*)(?:\d+\.))/m))) {
+  } else if ((matched = currentLineText.match(/((?:^\s*)(?:\d+\.\s))/m))) {
     // 1. item
     return matchList(
       options.listOption,
@@ -105,7 +105,7 @@ const checkPatterns = function(options, change) {
     );
   }
 
-  const offsetBeforeSpace = value.selection.anchorOffset - 1;
+  const offsetBeforeSpace = value.selection.anchorOffset - 2;
   const lastChar = currentLineText.charAt(offsetBeforeSpace);
   const prevTextFromSpace = currentLineText.substr(0, offsetBeforeSpace + 1);
 
@@ -189,6 +189,10 @@ export default (opt: { [string]: any } = {}) => {
       switch (e.key) {
         case KEY_ENTER:
           return onEnter(options, change);
+      }
+    },
+    onKeyUp: (e: any, change: Change) => {
+      switch (e.key) {
         case KEY_SPACE:
           return checkPatterns(options, change);
       }
