@@ -28,13 +28,13 @@ type Props = nodeProps & {
 class ImageNode extends React.Component<Props> {
 
   render() {
-    const {node, getSrc, getWidth, getHeight} = this.props;
+    const {node, getSrc, getWidth, getHeight, attributes, children} = this.props;
     const src = getSrc(node);
     const nodeWidth = getWidth(node);
     const nodeHeight = getHeight(node);
 
     return (
-      <React.Fragment>
+      <span {...attributes}>
         <ImageLoading
           src={src}
           image={imgProps => (
@@ -48,7 +48,8 @@ class ImageNode extends React.Component<Props> {
           loading={() => <Icon type="loading" style={{ fontSize: 24 }} spin />}
           error={() => <Alert>Image link is broken</Alert>}
           />
-      </React.Fragment>
+        {children}
+      </span>
     );
   }
 }

@@ -10,8 +10,7 @@ import FaTrashO from 'react-icons/lib/fa/trash-o';
 import FaEdit from 'react-icons/lib/fa/edit';
 import FaExternal from 'react-icons/lib/fa/external-link';
 import VideoModal from './components/videoModal';
-import {ImageNodeInActive, ImageNodeActive, ImageContiner,
-  Toolbar, ToolbarItem} from './components/image';
+import {ImageNodeInActive, ImageNodeActive, Toolbar, ToolbarItem} from './components/image';
 
 import 'react-resizable/css/styles.css';
 
@@ -99,12 +98,10 @@ class VideoNode extends React.Component<Props> {
   }
 
   render() {
-    const {node, type, attributes, children, editor,
+    const {node, type, attributes, editor,
       readOnly, isSelected, getId, getWidth, getHeight,
-      textAlign, paddingLeft, youtubeType, dailymotionType, youkuType, vimeoType, idKey} = this.props;
+      youtubeType, dailymotionType, youkuType, vimeoType, idKey} = this.props;
     let link;
-    const align = textAlign(node);
-    const indent = paddingLeft(node);
     const id = getId(node);
     const width = this.state.width || getWidth(node) || 560;
     const height = this.state.height || getHeight(node) || 315;
@@ -122,27 +119,19 @@ class VideoNode extends React.Component<Props> {
     if (!isSelected || readOnly) {
       // if editor is readOnly
       return (
-        <ImageContiner
-          align={align}
-          data-slate-type="video">
-          <ImageNodeInActive
-            width={width}
-            height={height}
-            indent={indent}>
-            <iframe
-              {...attributes}
-              style={{pointerEvents: 'none'}}
-              src={link}/>
-            {children}
-          </ImageNodeInActive>
-        </ImageContiner>
+        <ImageNodeInActive
+          width={width}
+          height={height}
+          {...attributes}>
+          <iframe
+            style={{pointerEvents: 'none'}}
+            src={link}/>
+        </ImageNodeInActive>
       );
     }
 
     return (
-      <ImageContiner
-        align={align}
-        data-slate-type="video">
+      <React.Fragment>
         <Resizable
           handleSize={[20, 20]}
           lockAspectRatio
@@ -153,10 +142,9 @@ class VideoNode extends React.Component<Props> {
           width={width + 10}
           height={height + 10}>
           <ImageNodeActive
+            {...attributes}
             width={width}
-            height={height}
-            align={align}
-            indent={indent}>
+            height={height}>
             <Toolbar>
               <ToolbarItem>
                 <Tooltip title="Open in new window">
@@ -184,10 +172,8 @@ class VideoNode extends React.Component<Props> {
               </ToolbarItem>
             </Toolbar>
             <iframe
-              {...attributes}
               style={{pointerEvents: 'none'}}
               src={link}/>
-            {children}
           </ImageNodeActive>
         </Resizable>
         <VideoModal
@@ -204,7 +190,7 @@ class VideoNode extends React.Component<Props> {
           height={height}
           hideModal={this.hideModal}
           isShow={this.state.isShow}/>
-      </ImageContiner>
+      </React.Fragment>
     );
   }
 }

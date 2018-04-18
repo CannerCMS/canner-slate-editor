@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import type {IconProps} from 'shared/src/types';
-import ToolbarIcon, {nodeAttrs} from '@canner/slate-icon-shared';
+import ToolbarIcon from '@canner/slate-icon-shared';
 import VideoModal from '@canner/slate-editor-renderer/lib/components/videoModal';
 import videoNode, {DEFAULT as DEFAULT_VIDEO} from '@canner/slate-editor-renderer/lib/videoNode';
 
@@ -14,8 +14,7 @@ export const VideoPlugin = (opt) => {
       vimeoType: DEFAULT.vimeo,
       getId: (node) => node.data.get('id'),
       getWidth: (node) => node.data.get('width'),
-      getHeight: (node) => node.data.get('height'),
-      ...nodeAttrs
+      getHeight: (node) => node.data.get('height')
     }, opt);
 
   return {

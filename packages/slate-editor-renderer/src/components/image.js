@@ -11,23 +11,12 @@ export const Alert = styled.span`
   padding: 8px 15px;
 `;
 
-export const ImageContiner = styled.span`
-  display: flex;
-  margin-left: ${props => 3 * (props.indent || 0)}em;
-  justify-content: ${props => {
-    if (props.align === "center") return "center";
-    else if (props.align === "right") return "flex-end";
-    return "flex-start";
-  }};
-`;
-
 export const ImageNodeShared = styled.span`
   width: ${props => props.width + 20}px;
   height: ${props => props.height + 20}px;
 
   display: inline-block;
   position: relative;
-  margin: 10px;
 
   img,
   iframe {

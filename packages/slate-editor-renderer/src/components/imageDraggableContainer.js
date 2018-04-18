@@ -11,7 +11,6 @@ import FaTrashO from "react-icons/lib/fa/trash-o";
 import {
   ImageNodeInActive,
   ImageNodeActive,
-  ImageContiner,
   Toolbar,
   ToolbarItem
 } from "./image";
@@ -70,16 +69,10 @@ export default class ImageDraggableContainer extends React.Component<
   render() {
     const {
       node,
-      attributes,
-      children,
       readOnly,
       isSelected,
-      getSrc,
-      textAlign,
-      paddingLeft
+      getSrc
     } = this.props;
-    const align = textAlign(node);
-    const indent = paddingLeft(node);
     const src = getSrc(node);
     let ratio;
     let width = this.state.width || this.props.width;
@@ -95,42 +88,36 @@ export default class ImageDraggableContainer extends React.Component<
     if (!isSelected || readOnly) {
       // if editor is readOnly
       return (
-        <ImageContiner align={align} indent={indent} data-slate-type="image">
-          <ImageNodeInActive width={width} height={height}>
-            <img {...attributes} src={src} />
-            {children}
-          </ImageNodeInActive>
-        </ImageContiner>
+        <ImageNodeInActive width={width} height={height}>
+          <img src={src} />
+        </ImageNodeInActive>
       );
     }
 
     return (
-      <ImageContiner align={align} indent={indent} data-slate-type="image">
-        <Resizable
-          handleSize={[20, 20]}
-          lockAspectRatio
-          maxConstraints={[700, 700]}
-          onResize={this.onResize}
-          onResizeStop={this.onResizeStop}
-          width={width + 10}
-          height={height + 10}
-        >
-          <ImageNodeActive width={width} height={height} align={align}>
-            <Toolbar>
-              <ToolbarItem>
-                <Tooltip title="Remove">
-                  <FaTrashO
-                    onMouseDown={e => e.preventDefault()}
-                    onClick={this.remove}
-                  />
-                </Tooltip>
-              </ToolbarItem>
-            </Toolbar>
-            <img {...attributes} src={src} />
-            {children}
-          </ImageNodeActive>
-        </Resizable>
-      </ImageContiner>
+      <Resizable
+        handleSize={[20, 20]}
+        lockAspectRatio
+        maxConstraints={[700, 700]}
+        onResize={this.onResize}
+        onResizeStop={this.onResizeStop}
+        width={width + 10}
+        height={height + 10}
+      >
+        <ImageNodeActive width={width} height={height}>
+          <Toolbar>
+            <ToolbarItem>
+              <Tooltip title="Remove">
+                <FaTrashO
+                  onMouseDown={e => e.preventDefault()}
+                  onClick={this.remove}
+                />
+              </Tooltip>
+            </ToolbarItem>
+          </Toolbar>
+          <img src={src} />
+        </ImageNodeActive>
+      </Resizable>
     );
   }
 }
