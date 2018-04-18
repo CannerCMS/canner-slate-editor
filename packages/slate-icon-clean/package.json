@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-clean",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "A slate icon for clean",
   "main": "lib/index.js",
   "scripts": {
@@ -25,6 +25,6 @@
   },
   "dependencies": {
     "@canner/slate-helper-mark-removeall": "^0.1.2",
-    "@canner/slate-icon-shared": "^1.2.5"
+    "@canner/slate-icon-shared": "^1.2.6"
   }
 }
