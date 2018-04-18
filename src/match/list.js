@@ -11,7 +11,6 @@ export default function(
   ordered: boolean
 ) {
   const matchedLength = matched[0].length;
-  console.log(matched)
   const newChange = change.deleteAtRange(
     Range.create({
       anchorKey: currentTextNode.key,
