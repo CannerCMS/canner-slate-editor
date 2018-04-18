@@ -1,8 +1,8 @@
 // @flow
 import * as React from "react";
 import inlineAddData from "@canner/slate-helper-inline-adddata";
-import type { Change } from "slate";
-import { Modal, Form, Button, Input } from "antd";
+import type { Change, Range } from "slate";
+import { Modal, Form, Button, InputNumber } from "antd";
 
 const FormItem = Form.Item;
 
@@ -14,7 +14,8 @@ type Props = {
   form: any,
   isShow: boolean,
   width: number,
-  height: number
+  height: number,
+  target: Range
 };
 
 @Form.create()
@@ -26,16 +27,17 @@ export default class ImageModal extends React.Component<Props> {
 
   handleOk = (e: Event) => {
     e.preventDefault();
-    const { onChange, hideModal, form } = this.props;
+    const { onChange, change, hideModal, form, target } = this.props;
+    change.select(target)
 
     form.validateFields((err, values) => {
       if (!err) {
         const { width, height } = values;
-        onChange(change =>
+        onChange(change => {
           change.call(inlineAddData, {
             data: { width, height }
           })
-        );
+        });
         form.resetFields();
         hideModal();
       }
@@ -74,37 +76,23 @@ export default class ImageModal extends React.Component<Props> {
             {getFieldDecorator("width", {
               rules: [
                 {
-                  type: "number",
-                  message: "The input is not valid number!"
-                },
-                {
                   required: true,
-                  message: "Please input your width"
-                },
-                {
-                  validator: this.checkSource
+                  message: "Please enter a width"
                 }
               ],
               initialValue: width
-            })(<Input onClick={e => e.preventDefault()} />)}
+            })(<InputNumber onClick={e => e.preventDefault()} />)}
           </FormItem>
           <FormItem label="Height:" hasFeedback>
             {getFieldDecorator("height", {
               rules: [
                 {
-                  type: "number",
-                  message: "The input is not valid number!"
-                },
-                {
                   required: true,
-                  message: "Please input your height"
-                },
-                {
-                  validator: this.checkSource
+                  message: "Please enter a height"
                 }
               ],
               initialValue: height
-            })(<Input onClick={e => e.preventDefault()} />)}
+            })(<InputNumber onClick={e => e.preventDefault()} />)}
           </FormItem>
         </Form>
       </Modal>

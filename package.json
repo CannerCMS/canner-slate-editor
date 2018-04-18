@@ -19,7 +19,7 @@
     "@canner/slate-constant": "^1.0.8",
     "@canner/slate-helper-block-list": "^0.1.6",
     "@canner/slate-helper-block-quote": "^0.1.6",
-    "antd": "^3.3.0",
+    "antd": "3.4.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
@@ -92,6 +92,5 @@
   ],
   "repository": "Canner/slate-editor-icons",
   "license": "MIT",
-  "dependencies": {
-  }
+  "dependencies": {}
 }
