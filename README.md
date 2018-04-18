@@ -1,6 +1,6 @@
 # slate-md-editor
 
-[![npm version](https://badge.fury.io/js/%40canner%2Fslate-md-editor.svg)](https://badge.fury.io/js/%40canner%2Fslate-md-editor)
+[![npm version](https://badge.fury.io/js/slate-md-editor.svg)](https://badge.fury.io/js/slate-md-editor)
 
 A markdown editor, that allows you to edit live.
 
