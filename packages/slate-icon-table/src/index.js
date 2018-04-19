@@ -54,6 +54,7 @@ export default class Table extends React.Component<IconProps> {
 
     return (
       <TablePicker
+        style={{zIndex: 1000}}
         onChange={this.onChange}>
         <ToolbarIcon
           type={this.typeName}
