@@ -43,7 +43,7 @@ export const Toolbar = styled.span`
   display: block;
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: -40px;
   z-index: 100;
 `;
 
