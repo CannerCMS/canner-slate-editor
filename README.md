@@ -283,3 +283,9 @@ or
 ```
 1.[space]
 ```
+
+## Related projects
+
+1. **Another rich text editor using Slate framework, with beautiful design:  https://github.com/Canner/canner-slate-editor**
+3. **20+ shared slate icons, selectors and helpers for Slate editors, in a monorepo: https://github.com/Canner/slate-editor-icons**
+2. **Quick and customizable way to implement medium like toolbar in your slate editor: https://github.com/Canner/slate-toolbar**
