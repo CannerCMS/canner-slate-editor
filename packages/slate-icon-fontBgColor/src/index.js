@@ -48,11 +48,7 @@ export default class fontBgColor extends React.Component<IconProps, {color: Obje
     // $FlowFixMe
     color.rgba = `rgba(${hexRgb(color.color, {format: 'array'}).join(',')}, ${color.alpha / 100})`;
     this.setState({color});
-    onChange(
-      addMarkOverwrite(change, {type: this.typeName, data: {[colorKey]: color}})
-        .collapseToStartOfNextText()
-        .focus()
-    );
+    onChange(addMarkOverwrite(change, {type: this.typeName, data: {[colorKey]: color}}));
   }
 
   render() {

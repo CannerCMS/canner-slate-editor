@@ -35,7 +35,10 @@ export default class ImageModal extends React.Component<Props> {
         const { width, height } = values;
         onChange(change => {
           change.call(inlineAddData, {
-            data: { width, height }
+            data: {
+              width: Math.round(width),
+              height: Math.round(height)
+            }
           });
         });
         form.resetFields();

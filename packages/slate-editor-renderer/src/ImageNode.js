@@ -71,12 +71,14 @@ class ImageNode extends React.Component<Props, State> {
             let width = nodeWidth || imgProps.width;
             let height = nodeHeight || imgProps.height;
 
-            if (width > 500) {
-              ratio = width / 500;
+            if (width > height && width > 700) {
+              ratio = width / 700;
+            } else if (height > 500) {
+              ratio = height / 500;
             }
 
-            width = ratio ? width / ratio : width;
-            height = ratio ? height / ratio : height;
+            width = Math.round(ratio ? width / ratio : width);
+            height = Math.round(ratio ? height / ratio : height);
 
             return (
               <React.Fragment>
