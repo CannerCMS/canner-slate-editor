@@ -8,6 +8,8 @@ A markdown editor, that allows you to edit live. This project is built on top of
 
 ![demo](https://i.imgur.com/OqQMMiC.gif)
 
+----
+
 DEMO: [https://canner.github.io/slate-md-editor/](https://canner.github.io/slate-md-editor/)
 
 
