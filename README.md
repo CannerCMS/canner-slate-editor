@@ -185,6 +185,10 @@ for example:
 const wow = test()
 ```
 
+***Hot key***
+
+<kbd>CMD</kbd>+<kbd>Enter</kbd>: to exit code block
+
 ### Header
 
 **In editor enter:**
