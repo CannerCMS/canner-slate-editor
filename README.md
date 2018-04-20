@@ -2,11 +2,11 @@
 
 [![npm version](https://badge.fury.io/js/slate-md-editor.svg)](https://badge.fury.io/js/slate-md-editor)
 
-A markdown editor, that allows you to edit live.
+A markdown editor, that allows you to edit live. This project is built on top of [slate framework](http://slatejs.org/#/). Support markdown syntax and hot keys.
 
 ## Live 
 
-![demo](https://i.imgur.com/eLOCvlu.gif)
+![demo](https://i.imgur.com/OqQMMiC.gif)
 
 DEMO: [https://canner.github.io/slate-md-editor/](https://canner.github.io/slate-md-editor/)
 
@@ -153,6 +153,10 @@ This will replace default `BOLD` setting to your new setting.
 >[space]Blockquote
 ```
 
+***Hot key***
+
+<kbd>Ctrl</kbd>+<kbd>opt</kbd>+<kbd>q</kbd>
+
 ### Code block (inline)
 
 **In editor enter:**
@@ -200,6 +204,32 @@ Example
 ###### h6
 ```
 
+***Hot keys***
+
+**Header 1**
+
+<kbd>Ctrl</kbd>+<kbd>opt</kbd>+<kbd>1</kbd>
+
+**Header 2**
+
+<kbd>Ctrl</kbd>+<kbd>opt</kbd>+<kbd>2</kbd>
+
+**Header 3**
+
+<kbd>Ctrl</kbd>+<kbd>opt</kbd>+<kbd>3</kbd>
+
+**Header 4**
+
+<kbd>Ctrl</kbd>+<kbd>opt</kbd>+<kbd>4</kbd>
+
+**Header 5**
+
+<kbd>Ctrl</kbd>+<kbd>opt</kbd>+<kbd>5</kbd>
+
+**Header 6**
+
+<kbd>Ctrl</kbd>+<kbd>opt</kbd>+<kbd>6</kbd>
+
 ### Bold
 
 **In editor enter:**
@@ -210,6 +240,10 @@ or
 __strong__[space]
 ```
 
+***Hot key***
+
+<kbd>CMD</kbd>+<kbd>b</kbd>
+
 ### Italic
 
 **In editor enter:**
@@ -219,6 +253,10 @@ _italic_[space]
 or
 *italic*[space]
 ```
+
+***Hot key***
+
+<kbd>CMD</kbd>+<kbd>i</kbd>
 
 ### Bold + Italic
 
@@ -237,6 +275,10 @@ or
 ```
 ~[strikethrough]~[space]
 ```
+
+***Hot key***
+
+<kbd>Ctrl</kbd>+<kbd>Opt</kbd>+<kbd>d</kbd>
 
 ### Hr
 
