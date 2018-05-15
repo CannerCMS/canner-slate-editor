@@ -7,7 +7,7 @@ import {Icon} from 'antd';
 import ImageLoading from 'react-loading-image';
 import {Alert} from './components/image';
 import ImageModal from "./components/imageModal";
-import ImageContainer from './components/ImageContainer';
+import ImageContainer from './components/imageContainer';
 
 import 'react-resizable/css/styles.css';
 
