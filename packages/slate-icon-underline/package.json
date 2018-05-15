@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-underline",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "A slate icon for underline",
   "main": "lib/index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "slate": ">=^0.33.0"
   },
   "dependencies": {
-    "@canner/slate-editor-renderer": "^1.2.8",
-    "@canner/slate-icon-shared": "^1.2.8"
+    "@canner/slate-editor-renderer": "^1.2.9",
+    "@canner/slate-icon-shared": "^1.2.9"
   }
 }
