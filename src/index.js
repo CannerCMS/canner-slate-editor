@@ -14,7 +14,7 @@ import INLINES from "markup-it/lib/constants/inlines";
 // blocks
 import {BlockquotePlugin} from '@canner/slate-icon-blockquote';
 import {ListPlugin} from '@canner/slate-icon-list';
-import {CodeBlockPlugin} from '@canner/slate-icon-codeBlock';
+import {CodeBlockPlugin} from '@canner/slate-icon-codeblock';
 import {HrPlugin} from '@canner/slate-icon-hr';
 import {LinkPlugin} from '@canner/slate-icon-link';
 import {ImagePlugin} from '@canner/slate-icon-image';
