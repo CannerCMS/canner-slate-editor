@@ -62,7 +62,7 @@ export default (opt: { [string]: any } = {}) => {
     opt
   );
 
-  const plugins = [
+  const mdEditorPlugins = [
     MarkdownPlugin(options.markdownOption),
     EditPrism(options.prismOption),
     PluginEditCode(options.codeOption),
@@ -95,12 +95,12 @@ export default (opt: { [string]: any } = {}) => {
 
   return class MdEditor extends React.Component<Props> {
     render() {
-      const { value, onChange, ...rest } = this.props;
+      const { value, onChange, plugins, ...rest } = this.props;
       return (
         <div className="markdown-body">
           <Editor
             value={value}
-            plugins={plugins}
+            plugins={[...mdEditorPlugins, ...(plugins || [])]}
             onChange={onChange}
             {...rest}
           />
