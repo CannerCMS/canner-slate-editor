@@ -43,8 +43,8 @@ export default class Table extends React.Component<IconProps> {
     onChange(
       this.editTable.changes.insertTable(
         change,
-        data.columnNumber+1,
-        data.rowNumber+1
+        data.columnNumber + 1,
+        data.rowNumber + 1
       )
     );
   }

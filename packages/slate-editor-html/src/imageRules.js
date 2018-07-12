@@ -36,11 +36,11 @@ export default function(inlineType = IMAGE, stylesAttr = defaultAttrs) {
           data.indent = el.style.marginLeft;
         }
 
-        if (el.style.width) {
+        if (el.style.width && typeof el.style.width === 'number' && el.style.width > 0) {
           data.width = el.style.width;
         }
 
-        if (el.style.height) {
+        if (el.style.height && typeof el.style.height === 'number' && el.style.height > 0) {
           data.height = el.style.height;
         }
 
