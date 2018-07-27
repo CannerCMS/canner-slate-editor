@@ -94,13 +94,18 @@ export default (opt: { [string]: any } = {}) => {
   };
 
   return class MdEditor extends React.Component<Props> {
+    constructor(props) {
+      super(props);
+      this.plugins = [...mdEditorPlugins, ...(this.props.plugins || [])];
+    }
+
     render() {
-      const { value, onChange, plugins, ...rest } = this.props;
+      const { value, onChange, ...rest } = this.props;
       return (
         <div className="markdown-body">
           <Editor
             value={value}
-            plugins={[...mdEditorPlugins, ...(plugins || [])]}
+            plugins={this.plugins}
             onChange={onChange}
             {...rest}
           />
