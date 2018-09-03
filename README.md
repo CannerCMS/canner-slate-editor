@@ -1,5 +1,5 @@
 # canner-slate-editor [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
-> Rich text / WYSIWYG editor focus on **modularity and extensibility**, build on top of [Slate framework](https://docs.slatejs.org) with beautiful designs and high-level APIs.
+> 📝 Rich text / WYSIWYG editor focus on **modularity and extensibility**, build on top of [Slate framework](https://docs.slatejs.org) with beautiful designs and high-level APIs.
 
 ***This project is currently under heavy development***
 
@@ -28,7 +28,7 @@ This projects currently contains over **47+ npm modules**, every features mostly
 
 ## 1. canner-slate-editor
 
-✏️ Another rich text editor using Slate framework, with beautiful design
+> Another rich text editor using Slate framework, with beautiful design
 
 Learn more [canner-slate-editor](./packages/editors/canner-slate-editor)
 
@@ -37,7 +37,7 @@ Learn more [canner-slate-editor](./packages/editors/canner-slate-editor)
 
 ## 2. slate-md-editor
 
-📃 A markdown editor, that allows you to edit live with hot keys support!
+> A markdown editor, that allows you to edit live with hot keys support!
 
 Learn more [slate-md-editor](./packages/editors/slate-md-editor)
 
@@ -46,25 +46,25 @@ Learn more [slate-md-editor](./packages/editors/slate-md-editor)
 
 ## 3. slate-icons
 
-📝20+ shared slate icons and helpers for Slate editors.
+> 20+ shared slate icons and helpers for Slate editors.
 
 Learn more [slate-icons](./packages/slate-icons)
 
 ## 4. slate-selectors
 
-🎇 shared slate selectors for Slate editors.
+> shared slate selectors for Slate editors.
 
 Learn more [slate-selectors](./packages/slate-selectors)
 
 ## 5. quill-icons
 
-🤞🏻 Icons extract from quill editor with React component wrapper, support 65+ icons!
+> Icons extract from quill editor with React component wrapper, support 65+ icons!
 
 Learn more [quill-icons](./packages/quill-icons)
 
 ## 6. slate-utils & slate-helpers
 
-A set of helper and utility functions for Slate editors
+> A set of helper and utility functions for Slate editors
 
 - [helpers](./packages/helpers)
 - [utils](./packages/utils)
@@ -72,6 +72,6 @@ A set of helper and utility functions for Slate editors
 
 ## 7. slate-constant
 
-Share constants through repos.
+> Share constants through repos.
 
 Learn more [slate-constant](./packages/slate-constant)
