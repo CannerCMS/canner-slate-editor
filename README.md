@@ -1,138 +1,76 @@
-# slate-editor-icons
+# canner-slate-editor [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+> Rich text / WYSIWYG editor focus on **modularity and extensibility**, build on top of [Slate framework](https://docs.slatejs.org) with beautiful designs and high-level APIs.
 
-> Shared icons and render functions for slate editors, icons are extracted from [Quill editor](https://quilljs.com/) (see [quill-icons](https://github.com/Canner/quill-icons) for more information)
+***This project is currently under heavy development***
 
-### IMPORTANT NOTE:
-`slate-editor-icons` are for managing feature functions and components. If you don't want to assemble editor by yourself you can directly use list below, which use these packages to build editors on top of it:
+## Why not use Slate directly?
 
-1. **Another rich text editor using Slate framework, with beautiful design:  https://github.com/Canner/canner-slate-editor**
-3. **A markdown editor, that allows you to edit live.: https://github.com/Canner/slate-md-editor**
-2. **Quick and customizable way to implement medium like toolbar in your slate editor: https://github.com/Canner/slate-toolbar**
+[`Slate`](https://github.com/ianstormtaylor/slate) is a well-designed powerful **editor framework** that helps you deal with difficult parts when building an editor, such as data modeling, updating states, rendering, editor schemas, serializing... (you could learn more [here](https://github.com/ianstormtaylor/slate#why)), while you are trying to build your own editors, it still need a lot of efforts to build a simple beautiful editor up and running with the framework.
 
-Live demo: https://canner.github.io/slate-editor-icons/
+**This repository aims to provide complete editors and plugins solutions that allows you to use it right away, instead of digging through slate documentations and using our high-level components you could almost build editors without any slate framework knowledge to use.**
 
-![Demo](https://raw.githubusercontent.com/Canner/slate-editor-icons/master/docs/demo.png)
+## Why another editor?
 
+There are many other rich text and WYSIWYG editors online, but as [slate - why section](https://github.com/ianstormtaylor/slate#why) mentioned that most of these solutions are
 
-## Packages
+1. Not small and reusable
+2. Hardcoded and hard to customize
+3. Re-inventing the view layer seemed inefficient and limiting
+4. ...
 
-**DON'T DIRECTLY INSTALL `slate-editor-icons`**
+**Since this project is orignally started from [Canner](https://github.com/Canner/canner), we have some special use cases for our clients that most of the editors are hard to meet our requirements.**
 
-Supported features:
+Hence, this repository will try to keep all the advantages slate framework provides and create a more high level APIs for developers could also easily reuse and customize their own version of editor. Also we are always welcome to all kinds of contributors! 🙌
 
-- [Align - @canner/slate-icon-align](./packages/slate-icon-align) - center, left, right
-- [Blockquote - @canner/slate-icon-blockquote](./packages/slate-icon-blockquote)
-- [Bold - @canner/slate-icon-bold](./packages/slate-icon-bold)
-- [Clean - @canner/slate-icon-clean](./packages/slate-icon-clean)
-- [Code - @canner/slate-icon-code](./packages/slate-icon-code)
-- [CodeBlock - @canner/slate-icon-codeblock](./packages/slate-icon-codeblock)
-- [Emoji - @canner/slate-icon-emoji](./packages/slate-icon-emoji)
-- [Font background color - @canner/slate-icon-fontbgcolor](./packages/slate-icon-fontbgcolor)
-- [Font color - @canner/slate-icon-fontcolor](./packages/slate-icon-fontcolor)
-- [Hr - @canner/slate-icon-hr](./packages/slate-icon-hr)
-- [Header - @canner/slate-icon-header](./packages/slate-icon-header) - header 1, header 2, header 3, header 4, header 5, header 6
-- [Image - @canner/slate-icon-image](./packages/slate-icon-image)
-- [Indent - @canner/slate-icon-indent](./packages/slate-icon-indent) - indent, outdent
-- [Italic - @canner/slate-icon-italic](./packages/slate-icon-italic)
-- [Link - @canner/slate-icon-link](./packages/slate-icon-link)
-- [List - @canner/slate-icon-list](./packages/slate-icon-list) - Ol list, Ul list
-- [Strike through - @canner/slate-icon-strikethrough](./packages/slate-icon-strikethrough)
-- [Underline - @canner/slate-icon-underline](./packages/slate-icon-underline)
-- [Undo - @canner/slate-icon-undo](./packages/slate-icon-undo)
-- [Redo - @canner/slate-icon-redo](./packages/slate-icon-redo)
-- [Video - @canner/slate-icon-video](./packages/slate-icon-video)
-- [Table - @canner/slate-icon-table](./packages/slate-icon-table)
+## How the project contructs?
 
-Supported selectors:
+This projects currently contains over **47+ npm modules**, every features mostly are packaged into npm modules, such as icons, helpers, plugins, utils, etc..., so this enable developers to pick modules to assemble into your own usages.
 
-- [Font size - @canner/slate-select-fontsize](./packages/slate-select-fontsize)
-- [Line height - @canner/slate-select-lineheight](./packages/slate-select-lineheight)
-- [Letter spacing - @canner/slate-letterspacing](./packages/slate-select-letterspacing)
+### canner-slate-editor
 
-Helpers:
+✏️ Another rich text editor using Slate framework, with beautiful design
 
-- [Renderers - @canner/slate-editor-renderer](./packages/slate-editor-renderer)
-- [Serializer and deserializer - @canner/slate-editor-html](./packages/slate-editor-html)
+Learn more [canner-slate-editor](./packages/editors/canner-slate-editor)
 
-## Usage
-
-This project is maintain in a monorepo, see packages in `packages` folder
-
-Install icons that you want to support in your slate project, and pass slate editor `change (value.change())` and `onChange` function as props into the component. When users click these icons it will apply changes and trigger onChange function to update new change to your editor.
-
-**NOTE: You have to add corresponding plugins to your editor!**
-
-You will need to pass icon classnames as props into your components ([supported classes](https://github.com/Canner/quill-icons#props)), you could look at the example [how to setup your icon's styles](https://github.com/Canner/slate-editor-icons/blob/master/docs/style.css) 
-
-```js
-class App extends React.Component {
-  // Set the initial state when the app is first constructed.
-  state = {
-    value: initialValue // your slate editor's initial value
-  }
-
-  render() {
-    const {value} = this.state;
-    const onChange = ({value}) => this.setState({value});
-
-    return (
-      <div style={{margin: '50px'}}>
-        <div className="toolbar">
-          {icons.map((Type, i) => {
-            return <Type
-              change={value.change()}
-              onChange={onChange}
-              key={i}
-              className="toolbar-item"
-              activeClassName="toolbar-item-active"
-              activeStrokeClassName="ql-stroke-active"
-              activeFillClassName="ql-fill-active"
-              activeThinClassName="ql-thin-active"
-              activeEvenClassName="ql-even-active"
-            />
-          })}
-        </div>
-        <div className="editor markdown-body">
-          <Editor
-            value={value}
-            onChange={onChange}
-            plugins={plugins} // ----> use corresponding plugins of your selected icons, for example `Bold` icon use `BoldPlugin`
-          />
-        </div>
-      </div>
-    );
-  }
-}
-```
-
-The best explanation is a simple example: https://github.com/Canner/slate-editor-icons/blob/master/docs/index.js
-
-## Icon and selectors' props
-
-All icons must passed these two props to ensure working properly.
-
-| **props** | **type** | **required** | **default** | **description**  |
-|-----------|----------|--------------|-------------|------------------|
-| type     | string   | false        | each icons are different  | customized block/mark types |
-| change     | object   | true        | null          | changes to value |
-| onChange  | func   | true         | null         | onChange function usually `change => this.setState({value})` to update slate state  |
+<img src="./docs/canner-slate-editor/demo.png" height="600px"/>
 
 
-## Start example server
+### slate-md-editor
 
-```
-npm start
-```
+📃 A markdown editor, that allows you to edit live with hot keys support!
 
-## Maintainer
+Learn more [slate-md-editor](./packages/editors/slate-md-editor)
 
-[chilijung](https://github.com/chilijung)
+![demo](https://i.imgur.com/OqQMMiC.gif)
 
-## License
+### slate-icons
 
-MIT © [Canner](https://github.com/Canner)
+📝20+ shared slate icons and helpers for Slate editors.
 
+Learn more [slate-icons](./packages/slate-icons)
 
-<a href="https://canner.io">
-  <img src="https://user-images.githubusercontent.com/26116324/37811196-a437d930-2e93-11e8-97d8-0653ace2a46d.png"/>
-</a>
+### slate-selectors
+
+🎇 shared slate selectors for Slate editors.
+
+Learn more [slate-selectors](./packages/slate-selectors)
+
+### quill-icons
+
+🤞🏻 Icons extract from quill editor with React component wrapper, support 65+ icons!
+
+Learn more [quill-icons](./packages/quill-icons)
+
+### slate-utils & slate-helpers
+
+A set of helper and utility functions for Slate editors
+
+- [helpers](./packages/helpers)
+- [utils](./packages/utils)
+- [renderer](./packages/renderer)
+
+### slate-constant
+
+Share constants through repos.
+
+Learn more [slate-constant](./packages/slate-constant)

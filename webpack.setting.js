@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   entry: {
     cannerSlateEditor: "./docs/canner-slate-editor/index.js",
-    markdownPlugin: "./docs/markdown-plugin/index.js",
+    markdownEditor: "./docs/markdown-editor/index.js",
     quillIcons: "./docs/quill-icons/index.js",
     sidebar: "./docs/sidebar/index.js",
     slateIcons: "./docs/slate-icons/index.js",

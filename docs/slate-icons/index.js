@@ -53,7 +53,7 @@ import initialValue from './initialValue';
 
 // rules
 import Html from 'slate-html-serializer';
-import {DEFAULT_RULES} from 'packages/render/slate-editor-html';
+import {DEFAULT_RULES} from 'packages/renderer/slate-editor-html';
 
 const html = new Html({ rules: DEFAULT_RULES})
 const TabPane = Tabs.TabPane;

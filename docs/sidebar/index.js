@@ -5,12 +5,12 @@ import {Modal, Button} from 'antd';
 import {Editor} from 'slate-react';
 import {Value, Change} from 'slate';
 import {Header1, Header2, HeaderOnePlugin, HeaderTwoPlugin} from '@canner/slate-icon-header';
-import {OlList, UlList, ListPlugin} from '@canner/slate-icon-list';
-import {ParagraphPlugin} from '@canner/slate-icon-shared';
+import {OlList, UlList, ListPlugin} from 'slateIcons/slate-icon-list';
+import {ParagraphPlugin} from 'slateIcons/slate-icon-shared';
 import sidebar from 'packages/components/sidebar/src';
 
-import {DEFAULT as DEFAULTLIST} from '@canner/slate-helper-block-list';
-import {DEFAULT as DEFAULTBLOCKQUOTE} from '@canner/slate-helper-block-quote';
+import {DEFAULT as DEFAULTLIST} from 'helpers/slate-helper-block-list';
+import {DEFAULT as DEFAULTBLOCKQUOTE} from 'helpers/slate-helper-block-quote';
 import EditList from 'slate-edit-list';
 import EditBlockquote from 'slate-edit-blockquote';
 

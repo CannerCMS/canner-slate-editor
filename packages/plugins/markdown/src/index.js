@@ -1,116 +1,201 @@
 // @flow
-import * as React from "react";
-import type { Value, Change } from "slate";
-import { Editor } from "slate-react";
-import EditPrism from "slate-prism";
-import EditBlockquote from "slate-edit-blockquote";
-import EditList from "slate-edit-list";
-import PluginEditCode from "slate-edit-code";
-import {DEFAULT as DEFAULT_LIST} from "@canner/slate-helper-block-list";
+
+import type { Change } from "slate";
+
+// constant
+import { KEY_ENTER, KEY_SPACE } from "./constant/keys";
+import DEFAULT_LIST from "./constant/list";
 import BLOCKS from "markup-it/lib/constants/blocks";
 import MARKS from "markup-it/lib/constants/marks";
 import INLINES from "markup-it/lib/constants/inlines";
 
-// blocks
-import {BlockquotePlugin} from '@canner/slate-icon-blockquote';
-import {ListPlugin} from '@canner/slate-icon-list';
-import {CodeBlockPlugin} from '@canner/slate-icon-codeblock';
-import {HrPlugin} from '@canner/slate-icon-hr';
-import {LinkPlugin} from '@canner/slate-icon-link';
-import {ImagePlugin} from '@canner/slate-icon-image';
-import {
-  HeaderOnePlugin,
-  HeaderTwoPlugin,
-  HeaderThreePlugin,
-  HeaderFourPlugin,
-  HeaderFivePlugin,
-  HeaderSixPlugin
-} from '@canner/slate-icon-header';
-import {ParagraphPlugin} from '@canner/slate-icon-shared';
+// handler
+import onEnter from "./handler/onEnter";
 
-// marks plugin
-import {BoldPlugin} from '@canner/slate-icon-bold';
-import {CodePlugin} from '@canner/slate-icon-code';
-import {StrikeThroughPlugin} from '@canner/slate-icon-strikethrough';
-import {UnderlinePlugin} from '@canner/slate-icon-underline';
-import {ItalicPlugin} from '@canner/slate-icon-italic';
+// match
+import matchBlockquote from "./match/blockquote";
+import matchCodeBlock from "./match/codeBlock";
+import matchCode from "./match/code";
+import matchHeader from "./match/header";
+import matchBold from "./match/bold";
+import matchItalic from "./match/italic";
+import matchStrikeThrough from './match/strikethrough';
+import matchBoldItalic from "./match/boldItalic";
+import matchHr from "./match/hr";
+import matchImage from "./match/image";
+import matchLink from "./match/link";
+import matchList from "./match/list";
 
-import mdPlugin from "./markdownPlugin";
-import "prismjs/themes/prism.css";
-import "github-markdown-css";
+// plugins
+import PluginEditCode from "slate-edit-code";
 
-export const MarkdownPlugin = mdPlugin;
+const codePlugin = PluginEditCode({
+  onlyIn: node => node.type === "code_block"
+});
+
+const checkPatterns = function(options, change) {
+  const { value } = change;
+  const { texts } = value;
+  const currentTextNode = texts.get(0);
+  const currentLineText = currentTextNode.text;
+  let matched;
+
+  // if is in code block ignore matched patterns
+  if (codePlugin.utils.isInCodeBlock(value)) {
+    return;
+  }
+
+  // reference: https://github.com/PrismJS/prism/blob/gh-pages/components/prism-markdown.js
+  // blocks
+  if ((matched = currentLineText.match(/^>\s/m))) {
+    // [blockquote] punctuation, blockquote
+    return matchBlockquote(
+      options.blocks.BLOCKQUOTE,
+      currentTextNode,
+      matched,
+      change
+    );
+  } else if ((matched = currentLineText.match(/^(?: {4}|\t)/m))) {
+    // [Code Block] Prefixed by 4 spaces or 1 tab
+    return matchCodeBlock(options.codeOption, currentTextNode, matched, change);
+  } else if ((matched = currentLineText.match(/^\s*```(\w+)?\s/m))) {
+    // [Code block]
+    // ```lang
+    return matchCodeBlock(
+      options.codeOption,
+      currentTextNode,
+      matched,
+      change,
+      matched[1]
+    );
+  } else if ((matched = currentLineText.match(/(^\s*)#{1,6}\s/m))) {
+    // [Header] h1 ~ h6
+    // # h1
+    // ## h2
+    // ###### h6
+    return matchHeader(options.blocks, currentTextNode, matched, change);
+  } else if (
+    (matched = currentLineText.match(/(^\s*)([*-])(?:[\t ]*\2){2,}/m))
+  ) {
+    // [HR]
+    // ***
+    // ---
+    // * * *
+    // -----------
+    return matchHr(options.blocks.HR, currentTextNode, matched, change);
+  } else if ((matched = currentLineText.match(/((?:^\s*)(?:[*+-]\s))/m))) {
+    // * item
+    // + item
+    // - item
+    return matchList(
+      options.listOption,
+      currentTextNode,
+      matched,
+      change,
+      false
+    );
+  } else if ((matched = currentLineText.match(/((?:^\s*)(?:\d+\.\s))/m))) {
+    // 1. item
+    return matchList(
+      options.listOption,
+      currentTextNode,
+      matched,
+      change,
+      true
+    );
+  }
+
+  const offsetBeforeSpace = value.selection.anchorOffset - 2;
+  const lastChar = currentLineText.charAt(offsetBeforeSpace);
+  const prevTextFromSpace = currentLineText.substr(0, offsetBeforeSpace + 1);
+
+  // inline patterns
+  if (
+    (matched =
+      lastChar === "`" && prevTextFromSpace.match(/\s?(`|``)((?!\1).)+?\1$/m))
+  ) {
+    // [Code] `code`
+    return matchCode(options.marks.CODE, currentTextNode, matched, change);
+  } else if (
+    (matched = currentLineText.match(
+      /!\[([^\]]+)\]\(([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?)\)/
+    ))
+  ) {
+    // ![example](http://example.com "Optional title")
+    return matchImage(options.inlines.IMAGE, currentTextNode, matched, change);
+  } else if (
+    (matched = currentLineText.match(
+      /\[([^\]]+)\]\(([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?)\)/
+    ))
+  ) {
+    // [example](http://example.com "Optional title")
+    return matchLink(options.inlines.LINK, currentTextNode, matched, change);
+  }
+
+  if (lastChar === "*" || lastChar === "_") {
+    if ((matched = prevTextFromSpace.match(/\s?(\*\*\*|___)((?!\1).)+?\1$/m))) {
+      // [Bold + Italic] ***[strong + italic]***, ___[strong + italic]___
+      return matchBoldItalic(options.marks, currentTextNode, matched, change);
+    } else if (
+      (matched = prevTextFromSpace.match(/\s?(\*\*|__)((?!\1).)+?\1$/m))
+    ) {
+      // [Bold] **strong**, __strong__
+      return matchBold(options.marks.BOLD, currentTextNode, matched, change);
+    } else if (
+      (matched = prevTextFromSpace.match(/\s?(\*|_)((?!\1).)+?\1$/m))
+    ) {
+      // [Italic] _em_, *em*
+      return matchItalic(
+        options.marks.ITALIC,
+        currentTextNode,
+        matched,
+        change
+      );
+    }
+  }
+
+  if (lastChar === "~") {
+    if (
+      (matched = prevTextFromSpace.match(/\s?(~)((?!\1).)+?\1$/m))
+    ) {
+      // [Strike Through] ~strikethrough~
+      return matchStrikeThrough(
+        options.marks.STRIKETHROUGH,
+        currentTextNode,
+        matched,
+        change
+      );
+    }
+  }
+};
 
 export default (opt: { [string]: any } = {}) => {
-  const options = Object.assign(
-    {
-      markdownOption: {
-        blocks: Object.assign(BLOCKS, opt.blocks),
-        marks: Object.assign(MARKS, opt.marks),
-        inlines: Object.assign(INLINES, opt.inlines)
-      },
-      prismOption: {
-        onlyIn: node => node.type === BLOCKS.CODE,
-        getSyntax: node => node.data.get("syntax")
-      },
-      codeOption: {
+  const options = {
+    blocks: Object.assign(BLOCKS, opt.blocks),
+    marks: Object.assign(MARKS, opt.marks),
+    inlines: Object.assign(INLINES, opt.inlines),
+    codeOption: Object.assign(
+      {
         onlyIn: node => node.type === BLOCKS.CODE
       },
-      blockquoteOption: {},
-      listOption: DEFAULT_LIST
-    },
-    opt
-  );
-
-  const mdEditorPlugins = [
-    MarkdownPlugin(options.markdownOption),
-    EditPrism(options.prismOption),
-    PluginEditCode(options.codeOption),
-    EditBlockquote(options.blockquoteOption),
-    EditList(options.listOption),
-    BlockquotePlugin(options.blockquoteOption),
-    ListPlugin(options.listOption),
-    CodeBlockPlugin(options.codeOption),
-    HrPlugin(),
-    LinkPlugin(),
-    ImagePlugin(),
-    HeaderOnePlugin(),
-    HeaderTwoPlugin(),
-    HeaderThreePlugin(),
-    HeaderFourPlugin(),
-    HeaderFivePlugin(),
-    HeaderSixPlugin(),
-    ParagraphPlugin(),
-    BoldPlugin(),
-    CodePlugin(),
-    StrikeThroughPlugin(),
-    UnderlinePlugin(),
-    ItalicPlugin()
-  ];
-
-  type Props = {
-    value: Value,
-    onChange: (change: Change) => void
+      opt.codeOption
+    ),
+    blockquoteOption: Object.assign({}, opt.blockquoteOption),
+    listOption: Object.assign(DEFAULT_LIST, opt.listOption)
   };
 
-  return class MdEditor extends React.Component<Props> {
-    constructor(props) {
-      super(props);
-      this.plugins = [...mdEditorPlugins, ...(this.props.plugins || [])];
-    }
-
-    render() {
-      const { value, onChange, plugins, ...rest } = this.props; // eslint-disable-line
-      return (
-        <div className="markdown-body">
-          <Editor
-            value={value}
-            plugins={this.plugins}
-            onChange={onChange}
-            {...rest}
-          />
-        </div>
-      );
+  return {
+    onKeyDown: (e: any, change: Change) => {
+      switch (e.key) {
+        case KEY_ENTER:
+          return onEnter(options, change);
+      }
+    },
+    onKeyUp: (e: any, change: Change) => {
+      switch (e.key) {
+        case KEY_SPACE:
+          return checkPatterns(options, change);
+      }
     }
   };
 };

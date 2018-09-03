@@ -3,7 +3,7 @@ const settings = require("./webpack.setting");
 
 module.exports = {
   ...settings,
-  mode: 'development'
+  mode: 'development',
   output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].js",
