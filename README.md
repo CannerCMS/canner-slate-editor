@@ -22,11 +22,11 @@ There are many other rich text and WYSIWYG editors online, but as [slate - why s
 
 Hence, this repository will try to keep all the advantages slate framework provides and create a more high level APIs for developers could also easily reuse and customize their own version of editor. Also we are always welcome to all kinds of contributors! 🙌
 
-## How the project contructs?
+# How the project contructs?
 
 This projects currently contains over **47+ npm modules**, every features mostly are packaged into npm modules, such as icons, helpers, plugins, utils, etc..., so this enable developers to pick modules to assemble into your own usages.
 
-### canner-slate-editor
+## 1. canner-slate-editor
 
 ✏️ Another rich text editor using Slate framework, with beautiful design
 
@@ -35,33 +35,34 @@ Learn more [canner-slate-editor](./packages/editors/canner-slate-editor)
 <img src="./docs/canner-slate-editor/demo.png" height="600px"/>
 
 
-### slate-md-editor
+## 2. slate-md-editor
 
 📃 A markdown editor, that allows you to edit live with hot keys support!
 
 Learn more [slate-md-editor](./packages/editors/slate-md-editor)
 
-![demo](https://i.imgur.com/OqQMMiC.gif)
 
-### slate-icons
+<img src="https://i.imgur.com/OqQMMiC.gif" height="600px" style="border:1px solid #CCC;"/>
+
+## 3. slate-icons
 
 📝20+ shared slate icons and helpers for Slate editors.
 
 Learn more [slate-icons](./packages/slate-icons)
 
-### slate-selectors
+## 4. slate-selectors
 
 🎇 shared slate selectors for Slate editors.
 
 Learn more [slate-selectors](./packages/slate-selectors)
 
-### quill-icons
+## 5. quill-icons
 
 🤞🏻 Icons extract from quill editor with React component wrapper, support 65+ icons!
 
 Learn more [quill-icons](./packages/quill-icons)
 
-### slate-utils & slate-helpers
+## 6. slate-utils & slate-helpers
 
 A set of helper and utility functions for Slate editors
 
@@ -69,7 +70,7 @@ A set of helper and utility functions for Slate editors
 - [utils](./packages/utils)
 - [renderer](./packages/renderer)
 
-### slate-constant
+## 7. slate-constant
 
 Share constants through repos.
 
