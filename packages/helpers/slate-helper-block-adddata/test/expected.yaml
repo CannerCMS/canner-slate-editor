@@ -1,0 +1,13 @@
+document:
+  nodes:
+    - object: block
+      type: paragraph
+      nodes:
+      - object: block
+        type: paragraph
+        data:
+          foo: bar
+        nodes:
+          - object: text
+            leaves:
+              - text: Hello World

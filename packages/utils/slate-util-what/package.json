@@ -1,0 +1,15 @@
+{
+  "name": "@canner/slate-util-what",
+  "version": "0.1.3",
+  "description": "A slate utility function to get types",
+  "main": "lib/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "../../node_modules/.bin/babel src -d lib --copy-files"
+  },
+  "author": "",
+  "license": "MIT"
+}

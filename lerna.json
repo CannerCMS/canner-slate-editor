@@ -1,7 +1,12 @@
 {
   "lerna": "2.9.0",
   "packages": [
-    "packages/*"
+    "packages/*",
+    "packages/helpers/*",
+    "packages/icons/*",
+    "packages/render/*",
+    "packages/selectors/*",
+    "packages/utils/*"
   ],
   "npmClient": "yarn",
   "version": "1.3.1"

@@ -1,0 +1,48 @@
+{
+  "name": "quill-icons",
+  "version": "0.6.0",
+  "description": "Common editor icons from quill editor",
+  "author": {
+    "name": "chilijung",
+    "email": "chilijung@gmail.com",
+    "url": ""
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "keywords": [
+    "icons",
+    "quill",
+    "editor"
+  ],
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "cross-env": "^2.0.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "mocha": "^2.4.5",
+    "react-addons-test-utils": "^15.6.2",
+    "rimraf": "^2.5.4"
+  },
+  "scripts": {
+    "prepublish": "../../node_modules/.bin/babel src -d lib --copy-files",
+    "test": "cross-env BABEL_ENV=test ./node_modules/.bin/mocha ./test/quill-icons-test.js --compilers js:babel-core/register --bail --reporter=list"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "repository": "Canner/quill-icons",
+  "peerDependencies": {
+    "prop-types": "^15.6.1",
+    "react": "^0.14.0 || ^15.0.0 || 16.x",
+    "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
+  },
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "lodash.omit": "^4.5.0",
+    "lodash.pick": "^4.4.0",
+    "lodash.xor": "^4.5.0"
+  }
+}

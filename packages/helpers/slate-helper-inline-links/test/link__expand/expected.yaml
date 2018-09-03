@@ -1,0 +1,19 @@
+document:
+  nodes:
+    - object: block
+      type: paragraph
+      nodes:
+        - object: text
+          leaves:
+            - text: ''
+        - object: inline
+          type: link
+          data:
+            href: http://example.com/
+          nodes:
+            - object: text
+              leaves:
+                - text: H
+        - object: text
+          leaves:
+            - text: ello World

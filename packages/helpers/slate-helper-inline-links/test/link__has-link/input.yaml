@@ -1,0 +1,13 @@
+document:
+  nodes:
+    - object: block
+      type: paragraph
+      nodes:
+        - object: inline
+          data: 
+            href: "http://example.com/"
+          nodes:
+            - object: text
+              leaves:
+                - text: example link
+          type: link

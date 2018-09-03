@@ -1,0 +1,16 @@
+{
+  "name": "@canner/slate-helper-inline-adddata",
+  "version": "0.1.2",
+  "description": "A slate helper to add data to current inline",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "../../node_modules/.bin/mocha ./test/index.js --compilers js:babel-register --bail --reporter=list",
+    "prepublish": "../../node_modules/.bin/babel src -d lib --copy-files"
+  }
+}

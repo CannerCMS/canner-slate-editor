@@ -1,0 +1,42 @@
+import React, { Component } from "react";
+import defaultProps from "../defaultProps";
+import defaultPropTypes from "../defaultPropTypes";
+import pick from "lodash.pick";
+import xor from "lodash.xor";
+import omit from "lodash.omit";
+
+const pickProperties = ["width", "height", "strokeClassName", "fillClassName"];
+const excludeProperties = xor(Object.keys(defaultProps), pickProperties);
+
+const DEFAULT_PROPS = pick(defaultProps, pickProperties);
+
+const DEFAULT_PROPTYPES = pick(defaultPropTypes, pickProperties);
+
+export default class Map extends Component {
+  static defaultProps = DEFAULT_PROPS;
+  static propTypes = DEFAULT_PROPTYPES;
+
+  render() {
+    const { strokeClassName, fillClassName, ...rest } = omit(
+      this.props,
+      excludeProperties
+    );
+
+    return (
+      <svg {...rest} viewBox="0 0 18 18">
+        <path
+          className={strokeClassName}
+          d="M12,5c0,1.1-2,4-2,4S8,6.1,8,5A2,2,0,0,1,12,5Z"
+        />
+        <path
+          className={fillClassName}
+          d="M15.472,2.118a1,1,0,0,0-1.026.05l-1.067.712A3.944,3.944,0,0,1,14,4.869h0v7.6L12,13.8l-2.445-1.63a1,1,0,0,0-1.109,0L6,13.8,4,12.465v-7.6L5.445,5.832a0.992,0.992,0,0,0,.717.144A3.742,3.742,0,0,1,6,5a3.956,3.956,0,0,1,.258-1.374L6,3.8,3.555,2.168A1,1,0,0,0,2,3V13a1,1,0,0,0,.445.832l3,2a1,1,0,0,0,1.109,0L9,14.2l2.445,1.63a1,1,0,0,0,1.109,0l3-2A1,1,0,0,0,16,13V3A1,1,0,0,0,15.472,2.118Z"
+        />
+        <path
+          className={fillClassName}
+          d="M12.092,14.938a4.2,4.2,0,0,0-1.936-3.032c-1.125-.656-2.425.738-2.75-0.687A2.036,2.036,0,0,0,5.688,9.656,2.878,2.878,0,0,0,3,8.653V13l3,2,3-2,3,2Z"
+        />
+      </svg>
+    );
+  }
+}
