@@ -6,40 +6,40 @@ import type {Value} from 'slate';
 import {Editor} from 'slate-react';
 import beautify from 'js-beautify';
 import {Row, Col, Tabs} from 'antd';
-import {AlignCenter, AlignLeft, AlignRight, AlignCenterPlugin, AlignLeftPlugin, AlignRightPlugin} from 'packages/slate-icon-align';
-import Blockquote, {BlockquotePlugin} from 'packages/slate-icon-blockquote';
-import Bold, {BoldPlugin} from 'packages/slate-icon-bold';
-import Clean, {CleanPlugin} from 'packages/slate-icon-clean';
-import Code, {CodePlugin} from 'packages/slate-icon-code';
-import CodeBlock, {CodeBlockPlugin} from 'packages/slate-icon-codeblock';
-// import Emoji, {EmojiPlugin} from 'packages/slate-icon-emoji';
-import FontBgColor, {FontBgColorPlugin} from 'packages/slate-icon-fontBgColor';
-import FontColor, {FontColorPlugin} from 'packages/slate-icon-fontColor';
-import {Header1, Header2, HeaderOnePlugin, HeaderTwoPlugin, HeaderThreePlugin} from 'packages/slate-icon-header';
-import Hr, {HrPlugin} from 'packages/slate-icon-hr';
-import Image, {ImagePlugin} from 'packages/slate-icon-image';
-import {Indent, Outdent} from 'packages/slate-icon-indent';
-import Italic, {ItalicPlugin} from 'packages/slate-icon-italic';
-import Table, {TablePlugin} from 'packages/slate-icon-table';
-import Link, {LinkPlugin} from 'packages/slate-icon-link';
-import {OlList, UlList, ListPlugin} from 'packages/slate-icon-list';
-import StrikeThrough, {StrikeThroughPlugin} from 'packages/slate-icon-strikethrough';
-import Underline, {UnderlinePlugin} from 'packages/slate-icon-underline';
-import Undo from 'packages/slate-icon-undo';
-import Redo, {RedoPlugin} from 'packages/slate-icon-redo';
-import Video, {VideoPlugin} from 'packages/slate-icon-video';
+import {AlignCenter, AlignLeft, AlignRight, AlignCenterPlugin, AlignLeftPlugin, AlignRightPlugin} from 'slateIcons/slate-icon-align';
+import Blockquote, {BlockquotePlugin} from 'slateIcons/slate-icon-blockquote';
+import Bold, {BoldPlugin} from 'slateIcons/slate-icon-bold';
+import Clean, {CleanPlugin} from 'slateIcons/slate-icon-clean';
+import Code, {CodePlugin} from 'slateIcons/slate-icon-code';
+import CodeBlock, {CodeBlockPlugin} from 'slateIcons/slate-icon-codeblock';
+// import Emoji, {EmojiPlugin} from 'slateIcons/slate-icon-emoji';
+import FontBgColor, {FontBgColorPlugin} from 'slateIcons/slate-icon-fontBgColor';
+import FontColor, {FontColorPlugin} from 'slateIcons/slate-icon-fontColor';
+import {Header1, Header2, HeaderOnePlugin, HeaderTwoPlugin, HeaderThreePlugin} from 'slateIcons/slate-icon-header';
+import Hr, {HrPlugin} from 'slateIcons/slate-icon-hr';
+import Image, {ImagePlugin} from 'slateIcons/slate-icon-image';
+import {Indent, Outdent} from 'slateIcons/slate-icon-indent';
+import Italic, {ItalicPlugin} from 'slateIcons/slate-icon-italic';
+import Table, {TablePlugin} from 'slateIcons/slate-icon-table';
+import Link, {LinkPlugin} from 'slateIcons/slate-icon-link';
+import {OlList, UlList, ListPlugin} from 'slateIcons/slate-icon-list';
+import StrikeThrough, {StrikeThroughPlugin} from 'slateIcons/slate-icon-strikethrough';
+import Underline, {UnderlinePlugin} from 'slateIcons/slate-icon-underline';
+import Undo from 'slateIcons/slate-icon-undo';
+import Redo, {RedoPlugin} from 'slateIcons/slate-icon-redo';
+import Video, {VideoPlugin} from 'slateIcons/slate-icon-video';
 
 // select
-import FontSize, {FontSizePlugin} from 'packages/slate-select-fontsize';
-import LetterSpacing, {LetterSpacingPlugin} from 'packages/slate-select-letterspacing';
-import LineHeight from 'packages/slate-select-lineheight';
+import FontSize, {FontSizePlugin} from 'slateSelectors/slate-select-fontsize';
+import LetterSpacing, {LetterSpacingPlugin} from 'slateSelectors/slate-select-letterspacing';
+import LineHeight from 'slateSelectors/slate-select-lineheight';
 
 // plugins
-import {DEFAULT as DEFAULTLIST} from '@canner/slate-helper-block-list';
-import {DEFAULT as DEFAULTBLOCKQUOTE} from '@canner/slate-helper-block-quote';
+import {DEFAULT as DEFAULTLIST} from 'helpers/slate-helper-block-list';
+import {DEFAULT as DEFAULTBLOCKQUOTE} from 'helpers/slate-helper-block-quote';
 import EditList from 'slate-edit-list';
 import EditBlockquote from 'slate-edit-blockquote';
-import {ParagraphPlugin} from 'packages/slate-icon-shared';
+import {ParagraphPlugin} from 'slateIcons/slate-icon-shared';
 
 import EditPrism from 'slate-prism'
 import EditCode from 'slate-edit-code'
@@ -53,7 +53,7 @@ import initialValue from './initialValue';
 
 // rules
 import Html from 'slate-html-serializer';
-import {DEFAULT_RULES} from 'packages/slate-editor-html';
+import {DEFAULT_RULES} from 'packages/render/slate-editor-html';
 
 const html = new Html({ rules: DEFAULT_RULES})
 const TabPane = Tabs.TabPane;

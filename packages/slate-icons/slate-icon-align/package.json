@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "jest src",
-    "prepublish": "../../node_modules/.bin/babel src -d lib --copy-files"
+    "prepublish": "../../../node_modules/.bin/babel src -d lib --copy-files"
   },
   "author": "",
   "license": "MIT",
@@ -19,7 +19,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "^test/(.*)$": "<rootDir>/../../test/$1"
+      "^test/(.*)$": "<rootDir>/../../../test/$1"
     }
   },
   "publishConfig": {

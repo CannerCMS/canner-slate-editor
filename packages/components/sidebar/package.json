@@ -60,21 +60,7 @@
     "webpack-dev-server": "^3.1.0"
   },
   "scripts": {
-    "build:flow": "flow-copy-source -v -i '**/test/**' src lib",
-    "lint": "eslint src test docs",
-    "clean": "rimraf lib dist",
-    "build:es5": "./node_modules/.bin/babel src --out-dir lib",
-    "build": "npm run build:es5 && npm run build:flow",
-    "prepublish": "npm run clean && npm run check:src && npm run build",
-    "check:src": "npm run lint && npm run test",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "start": "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --mode development",
-    "gh-pages:clean": "rimraf _gh-pages && ncp ./docs ./_gh-pages",
-    "gh-pages:build": "cross-env BABEL_ENV=production ./node_modules/.bin/webpack --config webpack.config.ghPage.js",
-    "gh-pages:publish": "git-directory-deploy --directory _gh-pages",
-    "gh-pages": "npm run gh-pages:clean && npm run gh-pages:build && npm run gh-pages:publish",
-    "validate": "npm ls"
+    "prepublish": "../../../node_modules/.bin/babel src -d lib --copy-files"
   },
   "pre-commit": [
     "lint"

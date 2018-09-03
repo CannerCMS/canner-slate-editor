@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "jest src",
-    "prepublish": "../../node_modules/.bin/babel src -d lib --copy-files"
+    "prepublish": "../../../node_modules/.bin/babel src -d lib --copy-files"
   },
   "author": "",
   "license": "MIT",

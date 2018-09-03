@@ -16,7 +16,7 @@ import StrikeThrough, {StrikeThroughPlugin} from '@canner/slate-icon-strikethrou
 import Underline, {UnderlinePlugin} from '@canner/slate-icon-underline';
 import Undo from '@canner/slate-icon-undo';
 import {ParagraphPlugin} from '@canner/slate-icon-shared';
-import toolbar from '../src';
+import toolbar from 'packages/components/toolbar/src';
 
 import {DEFAULT as DEFAULTLIST} from '@canner/slate-helper-block-list';
 import {DEFAULT as DEFAULTBLOCKQUOTE} from '@canner/slate-helper-block-quote';

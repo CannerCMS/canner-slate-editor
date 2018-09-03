@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import QuillIcons from '../src';
+import QuillIcons from 'quillIcons/src';
 
 class iconSection extends Component {
   static propTypes = {

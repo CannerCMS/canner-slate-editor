@@ -39,18 +39,8 @@
   "scripts": {
     "lint": "prettier --write ./src/**/*.js && eslint ./src/**/*.js",
     "build:flow": "flow-copy-source -v -i '**/test/**' src lib",
-    "clean": "rimraf lib dist",
-    "build": "babel src --out-dir lib && npm run build:flow",
-    "prepublish": "npm run clean && npm run check:src && npm run build && npm run build:dist",
-    "check:src": "npm run lint",
-    "start": "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --mode development",
-    "build:docs": "./node_modules/.bin/webpack --config webpack.config.prod.js --mode production",
-    "build:dist": "./node_modules/.bin/webpack --config webpack.config.umd.js --mode production",
-    "validate": "npm ls"
+    "prepublish": "../../node_modules/.bin/babel src -d lib --copy-files"
   },
-  "pre-commit": [
-    "lint"
-  ],
   "repository": "Canner/canner-slate-editor",
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || 16.x",

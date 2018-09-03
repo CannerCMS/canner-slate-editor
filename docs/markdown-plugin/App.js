@@ -6,7 +6,7 @@ import { State } from "markup-it";
 import Prism from "prismjs";
 import markdown from "markup-it/lib/markdown";
 import html from "markup-it/lib/html";
-import Editor from "../src";
+import Editor from "plugins/markdown/src";
 import readme from "../README.md";
 
 import "antd/dist/antd.css";
