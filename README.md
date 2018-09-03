@@ -24,7 +24,7 @@ Hence, this repository will try to keep all the advantages slate framework provi
 
 # How the project contructs?
 
-This projects currently contains over **47+ npm modules**, every features mostly are packaged into npm modules, such as icons, helpers, plugins, utils, etc..., so this enable developers to pick modules to assemble into your own usages.
+This projects currently contains over **47+ npm modules**, every features are packaged into npm modules, such as icons, helpers, plugins, utils, etc..., so this enable developers to pick modules to assemble into your own usages.
 
 ## 1. canner-slate-editor
 
@@ -62,6 +62,12 @@ Learn more [slate-selectors](./packages/slate-selectors)
 
 Learn more [quill-icons](./packages/quill-icons)
 
+## 6. slate plugins
+
+> A set of slate plugins.
+
+- [plugins](./packages/plugins)
+
 ## 6. slate-utils & slate-helpers
 
 > A set of helper and utility functions for Slate editors
@@ -75,3 +81,19 @@ Learn more [quill-icons](./packages/quill-icons)
 > Share constants through repos.
 
 Learn more [slate-constant](./packages/slate-constant)
+
+## Development
+
+We are using `yarn` workspace to manage all repos, learn more about [Yarn workspace](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/)
+
+To install packages
+
+```
+yarn
+```
+
+See demos
+
+```
+npm start
+```
