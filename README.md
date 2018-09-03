@@ -22,7 +22,7 @@ There are many other rich text and WYSIWYG editors online, but as [slate - why s
 
 Hence, this repository will try to keep all the advantages slate framework provides and create a more high level APIs for developers could also easily reuse and customize their own version of editor. Also we are always welcome to all kinds of contributors! 🙌
 
-# How the project contructs?
+# How the project constructs?
 
 This projects currently contains over **47+ npm modules**, every features are packaged into npm modules, such as icons, helpers, plugins, utils, etc..., so this enable developers to pick modules to assemble into your own usages.
 
