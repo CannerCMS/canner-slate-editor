@@ -1,7 +1,7 @@
 {
-  "name": "slate-editor-icons",
+  "name": "canner-slate-editor",
   "version": "1000000.0.0",
-  "description": "icons for slate editors",
+  "description": "Another rich text editor using Slate framework",
   "author": {
     "name": "chilijung",
     "email": "chilijung@gmail.com"
@@ -16,9 +16,6 @@
     "icons"
   ],
   "devDependencies": {
-    "@canner/slate-constant": "^1.0.8",
-    "@canner/slate-helper-block-list": "^0.1.6",
-    "@canner/slate-helper-block-quote": "^0.1.6",
     "antd": "3.4.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -44,14 +41,15 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
     "flow-bin": "^0.69.0",
+    "husky": "^0.14.3",
     "immutable": "^4.0.0-rc.9",
     "js-beautify": "^1.7.5",
     "lerna": "^2.9.0",
     "less": "2.3.1",
     "less-loader": "^4.1.0",
+    "lint-staged": "^7.2.2",
     "markup-it": "^7.0.3",
     "mocha": "^2.4.5",
-    "precommit-hook-eslint": "^3.0.0",
     "prettier": "^1.9.2",
     "prismjs": "^1.13.0",
     "raw-loader": "^0.5.1",
@@ -86,10 +84,18 @@
     "lint": "eslint .",
     "validate": "npm ls"
   },
-  "pre-commit": [
-    "lint:src"
-  ],
-  "repository": "Canner/slate-editor-icons",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "repository": "Canner/canner-slate-editor",
   "license": "MIT",
   "dependencies": {}
 }

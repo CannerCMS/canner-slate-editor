@@ -3,10 +3,13 @@
   "packages": [
     "packages/*",
     "packages/helpers/*",
-    "packages/icons/*",
+    "packages/slate-icons/*",
     "packages/render/*",
-    "packages/selectors/*",
-    "packages/utils/*"
+    "packages/slate-selectors/*",
+    "packages/utils/*",
+    "packages/components/*",
+    "packages/quill-icons/*",
+    "packages/plugins/*"
   ],
   "npmClient": "yarn",
   "version": "1.3.1"

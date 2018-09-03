@@ -1,0 +1,10 @@
+body {
+	background-color: #CCC !important;
+}
+
+.editor {
+	margin: 10px auto;
+	width: 80%;
+	padding: 20px;
+	background-color: #FFF;
+}
