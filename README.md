@@ -82,7 +82,7 @@ Learn more [quill-icons](./packages/quill-icons)
 
 Learn more [slate-constant](./packages/slate-constant)
 
-## Development
+# Development
 
 We are using `yarn` workspace to manage all repos, learn more about [Yarn workspace](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/)
 
