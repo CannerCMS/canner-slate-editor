@@ -151,7 +151,7 @@ export default (options: { [string]: any } = {}) => {
               <SidebarContainer
                 innerRef={node => (this.sidebarContainerNode = node)}
               >
-                <Icon type="plus-circle-o" className={openPopover && "open"}/>
+                <Icon type="plus-circle" theme="outlined" className={openPopover && "open"}/>
               </SidebarContainer>
             </Popover>
           )
