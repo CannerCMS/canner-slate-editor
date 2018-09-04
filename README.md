@@ -41,7 +41,6 @@ Learn more [canner-slate-editor](./packages/editors/canner-slate-editor)
 
 Learn more [slate-md-editor](./packages/editors/slate-md-editor)
 
-
 <img src="https://i.imgur.com/OqQMMiC.gif" height="600px" style="border:1px solid #CCC;"/>
 
 ## 3. slate-icons

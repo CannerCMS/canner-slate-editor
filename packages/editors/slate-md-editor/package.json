@@ -8,11 +8,6 @@
   },
   "main": "lib/index.js",
   "license": "MIT",
-  "scripts": {
-    "build:docs": "./node_modules/.bin/webpack --config webpack.config.prod.js --mode production",
-    "postpublish": "npm run build:docs",
-    "validate": "npm ls"
-  },
   "devDependencies": {
     "antd": "^3.3.3",
     "flow-bin": "^0.68.0",

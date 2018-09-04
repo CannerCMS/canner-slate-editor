@@ -1,4 +1,5 @@
 const path = require('path');
+const babelrc = require('./.babelrc');
 
 module.exports = {
   entry: {
@@ -16,17 +17,20 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: 'babel',
+        use: {
+          loader: 'babel-loader',
+          options: babelrc
+        },
         exclude: /node_modules/
       },
       {
         test: /\.css$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: 'style'
           },
           {
-            loader: 'css-loader'
+            loader: 'css'
           }
         ]
       },
@@ -46,7 +50,7 @@ module.exports = {
       },
       {
         test: /\.md$/,
-        use: 'raw-loader'
+        use: 'raw'
       }
     ]
   },
