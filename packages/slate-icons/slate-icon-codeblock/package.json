@@ -4,7 +4,7 @@
   "description": "A slate icon for creating code blocks",
   "main": "lib/index.js",
   "scripts": {
-    "test": "../../../node_modules/.bin/jest src --coverage"
+    "test": "jest src --coverage"
   },
   "author": "",
   "license": "MIT",

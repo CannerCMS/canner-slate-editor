@@ -3,7 +3,7 @@ import { Change, Value } from "slate";
 import { OlList, UlList } from "../";
 import { join } from "path";
 import renderer from "react-test-renderer";
-import iconTest from "../../../../test/icon-test";
+import iconTest from "test/icon-test";
 
 test("create a OlList icon", () => {
   const initialValue = Value.fromJSON({

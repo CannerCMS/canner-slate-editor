@@ -3,7 +3,7 @@ import { Change, Value } from "slate";
 import Underline from "../";
 import { join } from "path";
 import renderer from "react-test-renderer";
-import iconTest from "../../../../test/icon-test";
+import iconTest from "test/icon-test";
 
 test("create a Underline icon", () => {
   const initialValue = Value.fromJSON({

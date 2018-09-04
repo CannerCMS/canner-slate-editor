@@ -7,14 +7,9 @@ exports[`create a Undo icon 1`] = `
   onMouseDown={[Function]}
 >
   <svg
-    className={undefined}
-    colorLabelClassName={undefined}
-    colorStyle={undefined}
-    evenClassName={undefined}
+    className=""
     height="18px"
-    strokeMitterClassName={undefined}
-    thinClassName={undefined}
-    transparentClassName={undefined}
+    onChange={undefined}
     viewBox="0 0 18 18"
     width="18px"
   >

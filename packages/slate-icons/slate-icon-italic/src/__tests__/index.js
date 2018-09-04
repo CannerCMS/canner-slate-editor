@@ -3,7 +3,7 @@ import { Change, Value } from "slate";
 import { join } from "path";
 import Italic from "../";
 import renderer from "react-test-renderer";
-import iconTest from "../../../../test/icon-test";
+import iconTest from "test/icon-test";
 
 test("create a Italic icon", () => {
   const initialValue = Value.fromJSON({

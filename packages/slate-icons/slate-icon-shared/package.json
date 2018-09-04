@@ -7,17 +7,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest src",
-    "prepublish": "../../../node_modules/.bin/babel src -d lib --copy-files"
+    "test": "jest src --coverage"
   },
   "author": "",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
-    "jest": "^22.4.2",
-    "react-test-renderer": "^16.2.0"
   },
   "peerDependencies": {
     "@canner/slate-constant": ">=^1.0.6",

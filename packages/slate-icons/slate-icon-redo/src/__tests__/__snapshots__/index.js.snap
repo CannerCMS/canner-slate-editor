@@ -1,5 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`create a Redo icon 1`] = `
+<span
+  data-active={false}
+  onClick={[Function]}
+  onMouseDown={[Function]}
+>
+  <svg
+    className=""
+    height="18px"
+    onChange={undefined}
+    viewBox="0 0 18 18"
+    width="18px"
+  >
+    <polygon
+      className="ql-fill ql-stroke"
+      points="12 10 14 12 16 10 12 10"
+    />
+    <path
+      className="ql-stroke"
+      d="M9.91,13.91A4.6,4.6,0,0,1,9,14a5,5,0,1,1,5-5"
+    />
+  </svg>
+</span>
+`;
+
 exports[`create a Undo icon 1`] = `
 <span
   data-active={false}

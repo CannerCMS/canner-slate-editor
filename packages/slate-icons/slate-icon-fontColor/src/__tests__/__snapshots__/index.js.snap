@@ -11,23 +11,8 @@ exports[`create a FontColor icon 1`] = `
   >
     <svg
       className={undefined}
-      evenClassName={undefined}
-      fillClassName={undefined}
       height="18px"
-      onBlur={undefined}
-      onFocus={undefined}
-      onMouseDown={[Function]}
-      onMouseEnter={undefined}
-      onMouseLeave={undefined}
-      onTouchStart={[Function]}
-      strokeMitterClassName={undefined}
-      style={
-        Object {
-          "backgroundColor": "rgba(0,0,0,1)",
-        }
-      }
-      thinClassName={undefined}
-      unselectable="unselectable"
+      onChange={undefined}
       viewBox="0 0 18 18"
       width="18px"
     >

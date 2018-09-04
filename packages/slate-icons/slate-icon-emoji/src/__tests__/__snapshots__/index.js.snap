@@ -7,25 +7,9 @@ exports[`create a Emoji icon 1`] = `
   onMouseDown={[Function]}
 >
   <svg
-    className={
-      Array [
-        "undefined-wrap",
-      ]
-    }
-    colorLabelClassName={undefined}
-    colorStyle={undefined}
-    evenClassName={undefined}
+    className={undefined}
     height="18px"
-    onBlur={undefined}
-    onContextMenu={undefined}
-    onFocus={undefined}
-    onMouseDown={[Function]}
-    onMouseEnter={undefined}
-    onMouseLeave={undefined}
-    onTouchStart={[Function]}
-    strokeMitterClassName={undefined}
-    thinClassName={undefined}
-    transparentClassName={undefined}
+    onChange={undefined}
     viewBox="0 0 18 18"
     width="18px"
   >

@@ -1,7 +1,7 @@
 document:
   nodes:
     - object: block
-      type: list-ul
+      type: unordered_list
       nodes:
         - object: block
           nodes:
@@ -11,4 +11,4 @@ document:
                   leaves:
                     - text: Hello World
               type: paragraph
-          type: list-item
+          type: list_item
