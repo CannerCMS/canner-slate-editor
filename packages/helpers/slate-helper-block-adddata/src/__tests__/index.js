@@ -1,6 +1,6 @@
 import path from 'path';
-import packageJSON from '../package.json';
-import matchTest from '../../../test/match-test';
+import packageJSON from '../../package.json';
+import matchTest from 'test/helper-match-test';
 
 matchTest(
   packageJSON.name,

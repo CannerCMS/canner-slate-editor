@@ -18,7 +18,7 @@ function deserializeValue(json) {
 
 export default function(settings) {
   const {icon, expectedPath, callback, type} = settings;
-  const input = readMetadata.sync(path.resolve(__dirname, 'input.yaml'));
+  const input = readMetadata.sync(path.resolve(__dirname, 'icon-input.yaml'));
 
   let expected;
   if (fs.existsSync(expectedPath)) {

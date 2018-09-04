@@ -25,7 +25,7 @@ There are many other rich text and WYSIWYG editors online, but as [slate - why s
 3. Re-inventing the view layer seemed inefficient and limiting
 4. ...
 
-Hence, this repository will try to keep all the advantages slate framework provides and create a more high level APIs for developers could also easily reuse and customize their own version of editor. Also we are always welcome to all kinds of contributors! 🙌
+Hence, this repository will try to keep all the advantages slate framework provides and create a more high level APIs for developers could also easily reuse and customize their own version of editor. Also we are always welcome to all kinds of contributions! 🙌
 
 # Project structure
 

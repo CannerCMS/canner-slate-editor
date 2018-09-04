@@ -10,7 +10,12 @@
     "access": "public"
   },
   "scripts": {
-    "test": "../../../node_modules/.bin/mocha ./test/index.js --compilers js:babel-register --bail --reporter=list",
-    "prepublish": "../../../node_modules/.bin/babel src -d lib --copy-files"
+    "test": "jest src --coverage"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^test/(.*)$": "<rootDir>/../../../test/lib/$1"
+    },
+    "testURL": "http://localhost/"
   }
 }
