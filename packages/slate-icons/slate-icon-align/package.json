@@ -10,7 +10,7 @@
   "license": "MIT",
   "jest": {
     "moduleNameMapper": {
-      "^test/(.*)$": "<rootDir>/../test/$1"
+      "^test/(.*)$": "<rootDir>/../../../test/lib/$1"
     },
     "testURL": "http://localhost/"
   },

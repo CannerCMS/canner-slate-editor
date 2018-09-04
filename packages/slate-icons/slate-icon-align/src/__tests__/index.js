@@ -1,9 +1,8 @@
-require("@babel/register");
 import React from "react";
 import { Change, Value } from "slate";
 import { join } from "path";
 import { AlignCenter, AlignLeft, AlignRight } from "../";
-import iconTest from "../../../test/icon-test";
+import iconTest from "test/icon-test";
 import renderer from "react-test-renderer";
 const onChange = arg => arg;
 

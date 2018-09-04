@@ -16,18 +16,11 @@
     "quill",
     "editor"
   ],
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "cross-env": "^2.0.1",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "mocha": "^2.4.5",
-    "react-addons-test-utils": "^15.6.2",
-    "rimraf": "^2.5.4"
+  "jest": {
+    "testURL": "http://localhost/"
   },
   "scripts": {
-    "prepublish": "../../node_modules/.bin/babel src -d lib --copy-files",
-    "test": "cross-env BABEL_ENV=test ./node_modules/.bin/mocha ./test/quill-icons-test.js --compilers js:babel-core/register --bail --reporter=list"
+    "test": "../../node_modules/.bin/jest src --coverage"
   },
   "pre-commit": [
     "lint"
