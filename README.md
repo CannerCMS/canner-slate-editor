@@ -17,14 +17,14 @@ This repository aims to provide complete editors and plugins solutions that allo
 
 ## Why another editor?
 
+**Since this project is orignally started from [Canner](https://github.com/Canner/canner), we notice that there is NO SINGLE editor is going to fit in all varities of requirements, so we think the only way to solve this issue is to design a modular-first editor.**
+
 There are many other rich text and WYSIWYG editors online, but as [slate - why section](https://github.com/ianstormtaylor/slate#why) mentioned that most of these solutions are
 
 1. Not small and reusable
 2. Hardcoded and hard to customize
 3. Re-inventing the view layer seemed inefficient and limiting
 4. ...
-
-**Since this project is orignally started from [Canner](https://github.com/Canner/canner), we have some special use cases for our clients that most of the editors are hard to meet our requirements.**
 
 Hence, this repository will try to keep all the advantages slate framework provides and create a more high level APIs for developers could also easily reuse and customize their own version of editor. Also we are always welcome to all kinds of contributors! 🙌
 
