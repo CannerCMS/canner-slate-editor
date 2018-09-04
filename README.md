@@ -1,17 +1,17 @@
 # canner-slate-editor [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+
 > 📝 Rich text / WYSIWYG editor focus on **modularity and extensibility**, build on top of [Slate framework](https://docs.slatejs.org) with beautiful designs and high-level APIs.
+> ***This project is currently under heavy development***
 
 <img src="./docs/canner-slate-editor/demo-module.png"/>
 
 ***canner-slate-editor is a modulized editor, everything is a npm module! You could 100% compose to your personal usage!***
 
-***This project is currently under heavy development***
-
 ## Why not use Slate directly?
 
 [`Slate`](https://github.com/ianstormtaylor/slate) is a well-designed powerful **editor framework** that helps you deal with difficult parts when building an editor, such as data modeling, updating states, rendering, editor schemas, serializing... (you could learn more [here](https://github.com/ianstormtaylor/slate#why)), while you are trying to build your own editors, it still need a lot of efforts to build a simple beautiful editor up and running with the framework.
 
-**This repository aims to provide complete editors and plugins solutions that allows you to use it right away, instead of digging through slate documentations and using our high-level components you could almost build editors without any slate framework knowledge to use.**
+This repository aims to provide complete editors and plugins solutions that allows you to use it right away, instead of digging through slate documentations and using our high-level components you could almost build editors without any slate framework knowledge to use.
 
 ## Why another editor?
 
