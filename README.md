@@ -17,7 +17,7 @@ This repository aims to provide complete editors and plugins solutions that allo
 
 ## Why another editor?
 
-**Since this project is orignally started from [Canner](https://github.com/Canner/canner), we notice that there is NO SINGLE editor is going to fit in all varities of requirements, so we think the only way to solve this issue is to design a modular-first editor.**
+**Since this project is originally started from [Canner](https://github.com/Canner/canner), we notice that there is NO SINGLE editor is going to fit in all varieties of requirements, so we think the only way to solve this issue is to design a modular-first editor.**
 
 There are many other rich text and WYSIWYG editors online, but as [slate - why section](https://github.com/ianstormtaylor/slate#why) mentioned that most of these solutions are
 
@@ -73,7 +73,7 @@ Learn more [quill-icons](./packages/quill-icons)
 
 - [plugins](./packages/plugins)
 
-## 6. slate-utils & slate-helpers
+## 7. slate-utils & slate-helpers
 
 > A set of helper and utility functions for Slate editors
 
@@ -81,7 +81,14 @@ Learn more [quill-icons](./packages/quill-icons)
 - [utils](./packages/utils)
 - [renderer](./packages/renderer)
 
-## 7. slate-constant
+## 8. Editor utils components
+
+> A set of editor utility components.
+
+- [sidebar](./packages/components/sidebar)
+- [toolbar](./packages/components/toolbar)
+
+## 9. slate-constant
 
 > Share constants through repos.
 
