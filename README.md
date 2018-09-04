@@ -4,7 +4,6 @@
 
 > ***This project is currently under heavy development***
 
-
 👇 ***canner-slate-editor is a modulized editor, everything is a npm module! You could 100% compose to your personal usage!***
 
 <img src="./docs/canner-slate-editor/demo-module.png"/>

@@ -6,3 +6,4 @@ lib
 *.log
 package-lock.json
 docs/*/static
+*.swp

@@ -1,5 +1,5 @@
 const path = require('path');
-const babelrc = require('./.babelrc');
+const babelrc = require('./babel.config.js');
 
 module.exports = {
   entry: {
