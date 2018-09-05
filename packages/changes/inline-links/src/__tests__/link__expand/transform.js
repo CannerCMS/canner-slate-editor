@@ -1,4 +1,4 @@
-import links from "../../src";
+import links from "../../";
 import { Range } from "slate";
 
 export default change => {

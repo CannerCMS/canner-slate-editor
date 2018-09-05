@@ -1,4 +1,4 @@
-import links from "../../src";
+import links from "../../";
 import { Range } from "slate";
 
 export default change => {
@@ -6,13 +6,13 @@ export default change => {
   const first = document.getFirstText();
   const second = document.getNextText(first.key);
   const range = Range.create({
-    anchorKey: first.key,
-    anchorOffset: 6,
+    anchorKey: second.key,
+    anchorOffset: 4,
     focusKey: second.key,
-    focusOffset: 3
+    focusOffset: 8
   });
 
-  const nextState = change.select(range);
+  const nextChange = change.select(range);
 
-  return links(nextState, "link", { href: "http://test.com/" });
+  return links(nextChange, "link", { href: "http://test.com/" });
 };

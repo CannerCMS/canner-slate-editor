@@ -20,6 +20,7 @@
     "@babel/preset-react": "^7.0.0",
     "antd": "3.9.1",
     "babel-core": "^7.0.0-0",
+    "babel-eslint": "^9.0.0",
     "babel-jest": "^23.4.2",
     "babel-loader": "^8.0.2",
     "cross-env": "^2.0.1",
@@ -78,8 +79,7 @@
     "start":
       "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --mode development",
     "build:docs":
-      "npm run build && ./node_modules/.bin/webpack --config webpack.config.prod.js --mode production",
-    "jest": "jest"
+      "npm run build && ./node_modules/.bin/webpack --config webpack.config.prod.js --mode production"
   },
   "husky": {
     "hooks": {
