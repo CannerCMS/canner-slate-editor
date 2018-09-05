@@ -6,15 +6,9 @@
     "name": "chilijung",
     "email": "chilijung@gmail.com"
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "main": "lib/index.js",
-  "keywords": [
-    "slate",
-    "editor",
-    "icons"
-  ],
+  "keywords": ["slate", "editor", "icons"],
   "private": true,
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -75,13 +69,17 @@
     "webpack-dev-server": "^3.1.7"
   },
   "scripts": {
-    "build": "lerna exec --parallel -- babel src -d lib --copy-files",
-    "build:watch": "lerna exec --parallel -- babel src -d lib --copy-files -w & npm run build:watch-test",
+    "build":
+      "yarn run clear && lerna exec --parallel -- babel src -d lib --copy-files",
+    "build:watch":
+      "yarn run clear && lerna exec --parallel -- babel src -d lib --copy-files -w & npm run build:watch-test",
     "build:watch-test": "babel ./test/src -d ./test/lib --copy-files -w",
     "clear": "lerna exec --parallel -- rm -rf lib",
     "test": "lerna exec --parallel -- npm test",
-    "start": "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --mode development",
-    "build:docs": "npm run build && ./node_modules/.bin/webpack --config webpack.config.prod.js --mode production",
+    "start":
+      "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --mode development",
+    "build:docs":
+      "npm run build && ./node_modules/.bin/webpack --config webpack.config.prod.js --mode production",
     "jest": "jest"
   },
   "husky": {
@@ -95,16 +93,12 @@
       "^.+\\.(css|scss|less)$": "<rootDir>/__mocks__/styleMock.js"
     },
     "testRegex": "(\\.|/)(test|spec)\\.jsx?$",
+    "testPathIgnorePatterns": ["packages/.*(/src)"],
     "testURL": "http://localhost/"
   },
-  "workspaces": [
-    "packages/**"
-  ],
+  "workspaces": ["packages/**"],
   "lint-staged": {
-    "*.{js,json,css,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js,json,css,md}": ["prettier --write", "git add"]
   },
   "repository": "Canner/canner-slate-editor",
   "license": "MIT",

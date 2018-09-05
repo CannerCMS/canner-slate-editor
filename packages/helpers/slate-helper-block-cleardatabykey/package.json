@@ -3,15 +3,8 @@
   "version": "0.1.3",
   "description": "A slate helper that clear a data key in block",
   "main": "lib/index.js",
-  "directories": {
-    "test": "test"
-  },
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "test": "../../../node_modules/.bin/mocha ./test/index.js --compilers js:babel-register --bail --reporter=list",
-    "prepublish": "../../../node_modules/.bin/babel src -d lib --copy-files"
   },
   "author": "",
   "license": "MIT"

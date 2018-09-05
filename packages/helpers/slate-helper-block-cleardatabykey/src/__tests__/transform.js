@@ -1,9 +1,8 @@
-import addDataToCurrent from "../";
-import { Range, Point } from "slate";
+import clearDataByKeyToCurrent from "../";
+import { Point, Range } from "slate";
 
 export default change => {
-  const { value } = change;
-  const { document } = value;
+  const { document } = change.value;
   const first = document.getFirstText();
   const range = Range.create({
     anchor: Point.create({
@@ -18,5 +17,5 @@ export default change => {
 
   return change
     .select(range)
-    .call(change => addDataToCurrent(change, { data: { foo: "bar" } }));
+    .call(change => clearDataByKeyToCurrent(change, "foo"));
 };
