@@ -1,0 +1,23 @@
+{
+  "name": "@canner/slate-icon-align",
+  "version": "1.3.0",
+  "description": "A set of alignment icons in slate editors",
+  "main": "lib/index.js",
+  "author": "",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || 16.x",
+    "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
+    "slate": "^0.33.0"
+  },
+  "dependencies": {
+    "@canner/slate-helper-block-adddata": "^0.1.5",
+    "@canner/slate-helper-block-cleardatabykey": "^0.1.3",
+    "@canner/slate-icon-shared": "^1.3.0",
+    "@canner/slate-util-have": "^0.1.2",
+    "is-hotkey": "^0.1.2"
+  }
+}
