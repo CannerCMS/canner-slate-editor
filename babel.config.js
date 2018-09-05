@@ -11,6 +11,15 @@ module.exports = {
     "@babel/preset-react",
     "@babel/preset-flow"
   ],
+  env: {
+    storybook: {
+      presets: [
+        ["@babel/preset-env", { modules: false }],
+        "@babel/preset-react",
+        "@babel/preset-flow"
+      ]
+    }
+  },
   plugins: [
     ["@babel/plugin-proposal-decorators", { legacy: true }],
     ["@babel/plugin-proposal-class-properties", { loose: false }]

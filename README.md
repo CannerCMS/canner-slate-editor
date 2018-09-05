@@ -6,7 +6,7 @@
 
 👇 **_canner-slate-editor is a modulized editor, everything is a npm module! You could 100% compose to your personal usage!_**
 
-<img src="./docs/canner-slate-editor/demo-module.png"/>
+<img src="./preview/demo-module.png"/>
 
 ## Why not use Slate directly?
 
@@ -37,7 +37,7 @@ This projects currently contains over **47+ npm modules**, every features are pa
 
 Learn more [canner-slate-editor](./packages/editors/canner-slate-editor)
 
-<img src="./docs/canner-slate-editor/demo.png"/>
+<img src="./preview/demo.png"/>
 
 ## 2. slate-md-editor
 

@@ -8,57 +8,57 @@
 const path = require("path");
 const babelrc = require("../babel.config");
 
-module.exports = {
-  resolveLoader: {
-    moduleExtensions: ["-loader"]
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: {
-          loader: path.resolve(
-            __dirname,
-            "../",
-            "node_modules",
-            "babel-loader"
-          ),
-          options: babelrc
+module.exports = (storybookBaseConfig, configType) => {
+  // configType has a value of 'DEVELOPMENT' or 'PRODUCTION'
+  // You can change the configuration based on that.
+  // 'PRODUCTION' is used when building the static version of storybook.
+
+  // Make whatever fine-grained changes you need
+  // remove original storybook default settings
+  storybookBaseConfig.module.rules = [
+    {
+      test: /\.js$/,
+      use: {
+        loader: path.resolve(__dirname, "../", "node_modules", "babel-loader"),
+        options: {
+          babelrc: false,
+          ...babelrc
+        }
+      },
+      exclude: /node_modules/
+    },
+    {
+      test: /\.css$/,
+      use: [
+        {
+          loader: "style-loader"
         },
-        exclude: /node_modules/
-      },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: "style"
-          },
-          {
-            loader: "css"
-          }
-        ]
-      },
-      {
-        test: /\.less$/,
-        use: [
-          {
-            loader: "style"
-          },
-          {
-            loader: "css"
-          },
-          {
-            loader: "less"
-          }
-        ]
-      },
-      {
-        test: /\.md$/,
-        use: "raw"
-      }
-    ]
-  },
-  resolve: {
+        {
+          loader: "css-loader"
+        }
+      ]
+    },
+    {
+      test: /\.less$/,
+      use: [
+        {
+          loader: "style-loader"
+        },
+        {
+          loader: "css-loader"
+        },
+        {
+          loader: "less-loader"
+        }
+      ]
+    },
+    {
+      test: /\.md$/,
+      use: "raw-loader"
+    }
+  ];
+
+  storybookBaseConfig.resolve = {
     extensions: [".js"],
     alias: {
       packages: path.resolve(__dirname, "../packages"),
@@ -69,9 +69,12 @@ module.exports = {
       quillIcons: path.resolve(__dirname, "../packages/quill-icons"),
       "styled-components": path.resolve(
         __dirname,
-        "node_modules",
+        "../node_modules",
         "styled-components"
       )
     }
-  }
+  };
+
+  // Return the altered config
+  return storybookBaseConfig;
 };

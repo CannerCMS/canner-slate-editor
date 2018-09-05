@@ -34,12 +34,12 @@
 
 .ql-even {
   stroke: #4f748e;
-  fill: #FFF;
+  fill: #fff;
 }
 
 .ql-even-active {
   stroke: #333;
-  fill: #FFF;
+  fill: #fff;
 }
 
 /*
@@ -89,6 +89,6 @@
 }
 
 .toolbar-item-disable > * {
-  stroke: #CCC;
+  stroke: #ccc;
   cursor: not-allowed;
 }

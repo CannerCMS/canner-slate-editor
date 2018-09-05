@@ -77,8 +77,8 @@
     "build": "yarn run clear && gulp",
     "build:watch": "yarn run clear && gulp watch",
     "clear": "lerna exec --parallel -- rm -rf lib",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "NODE_ENV=storybook start-storybook -p 6006",
+    "build-storybook": "NODE_ENV=storybook build-storybook"
   },
   "husky": {
     "hooks": {
