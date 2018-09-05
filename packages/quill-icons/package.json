@@ -7,24 +7,10 @@
     "email": "chilijung@gmail.com",
     "url": ""
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "main": "lib/index.js",
-  "keywords": [
-    "icons",
-    "quill",
-    "editor"
-  ],
-  "jest": {
-    "testURL": "http://localhost/"
-  },
-  "scripts": {
-    "test": "jest src --coverage"
-  },
-  "pre-commit": [
-    "lint"
-  ],
+  "keywords": ["icons", "quill", "editor"],
+  "pre-commit": ["lint"],
   "repository": "Canner/quill-icons",
   "peerDependencies": {
     "prop-types": "^15.6.1",
