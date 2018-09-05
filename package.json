@@ -39,7 +39,7 @@
     "eslint-plugin-react": "^7.7.0",
     "flow-bin": "^0.80.0",
     "github-markdown-css": "^2.10.0",
-    "husky": "^0.14.3",
+    "husky": "^1.0.0-rc.13",
     "immutable": "^4.0.0-rc.9",
     "jest": "^23.5.0",
     "js-beautify": "^1.7.5",
