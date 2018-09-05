@@ -86,7 +86,10 @@ class EditorContainer extends React.Component<Props> {
   }
 }
 
-class App extends React.Component<{}, { value: Value, visible: boolean }> {
+export default class App extends React.Component<
+  {},
+  { value: Value, visible: boolean }
+> {
   // Set the initial state when the app is first constructed.
   constructor(props: {}) {
     super(props);
@@ -148,5 +151,3 @@ class App extends React.Component<{}, { value: Value, visible: boolean }> {
     );
   }
 }
-
-ReactDOM.render(<App />, (document: any).getElementById("root"));

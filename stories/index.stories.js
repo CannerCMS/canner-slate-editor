@@ -7,12 +7,15 @@ import { linkTo } from "@storybook/addon-links";
 import Editor from "./components/canner-slate-editor";
 import MdEditor from "./components/markdown-editor";
 import QuillIcons from "./components/quill-icons";
+import Sidebar from "./components/sidebar";
 
 storiesOf("canner-slate-editor", module).add("Simple", () => <Editor />);
 
 storiesOf("slate-md-editor", module).add("Simple", () => <MdEditor />);
 
 storiesOf("Quill icons", module).add("List", () => <QuillIcons />);
+
+storiesOf("sidebar", module).add("Simple", () => <Sidebar />);
 
 // storiesOf("Button", module)
 //   .add("with text", () => (
