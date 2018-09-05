@@ -1,4 +1,4 @@
-import overwriteMark from "../../src";
+import marks from "../";
 import { Range } from "slate";
 
 export default change => {
@@ -13,5 +13,5 @@ export default change => {
 
   const nextChange = change.select(range);
 
-  return overwriteMark(nextChange, { type: "test", data: { foo: "bar" } });
+  return marks(nextChange, { type: "test", data: { foo2: "bar2" } });
 };
