@@ -2,9 +2,9 @@
 
 > 📝 Rich text / WYSIWYG editor focus on **modularity and extensibility**, build on top of [Slate framework](https://docs.slatejs.org) with beautiful designs and high-level APIs.
 
-> ***This project is currently under heavy development, use at you own risk***
+> **_This project is currently under heavy development, use at you own risk_**
 
-👇 ***canner-slate-editor is a modulized editor, everything is a npm module! You could 100% compose to your personal usage!***
+👇 **_canner-slate-editor is a modulized editor, everything is a npm module! You could 100% compose to your personal usage!_**
 
 <img src="./docs/canner-slate-editor/demo-module.png"/>
 
@@ -20,10 +20,10 @@ This repository aims to provide complete editors and plugins solutions that allo
 
 There are many other rich text and WYSIWYG editors online, but as [slate - why section](https://github.com/ianstormtaylor/slate#why) mentioned that most of these solutions are
 
-1. Not small and reusable
-2. Hardcoded and hard to customize
-3. Re-inventing the view layer seemed inefficient and limiting
-4. ...
+1.  Not small and reusable
+2.  Hardcoded and hard to customize
+3.  Re-inventing the view layer seemed inefficient and limiting
+4.  ...
 
 Hence, this repository will try to keep all the advantages slate framework provides and create a more high level APIs for developers could also easily reuse and customize their own version of editor. Also we are always welcome to all kinds of contributions! 🙌
 
@@ -38,7 +38,6 @@ This projects currently contains over **47+ npm modules**, every features are pa
 Learn more [canner-slate-editor](./packages/editors/canner-slate-editor)
 
 <img src="./docs/canner-slate-editor/demo.png"/>
-
 
 ## 2. slate-md-editor
 
@@ -70,22 +69,22 @@ Learn more [quill-icons](./packages/quill-icons)
 
 > A set of slate plugins.
 
-- [plugins](./packages/plugins)
+* [plugins](./packages/plugins)
 
-## 7. slate-utils & slate-helpers
+## 7. slate-utils & slate-changes
 
-> A set of helper and utility functions for Slate editors
+> A set of changes and utility functions for Slate editors
 
-- [helpers](./packages/helpers)
-- [utils](./packages/utils)
-- [renderer](./packages/renderer)
+* [changes](./packages/changes)
+* [utils](./packages/utils)
+* [renderer](./packages/renderer)
 
 ## 8. Editor utils components
 
 > A set of editor utility components.
 
-- [sidebar](./packages/components/sidebar)
-- [toolbar](./packages/components/toolbar)
+* [sidebar](./packages/components/sidebar)
+* [toolbar](./packages/components/toolbar)
 
 ## 9. slate-constant
 
@@ -117,7 +116,7 @@ You need to build js files through babel by entering
 yarn run build:watch
 ```
 
-## Run test independently 
+## Run test independently
 
 ```
 yarn jest <...path/to/pkg> [--coverage]

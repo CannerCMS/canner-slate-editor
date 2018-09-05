@@ -1,0 +1,23 @@
+{
+  "name": "@canner/slate-helper-mark-removetype",
+  "version": "0.1.3",
+  "description": "A slate helper to remove specific mark type",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test":
+      "../../../node_modules/.bin/mocha ./test/index.js --compilers js:babel-register --bail --reporter=list",
+    "prepublish": "../../../node_modules/.bin/babel src -d lib --copy-files"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@canner/slate-util-get": "^0.1.3",
+    "@canner/slate-util-what": "^0.1.3"
+  }
+}
