@@ -1,6 +1,4 @@
-import fs from 'fs';
 import Slate from 'slate';
-import readMetadata from 'read-metadata';
 
 function deserializeValue(json) {
   return Slate.Value.fromJSON(
@@ -9,19 +7,11 @@ function deserializeValue(json) {
   );
 }
 
-export default function(name, inputPath, expectedPath, transformPath) {
+export default function(name, input, expected, transform) {
   describe(name, () => {
     test('match input and expected yaml', () => {
-      const input = readMetadata.sync(inputPath);
-
-      let expected;
-      if (fs.existsSync(expectedPath)) {
-        expected = readMetadata.sync(expectedPath);
-      }
-
-      const runTransform = require(transformPath).default;
       const valueInput = deserializeValue(input);
-      const newChange = runTransform(valueInput.change());
+      const newChange = transform(valueInput.change());
 
       if (expected) {
         const newDocJSon = newChange.value.toJSON();

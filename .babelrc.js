@@ -6,8 +6,7 @@ module.exports = {
           ">0.25%",
           "not ie 11",
           "not op_mini all"
-        ],
-        "node": "6.10"
+        ]
       }
     }],
     "@babel/preset-react",
@@ -16,8 +15,5 @@ module.exports = {
   "plugins": [
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     ["@babel/plugin-proposal-class-properties", { "loose": false }]
-  ],
-  "ignore": [
-    "**/__tests__"
   ]
 }

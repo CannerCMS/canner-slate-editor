@@ -3,19 +3,10 @@
   "version": "0.1.5",
   "description": "A slate helper to add data to current block",
   "main": "lib/index.js",
-  "directories": {
-    "test": "test"
-  },
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "test": "jest src --coverage"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "^test/(.*)$": "<rootDir>/../../../test/lib/$1"
-    },
-    "testURL": "http://localhost/"
+  "peerDependencies": {
+    "immutable": ">=3.8.2"
   }
 }

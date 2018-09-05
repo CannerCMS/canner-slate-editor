@@ -108,3 +108,17 @@ See demos
 ```
 npm start
 ```
+
+# Test
+
+You need to build js files through babel by entering
+
+```
+yarn run build:watch
+```
+
+## Run test independently 
+
+```
+yarn jest <...path/to/pkg> [--coverage]
+```

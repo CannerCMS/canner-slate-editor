@@ -20,7 +20,7 @@
     "testURL": "http://localhost/"
   },
   "scripts": {
-    "test": "../../node_modules/.bin/jest src --coverage"
+    "test": "jest src --coverage"
   },
   "pre-commit": [
     "lint"
