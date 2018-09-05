@@ -33,6 +33,9 @@
     "eslint-plugin-react": "^7.7.0",
     "flow-bin": "^0.80.0",
     "github-markdown-css": "^2.10.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-watch": "^5.0.1",
     "husky": "^1.0.0-rc.13",
     "immutable": "^4.0.0-rc.9",
     "jest": "^23.5.0",
@@ -69,10 +72,8 @@
     "webpack-dev-server": "^3.1.7"
   },
   "scripts": {
-    "build":
-      "yarn run clear && babel ./packages/**/src -d ./packages/**/lib --copy-files",
-    "build:watch":
-      "yarn run clear && lerna exec --parallel -- babel src -d lib --copy-files -w",
+    "build": "yarn run clear && gulp",
+    "build:watch": "yarn run clear && gulp watch",
     "clear": "lerna exec --parallel -- rm -rf lib",
     "start":
       "./node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --mode development",
