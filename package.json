@@ -93,7 +93,7 @@
       "^.+\\.(css|scss|less)$": "<rootDir>/__mocks__/styleMock.js"
     },
     "testRegex": "__tests__/.*(test|spec)\\.jsx?$",
-    "testPathIgnorePatterns": ["packages/.*(/src)"],
+    "testPathIgnorePatterns": ["packages/.*(/lib)"],
     "testURL": "http://localhost/"
   },
   "workspaces": ["packages/**"],

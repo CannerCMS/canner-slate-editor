@@ -1,4 +1,4 @@
-import blockquote from "../../src";
+import blockquote from "../../";
 import { Range } from "slate";
 
 export default change => {
