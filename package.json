@@ -70,7 +70,7 @@
   },
   "scripts": {
     "build":
-      "yarn run clear && lerna exec --parallel -- babel src -d lib --copy-files",
+      "yarn run clear && babel ./packages/**/src -d ./packages/**/lib --copy-files",
     "build:watch":
       "yarn run clear && lerna exec --parallel -- babel src -d lib --copy-files -w & npm run build:watch-test",
     "build:watch-test": "babel ./test/src -d ./test/lib --copy-files -w",
@@ -89,7 +89,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "^test/(.*)$": "<rootDir>/test/lib/$1",
+      "^test/(.*)$": "<rootDir>/test/src/$1",
       "^.+\\.(css|scss|less)$": "<rootDir>/__mocks__/styleMock.js"
     },
     "testRegex": "__tests__/.*(test|spec)\\.jsx?$",
