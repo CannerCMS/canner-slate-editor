@@ -13,5 +13,10 @@ esproposal.decorators=ignore
 module.file_ext=.js
 module.ignore_non_literal_requires=true
 module.name_mapper='^packages\/\(.*\)$' ->'<PROJECT_ROOT>/packages/\1/src'
+module.name_mapper='^plugins\/\(.*\)$' ->'<PROJECT_ROOT>/packages/plugins/\1/src'
+module.name_mapper='^helpers\/\(.*\)$' ->'<PROJECT_ROOT>/packages/helpers/\1/src'
+module.name_mapper='^slateIcons\/\(.*\)$' ->'<PROJECT_ROOT>/packages/slate-icons/\1/src'
+module.name_mapper='^slateSelectors\/\(.*\)$' ->'<PROJECT_ROOT>/packages/slate-selectors/\1/src'
+module.name_mapper='^quillIcons\/\(.*\)$' ->'<PROJECT_ROOT>/packages/quill-icons/\1/src'
 
 [strict]
