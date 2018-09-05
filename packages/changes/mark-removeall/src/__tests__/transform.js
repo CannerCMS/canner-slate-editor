@@ -1,4 +1,4 @@
-import removeAllMark from "../../src";
+import removeAllMark from "../";
 import { Range } from "slate";
 
 export default change => {

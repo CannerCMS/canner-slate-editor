@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import packageJSON from "../package.json";
-import matchTest from "../../../test/match-test";
+import packageJSON from "../../package.json";
+import matchTest from "test/helper-match-test";
 
 const tests = fs.readdirSync(__dirname);
 
@@ -12,8 +12,8 @@ tests.forEach(test => {
 
   matchTest(
     `${packageJSON.name}: ${test}`,
-    path.resolve(__dirname, test, "input.yaml"),
-    path.resolve(__dirname, test, "expected.yaml"),
-    path.resolve(__dirname, test, "transform.js")
+    require(path.resolve(__dirname, test, "input")),
+    require(path.resolve(__dirname, test, "expected")),
+    require("./transform").default
   );
 });
