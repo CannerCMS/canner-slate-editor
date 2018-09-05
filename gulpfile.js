@@ -17,7 +17,7 @@ gulp.task("default", () =>
   })
 );
 
-gulp.task("watch", () =>
+gulp.task("watch", ["default"], () =>
   listPkg.forEach(pkg => {
     watch([`${pkg}/src/**/*.js`, `!${pkg}/src/**/__tests__/**/*.js`])
       .pipe(babel(babelrc))

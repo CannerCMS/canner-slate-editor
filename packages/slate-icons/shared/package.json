@@ -3,12 +3,6 @@
   "version": "1.3.0",
   "description": "Shared utils and functions for slate icons",
   "main": "lib/index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "jest src --coverage"
-  },
   "author": "",
   "license": "MIT",
   "publishConfig": {

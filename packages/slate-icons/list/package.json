@@ -3,9 +3,6 @@
   "version": "1.3.0",
   "description": "Slate icon for lists",
   "main": "lib/index.js",
-  "scripts": {
-    "test": "jest src --coverage"
-  },
   "author": "",
   "license": "MIT",
   "publishConfig": {
@@ -16,13 +13,6 @@
     "react": "^0.14.0 || ^15.0.0 || 16.x",
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
     "slate": ">=^0.33.0"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "^test/(.*)$": "<rootDir>/../../../test/lib/$1",
-      "\\.(css|less)$": "<rootDir>/../../../__mocks__/styleMock.js"
-    },
-    "testURL": "http://localhost/"
   },
   "dependencies": {
     "@canner/slate-editor-renderer": "^1.3.0",

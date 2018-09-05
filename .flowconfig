@@ -12,7 +12,6 @@
 esproposal.decorators=ignore
 module.file_ext=.js
 module.ignore_non_literal_requires=true
-module.name_mapper='^shared\/\(.*\)$' ->'<PROJECT_ROOT>/packages/slate-icon-shared/\1'
 module.name_mapper='^packages\/\(.*\)$' ->'<PROJECT_ROOT>/packages/\1/src'
 
 [strict]

@@ -3,19 +3,10 @@
   "version": "1.3.0",
   "description": "Slate icons for hr",
   "main": "lib/index.js",
-  "scripts": {
-    "test": "jest src --coverage"
-  },
   "author": "",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "^test/(.*)$": "<rootDir>/../../../test/lib/$1"
-    },
-    "testURL": "http://localhost/"
   },
   "peerDependencies": {
     "@canner/slate-constant": ">=^1.0.5",

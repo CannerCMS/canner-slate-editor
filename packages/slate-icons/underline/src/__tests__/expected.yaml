@@ -6,6 +6,6 @@ document:
         - object: text
           leaves:
             - marks:
-                - type: underline
+                - type: UNDERLINE
               text: Hello
             - text: " World"
