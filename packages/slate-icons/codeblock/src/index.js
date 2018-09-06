@@ -44,7 +44,7 @@ type Props = IconProps & {
 };
 
 @Form.create()
-export default class CodeBlock extends React.Component<Props, State> {
+export default (class CodeBlock extends React.Component<Props, State> {
   typeName: string;
   constructor(props: Props) {
     super(props);
@@ -78,7 +78,6 @@ export default class CodeBlock extends React.Component<Props, State> {
   };
 
   handleClickChange = (visible: boolean) => {
-    console.log(visible);
     if (!visible) this.handleCancel();
   };
 
@@ -120,9 +119,9 @@ export default class CodeBlock extends React.Component<Props, State> {
     const content = (
       <div style={{ minWidth: "200px" }}>
         <Form horizontal="true">
-          <FormItem label="Code language" hasFeedback>
+          <FormItem label="Code Language" hasFeedback>
             {getFieldDecorator("lang")(
-              <Select placeholder="language (optional)">
+              <Select placeholder="Language (optional)">
                 {Object.keys(languages)
                   .filter(lang => {
                     return languages[lang].title;
@@ -151,9 +150,10 @@ export default class CodeBlock extends React.Component<Props, State> {
       <div style={{ display: "inline-block" }}>
         <Popover
           visible={showModal}
-          title="Add code block"
+          title="Add Code Block"
           placement="bottom"
           content={content}
+          trigger="click"
           onVisibleChange={this.handleClickChange}
         >
           <ToolbarIcon
@@ -167,4 +167,4 @@ export default class CodeBlock extends React.Component<Props, State> {
       </div>
     );
   }
-}
+});

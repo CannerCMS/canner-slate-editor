@@ -152,6 +152,7 @@ export default (class Link extends React.Component<Props, State> {
         <Popover
           visible={showModal}
           title="Add Link"
+          trigger="click"
           content={content}
           onVisibleChange={this.handleClickChange}
         >

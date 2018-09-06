@@ -178,6 +178,7 @@ export default (class VideoModal extends React.Component<Props> {
         placement="bottom"
         visible={isEditing}
         title="Add Video"
+        trigger="click"
         content={content}
         onVisibleChange={this.handleClickChange}
       >

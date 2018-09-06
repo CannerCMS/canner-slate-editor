@@ -91,6 +91,7 @@ export default (class ImageModal extends React.Component<Props> {
     return (
       <Popover
         visible={isEditing}
+        trigger="click"
         title="Set Image Size"
         content={content}
         onVisibleChange={this.handleClickChange}

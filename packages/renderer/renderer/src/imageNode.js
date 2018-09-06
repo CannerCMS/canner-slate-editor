@@ -20,7 +20,10 @@ export default function(options) {
 type Props = nodeProps & {
   change: Change,
   editor: Object,
-  readOnly: Boolean
+  readOnly: Boolean,
+  getSrc: Function,
+  getWidth: Function,
+  getHeight: Function
 };
 
 type State = {
@@ -33,6 +36,13 @@ class ImageNode extends React.Component<Props, State> {
   };
 
   shouldComponentUpdate(nextProps, nextState) {
+    const { node, getSrc, getWidth, getHeight } = this.props;
+    const currentSrc = getSrc(node);
+    const currentNodeWidth = getWidth(node);
+    const currentNodeHeight = getHeight(node);
+    const nextSrc = getSrc(nextProps.node);
+    const nextNodeWidth = getWidth(nextProps.node);
+    const nextNodeHeight = getHeight(nextProps.node);
     if (this.state.isEditing && !(!nextState.isEditing && this.state.isEditing))
       return false;
     return true;

@@ -12450,9 +12450,9 @@ react-loading-image@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/react-loading-image/-/react-loading-image-0.4.1.tgz#084a7600a410c8c4c34e313ddd28781184a99992"
 
-react-loading-image@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/react-loading-image/-/react-loading-image-0.4.2.tgz#dbd898b43c76868e83ff9432cb2ad0a4a06b6d5a"
+react-loading-image@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-loading-image/-/react-loading-image-0.5.0.tgz#f5ab33c03763ea4c1b80f8293c22b057d299ff69"
 
 react-modal@^3.3.2:
   version "3.5.1"

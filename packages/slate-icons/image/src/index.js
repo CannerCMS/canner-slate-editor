@@ -139,6 +139,7 @@ export default class ImageInline extends React.Component<
           visible={isShow}
           title="Add Image"
           placement="bottom"
+          trigger="click"
           content={content}
           onVisibleChange={this.handleClickChange}
         >
