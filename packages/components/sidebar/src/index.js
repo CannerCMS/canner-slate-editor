@@ -1,11 +1,21 @@
 // @flow
 import * as React from "react";
 import type { Value, Change } from "slate";
-import {Icon, Popover} from 'antd';
-import {Header1, Header2, HeaderOnePlugin, HeaderTwoPlugin} from '@canner/slate-icon-header';
+import { Icon, Popover } from "antd";
+import {
+  Header1,
+  Header2,
+  HeaderOnePlugin,
+  HeaderTwoPlugin
+} from "@canner/slate-icon-header";
 import { ParagraphPlugin } from "@canner/slate-icon-shared";
 import { getVisibleSelectionRect } from "get-selection-range";
-import {SidebarContainer, IconContainer, PopupContainer, IconWrapper} from "./container";
+import {
+  SidebarContainer,
+  IconContainer,
+  PopupContainer,
+  IconWrapper
+} from "./container";
 
 type Props = {
   icons: Array<React.Element<*> | string>,
@@ -16,7 +26,7 @@ type Props = {
 
 type State = {
   openPopover: boolean
-}
+};
 
 const defaultPlugins = [
   ParagraphPlugin(),
@@ -26,14 +36,16 @@ const defaultPlugins = [
 
 export default (options: { [string]: any } = {}) => {
   let {
-    icons = [{
-      icon: Header1,
-      title: "Header One"
-    },
-    {
-      icon: Header2,
-      title: "Header Two"
-    }],
+    icons = [
+      {
+        icon: Header1,
+        title: "Header One"
+      },
+      {
+        icon: Header2,
+        title: "Header Two"
+      }
+    ],
     leftOffset = -20
   } = options;
   let i = 0;
@@ -45,29 +57,36 @@ export default (options: { [string]: any } = {}) => {
 
         this.state = {
           openPopover: false
-        }
+        };
       }
 
       sidebarContainerNode: any;
       containerNode: ?HTMLDivElement;
 
       componentDidMount() {
-        window.addEventListener("scroll", () => this.componentDidUpdate(this.props));
+        window.addEventListener("scroll", () =>
+          this.componentDidUpdate(this.props)
+        );
       }
 
       componentWillUnmount() {
-        window.removeEventListener("scroll", () => this.componentDidUpdate(this.props));
+        window.removeEventListener("scroll", () =>
+          this.componentDidUpdate(this.props)
+        );
       }
 
       componentDidUpdate(prevProps: Props) {
-        const {value} = this.props;
+        const { value } = this.props;
         const { texts, focusBlock } = value;
         const currentTextNode = texts.get(0);
         const currentLineText = currentTextNode.text;
 
         if (
-          (currentLineText.length !== 0 || focusBlock.type !== 'paragraph' || this.props.value !== prevProps.value)
-          && this.state.openPopover) {
+          (currentLineText.length !== 0 ||
+            focusBlock.type !== "paragraph" ||
+            this.props.value !== prevProps.value) &&
+          this.state.openPopover
+        ) {
           this.hidePopover();
         }
 
@@ -78,26 +97,24 @@ export default (options: { [string]: any } = {}) => {
         }
 
         const containerBound = this.containerNode.getBoundingClientRect();
-        const {
-          top: containerBoundTop
-        } = containerBound;
+        const { top: containerBoundTop } = containerBound;
 
         this.sidebarContainerNode.style.left = `${leftOffset}px`;
 
         const top = rect.top - containerBoundTop - 3;
         this.sidebarContainerNode.style.top = `${top}px`;
-        this.sidebarContainerNode.style.opacity = '1';
+        this.sidebarContainerNode.style.opacity = "1";
       }
       hidePopover = () => {
         this.setState({
-          openPopover: false,
+          openPopover: false
         });
-      }
-      handleVisibleChange = (visible) => {
+      };
+      handleVisibleChange = visible => {
         this.setState({
           openPopover: visible
         });
-      }
+      };
 
       renderButton = (Type: any, title: string) => {
         const { value, onChange } = this.props;
@@ -123,35 +140,41 @@ export default (options: { [string]: any } = {}) => {
                 activeEvenClassName="qlEvenActive"
               />
             </IconWrapper>
-            <div>
-              {title}
-            </div>
+            <div>{title}</div>
           </IconContainer>
         );
       };
 
       renderSidebar = () => {
         const { value } = this.props;
-        const {openPopover} = this.state;
+        const { openPopover } = this.state;
         const { texts, focusBlock } = value;
         const currentTextNode = texts.get(0);
         const currentLineText = currentTextNode.text;
 
-        const content = icons.map(item => this.renderButton(item.icon, item.title))
+        const content = icons.map(item =>
+          this.renderButton(item.icon, item.title)
+        );
 
         return (
-          currentLineText.length === 0 && focusBlock.type === 'paragraph' && (
+          currentLineText.length === 0 &&
+          focusBlock.type === "paragraph" && (
             <Popover
               placement="rightTop"
-              title={"Select block:"}
+              title={"Select Block:"}
               visible={openPopover}
               onVisibleChange={this.handleVisibleChange}
               content={<PopupContainer>{content}</PopupContainer>}
-              trigger="click">
+              trigger="click"
+            >
               <SidebarContainer
                 innerRef={node => (this.sidebarContainerNode = node)}
               >
-                <Icon type="plus-circle" theme="outlined" className={openPopover && "open"}/>
+                <Icon
+                  type="plus-circle"
+                  theme="outlined"
+                  className={openPopover && "open"}
+                />
               </SidebarContainer>
             </Popover>
           )

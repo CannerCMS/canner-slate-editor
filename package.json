@@ -80,6 +80,7 @@
     "build": "yarn run clear && gulp",
     "build:watch": "yarn run clear && gulp watch",
     "clear": "lerna exec --parallel -- rm -rf lib",
+    "preversion": "npm run build",
     "storybook": "NODE_ENV=storybook start-storybook -p 6006",
     "build-storybook": "NODE_ENV=storybook build-storybook",
     "deploy-storybook": "storybook-to-ghpages"
