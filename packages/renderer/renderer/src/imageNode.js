@@ -6,7 +6,6 @@ import { getEventRange } from "slate-react";
 import { Icon } from "antd";
 import ImageLoading from "react-loading-image";
 import { Alert } from "./components/image";
-import ImageModal from "./components/imageModal";
 import ImageContainer from "./components/imageContainer";
 
 import "react-resizable/css/styles.css";
@@ -25,31 +24,29 @@ type Props = nodeProps & {
 };
 
 type State = {
-  isShow: boolean
+  isEditing: boolean
 };
 
 class ImageNode extends React.Component<Props, State> {
-  constructor(props) {
-    super(props);
+  state = {
+    isEditing: false
+  };
 
-    this.state = {
-      isShow: false
-    };
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.isEditing && !(!nextState.isEditing && this.state.isEditing))
+      return false;
+    return true;
   }
 
   edit = e => {
     const { editor } = this.props;
     e.preventDefault();
     this.target = getEventRange(e, editor.state.value);
-    this.setState({
-      isShow: true
-    });
+    this.setState({ isEditing: true });
   };
 
-  hideModal = () => {
-    this.setState({
-      isShow: false
-    });
+  hidePopover = () => {
+    this.setState({ isEditing: false });
   };
 
   render() {
@@ -93,15 +90,8 @@ class ImageNode extends React.Component<Props, State> {
                   width={width}
                   height={height}
                   edit={that.edit}
-                />
-                <ImageModal
-                  change={editor.state.value.change()}
-                  onChange={editor.change}
-                  target={this.target}
-                  width={width}
-                  height={height}
-                  hideModal={that.hideModal}
-                  isShow={that.state.isShow}
+                  hidePopover={this.hidePopover}
+                  isEditing={this.state.isEditing}
                 />
               </React.Fragment>
             );

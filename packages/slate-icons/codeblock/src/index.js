@@ -78,6 +78,7 @@ export default class CodeBlock extends React.Component<Props, State> {
   };
 
   handleClickChange = (visible: boolean) => {
+    console.log(visible);
     if (!visible) this.handleCancel();
   };
 
@@ -117,41 +118,33 @@ export default class CodeBlock extends React.Component<Props, State> {
     const onClick = e => this.onClick(e);
 
     const content = (
-      <Form horizontal="true">
-        <FormItem label="Code language" hasFeedback>
-          {getFieldDecorator("lang")(
-            <Select placeholder="language (optional)">
-              {Object.keys(languages)
-                .filter(lang => {
-                  return languages[lang].title;
-                })
-                .map(lang => {
-                  return (
-                    <Option value={lang} key={lang}>
-                      {languages[lang].title}
-                    </Option>
-                  );
-                })}
-            </Select>
-          )}
-        </FormItem>
-        <Button
-          key="back"
-          type="ghost"
-          size="large"
-          onClick={this.handleCancel}
-        >
-          Cancel
-        </Button>{" "}
-        <Button
-          key="submit"
-          type="primary"
-          size="large"
-          onClick={this.handleOk}
-        >
-          Ok
-        </Button>
-      </Form>
+      <div style={{ minWidth: "200px" }}>
+        <Form horizontal="true">
+          <FormItem label="Code language" hasFeedback>
+            {getFieldDecorator("lang")(
+              <Select placeholder="language (optional)">
+                {Object.keys(languages)
+                  .filter(lang => {
+                    return languages[lang].title;
+                  })
+                  .map(lang => {
+                    return (
+                      <Option value={lang} key={lang}>
+                        {languages[lang].title}
+                      </Option>
+                    );
+                  })}
+              </Select>
+            )}
+          </FormItem>
+          <Button key="back" type="ghost" onClick={this.handleCancel}>
+            Cancel
+          </Button>{" "}
+          <Button key="submit" type="primary" onClick={this.handleOk}>
+            Ok
+          </Button>
+        </Form>
+      </div>
     );
 
     return (
@@ -159,6 +152,7 @@ export default class CodeBlock extends React.Component<Props, State> {
         <Popover
           visible={showModal}
           title="Add code block"
+          placement="bottom"
           content={content}
           onVisibleChange={this.handleClickChange}
         >

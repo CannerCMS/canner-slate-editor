@@ -38,14 +38,14 @@ export const VideoPlugin = opt => {
 
 export default class Video extends React.Component<
   IconProps,
-  { isShow: boolean }
+  { isEditing: boolean }
 > {
   typeName: string;
   constructor(props: IconProps) {
     super(props);
     this.typeName = this.props.type || "video";
     this.state = {
-      isShow: false
+      isEditing: false
     };
   }
 
@@ -60,13 +60,13 @@ export default class Video extends React.Component<
   onClick = (e: Event) => {
     e.preventDefault();
     this.setState({
-      isShow: true
+      isEditing: true
     });
   };
 
   hidePopover = () => {
     this.setState({
-      isShow: false
+      isEditing: false
     });
   };
 
@@ -79,7 +79,7 @@ export default class Video extends React.Component<
         <VideoPopover
           {...this.props}
           hidePopover={this.hidePopover}
-          isShow={this.state.isShow}
+          isEditing={this.state.isEditing}
         >
           <ToolbarIcon
             type={this.typeName}

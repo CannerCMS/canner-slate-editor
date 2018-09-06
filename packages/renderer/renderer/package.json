@@ -29,7 +29,7 @@
     "lodash.mapvalues": "^4.6.0",
     "quill-icons": "^0.6.0",
     "react-icons": "^2.2.7",
-    "react-loading-image": "^0.4.0",
+    "react-loading-image": "^0.4.2",
     "react-resizable": "^1.7.5",
     "slate-edit-table": "^0.15.0-alpha.4"
   }

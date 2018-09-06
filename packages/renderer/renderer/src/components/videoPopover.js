@@ -12,7 +12,7 @@ type Props = {
   hidePopover: () => void,
   node: any,
   form?: any,
-  isShow: boolean,
+  isEditing: boolean,
   initialValue: string,
   width: number,
   height: number,
@@ -141,7 +141,7 @@ export default (class VideoModal extends React.Component<Props> {
 
   render() {
     const { getFieldDecorator } = this.props.form;
-    const { isShow, initialValue, children } = this.props;
+    const { isEditing, initialValue, children } = this.props;
     const content = (
       <Form horizontal="true" onClick={e => e.preventDefault()}>
         <FormItem
@@ -165,28 +165,18 @@ export default (class VideoModal extends React.Component<Props> {
             initialValue: initialValue
           })(<Input onClick={e => e.preventDefault()} />)}
         </FormItem>
-        <Button
-          key="back"
-          type="ghost"
-          size="large"
-          onClick={this.handleCancel}
-        >
+        <Button key="back" type="ghost" onClick={this.handleCancel}>
           Cancel
         </Button>{" "}
-        <Button
-          key="submit"
-          type="primary"
-          size="large"
-          onClick={this.handleOk}
-        >
+        <Button key="submit" type="primary" onClick={this.handleOk}>
           Ok
         </Button>
       </Form>
     );
     return (
       <Popover
-        placement="bottomRight"
-        visible={isShow}
+        placement="bottom"
+        visible={isEditing}
         title="Add Video"
         content={content}
         onVisibleChange={this.handleClickChange}

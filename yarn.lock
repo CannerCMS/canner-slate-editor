@@ -738,9 +738,9 @@
     react-loading-image "^0.3.0"
     styled-components "^3.2.0"
 
-"@canner/image-upload@^0.12.0":
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/@canner/image-upload/-/image-upload-0.12.0.tgz#344281b635ed9a5d29f0d9dd5788366ea74c7f42"
+"@canner/image-upload@^0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@canner/image-upload/-/image-upload-0.13.1.tgz#06c45567618356d1019d16592c7f5520200dee02"
   dependencies:
     react-intl "^2.4.0"
     react-loading-image "^0.4.1"
@@ -12446,9 +12446,13 @@ react-loading-image@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/react-loading-image/-/react-loading-image-0.3.0.tgz#8a91e6771e6a3fbd828ab679088163e8c8762556"
 
-react-loading-image@^0.4.0, react-loading-image@^0.4.1:
+react-loading-image@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/react-loading-image/-/react-loading-image-0.4.1.tgz#084a7600a410c8c4c34e313ddd28781184a99992"
+
+react-loading-image@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/react-loading-image/-/react-loading-image-0.4.2.tgz#dbd898b43c76868e83ff9432cb2ad0a4a06b6d5a"
 
 react-modal@^3.3.2:
   version "3.5.1"

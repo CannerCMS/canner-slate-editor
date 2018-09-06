@@ -1,10 +1,18 @@
 // @flow
 import * as React from "react";
 import type { IconProps } from "shared/src/types";
+import { Popover } from "antd";
 import ToolbarIcon from "@canner/slate-icon-shared";
-import ImageUpload from "@canner/image-upload";
+import { Container } from "@canner/image-upload";
+import { IntlProvider, FormattedMessage, addLocaleData } from "react-intl";
 import { IMAGE } from "@canner/slate-constant/lib/inlines";
 import imageNode from "@canner/slate-editor-renderer/lib/imageNode";
+
+import enLocale from "@canner/image-upload/lib/locale/en";
+import en from "react-intl/locale-data/en";
+import zh from "react-intl/locale-data/zh";
+
+addLocaleData([...en, ...zh]);
 
 export const ImagePlugin = opt => {
   const options = Object.assign(
@@ -51,10 +59,14 @@ export default class ImageInline extends React.Component<
     });
   };
 
-  hideModal = () => {
+  hidePopover = () => {
     this.setState({
       isShow: false
     });
+  };
+
+  handleClickChange = (visible: boolean) => {
+    if (!visible) this.hidePopover();
   };
 
   onChange = (value: string | Array<string>) => {
@@ -92,7 +104,7 @@ export default class ImageInline extends React.Component<
           .focus()
       );
 
-      that.hideModal();
+      that.hidePopover();
     };
 
     image.src = value[0];
@@ -106,25 +118,38 @@ export default class ImageInline extends React.Component<
       multiple,
       ...rest
     } = this.props;
+    const { isShow } = this.state;
     const onClick = e => this.onClick(e);
-
-    return (
-      <div style={{ display: "inline-block" }}>
-        <ToolbarIcon
-          type={this.typeName}
-          icon={icon || "Image"}
-          onClick={onClick}
-          isActive={false}
-          {...rest}
-        />
-        <ImageUpload
+    const content = (
+      <IntlProvider locale={"en"} defaultLocale="en" messages={enLocale}>
+        <Container
           serviceConfig={serviceConfig}
           galleryConfig={galleryConfig}
           multiple={multiple}
           onChange={this.onChange}
-          closeEditPopup={this.hideModal}
-          editPopup={this.state.isShow}
+          closeEditPopup={this.hidePopover}
+          editPopup={isShow}
         />
+      </IntlProvider>
+    );
+
+    return (
+      <div style={{ display: "inline-block" }}>
+        <Popover
+          visible={isShow}
+          title="Add Image"
+          placement="bottom"
+          content={content}
+          onVisibleChange={this.handleClickChange}
+        >
+          <ToolbarIcon
+            type={this.typeName}
+            icon={icon || "Image"}
+            onClick={onClick}
+            isActive={false}
+            {...rest}
+          />
+        </Popover>
       </div>
     );
   }

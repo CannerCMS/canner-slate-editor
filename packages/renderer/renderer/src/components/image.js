@@ -30,14 +30,6 @@ export const ImageNodeShared = styled.span`
   }
 `;
 
-export const ImageNodeInActive = ImageNodeShared.extend`
-  border: 2px solid #fff;
-`;
-
-export const ImageNodeActive = ImageNodeShared.extend`
-  border: 2px solid #ef6942;
-`;
-
 export const ImageNodeComponent = ImageNodeShared.extend`
   border: 2px solid ${props => (props.active ? "#ef6942" : "#FFF")};
 `;

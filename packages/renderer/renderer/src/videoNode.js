@@ -36,14 +36,14 @@ type Props = nodeProps & {
 type State = {
   width: ?number,
   height: ?number,
-  isShow: boolean
+  isEditing: boolean
 };
 
 class VideoNode extends React.Component<Props, State> {
   state = {
     width: null,
     height: null,
-    isShow: false
+    isEditing: false
   };
 
   static defaultProps = {
@@ -54,6 +54,12 @@ class VideoNode extends React.Component<Props, State> {
     idKey: "id"
   };
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.isEditing && !(!nextState.isEditing && this.state.isEditing))
+      return false;
+    return true;
+  }
+
   remove = () => {
     const { editor, node } = this.props;
     editor.change(change => change.removeNodeByKey(node.key));
@@ -62,13 +68,13 @@ class VideoNode extends React.Component<Props, State> {
   edit = e => {
     e.preventDefault();
     this.setState({
-      isShow: true
+      isEditing: true
     });
   };
 
   hidePopover = () => {
     this.setState({
-      isShow: false
+      isEditing: false
     });
   };
 
@@ -135,7 +141,7 @@ class VideoNode extends React.Component<Props, State> {
                   width={width}
                   height={height}
                   hidePopover={this.hidePopover}
-                  isShow={this.state.isShow}
+                  isEditing={this.state.isEditing}
                 >
                   <FaEdit
                     onMouseDown={e => e.preventDefault()}
