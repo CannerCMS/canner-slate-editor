@@ -88,7 +88,7 @@ $ npm install --save slate-md-editor
 * [Video - @canner/slate-icon-video](./packages/slate-icon-video)
 * [Table - @canner/slate-icon-table](./packages/slate-icon-table)
 
-* Learn more [slate-icons](./packages/slate-icons)
+👉 Learn more [slate-icons](./packages/slate-icons)
 
 ## 4. slate-selectors
 
@@ -100,7 +100,7 @@ $ npm install --save slate-md-editor
 * [Line height - @canner/slate-select-lineheight](./packages/slate-select-lineheight)
 * [Letter spacing - @canner/slate-letterspacing](./packages/slate-select-letterspacing)
 
-* Learn more [slate-selectors](./packages/slate-selectors)
+👉 Learn more [slate-selectors](./packages/slate-selectors)
 
 ## 5. quill-icons ![npm-image](https://badge.fury.io/js/quill-icons.svg)
 
@@ -142,7 +142,7 @@ $ npm install --save quill-icons
 
 > Share constants through repos.
 
-Learn more [slate-constant](./packages/slate-constant)
+👉 Learn more [slate-constant](./packages/slate-constant)
 
 # Development
 
