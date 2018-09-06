@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 import type { IconProps } from "shared/src/types";
-import { Modal, Button, Form, Input } from "antd";
+import { Popover, Button, Form, Input } from "antd";
 import ToolbarIcon from "@canner/slate-icon-shared";
 import links from "@canner/slate-helper-inline-links";
 import { haveInlines } from "@canner/slate-util-have";
@@ -36,7 +36,7 @@ type Props = IconProps & {
 };
 
 @Form.create()
-export default class Link extends React.Component<Props, State> {
+export default (class Link extends React.Component<Props, State> {
   typeName: string;
   constructor(props: Props) {
     super(props);
@@ -56,7 +56,7 @@ export default class Link extends React.Component<Props, State> {
   onClick = (e: Event) => {
     let { change, onChange } = this.props;
     let haveLinks = haveInlines(change, this.typeName);
-    e.preventDefault();
+    if (e) e.preventDefault();
 
     if (haveLinks) {
       onChange(links(change, this.typeName));
@@ -73,6 +73,10 @@ export default class Link extends React.Component<Props, State> {
         addLinkText: true
       });
     }
+  };
+
+  handleClickChange = (visible: boolean) => {
+    if (!visible) this.handleCancel();
   };
 
   handleCancel = () => {
@@ -111,63 +115,55 @@ export default class Link extends React.Component<Props, State> {
     const { addLinkText, showModal } = this.state;
     const onClick = e => this.onClick(e);
 
+    const content = (
+      <Form horizontal="true">
+        <FormItem label="Url" hasFeedback>
+          {getFieldDecorator("href", {
+            rules: [
+              {
+                type: "url",
+                message: "The input is not valid url!"
+              },
+              {
+                required: true,
+                message: "Please input your url"
+              }
+            ]
+          })(<Input onClick={e => e.preventDefault()} />)}
+        </FormItem>
+        {addLinkText ? (
+          <FormItem label="Text" hasFeedback>
+            {getFieldDecorator("text")(
+              <Input onClick={e => e.preventDefault()} />
+            )}
+          </FormItem>
+        ) : null}
+        <Button key="back" type="ghost" onClick={this.handleCancel}>
+          Cancel
+        </Button>{" "}
+        <Button key="submit" type="primary" onClick={this.handleOk}>
+          Ok
+        </Button>
+      </Form>
+    );
+
     return (
       <div style={{ display: "inline-block" }}>
-        <ToolbarIcon
-          type={this.typeName}
-          icon={icon || "Link"}
-          onClick={onClick}
-          isActive={haveInlines(change, this.typeName)}
-          {...rest}
-        />
-        <Modal
+        <Popover
           visible={showModal}
           title="Add Link"
-          onCancel={this.handleCancel}
-          footer={[
-            <Button
-              key="back"
-              type="ghost"
-              size="large"
-              onClick={this.handleCancel}
-            >
-              Cancel
-            </Button>,
-            <Button
-              key="submit"
-              type="primary"
-              size="large"
-              onClick={this.handleOk}
-            >
-              Ok
-            </Button>
-          ]}
+          content={content}
+          onVisibleChange={this.handleClickChange}
         >
-          <Form horizontal="true">
-            <FormItem label="Url" hasFeedback>
-              {getFieldDecorator("href", {
-                rules: [
-                  {
-                    type: "url",
-                    message: "The input is not valid url!"
-                  },
-                  {
-                    required: true,
-                    message: "Please input your url"
-                  }
-                ]
-              })(<Input onClick={e => e.preventDefault()} />)}
-            </FormItem>
-            {addLinkText ? (
-              <FormItem label="Text" hasFeedback>
-                {getFieldDecorator("text")(
-                  <Input onClick={e => e.preventDefault()} />
-                )}
-              </FormItem>
-            ) : null}
-          </Form>
-        </Modal>
+          <ToolbarIcon
+            type={this.typeName}
+            icon={icon || "Link"}
+            onClick={onClick}
+            isActive={haveInlines(change, this.typeName)}
+            {...rest}
+          />
+        </Popover>
       </div>
     );
   }
-}
+});
