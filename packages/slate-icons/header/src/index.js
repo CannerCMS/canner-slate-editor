@@ -28,7 +28,6 @@ const plugin = (type, tagName, hotkey) => {
         return commonNode(tagName, nodeAttrs)(props);
     },
     onKeyDown: (e: any, change: Change) => {
-      e.preventDefault();
       if (e.key === "Enter") {
         const { value } = change;
         const { blocks } = value;
@@ -37,6 +36,7 @@ const plugin = (type, tagName, hotkey) => {
         if (getCurrentblock.type === type)
           return change.splitBlock().setBlock(PARAGRAPH);
       } else if (isHotkey(hotkey, e)) {
+        e.preventDefault();
         change.call(applyChange, type);
         return false;
       }

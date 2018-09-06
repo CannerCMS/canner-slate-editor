@@ -74,7 +74,7 @@ const html = new Html({ rules: DEFAULT_RULES });
 const TabPane = Tabs.TabPane;
 
 import "./style.css";
-import "./github-markdown.css";
+import "github-markdown-css";
 
 const selectors = [FontSize, LineHeight, LetterSpacing];
 

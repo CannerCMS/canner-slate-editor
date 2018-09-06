@@ -33,7 +33,7 @@ This projects currently contains over **47+ npm modules**, every features are pa
 
 > Another rich text editor using Slate framework, with beautiful design
 
-## Features
+### Features
 
 * [x] Support **20+ editor features**, support [list](https://github.com/Canner/canner-slate-editor#3-slate-icons)
 * [x] Support **markdown syntax**, support [list](https://github.com/Canner/canner-slate-editor/tree/master/packages/plugins/markdown#feature-toc)
