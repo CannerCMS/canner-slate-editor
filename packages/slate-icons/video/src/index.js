@@ -2,7 +2,7 @@
 import * as React from "react";
 import type { IconProps } from "shared/src/types";
 import ToolbarIcon from "@canner/slate-icon-shared";
-import VideoModal from "@canner/slate-editor-renderer/lib/components/videoModal";
+import VideoPopover from "@canner/slate-editor-renderer/lib/components/videoPopover";
 import videoNode, {
   DEFAULT as DEFAULT_VIDEO
 } from "@canner/slate-editor-renderer/lib/videoNode";
@@ -64,7 +64,7 @@ export default class Video extends React.Component<
     });
   };
 
-  hideModal = () => {
+  hidePopover = () => {
     this.setState({
       isShow: false
     });
@@ -76,19 +76,19 @@ export default class Video extends React.Component<
 
     return (
       <div style={{ display: "inline-block" }}>
-        <ToolbarIcon
-          type={this.typeName}
-          icon={icon || "Video"}
-          onClick={onClick}
-          isActive={false}
-          {...rest}
-        />
-        {/* $FlowFixMe */}
-        <VideoModal
+        <VideoPopover
           {...this.props}
-          hideModal={this.hideModal}
+          hidePopover={this.hidePopover}
           isShow={this.state.isShow}
-        />
+        >
+          <ToolbarIcon
+            type={this.typeName}
+            icon={icon || "Video"}
+            onClick={onClick}
+            isActive={false}
+            {...rest}
+          />
+        </VideoPopover>
       </div>
     );
   }

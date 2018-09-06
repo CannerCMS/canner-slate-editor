@@ -8,13 +8,8 @@ import { Tooltip } from "antd";
 import FaTrashO from "react-icons/lib/fa/trash-o";
 import FaEdit from "react-icons/lib/fa/edit";
 import FaExternal from "react-icons/lib/fa/external-link";
-import VideoModal from "./components/videoModal";
-import {
-  ImageNodeInActive,
-  ImageNodeActive,
-  Toolbar,
-  ToolbarItem
-} from "./components/image";
+import VideoPopover from "./components/videoPopover";
+import { ImageNodeComponent, Toolbar, ToolbarItem } from "./components/image";
 
 import "react-resizable/css/styles.css";
 
@@ -38,16 +33,18 @@ type Props = nodeProps & {
   readOnly: Boolean
 };
 
-class VideoNode extends React.Component<Props> {
-  constructor(props) {
-    super(props);
+type State = {
+  width: ?number,
+  height: ?number,
+  isShow: boolean
+};
 
-    this.state = {
-      width: null,
-      height: null,
-      isShow: false
-    };
-  }
+class VideoNode extends React.Component<Props, State> {
+  state = {
+    width: null,
+    height: null,
+    isShow: false
+  };
 
   static defaultProps = {
     youtubeType: DEFAULT.youtube,
@@ -69,7 +66,7 @@ class VideoNode extends React.Component<Props> {
     });
   };
 
-  hideModal = () => {
+  hidePopover = () => {
     this.setState({
       isShow: false
     });
@@ -93,11 +90,11 @@ class VideoNode extends React.Component<Props> {
       vimeoType,
       idKey
     } = this.props;
-    let link;
+    let link = "";
     const id = getId(node);
     const width = this.state.width || getWidth(node) || 560;
     const height = this.state.height || getHeight(node) || 315;
-
+    const active = isSelected || readOnly;
     if (type === "youtube") {
       link = `https://www.youtube.com/embed/${id}`;
     } else if (type === "dailymotion") {
@@ -110,61 +107,68 @@ class VideoNode extends React.Component<Props> {
 
     return (
       <span {...attributes}>
-        {!isSelected || readOnly ? (
-          <ImageNodeInActive width={width} height={height}>
-            <iframe style={{ pointerEvents: "none" }} src={link} />
-          </ImageNodeInActive>
-        ) : (
-          <ImageNodeActive width={width} height={height}>
-            <Toolbar>
-              <ToolbarItem>
-                <Tooltip title="Open in new window">
-                  <FaExternal
-                    onMouseDown={e => e.preventDefault()}
-                    onClick={() => {
-                      const win = window.open(link, "_blank");
-                      win.focus();
-                    }}
-                  />
-                </Tooltip>
-              </ToolbarItem>
-              <ToolbarItem>
-                <Tooltip title="Edit">
+        <ImageNodeComponent width={width} height={height} active={active}>
+          <Toolbar active={active}>
+            <ToolbarItem>
+              <Tooltip title="Open in new window">
+                <FaExternal
+                  onMouseDown={e => e.preventDefault()}
+                  onClick={() => {
+                    const win = window.open(link, "_blank");
+                    win.focus();
+                  }}
+                />
+              </Tooltip>
+            </ToolbarItem>
+            <ToolbarItem>
+              <Tooltip title="Edit">
+                <VideoPopover
+                  youkuType={youkuType}
+                  youtubeType={youtubeType}
+                  vimeoType={vimeoType}
+                  dailymotionType={dailymotionType}
+                  idKey={idKey}
+                  onChange={editor.onChange}
+                  change={editor.state.value.change()}
+                  initialValue={link}
+                  node={node}
+                  width={width}
+                  height={height}
+                  hidePopover={this.hidePopover}
+                  isShow={this.state.isShow}
+                >
                   <FaEdit
                     onMouseDown={e => e.preventDefault()}
                     onClick={this.edit}
                   />
-                </Tooltip>
-              </ToolbarItem>
-              <ToolbarItem>
-                <Tooltip title="Remove">
-                  <FaTrashO
-                    onMouseDown={e => e.preventDefault()}
-                    onClick={this.remove}
-                  />
-                </Tooltip>
-              </ToolbarItem>
-            </Toolbar>
-            <iframe style={{ pointerEvents: "none" }} src={link} />
-          </ImageNodeActive>
-        )}
-        <VideoModal
-          youkuType={youkuType}
-          youtubeType={youtubeType}
-          vimeoType={vimeoType}
-          dailymotionType={dailymotionType}
-          idKey={idKey}
-          onChange={editor.onChange}
-          change={editor.state.value.change()}
-          initialValue={link}
-          node={node}
-          width={width}
-          height={height}
-          hideModal={this.hideModal}
-          isShow={this.state.isShow}
-        />
+                </VideoPopover>
+              </Tooltip>
+            </ToolbarItem>
+            <ToolbarItem>
+              <Tooltip title="Remove">
+                <FaTrashO
+                  onMouseDown={e => e.preventDefault()}
+                  onClick={this.remove}
+                />
+              </Tooltip>
+            </ToolbarItem>
+          </Toolbar>
+          <VideoLink link={link} />
+        </ImageNodeComponent>
         {children}
       </span>
     );
+  }
+}
+
+class VideoLink extends React.Component<{ link: ?string }> {
+  shouldComponentUpdate(nextProps: { link: ?string }) {
+    if (this.props.link === nextProps.link) return false;
+    return true;
+  }
+
+  render() {
+    const { link } = this.props;
+    return <iframe style={{ pointerEvents: "none" }} src={link} />;
   }
 }

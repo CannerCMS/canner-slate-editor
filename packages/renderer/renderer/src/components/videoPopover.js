@@ -2,16 +2,16 @@
 import * as React from "react";
 import videoParser from "js-video-url-parser";
 import type { Change } from "slate";
-import { Modal, Form, Button, Input } from "antd";
+import { Popover, Form, Button, Input } from "antd";
 
 const FormItem = Form.Item;
 
 type Props = {
   change: Change,
   onChange: (change: Change) => void,
-  hideModal: () => void,
+  hidePopover: () => void,
   node: any,
-  form: any,
+  form?: any,
   isShow: boolean,
   initialValue: string,
   width: number,
@@ -20,11 +20,12 @@ type Props = {
   dailymotionType: string,
   vimeoType: string,
   youkuType: string,
-  idKey: string
+  idKey: string,
+  children: any
 };
 
 @Form.create()
-export default class VideoModal extends React.Component<Props> {
+export default (class VideoModal extends React.Component<Props> {
   checkSource(rule: string, value: string, callback: any) {
     try {
       const videoObj = videoParser.parse(value);
@@ -45,9 +46,13 @@ export default class VideoModal extends React.Component<Props> {
     }
   }
 
+  handleClickChange = (visible: boolean) => {
+    if (!visible) this.handleCancel();
+  };
+
   handleCancel = () => {
     this.props.form.resetFields();
-    this.props.hideModal();
+    this.props.hidePopover();
   };
 
   handleOk = (e: Event) => {
@@ -55,7 +60,7 @@ export default class VideoModal extends React.Component<Props> {
     const {
       onChange,
       change,
-      hideModal,
+      hidePopover,
       form,
       initialValue,
       node,
@@ -129,62 +134,65 @@ export default class VideoModal extends React.Component<Props> {
           form.resetFields();
         }
 
-        hideModal();
+        hidePopover();
       }
     });
   };
 
   render() {
     const { getFieldDecorator } = this.props.form;
-    const { isShow, initialValue } = this.props;
+    const { isShow, initialValue, children } = this.props;
+    const content = (
+      <Form horizontal="true" onClick={e => e.preventDefault()}>
+        <FormItem
+          label="Enter video URL (support Vimeo, Youtube, Dailymotion, Youku):"
+          hasFeedback
+        >
+          {getFieldDecorator("href", {
+            rules: [
+              {
+                type: "url",
+                message: "The input is not valid url!"
+              },
+              {
+                required: true,
+                message: "Please input your url"
+              },
+              {
+                validator: this.checkSource
+              }
+            ],
+            initialValue: initialValue
+          })(<Input onClick={e => e.preventDefault()} />)}
+        </FormItem>
+        <Button
+          key="back"
+          type="ghost"
+          size="large"
+          onClick={this.handleCancel}
+        >
+          Cancel
+        </Button>{" "}
+        <Button
+          key="submit"
+          type="primary"
+          size="large"
+          onClick={this.handleOk}
+        >
+          Ok
+        </Button>
+      </Form>
+    );
     return (
-      <Modal
+      <Popover
+        placement="bottomRight"
         visible={isShow}
         title="Add Video"
-        onCancel={this.handleCancel}
-        footer={[
-          <Button
-            key="back"
-            type="ghost"
-            size="large"
-            onClick={this.handleCancel}
-          >
-            Cancel
-          </Button>,
-          <Button
-            key="submit"
-            type="primary"
-            size="large"
-            onClick={this.handleOk}
-          >
-            Ok
-          </Button>
-        ]}
+        content={content}
+        onVisibleChange={this.handleClickChange}
       >
-        <Form horizontal="true">
-          <FormItem
-            label="Enter video URL (support Vimeo, Youtube, Dailymotion, Youku):"
-            hasFeedback
-          >
-            {getFieldDecorator("href", {
-              rules: [
-                {
-                  type: "url",
-                  message: "The input is not valid url!"
-                },
-                {
-                  required: true,
-                  message: "Please input your url"
-                },
-                {
-                  validator: this.checkSource
-                }
-              ],
-              initialValue: initialValue
-            })(<Input onClick={e => e.preventDefault()} />)}
-          </FormItem>
-        </Form>
-      </Modal>
+        {children}
+      </Popover>
     );
   }
-}
+});

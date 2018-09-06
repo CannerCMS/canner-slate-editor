@@ -38,13 +38,16 @@ export const ImageNodeActive = ImageNodeShared.extend`
   border: 2px solid #ef6942;
 `;
 
+export const ImageNodeComponent = ImageNodeShared.extend`
+  border: 2px solid ${props => (props.active ? "#ef6942" : "#FFF")};
+`;
+
 export const Toolbar = styled.span`
-  z-index: 1000;
-  display: block;
+  z-index: 5;
+  display: ${props => (props.active ? "block" : "none")};
   position: absolute;
   right: 10px;
   top: -40px;
-  z-index: 100;
 `;
 
 export const ToolbarItem = styled.span`
