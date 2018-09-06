@@ -8,12 +8,26 @@ A markdown plugin for slate framework
 npm i slate-md-plugin
 ```
 
+## Usage
+
+```js
+import {MarkdownPlugin} from 'slate-md-editor';
+const plugins = [
+  MarkdownPlugin(options)
+]
+
+<Editor
+  value={value}
+  onChange={this.onChange}
+  plugins={plugins}
+/>
+```
+
 ## Options
 
 `MarkdownPlugin` also use many other plugins as dependencies, and allows you to pass their customized settings.
 
-Additionally, ***blocks, marks, inlines*** default types are the same as [Markup-it](https://github.com/GitbookIO/markup-it).
-
+Additionally, **_blocks, marks, inlines_** default types are the same as [Markup-it](https://github.com/GitbookIO/markup-it).
 
 ```js
 // Default settings
@@ -41,7 +55,9 @@ For example, you want to change `BOLD` default type to `bold_type`. Just pass ob
 
 ```js
 {
-  marks: {BOLD: 'bold_type'}
+  marks: {
+    BOLD: "bold_type";
+  }
 }
 ```
 
@@ -49,19 +65,19 @@ This will replace default `BOLD` setting to your new setting.
 
 # Feature TOC
 
-- [Blockquote](#blockquote)
-- [Code block (inline)](#code-block-inline)
-- [Code block (triple backticks)](#code-block-triple-backticks)
-- [Header](#header)
-- [Bold](#bold)
-- [Italic](#italic)
-- [Bold + Italic](#bold--italic)
-- [Strikethrough](#strikethrough)
-- [Hr](#hr)
-- [Link](#link)
-- [Image](#image)
-- [Unordered List](#unordered-list)
-- [Ordered List](#ordered-list)
+* [Blockquote](#blockquote)
+* [Code block (inline)](#code-block-inline)
+* [Code block (triple backticks)](#code-block-triple-backticks)
+* [Header](#header)
+* [Bold](#bold)
+* [Italic](#italic)
+* [Bold + Italic](#bold--italic)
+* [Strikethrough](#strikethrough)
+* [Hr](#hr)
+* [Link](#link)
+* [Image](#image)
+* [Unordered List](#unordered-list)
+* [Ordered List](#ordered-list)
 
 ## Support
 
@@ -73,7 +89,7 @@ This will replace default `BOLD` setting to your new setting.
 >[space]Blockquote
 ```
 
-***Hot key***
+**_Hot key_**
 
 <kbd>Ctrl</kbd>+<kbd>opt</kbd>+<kbd>q</kbd>
 
@@ -102,10 +118,10 @@ Use specific language:
 for example:
 
 ```js
-const wow = test()
+const wow = test();
 ```
 
-***Hot key***
+**_Hot key_**
 
 <kbd>CMD</kbd>+<kbd>Enter</kbd>: to exit code block
 
@@ -128,7 +144,7 @@ Example
 ###### h6
 ```
 
-***Hot keys***
+**_Hot keys_**
 
 **Header 1**
 
@@ -164,7 +180,7 @@ or
 __strong__[space]
 ```
 
-***Hot key***
+**_Hot key_**
 
 <kbd>CMD</kbd>+<kbd>b</kbd>
 
@@ -178,7 +194,7 @@ or
 *italic*[space]
 ```
 
-***Hot key***
+**_Hot key_**
 
 <kbd>CMD</kbd>+<kbd>i</kbd>
 
@@ -200,7 +216,7 @@ or
 ~[strikethrough]~[space]
 ```
 
-***Hot key***
+**_Hot key_**
 
 <kbd>Ctrl</kbd>+<kbd>Opt</kbd>+<kbd>d</kbd>
 

@@ -1,8 +1,8 @@
-# slate-sidebar [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# slate-sidebar [![NPM version][npm-image]][npm-url]
+
 > Quick and easy way to implement sidebar menu in your [slate editor](https://docs.slatejs.org)
 
-![demo](./docs/demo.gif)
-
+![demo](https://github.com/Canner/canner-slate-editor/blob/master/preview/sidebar-demo.gif?raw=true)
 
 ## Installation
 
@@ -16,37 +16,33 @@ $ npm install --save slate-sidebar
 
 Just add a decorator `@sidebar()` on you editor component. The parent component of this component must pass two props `value: Value` and `onChange: (change: Change) => void`.
 
-
 ```js
-import sidebar from 'slate-sidebar';
+import sidebar from "slate-sidebar";
 
 @sidebar() // ----> Add this line and your sidebar is implemented in your editor
 class EditorContainer extends React.Component<Props> {
-
   // On change, update the app's React state with the new editor state.
   render() {
     return (
       <div className="editor">
-        <Editor
-          {...this.props}
-        />
+        <Editor {...this.props} />
       </div>
     );
   }
 }
 
-class App extends React.Component<{}, {value: Value}> {
+class App extends React.Component<{}, { value: Value }> {
   // Set the initial state when the app is first constructed.
   state = {
     value: initialValue
-  }
+  };
 
   render() {
     return (
       <div className="container markdown-body">
         <EditorContainer
           value={this.state.value}
-          onChange={({value}) => this.setState({value})}
+          onChange={({ value }) => this.setState({ value })}
           plugins={plugins}
         />
       </div>
@@ -55,7 +51,7 @@ class App extends React.Component<{}, {value: Value}> {
 }
 ```
 
-see [./docs/index.js](./docs/index.js) for full implementation and demo
+see [storybook codes](https://github.com/Canner/canner-slate-editor/tree/master/stories/components/sidebar) for full implementation and demo
 
 ## Options
 
@@ -87,7 +83,7 @@ const options = {
       title: "Header Two"
     }
   ],
-  leftOffset: 20  // offset to left default -20
+  leftOffset: 20 // offset to left default -20
 };
 ```
 
@@ -97,21 +93,9 @@ const options = {
 npm start
 ```
 
-## Maintainer
-
-[chilijung](https://github.com/chilijung)
-
-## License
-
-MIT © [Canner](https://github.com/Canner)
-
 <a href="https://canner.io">
   <img src="https://user-images.githubusercontent.com/26116324/37811196-a437d930-2e93-11e8-97d8-0653ace2a46d.png"/>
 </a>
 
 [npm-image]: https://badge.fury.io/js/slate-sidebar.svg
 [npm-url]: https://npmjs.org/package/slate-sidebar
-[travis-image]: https://travis-ci.org/Canner/slate-sidebar.svg?branch=master
-[travis-url]: https://travis-ci.org/Canner/slate-sidebar
-[daviddm-image]: https://david-dm.org/Canner/slate-sidebar.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/Canner/slate-sidebar

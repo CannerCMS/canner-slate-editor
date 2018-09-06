@@ -1,38 +1,20 @@
 # slate-md-editor
 
-[![npm version](https://badge.fury.io/js/slate-md-editor.svg)](https://badge.fury.io/js/slate-md-editor)
-
-A markdown editor, that allows you to edit live. This project is built on top of [slate framework](http://slatejs.org/#/). Support markdown syntax and hot keys.
-
-## Live 
-
-![demo](https://i.imgur.com/OqQMMiC.gif)
-
-----
-
-DEMO: [https://canner.github.io/slate-md-editor/](https://canner.github.io/slate-md-editor/)
-
+A markdown editor, that allows you to edit live. Support markdown syntax and hot keys.
 
 ## Usage
 
 There is two ways to use, you could use it as a complete markdown editor or use as a slate plugin in your editor.
 
-## Complete markdown editor
-
-```
-npm install slate-md-editor
-```
+## Usage
 
 Render the complete markdown editor
 
 ```js
-import Editor from 'slate-md-editor';
+import Editor from "slate-md-editor";
 const MdEditor = Editor(options);
 
-<MdEditor
-  value={value}
-  onChange={this.onChange}
-/>
+<MdEditor value={value} onChange={this.onChange} />;
 ```
 
 ### Options
@@ -72,22 +54,9 @@ Pass your customized settings here.
 
 ### Props
 
-- **value**: Slate `Value`
-- **onChange**: `(Change) => void`
+* **value**: Slate `Value`
+* **onChange**: `(Change) => void`
 
 ## As slate plugin
 
-```js
-import {MarkdownPlugin} from 'slate-md-editor';
-const plugins = [
-  MarkdownPlugin(options)
-]
-
-<Editor
-  value={value}
-  onChange={this.onChange}
-  plugins={plugins}
-/>
-```
-
-See complete markdown plugin's [options](../../plugins/markdown)
+Learn more [here](../../plugins/markdown)

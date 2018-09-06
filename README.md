@@ -29,18 +29,30 @@ Hence, this repository will try to keep all the advantages slate framework provi
 
 This projects currently contains over **47+ npm modules**, every features are packaged into npm modules, such as icons, helpers, plugins, utils, etc..., so this enable developers to pick modules to assemble into your own usages.
 
-## 1. canner-slate-editor
+## 1. canner-slate-editor ![npm-image](https://badge.fury.io/js/canner-slate-editor.svg)
 
 > Another rich text editor using Slate framework, with beautiful design
+
+### Installation
+
+```sh
+$ npm install --save canner-slate-editor
+```
 
 * Learn more [canner-slate-editor](./packages/editors/canner-slate-editor)
 * [Demo](https://canner.github.io/canner-slate-editor/?selectedKind=canner-slate-editor)
 
 <img src="./preview/demo.png"/>
 
-## 2. slate-md-editor
+## 2. slate-md-editor ![npm-image](https://badge.fury.io/js/slate-md-editor.svg)
 
 > A markdown editor, that allows you to edit live with hot keys support!
+
+### Installation
+
+```sh
+$ npm install --save slate-md-editor
+```
 
 * Learn more [slate-md-editor](./packages/editors/slate-md-editor)
 * [Demo](https://canner.github.io/canner-slate-editor/?selectedKind=slate-md-editor)
@@ -51,17 +63,54 @@ This projects currently contains over **47+ npm modules**, every features are pa
 
 > 20+ shared slate icons and helpers for Slate editors.
 
-Learn more [slate-icons](./packages/slate-icons)
+**_Supported features:_**
+
+* [Align - @canner/slate-icon-align](./packages/slate-icon-align) - center, left, right
+* [Blockquote - @canner/slate-icon-blockquote](./packages/slate-icon-blockquote)
+* [Bold - @canner/slate-icon-bold](./packages/slate-icon-bold)
+* [Clean - @canner/slate-icon-clean](./packages/slate-icon-clean)
+* [Code - @canner/slate-icon-code](./packages/slate-icon-code)
+* [CodeBlock - @canner/slate-icon-codeblock](./packages/slate-icon-codeblock)
+* [Emoji - @canner/slate-icon-emoji](./packages/slate-icon-emoji)
+* [Font background color - @canner/slate-icon-fontbgcolor](./packages/slate-icon-fontbgcolor)
+* [Font color - @canner/slate-icon-fontcolor](./packages/slate-icon-fontcolor)
+* [Hr - @canner/slate-icon-hr](./packages/slate-icon-hr)
+* [Header - @canner/slate-icon-header](./packages/slate-icon-header) - header 1, header 2, header 3, header 4, header 5, header 6
+* [Image - @canner/slate-icon-image](./packages/slate-icon-image)
+* [Indent - @canner/slate-icon-indent](./packages/slate-icon-indent) - indent, outdent
+* [Italic - @canner/slate-icon-italic](./packages/slate-icon-italic)
+* [Link - @canner/slate-icon-link](./packages/slate-icon-link)
+* [List - @canner/slate-icon-list](./packages/slate-icon-list) - Ol list, Ul list
+* [Strike through - @canner/slate-icon-strikethrough](./packages/slate-icon-strikethrough)
+* [Underline - @canner/slate-icon-underline](./packages/slate-icon-underline)
+* [Undo - @canner/slate-icon-undo](./packages/slate-icon-undo)
+* [Redo - @canner/slate-icon-redo](./packages/slate-icon-redo)
+* [Video - @canner/slate-icon-video](./packages/slate-icon-video)
+* [Table - @canner/slate-icon-table](./packages/slate-icon-table)
+
+* Learn more [slate-icons](./packages/slate-icons)
 
 ## 4. slate-selectors
 
 > shared slate selectors for Slate editors.
 
-Learn more [slate-selectors](./packages/slate-selectors)
+**_Supported selectors:_**
 
-## 5. quill-icons
+* [Font size - @canner/slate-select-fontsize](./packages/slate-select-fontsize)
+* [Line height - @canner/slate-select-lineheight](./packages/slate-select-lineheight)
+* [Letter spacing - @canner/slate-letterspacing](./packages/slate-select-letterspacing)
+
+* Learn more [slate-selectors](./packages/slate-selectors)
+
+## 5. quill-icons ![npm-image](https://badge.fury.io/js/quill-icons.svg)
 
 > Icons extract from quill editor with React component wrapper, support 65+ icons!
+
+### Installation
+
+```sh
+$ npm install --save quill-icons
+```
 
 * Learn more [quill-icons](./packages/quill-icons)
 * [Complete list](https://canner.github.io/canner-slate-editor/?selectedKind=Quill%20icons)
@@ -124,3 +173,7 @@ yarn run build:watch
 ```
 yarn jest <...path/to/pkg> [--coverage]
 ```
+
+<a href="https://canner.io">
+  <img src="https://user-images.githubusercontent.com/26116324/37811196-a437d930-2e93-11e8-97d8-0653ace2a46d.png"/>
+</a>

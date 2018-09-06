@@ -37,7 +37,7 @@
     "slate": "^0.33.0",
     "slate-react": "^0.12.0"
   },
-  "license": "Apache-2.0",
+  "license": "MIT",
   "dependencies": {
     "@canner/slate-constant": "^1.4.3-alpha.0",
     "@canner/slate-helper-block-list": "^1.4.3-alpha.0",
