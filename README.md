@@ -65,28 +65,28 @@ $ npm install --save slate-md-editor
 
 **_Supported features:_**
 
-* [Align - @canner/slate-icon-align](./packages/slate-icon-align) - center, left, right
-* [Blockquote - @canner/slate-icon-blockquote](./packages/slate-icon-blockquote)
-* [Bold - @canner/slate-icon-bold](./packages/slate-icon-bold)
-* [Clean - @canner/slate-icon-clean](./packages/slate-icon-clean)
-* [Code - @canner/slate-icon-code](./packages/slate-icon-code)
-* [CodeBlock - @canner/slate-icon-codeblock](./packages/slate-icon-codeblock)
-* [Emoji - @canner/slate-icon-emoji](./packages/slate-icon-emoji)
-* [Font background color - @canner/slate-icon-fontbgcolor](./packages/slate-icon-fontbgcolor)
-* [Font color - @canner/slate-icon-fontcolor](./packages/slate-icon-fontcolor)
-* [Hr - @canner/slate-icon-hr](./packages/slate-icon-hr)
-* [Header - @canner/slate-icon-header](./packages/slate-icon-header) - header 1, header 2, header 3, header 4, header 5, header 6
-* [Image - @canner/slate-icon-image](./packages/slate-icon-image)
-* [Indent - @canner/slate-icon-indent](./packages/slate-icon-indent) - indent, outdent
-* [Italic - @canner/slate-icon-italic](./packages/slate-icon-italic)
-* [Link - @canner/slate-icon-link](./packages/slate-icon-link)
-* [List - @canner/slate-icon-list](./packages/slate-icon-list) - Ol list, Ul list
-* [Strike through - @canner/slate-icon-strikethrough](./packages/slate-icon-strikethrough)
-* [Underline - @canner/slate-icon-underline](./packages/slate-icon-underline)
-* [Undo - @canner/slate-icon-undo](./packages/slate-icon-undo)
-* [Redo - @canner/slate-icon-redo](./packages/slate-icon-redo)
-* [Video - @canner/slate-icon-video](./packages/slate-icon-video)
-* [Table - @canner/slate-icon-table](./packages/slate-icon-table)
+* [Align - @canner/slate-icon-align](./packages/slate-icons/align) - center, left, right
+* [Blockquote - @canner/slate-icon-blockquote](./packages/slate-icons/blockquote)
+* [Bold - @canner/slate-icon-bold](./packages/slate-icons/bold)
+* [Clean - @canner/slate-icon-clean](./packages/slate-icons/clean)
+* [Code - @canner/slate-icon-code](./packages/slate-icons/code)
+* [CodeBlock - @canner/slate-icon-codeblock](./packages/slate-icons/codeblock)
+* [Emoji - @canner/slate-icon-emoji](./packages/slate-icons/emoji)
+* [Font background color - @canner/slate-icon-fontbgcolor](./packages/slate-icons/font-bg-color)
+* [Font color - @canner/slate-icon-fontcolor](./packages/slate-icons/font-color)
+* [Hr - @canner/slate-icon-hr](./packages/slate-icons/hr)
+* [Header - @canner/slate-icon-header](./packages/slate-icons/header) - header 1, header 2, header 3, header 4, header 5, header 6
+* [Image - @canner/slate-icon-image](./packages/slate-icons/image)
+* [Indent - @canner/slate-icon-indent](./packages/slate-icons/indent) - indent, outdent
+* [Italic - @canner/slate-icon-italic](./packages/slate-icons/italic)
+* [Link - @canner/slate-icon-link](./packages/slate-icons/link)
+* [List - @canner/slate-icon-list](./packages/slate-icons/list) - Ol list, Ul list
+* [Strike through - @canner/slate-icon-strikethrough](./packages/slate-icons/strikethrough)
+* [Underline - @canner/slate-icon-underline](./packages/slate-icons/underline)
+* [Undo - @canner/slate-icon-undo](./packages/slate-icons/undo)
+* [Redo - @canner/slate-icon-redo](./packages/slate-icons/redo)
+* [Video - @canner/slate-icon-video](./packages/slate-icons/video)
+* [Table - @canner/slate-icon-table](./packages/slate-icons/table)
 
 👉 Learn more [slate-icons](./packages/slate-icons)
 
@@ -96,9 +96,9 @@ $ npm install --save slate-md-editor
 
 **_Supported selectors:_**
 
-* [Font size - @canner/slate-select-fontsize](./packages/slate-select-fontsize)
-* [Line height - @canner/slate-select-lineheight](./packages/slate-select-lineheight)
-* [Letter spacing - @canner/slate-letterspacing](./packages/slate-select-letterspacing)
+* [Font size - @canner/slate-select-fontsize](./packages/slate-selector/fontsize)
+* [Line height - @canner/slate-select-lineheight](./packages/slate-selector/line-height)
+* [Letter spacing - @canner/slate-letterspacing](./packages/slate-selector/letter-spacing)
 
 👉 Learn more [slate-selectors](./packages/slate-selectors)
 
