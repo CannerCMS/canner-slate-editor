@@ -36,13 +36,6 @@ class ImageNode extends React.Component<Props, State> {
   };
 
   shouldComponentUpdate(nextProps, nextState) {
-    const { node, getSrc, getWidth, getHeight } = this.props;
-    const currentSrc = getSrc(node);
-    const currentNodeWidth = getWidth(node);
-    const currentNodeHeight = getHeight(node);
-    const nextSrc = getSrc(nextProps.node);
-    const nextNodeWidth = getWidth(nextProps.node);
-    const nextNodeHeight = getHeight(nextProps.node);
     if (this.state.isEditing && !(!nextState.isEditing && this.state.isEditing))
       return false;
     return true;
