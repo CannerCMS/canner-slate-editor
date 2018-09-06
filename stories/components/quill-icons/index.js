@@ -34,28 +34,6 @@ export default class QuillIconsDemo extends React.Component {
   render() {
     return (
       <Container>
-        <h3>Usage: </h3>
-
-        <pre>
-          var quillIcons = require('quill-icons'); <br />
-          // icons options see ./src/icons <br />
-          // USAGE: <br />
-          <br />
-          quillIcons.AlignCenter // React element, change to the icon component
-          you need!
-        </pre>
-
-        <h2>Style settings: (see demo)</h2>
-
-        <div>
-          <a
-            href="https://github.com/Canner/quill-icons/blob/master/docs/index.html"
-            target="_blank"
-          >
-            https://github.com/Canner/quill-icons/blob/master/docs/index.html
-          </a>
-        </div>
-
         <h2>Components: </h2>
         <hr />
         {components}

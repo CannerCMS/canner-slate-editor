@@ -8,30 +8,12 @@
   },
   "main": "lib/index.js",
   "license": "MIT",
-  "devDependencies": {
-    "antd": "^3.3.3",
-    "flow-bin": "^0.68.0",
-    "flow-copy-source": "^1.3.0",
-    "husky": "^0.13.3",
-    "immutable": "^4.0.0-rc.9",
-    "jest": "22.4.2",
-    "js-beautify": "^1.7.5",
-    "less": "2.3.1",
-    "less-loader": "^4.1.0",
-    "prettier": "^1.9.2",
-    "prism": "^4.1.2",
-    "raw-loader": "^0.5.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "rimraf": "^2.6.1",
-    "slate": "^0.33.0",
-    "slate-plain-serializer": "^0.5.9",
-    "slate-react": "^0.12.3"
-  },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || 16.x",
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
-    "slate": ">=0.33.0"
+    "slate": ">=0.33.0",
+    "antd": "^3.3.1",
+    "slate-react": "^0.12.0"
   },
   "dependencies": {
     "@canner/slate-helper-block-list": "^1.4.3-alpha.0",

@@ -28,6 +28,7 @@ const plugin = (type, tagName, hotkey) => {
         return commonNode(tagName, nodeAttrs)(props);
     },
     onKeyDown: (e: any, change: Change) => {
+      e.preventDefault();
       if (e.key === "Enter") {
         const { value } = change;
         const { blocks } = value;

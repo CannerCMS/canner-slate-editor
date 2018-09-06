@@ -48,6 +48,12 @@ This projects currently contains over **47+ npm modules**, every features are pa
 $ npm install --save canner-slate-editor
 ```
 
+You will also need to install
+
+```
+$ npm install antd slate slate-react
+```
+
 * Learn more [canner-slate-editor](./packages/editors/canner-slate-editor)
 * [Demo](https://canner.github.io/canner-slate-editor/?selectedKind=canner-slate-editor)
 
@@ -61,6 +67,12 @@ $ npm install --save canner-slate-editor
 
 ```sh
 $ npm install --save slate-md-editor
+```
+
+You will also need to install
+
+```
+$ npm install antd slate slate-react
 ```
 
 * Learn more [slate-md-editor](./packages/editors/slate-md-editor)
