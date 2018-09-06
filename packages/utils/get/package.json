@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-util-get",
-  "version": "1.4.2",
+  "version": "1.4.3-alpha.0",
   "description": "A slate utility function to get values",
   "main": "lib/index.js",
   "publishConfig": {

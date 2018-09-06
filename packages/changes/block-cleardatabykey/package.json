@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-helper-block-cleardatabykey",
-  "version": "1.4.2",
+  "version": "1.4.3-alpha.0",
   "description": "A slate helper that clear a data key in block",
   "main": "lib/index.js",
   "publishConfig": {
