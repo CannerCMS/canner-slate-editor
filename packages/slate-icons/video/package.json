@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-video",
-  "version": "1.4.3-alpha.0",
+  "version": "1.4.3",
   "description": "Slate icon for video",
   "main": "lib/index.js",
   "author": "",
@@ -16,8 +16,8 @@
   },
   "dependencies": {
     "@canner/image-upload": "^0.10.0",
-    "@canner/slate-editor-renderer": "^1.4.3-alpha.0",
-    "@canner/slate-icon-shared": "^1.4.3-alpha.0"
+    "@canner/slate-editor-renderer": "^1.4.3",
+    "@canner/slate-icon-shared": "^1.4.3"
   },
   "gitHead": "bb30f8746be7cbe2cda641b6b74c9d976bb56e31"
 }

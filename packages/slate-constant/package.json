@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-constant",
-  "version": "1.4.3-alpha.0",
+  "version": "1.4.3",
   "description": "Constants in Slate editors",
   "main": "./lib/index",
   "author": "",

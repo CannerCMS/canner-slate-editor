@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-list",
-  "version": "1.4.3-alpha.0",
+  "version": "1.4.3",
   "description": "Slate icon for lists",
   "main": "lib/index.js",
   "author": "",
@@ -15,9 +15,9 @@
     "slate": ">=^0.33.0"
   },
   "dependencies": {
-    "@canner/slate-editor-renderer": "^1.4.3-alpha.0",
-    "@canner/slate-helper-block-list": "^1.4.3-alpha.0",
-    "@canner/slate-icon-shared": "^1.4.3-alpha.0",
+    "@canner/slate-editor-renderer": "^1.4.3",
+    "@canner/slate-helper-block-list": "^1.4.3",
+    "@canner/slate-icon-shared": "^1.4.3",
     "slate-edit-list": "^0.11.2"
   },
   "gitHead": "bb30f8746be7cbe2cda641b6b74c9d976bb56e31"

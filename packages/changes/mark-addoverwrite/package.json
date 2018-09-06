@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-helper-mark-addoverwrite",
-  "version": "1.4.3-alpha.0",
+  "version": "1.4.3",
   "description": "A slate helper add mark data, overwrite otherwise.",
   "main": "lib/index.js",
   "directories": {
@@ -12,8 +12,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@canner/slate-util-get": "^1.4.3-alpha.0",
-    "@canner/slate-util-what": "^1.4.3-alpha.0"
+    "@canner/slate-util-get": "^1.4.3",
+    "@canner/slate-util-what": "^1.4.3"
   },
   "gitHead": "bb30f8746be7cbe2cda641b6b74c9d976bb56e31"
 }

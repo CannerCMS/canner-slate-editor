@@ -1,6 +1,6 @@
 {
   "name": "slate-toolbar",
-  "version": "1.4.3-alpha.0",
+  "version": "1.4.3",
   "description":
     "Quick and easy way to implement medium like toolbar in you slate editor",
   "homepage": "",
@@ -35,10 +35,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@canner/slate-icon-bold": "^1.4.3-alpha.0",
-    "@canner/slate-icon-italic": "^1.4.3-alpha.0",
-    "@canner/slate-icon-shared": "^1.4.3-alpha.0",
-    "@canner/slate-icon-underline": "^1.4.3-alpha.0",
+    "@canner/slate-icon-bold": "^1.4.3",
+    "@canner/slate-icon-italic": "^1.4.3",
+    "@canner/slate-icon-shared": "^1.4.3",
+    "@canner/slate-icon-underline": "^1.4.3",
     "get-selection-range": "^0.1.0",
     "is-hotkey": "^0.1.2",
     "react-window-detect-dimensions": "^0.2.0",
