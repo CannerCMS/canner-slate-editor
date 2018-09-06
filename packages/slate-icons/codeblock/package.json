@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-codeblock",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A slate icon for creating code blocks",
   "main": "lib/index.js",
   "author": "",
@@ -17,9 +17,9 @@
     "slate-edit-code": "^0.15.0"
   },
   "dependencies": {
-    "@canner/slate-editor-renderer": "^1.4.1",
-    "@canner/slate-icon-shared": "^1.4.1",
-    "@canner/slate-util-have": "^1.4.1",
+    "@canner/slate-editor-renderer": "^1.4.2",
+    "@canner/slate-icon-shared": "^1.4.2",
+    "@canner/slate-util-have": "^1.4.2",
     "prismjs": "^1.13.0"
   },
   "gitHead": "7a50ceeaca27c0188b431ffd81c3fdd9553a5989"

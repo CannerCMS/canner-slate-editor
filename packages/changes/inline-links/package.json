@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-helper-inline-links",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A slate helper for links",
   "main": "lib/index.js",
   "directories": {
@@ -12,7 +12,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@canner/slate-util-have": "^1.4.1"
+    "@canner/slate-util-have": "^1.4.2"
   },
   "gitHead": "7a50ceeaca27c0188b431ffd81c3fdd9553a5989"
 }

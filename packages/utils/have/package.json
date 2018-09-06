@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-util-have",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Utility functions for judging whether it have something",
   "main": "lib/index.js",
   "directories": {

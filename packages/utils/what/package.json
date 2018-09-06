@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-util-what",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A slate utility function to get types",
   "main": "lib/index.js",
   "publishConfig": {

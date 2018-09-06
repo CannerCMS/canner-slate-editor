@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-editor-html",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Serializer and Deserializer for slate editor",
   "main": "lib/index",
   "author": "",
@@ -16,9 +16,9 @@
     "styled-components": "^3.2.1"
   },
   "dependencies": {
-    "@canner/slate-constant": "^1.4.1",
-    "@canner/slate-icon-shared": "^1.4.1",
-    "@canner/slate-icon-video": "^1.4.1",
+    "@canner/slate-constant": "^1.4.2",
+    "@canner/slate-icon-shared": "^1.4.2",
+    "@canner/slate-icon-video": "^1.4.2",
     "lodash.mapvalues": "^4.6.0"
   },
   "gitHead": "7a50ceeaca27c0188b431ffd81c3fdd9553a5989"
