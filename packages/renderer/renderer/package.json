@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-editor-renderer",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Renderers for slate nodes and marks",
   "main": "lib/index.js",
   "scripts": {
@@ -23,11 +23,11 @@
     "styled-components": "^3.2.1"
   },
   "dependencies": {
-    "@canner/slate-helper-inline-adddata": "^0.1.2",
+    "@canner/slate-helper-inline-adddata": "^1.4.0",
     "emoji-mart": "^2.5.0",
     "js-video-url-parser": "^0.2.7",
     "lodash.mapvalues": "^4.6.0",
-    "quill-icons": "^0.6.0",
+    "quill-icons": "^1.4.0",
     "react-icons": "^2.2.7",
     "react-loading-image": "^0.5.0",
     "react-resizable": "^1.7.5",

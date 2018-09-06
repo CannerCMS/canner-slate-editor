@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-helper-block-list",
-  "version": "0.1.12",
+  "version": "1.4.0",
   "description": "A helper for block list",
   "main": "lib/index.js",
   "publishConfig": {
@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@canner/slate-constant": "^1.0.9",
+    "@canner/slate-constant": "^1.4.0",
     "slate-edit-list": "^0.11.2"
   }
 }

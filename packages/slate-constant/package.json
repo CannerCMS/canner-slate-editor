@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-constant",
-  "version": "1.0.9",
+  "version": "1.4.0",
   "description": "Constants in Slate editors",
   "main": "./lib/index",
   "author": "",
@@ -9,7 +9,8 @@
     "access": "public"
   },
   "scripts": {
-    "test": "../../node_modules/.bin/mocha ./test/index.js --compilers js:babel-register --bail --reporter=list",
+    "test":
+      "../../node_modules/.bin/mocha ./test/index.js --compilers js:babel-register --bail --reporter=list",
     "prepublish": "../../node_modules/.bin/babel src -d lib --copy-files"
   },
   "dependencies": {

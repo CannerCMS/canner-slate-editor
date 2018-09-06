@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-bold",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "A slate icon for bold",
   "main": "lib/index.js",
   "author": "",
@@ -15,8 +15,8 @@
     "slate": ">=^0.33.0"
   },
   "dependencies": {
-    "@canner/slate-editor-renderer": "^1.3.0",
-    "@canner/slate-icon-shared": "^1.3.0",
+    "@canner/slate-editor-renderer": "^1.4.0",
+    "@canner/slate-icon-shared": "^1.4.0",
     "lodash.omit": "^4.5.0"
   }
 }

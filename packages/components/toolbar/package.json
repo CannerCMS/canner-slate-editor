@@ -1,28 +1,19 @@
 {
   "name": "slate-toolbar",
-  "version": "0.12.1",
-  "description": "Quick and easy way to implement medium like toolbar in you slate editor",
+  "version": "1.4.0",
+  "description":
+    "Quick and easy way to implement medium like toolbar in you slate editor",
   "homepage": "",
   "author": {
     "name": "chilijung",
     "email": "chilijung@gmail.com",
     "url": ""
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "main": "lib/index.js",
-  "keywords": [
-    "slate",
-    "toolbar",
-    "plugins"
-  ],
-  "devDependencies": {
-  },
+  "keywords": ["slate", "toolbar", "plugins"],
   "repository": "Canner/slate-toolbar",
   "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0 || 16.x",
-    "react-dom": "^0.14.0 || ^15.0.0 || 16.x",
     "@canner/slate-helper-block-list": "^0.1.12",
     "@canner/slate-helper-block-quote": "^0.1.12",
     "@canner/slate-icon-align": "^1.3.0",
@@ -38,14 +29,16 @@
     "@canner/slate-icon-strikethrough": "^1.3.0",
     "@canner/slate-icon-underline": "^1.3.0",
     "@canner/slate-icon-undo": "^1.3.0",
-    "antd": "^3.3.1"
+    "antd": "^3.3.1",
+    "react": "^0.14.0 || ^15.0.0 || 16.x",
+    "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
   "license": "MIT",
   "dependencies": {
-    "@canner/slate-icon-bold": "^1.3.0",
-    "@canner/slate-icon-italic": "^1.3.0",
-    "@canner/slate-icon-shared": "^1.3.0",
-    "@canner/slate-icon-underline": "^1.3.0",
+    "@canner/slate-icon-bold": "^1.4.0",
+    "@canner/slate-icon-italic": "^1.4.0",
+    "@canner/slate-icon-shared": "^1.4.0",
+    "@canner/slate-icon-underline": "^1.4.0",
     "get-selection-range": "^0.1.0",
     "is-hotkey": "^0.1.2",
     "react-window-detect-dimensions": "^0.2.0",
