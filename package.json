@@ -42,6 +42,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0",
     "gulp-flowtype": "^1.0.0",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp-watch": "^5.0.1",
     "husky": "^1.0.0-rc.13",
     "immutable": "^4.0.0-rc.9",

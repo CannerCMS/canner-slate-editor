@@ -2,8 +2,6 @@
 
 > 📝 Rich text / WYSIWYG editor focus on **modularity and extensibility**, build on top of [Slate framework](https://docs.slatejs.org) with beautiful designs and high-level APIs.
 
-> **_This project is currently under heavy development, use at you own risk_**
-
 👇 **_canner-slate-editor is a modulized editor, everything is a npm module! You could 100% compose to your personal usage!_**
 
 <img src="./preview/demo-module.png"/>
