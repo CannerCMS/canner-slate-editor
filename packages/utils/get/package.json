@@ -3,13 +3,10 @@
   "version": "1.4.1",
   "description": "A slate utility function to get values",
   "main": "lib/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "../../../node_modules/.bin/babel src -d lib --copy-files"
-  },
   "publishConfig": {
     "access": "public"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "7a50ceeaca27c0188b431ffd81c3fdd9553a5989"
 }

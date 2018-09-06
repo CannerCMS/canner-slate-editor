@@ -8,3 +8,4 @@ package-lock.json
 docs/*/static
 *.swp
 out*
+*.tgz

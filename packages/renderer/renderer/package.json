@@ -3,18 +3,10 @@
   "version": "1.4.1",
   "description": "Renderers for slate nodes and marks",
   "main": "lib/index.js",
-  "scripts": {
-    "test": "jest src",
-    "prepublish": "../../../node_modules/.bin/babel src -d lib --copy-files"
-  },
   "author": "",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
-    "jest": "^22.4.2",
-    "react-test-renderer": "^16.2.0"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || 16.x",
@@ -32,5 +24,6 @@
     "react-loading-image": "^0.5.0",
     "react-resizable": "^1.7.5",
     "slate-edit-table": "^0.15.0-alpha.4"
-  }
+  },
+  "gitHead": "7a50ceeaca27c0188b431ffd81c3fdd9553a5989"
 }

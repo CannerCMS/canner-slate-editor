@@ -20,5 +20,6 @@
     "create-table-picker": "^0.1.2",
     "lodash.omit": "^4.5.0",
     "slate-edit-table": "^0.15.0-alpha.4"
-  }
+  },
+  "gitHead": "7a50ceeaca27c0188b431ffd81c3fdd9553a5989"
 }

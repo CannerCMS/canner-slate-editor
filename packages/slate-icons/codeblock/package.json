@@ -21,5 +21,6 @@
     "@canner/slate-icon-shared": "^1.4.1",
     "@canner/slate-util-have": "^1.4.1",
     "prismjs": "^1.13.0"
-  }
+  },
+  "gitHead": "7a50ceeaca27c0188b431ffd81c3fdd9553a5989"
 }

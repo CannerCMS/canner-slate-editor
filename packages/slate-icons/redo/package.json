@@ -16,5 +16,6 @@
   "dependencies": {
     "@canner/slate-icon-shared": "^1.4.1",
     "is-hotkey": "^0.1.2"
-  }
+  },
+  "gitHead": "7a50ceeaca27c0188b431ffd81c3fdd9553a5989"
 }
