@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-helper-block-adddata",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "A slate helper to add data to current block",
   "main": "lib/index.js",
   "publishConfig": {

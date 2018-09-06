@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-helper-mark-removetype",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "A slate helper to remove specific mark type",
   "main": "lib/index.js",
   "directories": {
@@ -12,8 +12,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@canner/slate-util-get": "^1.4.3",
-    "@canner/slate-util-what": "^1.4.3"
+    "@canner/slate-util-get": "^1.4.4",
+    "@canner/slate-util-what": "^1.4.4"
   },
   "gitHead": "bb30f8746be7cbe2cda641b6b74c9d976bb56e31"
 }

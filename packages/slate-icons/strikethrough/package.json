@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-strikethrough",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "A slate icon for strikethrough",
   "main": "lib/index.js",
   "publishConfig": {
@@ -15,8 +15,8 @@
     "slate": ">=^0.33.0"
   },
   "dependencies": {
-    "@canner/slate-editor-renderer": "^1.4.3",
-    "@canner/slate-icon-shared": "^1.4.3"
+    "@canner/slate-editor-renderer": "^1.4.4",
+    "@canner/slate-icon-shared": "^1.4.4"
   },
   "gitHead": "bb30f8746be7cbe2cda641b6b74c9d976bb56e31"
 }

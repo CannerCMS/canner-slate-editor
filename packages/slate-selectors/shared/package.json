@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-select-shared",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Shared components and utilities in selectors",
   "main": "./lib/index.js",
   "author": "",
@@ -14,13 +14,13 @@
     "slate": ">=^0.33.0"
   },
   "dependencies": {
-    "@canner/slate-helper-block-adddata": "^1.4.3",
-    "@canner/slate-helper-block-cleardatabykey": "^1.4.3",
-    "@canner/slate-helper-mark-addoverwrite": "^1.4.3",
-    "@canner/slate-helper-mark-removetype": "^1.4.3",
-    "@canner/slate-util-get": "^1.4.3",
-    "@canner/slate-util-have": "^1.4.3",
-    "quill-icons": "^1.4.3",
+    "@canner/slate-helper-block-adddata": "^1.4.4",
+    "@canner/slate-helper-block-cleardatabykey": "^1.4.4",
+    "@canner/slate-helper-mark-addoverwrite": "^1.4.4",
+    "@canner/slate-helper-mark-removetype": "^1.4.4",
+    "@canner/slate-util-get": "^1.4.4",
+    "@canner/slate-util-have": "^1.4.4",
+    "quill-icons": "^1.4.4",
     "styled-components": "^3.2.3"
   },
   "gitHead": "bb30f8746be7cbe2cda641b6b74c9d976bb56e31"

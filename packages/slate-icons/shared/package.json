@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-shared",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Shared utils and functions for slate icons",
   "main": "lib/index.js",
   "author": "",
@@ -15,12 +15,12 @@
     "slate": "^0.33.0"
   },
   "dependencies": {
-    "@canner/slate-editor-renderer": "^1.4.3",
-    "@canner/slate-util-have": "^1.4.3",
+    "@canner/slate-editor-renderer": "^1.4.4",
+    "@canner/slate-util-have": "^1.4.4",
     "classnames": "^2.2.5",
     "is-hotkey": "^0.1.2",
     "lodash.omit": "^4.5.0",
-    "quill-icons": "^1.4.3"
+    "quill-icons": "^1.4.4"
   },
   "gitHead": "bb30f8746be7cbe2cda641b6b74c9d976bb56e31"
 }

@@ -3,5 +3,5 @@
   "packages": ["packages/**"],
   "useWorkspaces": true,
   "npmClient": "yarn",
-  "version": "1.4.3"
+  "version": "1.4.4"
 }
