@@ -96,9 +96,9 @@ $ npm install --save slate-md-editor
 
 **_Supported selectors:_**
 
-* [Font size - @canner/slate-select-fontsize](./packages/slate-selector/fontsize)
-* [Line height - @canner/slate-select-lineheight](./packages/slate-selector/line-height)
-* [Letter spacing - @canner/slate-letterspacing](./packages/slate-selector/letter-spacing)
+* [Font size - @canner/slate-select-fontsize](./packages/slate-selectors/fontsize)
+* [Line height - @canner/slate-select-lineheight](./packages/slate-selectors/line-height)
+* [Letter spacing - @canner/slate-letterspacing](./packages/slate-selectors/letter-spacing)
 
 👉 Learn more [slate-selectors](./packages/slate-selectors)
 
