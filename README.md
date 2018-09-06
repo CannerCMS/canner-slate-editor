@@ -29,7 +29,7 @@ Hence, this repository will try to keep all the advantages slate framework provi
 
 This projects currently contains over **47+ npm modules**, every features are packaged into npm modules, such as icons, helpers, plugins, utils, etc..., so this enable developers to pick modules to assemble into your own usages.
 
-## 1. canner-slate-editor ![npm-image](https://badge.fury.io/js/canner-slate-editor.svg)
+## 1. canner-slate-editor [![npm-image](https://badge.fury.io/js/canner-slate-editor.svg)](https://www.npmjs.com/package/canner-slate-editor)
 
 > Another rich text editor using Slate framework, with beautiful design
 
@@ -44,7 +44,7 @@ $ npm install --save canner-slate-editor
 
 <img src="./preview/demo.png"/>
 
-## 2. slate-md-editor ![npm-image](https://badge.fury.io/js/slate-md-editor.svg)
+## 2. slate-md-editor [![npm-image](https://badge.fury.io/js/slate-md-editor.svg)](https://www.npmjs.com/package/slate-md-editor)
 
 > A markdown editor, that allows you to edit live with hot keys support!
 
