@@ -36,8 +36,8 @@ This projects currently contains over **47+ npm modules**, every features are pa
 ## Features
 
 * [x] Support **20+ editor features**, support [list](https://github.com/Canner/canner-slate-editor#3-slate-icons)
-* [x] Support **markdown syntax**, support [list](https://github.com/Canner/slate-md-editor#feature-toc)
-* [x] Support **hot keys**
+* [x] Support **markdown syntax**, support [list](https://github.com/Canner/canner-slate-editor/tree/master/packages/plugins/markdown#feature-toc)
+* [x] Support **hot keys**, support [list](https://github.com/Canner/canner-slate-editor/tree/master/packages/plugins/markdown#support)
 * [x] Support **full screen edit mode**
 * [x] Support **inline toolbar**
 * [x] Support **inline sidebar**
