@@ -35,7 +35,8 @@ This projects currently contains over **47+ npm modules**, every features are pa
 
 > Another rich text editor using Slate framework, with beautiful design
 
-Learn more [canner-slate-editor](./packages/editors/canner-slate-editor)
+* Learn more [canner-slate-editor](./packages/editors/canner-slate-editor)
+* [Demo](https://canner.github.io/canner-slate-editor/?selectedKind=canner-slate-editor)
 
 <img src="./preview/demo.png"/>
 
@@ -43,7 +44,8 @@ Learn more [canner-slate-editor](./packages/editors/canner-slate-editor)
 
 > A markdown editor, that allows you to edit live with hot keys support!
 
-Learn more [slate-md-editor](./packages/editors/slate-md-editor)
+* Learn more [slate-md-editor](./packages/editors/slate-md-editor)
+* [Demo](https://canner.github.io/canner-slate-editor/?selectedKind=slate-md-editor)
 
 <img src="https://i.imgur.com/OqQMMiC.gif" height="600px" style="border:1px solid #CCC;"/>
 
@@ -84,7 +86,9 @@ Learn more [quill-icons](./packages/quill-icons)
 > A set of editor utility components.
 
 * [sidebar](./packages/components/sidebar)
+  * [Demo](https://canner.github.io/canner-slate-editor/?selectedKind=Editor%20sidebar)
 * [toolbar](./packages/components/toolbar)
+  * [Demo](https://canner.github.io/canner-slate-editor/?selectedKind=Editor%20popup%20toolbar)
 
 ## 9. slate-constant
 
