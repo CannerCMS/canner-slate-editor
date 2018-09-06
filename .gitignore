@@ -7,3 +7,4 @@ lib
 package-lock.json
 docs/*/static
 *.swp
+out*

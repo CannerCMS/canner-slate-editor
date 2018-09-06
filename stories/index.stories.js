@@ -16,18 +16,6 @@ storiesOf("slate-md-editor", module).add("Simple", () => <MdEditor />);
 
 storiesOf("Quill icons", module).add("List", () => <QuillIcons />);
 
-storiesOf("sidebar", module).add("Simple", () => <Sidebar />);
+storiesOf("Editor sidebar", module).add("Simple", () => <Sidebar />);
 
-storiesOf("toolbar", module).add("Simple", () => <Toolbar />);
-
-// storiesOf("Button", module)
-//   .add("with text", () => (
-//     <Button onClick={action("clicked")}>Hello Button</Button>
-//   ))
-//   .add("with some emoji", () => (
-//     <Button onClick={action("clicked")}>
-//       <span role="img" aria-label="so cool">
-//         😀 😎 👍 💯
-//       </span>
-//     </Button>
-//   ));
+storiesOf("Editor popup toolbar", module).add("Simple", () => <Toolbar />);
