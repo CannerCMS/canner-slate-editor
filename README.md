@@ -65,7 +65,8 @@ Learn more [slate-selectors](./packages/slate-selectors)
 
 > Icons extract from quill editor with React component wrapper, support 65+ icons!
 
-Learn more [quill-icons](./packages/quill-icons)
+* Learn more [quill-icons](./packages/quill-icons)
+* [Complete list](https://canner.github.io/canner-slate-editor/?selectedKind=Quill%20icons)
 
 ## 6. slate plugins
 
