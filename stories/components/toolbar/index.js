@@ -1,6 +1,5 @@
 // @flow
 import React from "react";
-import ReactDOM from "react-dom";
 import { Modal, Button } from "antd";
 import { Editor } from "slate-react";
 import { Value, Change } from "slate";
@@ -23,8 +22,8 @@ import Undo from "slateIcons/undo";
 import { ParagraphPlugin } from "slateIcons/shared";
 import toolbar from "packages/components/toolbar/src";
 
-import { DEFAULT as DEFAULTLIST } from "packages/helpers/block-list";
-import { DEFAULT as DEFAULTBLOCKQUOTE } from "packages/helpers/block-quote";
+import { DEFAULT as DEFAULTLIST } from "changes/block-list";
+import { DEFAULT as DEFAULTBLOCKQUOTE } from "changes/block-quote";
 import EditList from "slate-edit-list";
 import EditBlockquote from "slate-edit-blockquote";
 
@@ -105,7 +104,10 @@ class EditorContainer extends React.Component<Props> {
   }
 }
 
-class App extends React.Component<{}, { value: Value, visible: boolean }> {
+export default class App extends React.Component<
+  {},
+  { value: Value, visible: boolean }
+> {
   // Set the initial state when the app is first constructed.
   constructor(props: {}) {
     super(props);
@@ -167,5 +169,3 @@ class App extends React.Component<{}, { value: Value, visible: boolean }> {
     );
   }
 }
-
-ReactDOM.render(<App />, (document: any).getElementById("root"));

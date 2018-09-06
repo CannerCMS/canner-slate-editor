@@ -63,7 +63,7 @@ module.exports = (storybookBaseConfig, configType) => {
     alias: {
       packages: path.resolve(__dirname, "../packages"),
       plugins: path.resolve(__dirname, "../packages/plugins"),
-      helpers: path.resolve(__dirname, "../packages/helpers"),
+      changes: path.resolve(__dirname, "../packages/changes"),
       slateIcons: path.resolve(__dirname, "../packages/slate-icons"),
       slateSelectors: path.resolve(__dirname, "../packages/slate-selectors"),
       quillIcons: path.resolve(__dirname, "../packages/quill-icons"),

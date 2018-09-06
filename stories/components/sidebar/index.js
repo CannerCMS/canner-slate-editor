@@ -1,6 +1,5 @@
 // @flow
 import React from "react";
-import ReactDOM from "react-dom";
 import { Modal, Button } from "antd";
 import { Editor } from "slate-react";
 import { Value, Change } from "slate";
@@ -9,13 +8,13 @@ import {
   Header2,
   HeaderOnePlugin,
   HeaderTwoPlugin
-} from "@canner/header";
+} from "@canner/slate-icon-header";
 import { OlList, UlList, ListPlugin } from "slateIcons/list";
 import { ParagraphPlugin } from "slateIcons/shared";
 import sidebar from "packages/components/sidebar/src";
 
-import { DEFAULT as DEFAULTLIST } from "helpers/block-list";
-import { DEFAULT as DEFAULTBLOCKQUOTE } from "helpers/block-quote";
+import { DEFAULT as DEFAULTLIST } from "changes/block-list";
+import { DEFAULT as DEFAULTBLOCKQUOTE } from "changes/block-quote";
 import EditList from "slate-edit-list";
 import EditBlockquote from "slate-edit-blockquote";
 
