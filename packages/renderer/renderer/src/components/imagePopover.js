@@ -2,7 +2,7 @@
 import * as React from "react";
 import inlineAddData from "@canner/slate-helper-inline-adddata";
 import type { Change, Range } from "slate";
-import { Popover, Form, Button, InputNumber } from "antd";
+import { Popover, Form, Button, InputNumber, Checkbox } from "antd";
 
 const FormItem = Form.Item;
 
@@ -53,10 +53,14 @@ export default (class ImageModal extends React.Component<Props> {
   };
 
   render() {
-    const { getFieldDecorator } = this.props.form;
+    const {
+      getFieldDecorator,
+      getFieldValue,
+      setFieldsValue
+    } = this.props.form;
     const { isEditing, width, height, children } = this.props;
     const content = (
-      <Form horizontal="true">
+      <Form horizontal="true" layout="inline">
         <FormItem label="Width:" hasFeedback>
           {getFieldDecorator("width", {
             rules: [
@@ -66,7 +70,19 @@ export default (class ImageModal extends React.Component<Props> {
               }
             ],
             initialValue: width
-          })(<InputNumber onClick={e => e.preventDefault()} />)}
+          })(
+            <InputNumber
+              onChange={newWidth => {
+                if (getFieldValue("lock")) {
+                  const height = getFieldValue("height");
+                  const oldWidth = getFieldValue("width");
+                  const ratio = height / oldWidth;
+                  setFieldsValue({ height: (ratio * newWidth).toFixed(2) });
+                }
+              }}
+              onClick={e => e.preventDefault()}
+            />
+          )}
         </FormItem>
         <FormItem label="Height:" hasFeedback>
           {getFieldDecorator("height", {
@@ -77,14 +93,34 @@ export default (class ImageModal extends React.Component<Props> {
               }
             ],
             initialValue: height
-          })(<InputNumber onClick={e => e.preventDefault()} />)}
+          })(
+            <InputNumber
+              onChange={newHeight => {
+                if (getFieldValue("lock")) {
+                  const width = getFieldValue("width");
+                  const oldHeight = getFieldValue("height");
+                  const ratio = width / oldHeight;
+                  setFieldsValue({ width: (ratio * newHeight).toFixed(2) });
+                }
+              }}
+              onClick={e => e.preventDefault()}
+            />
+          )}
         </FormItem>
-        <Button key="back" type="ghost" onClick={this.handleCancel}>
-          Cancel
-        </Button>{" "}
-        <Button key="submit" type="primary" onClick={this.handleOk}>
-          Ok
-        </Button>
+        <FormItem>
+          {getFieldDecorator("lock", {
+            valuePropName: "checked",
+            initialValue: true
+          })(<Checkbox>Lock Original Ratio</Checkbox>)}
+        </FormItem>
+        <div>
+          <Button key="back" type="ghost" onClick={this.handleCancel}>
+            Cancel
+          </Button>{" "}
+          <Button key="submit" type="primary" onClick={this.handleOk}>
+            Ok
+          </Button>
+        </div>
       </Form>
     );
 

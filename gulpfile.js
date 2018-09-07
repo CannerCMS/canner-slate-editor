@@ -25,9 +25,12 @@ gulp.task("watch", ["default"], () =>
     watch([`${pkg}/src/**/*.js`, `!${pkg}/src/**/__tests__/**/*.js`], {
       verbose: true
     })
-      .pipe(sourcemaps.init())
       .pipe(babel(babelrc))
-      .on("error", console.error.bind(console))
+      .on("error", function(e) {
+        console.log(">>> ERROR", e);
+        // emit here
+        this.emit("end");
+      })
       .pipe(gulp.dest(`${pkg}/lib`));
   })
 );

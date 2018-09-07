@@ -116,7 +116,7 @@ export default (class Link extends React.Component<Props, State> {
     const onClick = e => this.onClick(e);
 
     const content = (
-      <Form horizontal="true">
+      <Form horizontal="true" layout="inline">
         <FormItem label="Url" hasFeedback>
           {getFieldDecorator("href", {
             rules: [
@@ -138,12 +138,14 @@ export default (class Link extends React.Component<Props, State> {
             )}
           </FormItem>
         ) : null}
-        <Button key="back" type="ghost" onClick={this.handleCancel}>
-          Cancel
-        </Button>{" "}
-        <Button key="submit" type="primary" onClick={this.handleOk}>
-          Ok
-        </Button>
+        <div>
+          <Button key="back" type="ghost" onClick={this.handleCancel}>
+            Cancel
+          </Button>{" "}
+          <Button key="submit" type="primary" onClick={this.handleOk}>
+            Ok
+          </Button>
+        </div>
       </Form>
     );
 
