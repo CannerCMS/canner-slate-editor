@@ -2,7 +2,7 @@
 
 > 📝 Rich text / WYSIWYG editor focus on **modularity and extensibility**, build on top of [Slate framework](https://docs.slatejs.org) with beautiful designs and high-level APIs.
 
-### Features
+### Features 😍
 
 * [x] **20+ Editor Features**, support [list](https://github.com/Canner/canner-slate-editor#3-slate-icons)
 * [x] **Markdown Syntax**, support [list](https://github.com/Canner/canner-slate-editor/tree/master/packages/plugins/markdown#feature-toc)

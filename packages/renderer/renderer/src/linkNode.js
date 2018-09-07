@@ -1,26 +1,13 @@
 // @flow
 import * as React from "react";
 import { Tooltip, Icon } from "antd";
-import { Range } from "slate";
 import links from "@canner/slate-helper-inline-links";
 import type { nodeProps } from "./type";
 
 export default function(options) {
   const LinkNode = ({ attributes, children, node, editor }: nodeProps) => {
     const removeLink = () => {
-      editor.change(change =>
-        links(
-          change.select(
-            Range.create({
-              anchorKey: node.key,
-              anchorOffset: 0,
-              focusKey: node.key,
-              focusOffset: node.text.length - 1
-            })
-          ),
-          node.type
-        )
-      );
+      editor.change(change => links(change.moveToRangeOf(node), node.type));
     };
 
     return (

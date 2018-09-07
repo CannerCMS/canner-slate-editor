@@ -23,7 +23,8 @@
     "react-icons": "^2.2.7",
     "react-loading-image": "^0.5.0",
     "react-resizable": "^1.7.5",
-    "slate-edit-table": "^0.15.0-alpha.4"
+    "slate-edit-table": "^0.15.0-alpha.4",
+    "prismjs": "^1.15.0"
   },
   "gitHead": "bb30f8746be7cbe2cda641b6b74c9d976bb56e31"
 }
