@@ -1,7 +1,6 @@
 // @flow
 import { Mark, Range } from "slate";
 import type { Change, Text } from "slate";
-import trailingSpace from "../utils/trailingSpace";
 import removeAllMark from "@canner/slate-helper-mark-removeall";
 
 export default function(
@@ -19,12 +18,11 @@ export default function(
         anchorKey: currentTextNode.key,
         focusKey: currentTextNode.key,
         anchorOffset: matched.index,
-        focusOffset: matched.index + matchedLength
+        focusOffset: matched.index + matchedLength + 1
       })
     )
     .insertTextByKey(currentTextNode.key, matched.index, addText, [
       Mark.create({ type })
     ])
-    .call(trailingSpace, currentTextNode, matched.index)
     .call(removeAllMark);
 }

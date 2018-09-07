@@ -17,16 +17,14 @@ export default function(
         anchorKey: currentTextNode.key,
         focusKey: currentTextNode.key,
         anchorOffset: matched.index,
-        focusOffset: matched.index + matchedLength
+        focusOffset: matched.index + matchedLength + 1
       })
     )
-    .call(trailingSpace, currentTextNode, matched.index)
     .insertText(matched[1])
     .extend(0 - matched[1].length)
     .wrapInline({
       type,
       data: { href: matched[2] }
     })
-    .collapseToEnd()
-    .call(trailingSpace, currentTextNode, matched.index);
+    .collapseToEnd();
 }
