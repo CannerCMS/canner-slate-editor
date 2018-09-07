@@ -159,24 +159,17 @@ export default (options: { [string]: any } = {}) => {
         return (
           currentLineText.length === 0 &&
           focusBlock.type === "paragraph" && (
-            <Popover
-              placement="rightTop"
-              title={"Select Block:"}
-              visible={openPopover}
-              onVisibleChange={this.handleVisibleChange}
-              content={<PopupContainer>{content}</PopupContainer>}
-              trigger="click"
+            <SidebarContainer
+              innerRef={node => (this.sidebarContainerNode = node)}
             >
-              <SidebarContainer
-                innerRef={node => (this.sidebarContainerNode = node)}
-              >
-                <Icon
-                  type="plus-circle"
-                  theme="outlined"
-                  className={openPopover && "open"}
-                />
-              </SidebarContainer>
-            </Popover>
+              <Icon
+                type="plus-circle"
+                theme="outlined"
+                onClick={() => this.handleVisibleChange(!openPopover)}
+                className={openPopover && "open"}
+              />
+              <PopupContainer isOpen={openPopover}>{content}</PopupContainer>
+            </SidebarContainer>
           )
         );
       };

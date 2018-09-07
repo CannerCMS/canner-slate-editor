@@ -139,11 +139,13 @@ export default class App extends React.Component<
             onOk={this.handleOk}
             onCancel={this.handleCancel}
           >
-            <EditorContainer
-              value={this.state.value}
-              onChange={({ value }) => this.setState({ value })}
-              plugins={plugins}
-            />
+            <div style={{ overflow: "hidden", padding: "30px" }}>
+              <EditorContainer
+                value={this.state.value}
+                onChange={({ value }) => this.setState({ value })}
+                plugins={plugins}
+              />
+            </div>
           </Modal>
         </div>
       </div>

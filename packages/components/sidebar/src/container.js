@@ -1,18 +1,17 @@
 // @flow
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SidebarContainer = styled.div`
   position: absolute;
-  z-index: 1000;
+  z-index: 5;
 
   i {
-    color: #CCC;
+    color: #ccc;
     -webkit-animation: fadeIn 1s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadeIn 1s; /* Firefox < 16 */
     -ms-animation: fadeIn 1s; /* Internet Explorer */
     -o-animation: fadeIn 1s; /* Opera < 12.1 */
     animation: fadeIn 1s;
-
   }
 
   i.open {
@@ -26,37 +25,70 @@ export const SidebarContainer = styled.div`
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   @-webkit-keyframes fadeIn {
-    0% { opacity: 0;}   
-    100% { opacity: 1;}
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
   @-moz-keyframes fadeIn {
-    0% { opacity: 0;}   
-    100% { opacity: 1;}
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   @-moz-keyframes spin {
-    from { -moz-transform: rotate(0deg); }
-    to { -moz-transform: rotate(45deg); }
+    from {
+      -moz-transform: rotate(0deg);
+    }
+    to {
+      -moz-transform: rotate(45deg);
+    }
   }
   @-webkit-keyframes spin {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(45deg); }
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(45deg);
+    }
   }
   @keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(45deg);}
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(45deg);
+    }
   }
 `;
 
 export const PopupContainer = styled.div`
-  width: 300px;
-  display: block;
-`
+  width: 320px;
+  display: ${props => (props.isOpen ? "block" : "none")};
+  color: rgba(0, 0, 0, 0.65);
+  background-color: #fff;
+  background-clip: padding-box;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  padding: 10px;
+  left: 20px;
+  top: -140px;
+`;
 
 export const IconContainer = styled.div`
   display: inline-block;
@@ -127,4 +159,4 @@ export const IconWrapper = styled.div`
   svg {
     cursor: pointer;
   }
-`
+`;

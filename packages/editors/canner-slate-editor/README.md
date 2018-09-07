@@ -62,7 +62,7 @@ class DemoEditor extends React.Component<*, { value: Value }> {
 ReactDOM.render(<DemoEditor />, (document: any).getElementById("root"));
 ```
 
-see https://github.com/Canner/canner-slate-editor/blob/master/docs/index.js
+see https://github.com/Canner/canner-slate-editor/blob/master/stories/components/canner-slate-editor/index.js
 
 ## Customization
 
