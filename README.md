@@ -6,12 +6,6 @@
 
 <img src="./preview/demo-module.png"/>
 
-## Why not use Slate directly?
-
-[`Slate`](https://github.com/ianstormtaylor/slate) is a well-designed powerful **editor framework** that helps you deal with difficult parts when building an editor, such as data modeling, updating states, rendering, editor schemas, serializing... (you could learn more [here](https://github.com/ianstormtaylor/slate#why)), while you are trying to build your own editors, it still need a lot of efforts to build a simple beautiful editor up and running with the framework.
-
-This repository aims to provide complete editors and plugins solutions that allows you to use it right away, instead of digging through slate documentations and using our high-level components you could almost build editors without any slate framework knowledge to use.
-
 ## Why another editor?
 
 **Since this project is originally started from [Canner](https://github.com/Canner/canner), we notice that there is NO SINGLE editor is going to fit in all varieties of requirements, so we think the only way to solve this issue is to design a modular-first editor.**
@@ -194,6 +188,14 @@ yarn run build:watch
 ```
 yarn jest <...path/to/pkg> [--coverage]
 ```
+
+# FAQ
+
+## 1. Why not use Slate directly?
+
+[`Slate`](https://github.com/ianstormtaylor/slate) is a well-designed powerful **editor framework** that helps you deal with difficult parts when building an editor, such as data modeling, updating states, rendering, editor schemas, serializing... (you could learn more [here](https://github.com/ianstormtaylor/slate#why)), while you are trying to build your own editors, it still need a lot of efforts to build a simple beautiful editor up and running with the framework.
+
+This repository aims to provide complete editors and plugins solutions that allows you to use it right away, instead of digging through slate documentations and using our high-level components you could almost build editors without any slate framework knowledge to use.
 
 <a href="https://canner.io">
   <img src="https://user-images.githubusercontent.com/26116324/37811196-a437d930-2e93-11e8-97d8-0653ace2a46d.png"/>
