@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-helper-mark-removeall",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "description": "A slate helper to remove all mark",
   "main": "lib/index.js",
   "directories": {

@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-icon-header",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "description": "Slate icons for headers",
   "main": "lib/index.js",
   "author": "",
@@ -15,9 +15,9 @@
     "slate": ">=^0.33.0"
   },
   "dependencies": {
-    "@canner/slate-editor-renderer": "^1.4.4",
-    "@canner/slate-icon-shared": "^1.4.4",
-    "@canner/slate-util-have": "^1.4.4",
+    "@canner/slate-editor-renderer": "^1.5.0",
+    "@canner/slate-icon-shared": "^1.5.0",
+    "@canner/slate-util-have": "^1.5.0",
     "is-hotkey": "^0.1.2"
   },
   "gitHead": "bb30f8746be7cbe2cda641b6b74c9d976bb56e31"
