@@ -8,10 +8,17 @@ import Editor from "./components/canner-slate-editor";
 import MdEditor from "./components/markdown-editor";
 import MdEditorWithSerializer from "./components/markdown-editor/with-serializer";
 import QuillIcons from "./components/quill-icons";
+import HelpMenu from "packages/components/help-menu";
 import Sidebar from "./components/sidebar";
 import Toolbar from "./components/toolbar";
 
-storiesOf("canner-slate-editor", module).add("Simple demo", () => <Editor />);
+storiesOf("canner-slate-editor", module)
+  .add("Simple demo", () => <Editor />)
+  .add("Hot keys & Formatting", () => (
+    <div style={{ padding: "30px" }}>
+      <HelpMenu />
+    </div>
+  ));
 
 storiesOf("slate-md-editor", module)
   .add("Simple demo", () => <MdEditor />)
