@@ -37,7 +37,8 @@
     "slate-edit-blockquote": "^0.6.0",
     "slate-edit-code": "^0.15.0",
     "slate-edit-list": "^0.11.2",
-    "slate-md-plugin": "^1.4.4",
+    "@canner/slate-md-plugin": "^1.4.4",
+    "@canner/slate-paste-html-plugin": "^1.4.4",
     "slate-prism": "^0.4.0",
     "slate-soft-break": "^0.6.0",
     "styled-components": "^3.2.1"

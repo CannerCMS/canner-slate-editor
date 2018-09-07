@@ -2,6 +2,16 @@
 
 > 📝 Rich text / WYSIWYG editor focus on **modularity and extensibility**, build on top of [Slate framework](https://docs.slatejs.org) with beautiful designs and high-level APIs.
 
+### Features
+
+* [x] **20+ Editor Features**, support [list](https://github.com/Canner/canner-slate-editor#3-slate-icons)
+* [x] **Markdown Syntax**, support [list](https://github.com/Canner/canner-slate-editor/tree/master/packages/plugins/markdown#feature-toc)
+* [x] **Hot Keys**, support [list](https://github.com/Canner/canner-slate-editor/tree/master/packages/plugins/markdown#support)
+* [x] **Full Screen Edit mode**
+* [x] **Serialize and Deserialize into HTML**
+* [x] Support **Toolbar**
+* [x] Support **Sidebar**
+
 👇 **_canner-slate-editor is a modulized editor, everything is a npm module! You could 100% compose to your personal usage!_**
 
 <img src="./preview/demo-module.png"/>
@@ -26,15 +36,6 @@ This projects currently contains over **47+ npm modules**, every features are pa
 ## 1. canner-slate-editor [![npm-image](https://badge.fury.io/js/canner-slate-editor.svg)](https://www.npmjs.com/package/canner-slate-editor)
 
 > Another rich text editor using Slate framework, with beautiful design
-
-### Features
-
-* [x] Support **20+ editor features**, support [list](https://github.com/Canner/canner-slate-editor#3-slate-icons)
-* [x] Support **markdown syntax**, support [list](https://github.com/Canner/canner-slate-editor/tree/master/packages/plugins/markdown#feature-toc)
-* [x] Support **hot keys**, support [list](https://github.com/Canner/canner-slate-editor/tree/master/packages/plugins/markdown#support)
-* [x] Support **full screen edit mode**
-* [x] Support **inline toolbar**
-* [x] Support **inline sidebar**
 
 ### Installation
 

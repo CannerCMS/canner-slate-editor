@@ -6,18 +6,18 @@ import EditPrism from "slate-prism";
 import EditBlockquote from "slate-edit-blockquote";
 import EditList from "slate-edit-list";
 import PluginEditCode from "slate-edit-code";
-import {DEFAULT as DEFAULT_LIST} from "@canner/slate-helper-block-list";
+import { DEFAULT as DEFAULT_LIST } from "@canner/slate-helper-block-list";
 import BLOCKS from "markup-it/lib/constants/blocks";
 import MARKS from "markup-it/lib/constants/marks";
 import INLINES from "markup-it/lib/constants/inlines";
 
 // blocks
-import {BlockquotePlugin} from '@canner/slate-icon-blockquote';
-import {ListPlugin} from '@canner/slate-icon-list';
-import {CodeBlockPlugin} from '@canner/slate-icon-codeblock';
-import {HrPlugin} from '@canner/slate-icon-hr';
-import {LinkPlugin} from '@canner/slate-icon-link';
-import {ImagePlugin} from '@canner/slate-icon-image';
+import { BlockquotePlugin } from "@canner/slate-icon-blockquote";
+import { ListPlugin } from "@canner/slate-icon-list";
+import { CodeBlockPlugin } from "@canner/slate-icon-codeblock";
+import { HrPlugin } from "@canner/slate-icon-hr";
+import { LinkPlugin } from "@canner/slate-icon-link";
+import { ImagePlugin } from "@canner/slate-icon-image";
 import {
   HeaderOnePlugin,
   HeaderTwoPlugin,
@@ -25,17 +25,18 @@ import {
   HeaderFourPlugin,
   HeaderFivePlugin,
   HeaderSixPlugin
-} from '@canner/slate-icon-header';
-import {ParagraphPlugin} from '@canner/slate-icon-shared';
+} from "@canner/slate-icon-header";
+import { ParagraphPlugin } from "@canner/slate-icon-shared";
 
 // marks plugin
-import {BoldPlugin} from '@canner/slate-icon-bold';
-import {CodePlugin} from '@canner/slate-icon-code';
-import {StrikeThroughPlugin} from '@canner/slate-icon-strikethrough';
-import {UnderlinePlugin} from '@canner/slate-icon-underline';
-import {ItalicPlugin} from '@canner/slate-icon-italic';
+import { BoldPlugin } from "@canner/slate-icon-bold";
+import { CodePlugin } from "@canner/slate-icon-code";
+import { StrikeThroughPlugin } from "@canner/slate-icon-strikethrough";
+import { UnderlinePlugin } from "@canner/slate-icon-underline";
+import { ItalicPlugin } from "@canner/slate-icon-italic";
 
-import mdPlugin from "slate-md-plugin";
+import mdPlugin from "@canner/slate-md-plugin";
+import copyPastePlugin from "@canner/slate-paste-html-plugin";
 import "prismjs/themes/prism.css";
 import "github-markdown-css";
 
@@ -85,7 +86,8 @@ export default (opt: { [string]: any } = {}) => {
     CodePlugin(),
     StrikeThroughPlugin(),
     UnderlinePlugin(),
-    ItalicPlugin()
+    ItalicPlugin(),
+    copyPastePlugin()
   ];
 
   type Props = {

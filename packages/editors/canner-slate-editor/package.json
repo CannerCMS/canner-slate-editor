@@ -63,6 +63,7 @@
     "@canner/slate-icon-underline": "^1.4.4",
     "@canner/slate-icon-undo": "^1.4.4",
     "@canner/slate-icon-video": "^1.4.4",
+    "@canner/slate-paste-html-plugin": "^1.4.4",
     "github-markdown-css": "^2.10.0",
     "prismjs": "^1.13.0",
     "slate-edit-blockquote": "^0.5.0",

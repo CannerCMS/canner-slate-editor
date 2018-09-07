@@ -8,6 +8,7 @@ import toolbar from "slate-toolbar";
 import sidebar from "slate-sidebar";
 import { MarkdownPlugin } from "slate-md-editor";
 import { BLOCKS } from "@canner/slate-constant";
+import copyPastePlugin from "@canner/slate-paste-html-plugin";
 
 import Blockquote, { BlockquotePlugin } from "@canner/slate-icon-blockquote";
 import Bold, { BoldPlugin } from "@canner/slate-icon-bold";
@@ -69,10 +70,11 @@ const plugins = [
   CodePlugin(),
   CodeBlockPlugin(),
   FontBgColorPlugin({
-    backgroundColor: mark => mark.data.get("color").color
+    backgroundColor: mark =>
+      mark.data.get("color") && mark.data.get("color").color
   }),
   FontColorPlugin({
-    color: mark => mark.data.get("color").color
+    color: mark => mark.data.get("color") && mark.data.get("color").color
   }),
   ItalicPlugin(),
   StrikeThroughPlugin(),
@@ -85,7 +87,8 @@ const plugins = [
   ImagePlugin(),
   LinkPlugin(),
   ListPlugin(),
-  VideoPlugin()
+  VideoPlugin(),
+  copyPastePlugin()
 ];
 
 type Props = {
