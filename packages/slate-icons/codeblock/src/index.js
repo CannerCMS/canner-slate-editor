@@ -88,26 +88,18 @@ export default (class CodeBlock extends React.Component<Props, State> {
     });
   };
 
-  handleOk = (e: Event) => {
-    e.preventDefault();
+  handleSelected = (lang: string) => {
     const { onChange, change, syntaxKey } = this.props;
-    const that = this;
+    let newChange = change;
 
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        const { lang } = values;
-        let newChange = change;
+    if (lang) {
+      newChange = change.setBlocks({
+        data: { [syntaxKey]: lang }
+      });
+    }
 
-        if (lang) {
-          newChange = change.setBlocks({
-            data: Data.create({ [syntaxKey]: lang })
-          });
-        }
-
-        onChange(this.codePlugin.changes.wrapCodeBlock(newChange));
-        that.handleCancel();
-      }
-    });
+    onChange(this.codePlugin.changes.wrapCodeBlock(newChange));
+    this.handleCancel();
   };
 
   render() {
@@ -120,28 +112,23 @@ export default (class CodeBlock extends React.Component<Props, State> {
       <div style={{ minWidth: "200px" }}>
         <Form horizontal="true">
           <FormItem label="Code Language" hasFeedback>
-            {getFieldDecorator("lang")(
-              <Select placeholder="Language (optional)">
-                {Object.keys(languages)
-                  .filter(lang => {
-                    return languages[lang].title;
-                  })
-                  .map(lang => {
-                    return (
-                      <Option value={lang} key={lang}>
-                        {languages[lang].title}
-                      </Option>
-                    );
-                  })}
-              </Select>
-            )}
+            <Select
+              onSelect={this.handleSelected}
+              placeholder="Language (optional)"
+            >
+              {Object.keys(languages)
+                .filter(lang => {
+                  return languages[lang].title;
+                })
+                .map(lang => {
+                  return (
+                    <Option value={lang} key={lang}>
+                      {languages[lang].title}
+                    </Option>
+                  );
+                })}
+            </Select>
           </FormItem>
-          <Button key="back" type="ghost" onClick={this.handleCancel}>
-            Cancel
-          </Button>{" "}
-          <Button key="submit" type="primary" onClick={this.handleOk}>
-            Ok
-          </Button>
         </Form>
       </div>
     );
