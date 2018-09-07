@@ -5,7 +5,7 @@
 ### Features 😍
 
 * [x] **20+ Editor Features**, support [list](https://github.com/Canner/canner-slate-editor#3-slate-icons)
-* [x] **Markdown Syntax**, support [list](hhttps://canner.github.io/canner-slate-editor/?selectedKind=canner-slate-editor&selectedStory=Hot%20keys%20%26%20Formatting&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
+* [x] **Markdown Syntax**, support [list](https://canner.github.io/canner-slate-editor/?selectedKind=canner-slate-editor&selectedStory=Hot%20keys%20%26%20Formatting&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [x] **Hot Keys**, support [list](https://canner.github.io/canner-slate-editor/?selectedKind=canner-slate-editor&selectedStory=Hot%20keys%20%26%20Formatting&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [x] **Full Screen Edit mode**
 * [x] **Serialize and Deserialize into HTML**
