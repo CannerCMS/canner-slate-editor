@@ -9,6 +9,7 @@
 * [x] **Hot Keys**, support [list](https://github.com/Canner/canner-slate-editor/tree/master/packages/plugins/markdown#support)
 * [x] **Full Screen Edit mode**
 * [x] **Serialize and Deserialize into HTML**
+* [x] **Copy and Paste HTML in Editor**
 * [x] Support **Toolbar**
 * [x] Support **Sidebar**
 
