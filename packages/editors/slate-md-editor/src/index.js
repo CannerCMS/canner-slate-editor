@@ -1,6 +1,7 @@
 // @flow
 import * as React from "react";
 import type { Value, Change } from "slate";
+import { Icon, Modal } from "antd";
 import { Editor } from "slate-react";
 import EditPrism from "slate-prism";
 import EditBlockquote from "slate-edit-blockquote";
@@ -39,8 +40,19 @@ import mdPlugin from "@canner/slate-md-plugin";
 import copyPastePlugin from "@canner/slate-paste-html-plugin";
 import "prismjs/themes/prism.css";
 import "github-markdown-css";
+import HelpMenu from "@canner/slate-editor-help";
+import styled from "styled-components";
 
 export const MarkdownPlugin = mdPlugin;
+
+const Helper = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #ccc;
+`;
 
 export default (opt: { [string]: any } = {}) => {
   const options = Object.assign(
@@ -95,22 +107,48 @@ export default (opt: { [string]: any } = {}) => {
     onChange: (change: Change) => void
   };
 
-  return class MdEditor extends React.Component<Props> {
+  type State = {
+    showMenu: boolean
+  };
+
+  return class MdEditor extends React.Component<Props, State> {
     constructor(props) {
       super(props);
       this.plugins = [...mdEditorPlugins, ...(this.props.plugins || [])];
     }
 
+    state = {
+      showMenu: false
+    };
+
+    changeVisibleMenu = (visible: boolean) => {
+      this.setState({ showMenu: visible });
+    };
+
     render() {
+      const { showMenu } = this.state;
       const { value, onChange, plugins, ...rest } = this.props; // eslint-disable-line
       return (
-        <div className="markdown-body">
+        <div className="markdown-body" style={{ position: "relative" }}>
           <Editor
             value={value}
             plugins={this.plugins}
             onChange={onChange}
             {...rest}
           />
+          <Helper onClick={() => this.changeVisibleMenu(true)}>
+            <Icon type="question-circle" theme="outlined" />
+            <span style={{ fontSize: "15px", marginLeft: "5px" }}>Help</span>
+          </Helper>
+          <Modal
+            visible={showMenu}
+            style={{ width: "800px" }}
+            footer={null}
+            onCancel={() => this.changeVisibleMenu(false)}
+            title="Help Menu"
+          >
+            <HelpMenu />
+          </Modal>
         </div>
       );
     }

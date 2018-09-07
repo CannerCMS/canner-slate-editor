@@ -1,0 +1,19 @@
+{
+  "name": "@canner/slate-editor-help",
+  "version": "1.4.4",
+  "description": "Help menu of Canner Editor",
+  "homepage": "",
+  "author": {
+    "name": "chilijung",
+    "email": "chilijung@gmail.com",
+    "url": ""
+  },
+  "files": ["lib"],
+  "main": "lib/index.js",
+  "peerDependencies": {
+    "antd": ">=3.4.1",
+    "react": "^0.14.0 || ^15.0.0 || 16.x",
+    "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
+  },
+  "gitHead": "bb30f8746be7cbe2cda641b6b74c9d976bb56e31"
+}
