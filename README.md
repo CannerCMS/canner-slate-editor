@@ -8,7 +8,7 @@
 * [x] **Markdown Syntax**, support [list](https://canner.github.io/canner-slate-editor/?selectedKind=canner-slate-editor&selectedStory=Hot%20keys%20%26%20Formatting&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [x] **Hot Keys**, support [list](https://canner.github.io/canner-slate-editor/?selectedKind=canner-slate-editor&selectedStory=Hot%20keys%20%26%20Formatting&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [x] **Full Screen Edit mode**
-* [x] **Serialize and Deserialize into HTML**
+* [x] **[Serialize](https://canner.github.io/canner-slate-editor/?selectedKind=slate-md-editor&selectedStory=With%20HTML%20serializer&full=0&addons=1&stories=1&panelRight=0) and Deserialize into HTML**
 * [x] **Copy and Paste HTML in Editor**
 * [x] Support **Toolbar**
 * [x] Support **Sidebar**
@@ -17,7 +17,7 @@
 
 <img src="./preview/demo-module.png"/>
 
-## Why another editor?
+## Why another Editor?
 
 **Since this project is originally started from [Canner](https://github.com/Canner/canner), we notice that there is NO SINGLE editor is going to fit in all varieties of requirements, so we think the only way to solve this issue is to design a modular-first editor.**
 
