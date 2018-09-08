@@ -1,4 +1,4 @@
-# canner-slate-editor [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# canner-slate-editor 
 
 ## Installation
 
