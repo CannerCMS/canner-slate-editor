@@ -15,5 +15,8 @@
     "react": "^0.14.0 || ^15.0.0 || 16.x",
     "react-dom": "^0.14.0 || ^15.0.0 || 16.x"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "gitHead": "bb30f8746be7cbe2cda641b6b74c9d976bb56e31"
 }
