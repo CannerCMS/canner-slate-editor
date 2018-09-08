@@ -42,6 +42,49 @@ This project is using [Antd](https://ant.design/) as our primiary UI library.
 
 One of the downside of using it, is it will increase your bundle size. see [here for solution](https://github.com/Canner/canner-slate-editor#2-editors-bundle-size-is-too-large)
 
+## Setting up Webpack
+
+You will need to add `css` and `less` test rules in your webpack setting.
+
+```js
+...
+rules: [
+  {
+    test: /\.js$/,
+    use: {
+      loader: "babel-loader"
+    },
+    exclude: /node_modules/
+  },
+  {
+    test: /\.css$/,
+    use: [
+      {
+        loader: "style-loader"
+      },
+      {
+        loader: "css-loader"
+      }
+    ]
+  },
+  {
+    test: /\.less$/,
+    use: [
+      {
+        loader: "style-loader"
+      },
+      {
+        loader: "css-loader"
+      },
+      {
+        loader: "less-loader"
+      }
+    ]
+  }
+]
+...
+```
+
 # Project structure
 
 This projects currently contains over **47+ npm modules**, every features are packaged into npm modules, such as icons, helpers, plugins, utils, etc..., so this enable developers to pick modules to assemble into your own usages.
