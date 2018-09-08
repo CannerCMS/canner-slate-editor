@@ -3,6 +3,7 @@ import { Value } from "slate";
 import { State } from "markup-it";
 import markdown from "markup-it/lib/markdown";
 import Editor from "packages/editors/slate-md-editor/src";
+import copyPasteMdPlugin from "@canner/slate-paste-md-plugin";
 import testMd from "./test.md";
 
 import "antd/dist/antd.css";
@@ -30,7 +31,11 @@ class App extends React.Component {
     const { value } = this.state;
     return (
       <div style={{ margin: "40px" }}>
-        <MdEditor value={value} onChange={this.onChange} />
+        <MdEditor
+          value={value}
+          plugins={[copyPasteMdPlugin()]}
+          onChange={this.onChange}
+        />
       </div>
     );
   }
