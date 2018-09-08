@@ -1,6 +1,6 @@
 {
   "name": "slate-md-editor",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Add live markdown preview and edit to your Slate editor.",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "slate-react": "^0.12.0"
   },
   "dependencies": {
-    "@canner/slate-editor-help": "^1.5.0",
+    "@canner/slate-editor-help": "^1.5.2",
     "@canner/slate-helper-block-list": "^1.5.0",
     "@canner/slate-helper-mark-removeall": "^1.5.0",
     "@canner/slate-icon-blockquote": "^1.5.0",
@@ -33,7 +33,7 @@
     "@canner/slate-icon-strikethrough": "^1.5.0",
     "@canner/slate-icon-underline": "^1.5.0",
     "@canner/slate-md-plugin": "^1.5.1",
-    "@canner/slate-paste-html-plugin": "^1.5.0",
+    "@canner/slate-paste-html-plugin": "^1.5.2",
     "github-markdown-css": "^2.10.0",
     "markup-it": "^7.0.0",
     "prismjs": "^1.13.0",
