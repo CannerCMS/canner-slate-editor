@@ -30,6 +30,18 @@ There are many other rich text and WYSIWYG editors online, but as [slate - why s
 
 Hence, this repository will try to keep all the advantages slate framework provides and create a more high level APIs for developers could also easily reuse and customize their own version of editor. Also we are always welcome to all kinds of contributions! 🙌
 
+## Prerequisite
+
+This project is using [Antd](https://ant.design/) as our primiary UI library.
+
+**_Why_**
+
+1.  Complete React UI solutions.
+2.  Easy to customize styles: https://ant.design/docs/react/customize-theme
+3.  Build-in i18n: https://ant.design/docs/react/i18n
+
+One of the downside of using it, is it will increase your bundle size. see
+
 # Project structure
 
 This projects currently contains over **47+ npm modules**, every features are packaged into npm modules, such as icons, helpers, plugins, utils, etc..., so this enable developers to pick modules to assemble into your own usages.
@@ -198,6 +210,12 @@ yarn jest <...path/to/pkg> [--coverage]
 [`Slate`](https://github.com/ianstormtaylor/slate) is a well-designed powerful **editor framework** that helps you deal with difficult parts when building an editor, such as data modeling, updating states, rendering, editor schemas, serializing... (you could learn more [here](https://github.com/ianstormtaylor/slate#why)), while you are trying to build your own editors, it still need a lot of efforts to build a simple beautiful editor up and running with the framework.
 
 This repository aims to provide complete editors and plugins solutions that allows you to use it right away, instead of digging through slate documentations and using our high-level components you could almost build editors without any slate framework knowledge to use.
+
+## 2. Editor's bundle size is too large?
+
+`canner-slate-editor` is using an awesome React library called [Ant Design](https://ant.design/), the library provides many commonly used React components such as Tooltip, Table, Modal, etc... which is widely used in rendering our editors. One of the downside of using the library is it's bundle size. At Canner, our solution is to external antd in your bundler, and use CDN instead.
+
+You could also [Use modularized antd](https://ant.design/docs/react/introduce#Use-modularized-antd) to reduce your bundle size.
 
 <a href="https://canner.io">
   <img src="https://user-images.githubusercontent.com/26116324/37811196-a437d930-2e93-11e8-97d8-0653ace2a46d.png"/>
