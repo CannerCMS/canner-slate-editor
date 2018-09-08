@@ -30,7 +30,7 @@ There are many other rich text and WYSIWYG editors online, but as [slate - why s
 
 Hence, this repository will try to keep all the advantages slate framework provides and create a more high level APIs for developers could also easily reuse and customize their own version of editor. Also we are always welcome to all kinds of contributions! 🙌
 
-## Prerequisite
+## Notice
 
 This project is using [Antd](https://ant.design/) as our primiary UI library.
 
@@ -40,7 +40,7 @@ This project is using [Antd](https://ant.design/) as our primiary UI library.
 2.  Easy to customize styles: https://ant.design/docs/react/customize-theme
 3.  Build-in i18n: https://ant.design/docs/react/i18n
 
-One of the downside of using it, is it will increase your bundle size. see
+One of the downside of using it, is it will increase your bundle size. see [here for solution](https://github.com/Canner/canner-slate-editor#2-editors-bundle-size-is-too-large)
 
 # Project structure
 
