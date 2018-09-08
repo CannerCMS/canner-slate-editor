@@ -213,9 +213,10 @@ This repository aims to provide complete editors and plugins solutions that allo
 
 ## 2. Editor's bundle size is too large?
 
-`canner-slate-editor` is using an awesome React library called [Ant Design](https://ant.design/), the library provides many commonly used React components such as Tooltip, Table, Modal, etc... which is widely used in rendering our editors. One of the downside of using the library is it's bundle size. At Canner, our solution is to external antd in your bundler, and use CDN instead.
+`canner-slate-editor` is using an awesome React library called [Ant Design](https://ant.design/), the library provides many commonly used React components such as Tooltip, Table, Modal, etc... which is widely used in rendering our editors. One of the downside of using the library is it's bundle size. If you are trying to tackle size issue, we recommend following solutions:
 
-You could also [Use modularized antd](https://ant.design/docs/react/introduce#Use-modularized-antd) to reduce your bundle size.
+1.  At Canner, our solution is to external antd in your bundler, and use CDN instead.
+2.  [Use modularized antd](https://ant.design/docs/react/introduce#Use-modularized-antd) to reduce your bundle size.
 
 <a href="https://canner.io">
   <img src="https://user-images.githubusercontent.com/26116324/37811196-a437d930-2e93-11e8-97d8-0653ace2a46d.png"/>
