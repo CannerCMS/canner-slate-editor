@@ -18,7 +18,7 @@ export default function(
         anchorKey: currentTextNode.key,
         focusKey: currentTextNode.key,
         anchorOffset: matched.index,
-        focusOffset: matched.index + matchedLength + 1
+        focusOffset: matched.index + matchedLength
       })
     )
     .insertTextByKey(currentTextNode.key, matched.index, addText, [
