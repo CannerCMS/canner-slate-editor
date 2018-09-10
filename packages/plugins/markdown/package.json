@@ -1,6 +1,6 @@
 {
   "name": "@canner/slate-md-plugin",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "A markdown plugin for slate framework",
   "repository": {
     "type": "git",
