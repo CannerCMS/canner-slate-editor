@@ -11,7 +11,7 @@
   "main": "lib/index.js",
   "keywords": ["icons", "quill", "editor"],
   "pre-commit": ["lint"],
-  "repository": "Canner/quill-icons",
+  "repository": "https://github.com/Canner/canner-slate-editor/tree/master/packages/quill-icons",
   "peerDependencies": {
     "prop-types": "^15.6.1",
     "react": "^0.14.0 || ^15.0.0 || 16.x",
