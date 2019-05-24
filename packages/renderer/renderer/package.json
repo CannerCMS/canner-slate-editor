@@ -1,5 +1,5 @@
 {
-  "name": "@canner/slate-editor-renderer",
+  "name": "@keethealth/slate-editor-renderer",
   "version": "1.5.0",
   "description": "Renderers for slate nodes and marks",
   "main": "lib/index.js",
