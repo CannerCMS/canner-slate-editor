@@ -2,10 +2,10 @@
 import * as React from "react";
 import type { IconProps } from "shared/src/types";
 import ToolbarIcon from "@canner/slate-icon-shared";
-import VideoPopover from "@canner/slate-editor-renderer/lib/components/videoPopover";
+import VideoPopover from "@keethealth/slate-editor-renderer/lib/components/videoPopover";
 import videoNode, {
   DEFAULT as DEFAULT_VIDEO
-} from "@canner/slate-editor-renderer/lib/videoNode";
+} from "@keethealth/slate-editor-renderer/lib/videoNode";
 
 export const DEFAULT = DEFAULT_VIDEO;
 export const VideoPlugin = opt => {

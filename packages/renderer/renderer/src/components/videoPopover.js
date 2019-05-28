@@ -144,10 +144,7 @@ export default (class VideoModal extends React.Component<Props> {
     const { isEditing, initialValue, children } = this.props;
     const content = (
       <Form horizontal="true" onClick={e => e.preventDefault()}>
-        <FormItem
-          label="Enter video URL (support Vimeo, Youtube, Dailymotion, Youku):"
-          hasFeedback
-        >
+        <FormItem label="Enter video URL (support Vimeo, Youtube):" hasFeedback>
           {getFieldDecorator("href", {
             rules: [
               {
