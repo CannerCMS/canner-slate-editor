@@ -39,7 +39,7 @@ export default class ImageContainer extends React.Component<Props, State> {
       isEditing
     } = this.props;
     const src = getSrc(node);
-    const active = isSelected || readOnly;
+    const active = isSelected && !readOnly;
 
     return (
       <span>
