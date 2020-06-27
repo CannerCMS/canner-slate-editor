@@ -26,6 +26,7 @@ export const codeBlockNode = options => {
     attributes,
     children,
     node,
+    readOnly,
     editor
   }: nodeProps) => {
     const syntax = options.getSyntax(node);
@@ -45,6 +46,7 @@ export const codeBlockNode = options => {
             style={{ minWidth: "80px" }}
             defaultValue={syntax || "TXT"}
             size="small"
+            disabled={readOnly}
           >
             {Object.keys(languages)
               .filter(lang => {
