@@ -100,7 +100,7 @@ class VideoNode extends React.Component<Props, State> {
     const id = getId(node);
     const width = this.state.width || getWidth(node) || 560;
     const height = this.state.height || getHeight(node) || 315;
-    const active = isSelected || readOnly;
+    const active = isSelected && !readOnly;
     if (type === "youtube") {
       link = `https://www.youtube.com/embed/${id}`;
     } else if (type === "dailymotion") {
