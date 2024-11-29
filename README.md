@@ -1,14 +1,14 @@
-# canner-slate-editor [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/) [![Storybook](https://github.com/storybooks/press/blob/master/badges/storybook.svg)](https://canner.github.io/canner-slate-editor/)
+# canner-slate-editor [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/) [![Storybook](https://github.com/storybooks/press/blob/master/badges/storybook.svg)](https://cannercms.github.io/canner-slate-editor/)
 
 > 📝 Rich text / WYSIWYG editor focus on **modularity and extensibility**, build on top of [Slate framework](https://docs.slatejs.org) with beautiful designs and high-level APIs.
 
 ### Features 😍
 
 * [x] **20+ Editor Features**, support [list](https://github.com/Canner/canner-slate-editor#3-slate-icons)
-* [x] **Markdown Syntax**, support [list](https://canner.github.io/canner-slate-editor/?selectedKind=canner-slate-editor&selectedStory=Hot%20keys%20%26%20Formatting&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
-* [x] **Hot Keys**, support [list](https://canner.github.io/canner-slate-editor/?selectedKind=canner-slate-editor&selectedStory=Hot%20keys%20%26%20Formatting&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
+* [x] **Markdown Syntax**, support [list](https://cannercms.github.io/canner-slate-editor/?selectedKind=canner-slate-editor&selectedStory=Hot%20keys%20%26%20Formatting&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
+* [x] **Hot Keys**, support [list](https://cannercms.github.io/canner-slate-editor/?selectedKind=canner-slate-editor&selectedStory=Hot%20keys%20%26%20Formatting&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [x] **Full Screen Edit mode**
-* [x] **[Serialize](https://canner.github.io/canner-slate-editor/?selectedKind=slate-md-editor&selectedStory=With%20HTML%20serializer&full=0&addons=1&stories=1&panelRight=0) and Deserialize into HTML**
+* [x] **[Serialize](https://cannercms.github.io/canner-slate-editor/?selectedKind=slate-md-editor&selectedStory=With%20HTML%20serializer&full=0&addons=1&stories=1&panelRight=0) and Deserialize into HTML**
 * [x] **Copy and Paste HTML in Editor**
 * [x] Support **Toolbar**
 * [x] Support **Sidebar**
@@ -106,7 +106,7 @@ $ npm install antd slate slate-react
 ```
 
 * Learn more [canner-slate-editor](./packages/editors/canner-slate-editor)
-* [Demo](https://canner.github.io/canner-slate-editor/?selectedKind=canner-slate-editor)
+* [Demo](https://cannercms.github.io/canner-slate-editor/?selectedKind=canner-slate-editor)
 
 <img src="./preview/demo.png"/>
 
@@ -127,7 +127,7 @@ $ npm install antd slate slate-react
 ```
 
 * Learn more [slate-md-editor](./packages/editors/slate-md-editor)
-* [Demo](https://canner.github.io/canner-slate-editor/?selectedKind=slate-md-editor)
+* [Demo](https://cannercms.github.io/canner-slate-editor/?selectedKind=slate-md-editor)
 
 <img src="https://i.imgur.com/OqQMMiC.gif" height="600px" style="border:1px solid #CCC;"/>
 
@@ -185,7 +185,7 @@ $ npm install --save quill-icons
 ```
 
 * Learn more [quill-icons](./packages/quill-icons)
-* [Complete list](https://canner.github.io/canner-slate-editor/?selectedKind=Quill%20icons)
+* [Complete list](https://cannercms.github.io/canner-slate-editor/?selectedKind=Quill%20icons)
 
 ## 6. slate plugins
 
@@ -206,9 +206,9 @@ $ npm install --save quill-icons
 > A set of editor utility components.
 
 * [sidebar](./packages/components/sidebar)
-  * [Demo](https://canner.github.io/canner-slate-editor/?selectedKind=Editor%20sidebar)
+  * [Demo](https://cannercms.github.io/canner-slate-editor/?selectedKind=Editor%20sidebar)
 * [toolbar](./packages/components/toolbar)
-  * [Demo](https://canner.github.io/canner-slate-editor/?selectedKind=Editor%20popup%20toolbar)
+  * [Demo](https://cannercms.github.io/canner-slate-editor/?selectedKind=Editor%20popup%20toolbar)
 
 ## 9. slate-constant
 
@@ -261,6 +261,6 @@ This repository aims to provide complete editors and plugins solutions that allo
 1.  At Canner, our solution is to external antd in your bundler, and use CDN instead.
 2.  [Use modularized antd](https://ant.design/docs/react/introduce#Use-modularized-antd) to reduce your bundle size.
 
-<a href="https://canner.io">
+<a href="https://cannercms.io">
   <img src="https://user-images.githubusercontent.com/26116324/37811196-a437d930-2e93-11e8-97d8-0653ace2a46d.png"/>
 </a>
